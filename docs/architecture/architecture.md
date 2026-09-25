@@ -26,7 +26,7 @@ flowchart TD
   AUDIT --> UI
 ```
 
-The FastAPI service is a modular monolith. SQLAlchemy models live in `backend/app/models.py`, validation in `schemas.py`, and analysis in `analysis.py`. Original Flask tables are retained by migration; the deployed stack starts only FastAPI and does not install Flask in the runtime image. `source_event_id` is unique for agent retries. Metadata is allowlisted; scanned text and raw matches are discarded.
+The FastAPI service is a modular monolith. SQLAlchemy models live in `backend/app/models.py`, validation in `schemas.py`, and analysis in `analysis.py`. Original Flask tables and the code needed to inspect/import them are retained under `legacy/flask/`; the deployed stack starts only FastAPI and does not install Flask in the runtime image. `source_event_id` is unique for agent retries. Metadata is allowlisted; scanned text and raw matches are discarded.
 
 The optional psutil network collector emits connection metadata only. It does not label a connection as an upload.
 

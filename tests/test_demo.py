@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
 
 from app.core import Base
 from app.models import Alert, Evidence, Event, RiskAssessment, User
-from scripts import seed_demo
+from scripts.demo import seed_demo
 
 
 def test_seed_demo_uses_pipeline_and_is_idempotent(monkeypatch):

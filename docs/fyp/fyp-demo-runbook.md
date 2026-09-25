@@ -10,10 +10,10 @@ docker compose ps
 Invoke-RestMethod http://localhost:8001/ready
 curl.exe -L --fail --silent --output NUL --write-out "%{http_code}" http://localhost:3001
 $env:DATASHIELD_DEMO_ADMIN_PASSWORD = 'choose-a-unique-password-of-at-least-12-characters'
-docker compose exec -T -e "DATASHIELD_DEMO_ADMIN_PASSWORD=$env:DATASHIELD_DEMO_ADMIN_PASSWORD" backend python scripts/seed_demo.py
+docker compose exec -T -e "DATASHIELD_DEMO_ADMIN_PASSWORD=$env:DATASHIELD_DEMO_ADMIN_PASSWORD" backend python scripts/demo/seed_demo.py
 ```
 
-Sign in at <http://localhost:3001> as `demo.admin` with that password. The seed is synthetic and idempotent. For a clean scenario, set `DATASHIELD_DEMO_ADMIN_PASSWORD` and run `./scripts/reset_demo.ps1` from PowerShell. It prompts for `RESET LOCAL DATASHIELD`, removes this checkout's Compose database volume, rebuilds, waits for `/ready` (startup applies Alembic migrations), and seeds. This deletes the local Compose database volume contents. Do not point this Compose project at a shared or production database.
+Sign in at <http://localhost:3001> as `demo.admin` with that password. The seed is synthetic and idempotent. For a clean scenario, set `DATASHIELD_DEMO_ADMIN_PASSWORD` and run `./scripts/demo/reset_demo.ps1` from PowerShell. It prompts for `RESET LOCAL DATASHIELD`, removes this checkout's Compose database volume, rebuilds, waits for `/ready` (startup applies Alembic migrations), and seeds. This deletes the local Compose database volume contents. Do not point this Compose project at a shared or production database.
 
 ## Demo order
 
@@ -35,7 +35,7 @@ Sign in at <http://localhost:3001> as `demo.admin` with that password. The seed 
 - Docker unhealthy: `docker compose ps`, `docker compose logs db backend`.
 - Migration failure: `docker compose logs backend`; correct the reported DB/config issue, then `docker compose up -d backend` (startup runs Alembic before serving).
 - Port conflict: stop the local process using 5434, 8001, or 3001, or edit Compose port mappings and restart.
-- Wrong password: rerun `scripts/seed_demo.py` with `DATASHIELD_DEMO_ADMIN_PASSWORD` set; it resets only `demo.admin`'s password.
+- Wrong password: rerun `scripts/demo/seed_demo.py` with `DATASHIELD_DEMO_ADMIN_PASSWORD` set; it resets only `demo.admin`'s password.
 - Stale demo: use the clean scenario reset above. It erases the Compose database volume.
 - Frontend cannot reach API: check <http://localhost:8001/ready>, the browser console, and `REACT_APP_API_URL`; the Docker frontend expects the host API at port 8001.
 

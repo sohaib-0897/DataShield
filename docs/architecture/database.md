@@ -6,4 +6,4 @@ The initial migration preserves original Flask tables. The second migration crea
 
 Use `python -m alembic current` to inspect the revision. `docker compose restart backend` keeps events and decisions in PostgreSQL. Local unit tests use SQLite isolation; CI also applies Alembic to PostgreSQL.
 
-For an existing database containing original Flask alerts, run `python scripts/migrate_legacy.py` after migrations. The command copies alerts idempotently, marks historic risk unassessed, masks old matches, and leaves old tables available for review.
+For an existing database containing original Flask alerts, run `python scripts/migration/migrate_legacy.py` after migrations. The command copies alerts idempotently, marks historic risk unassessed, masks old matches, and leaves old tables available for review.

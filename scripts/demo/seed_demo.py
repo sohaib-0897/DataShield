@@ -6,7 +6,7 @@ from pathlib import Path
 
 from sqlalchemy import select
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "backend"))
 from app.core import SessionLocal, now, password_hash, require_secrets
 from app.main import ingest_one
 from app.models import AuditLog, Event, RiskAssessment, User

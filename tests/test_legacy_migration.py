@@ -11,9 +11,9 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "backend"))
 from app.core import Base as NewBase
 from app.models import Alert as NewAlert, Evidence
-from database import Base as OldBase
-from models import Alert as OldAlert, AlertEvidence, Event as OldEvent
-from scripts import migrate_legacy
+from legacy.flask.database import Base as OldBase
+from legacy.flask.models import Alert as OldAlert, AlertEvidence, Event as OldEvent
+from scripts.migration import migrate_legacy
 
 
 def test_legacy_import_is_idempotent_and_masks(tmp_path, monkeypatch):

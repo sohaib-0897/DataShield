@@ -8,8 +8,8 @@ import os
 from types import SimpleNamespace
 from sqlalchemy import select
 from sqlalchemy.orm import joinedload
-from database import session_scope
-from models import User, Event, Alert, AlertEvidence, AnalystDecision, AuditLog
+from legacy.flask.database import session_scope
+from legacy.flask.models import User, Event, Alert, AlertEvidence, AnalystDecision, AuditLog
 
 app = Flask(__name__)
 FRONTEND_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]

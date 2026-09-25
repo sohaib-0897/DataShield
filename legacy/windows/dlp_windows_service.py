@@ -19,10 +19,11 @@ from pathlib import Path
 
 # Add current directory to path for imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from network_monitor_agent import NetworkUploadMonitor
-from upload_monitor_agent import UploadMonitorAgent
-from http_upload_blocker import HTTPUploadBlocker
+from legacy.windows.network_monitor_agent import NetworkUploadMonitor
+from legacy.windows.upload_monitor_agent import UploadMonitorAgent
+from legacy.windows.http_upload_blocker import HTTPUploadBlocker
 
 class DLPMonitorService(win32serviceutil.ServiceFramework):
     """Windows Service for DLP Upload Monitoring"""

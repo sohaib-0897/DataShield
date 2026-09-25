@@ -290,7 +290,7 @@ def main():
 
     if not verify_admin_running():
         print("   ❌ Admin server not running!")
-        print("   → Run: python admin_server.py")
+        print("   → Run: python -m legacy.flask.admin_server")
         print("   → Or run start_dlp_system.bat")
         return False
     print("   ✅ Admin server is running")
@@ -361,7 +361,7 @@ def main():
         print(f"\n   ❌ {failed} TEST(S) FAILED")
         print("\n   Possible issues:")
         print("   1. File monitor agent is not running")
-        print("      → Execute: python upload_monitor_agent.py")
+        print("      → Execute: python legacy/windows/upload_monitor_agent.py")
         print("   2. File events are slow (watchdog latency)")
         print("      → Try again, some systems have 5-10s latency")
         print("   3. Administrator permissions required")

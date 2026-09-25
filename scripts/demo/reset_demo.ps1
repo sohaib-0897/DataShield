@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 if (-not (Test-Path (Join-Path $repoRoot 'docker-compose.yml')) -or -not (Test-Path (Join-Path $repoRoot '.env'))) {
     throw 'This helper only runs from a configured local DataShield Docker demo repository with a root .env.'
 }
@@ -26,7 +26,7 @@ try {
         catch { Start-Sleep -Seconds 3 }
     }
     if (-not $ready) { throw 'Backend did not become ready. Inspect docker compose logs.' }
-    docker compose exec -T -e "DATASHIELD_DEMO_ADMIN_PASSWORD=$env:DATASHIELD_DEMO_ADMIN_PASSWORD" backend python scripts/seed_demo.py
+    docker compose exec -T -e "DATASHIELD_DEMO_ADMIN_PASSWORD=$env:DATASHIELD_DEMO_ADMIN_PASSWORD" backend python scripts/demo/seed_demo.py
     if ($LASTEXITCODE -ne 0) { throw 'Demo seed failed. Inspect docker compose logs backend.' }
     Write-Output 'Local DataShield demo reset, migrated, and seeded.'
 }

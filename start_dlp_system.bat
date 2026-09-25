@@ -8,4 +8,4 @@ docker compose up --build -d
 if errorlevel 1 exit /b 1
 echo DataShield UI: http://localhost:3001
 echo DataShield API: http://localhost:8000/docs
-echo Seed demo: docker compose exec -e DATASHIELD_DEMO_ADMIN_PASSWORD=YOUR_PASSWORD backend python scripts/seed_demo.py
+echo Seed demo: docker compose exec -e DATASHIELD_DEMO_ADMIN_PASSWORD=YOUR_PASSWORD backend python scripts/demo/seed_demo.py

@@ -32,6 +32,7 @@ ml/data/raw/
 ml/data/prepared/
 ml/artifacts/
 artifacts/
+datashield_pgdata-backup-*.tar.gz
 *.joblib
 *.pkl
 *.parquet

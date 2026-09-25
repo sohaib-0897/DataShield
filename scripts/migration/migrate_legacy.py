@@ -5,11 +5,11 @@ from pathlib import Path
 
 from sqlalchemy import select
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "backend"))
 from app.core import SessionLocal, now
 from app.models import Alert, AuditLog, Event, Evidence, RiskAssessment, User
-from models import Alert as OldAlert, AnalystDecision, User as OldUser
+from legacy.flask.models import Alert as OldAlert, AnalystDecision, User as OldUser
 
 
 NAMESPACE = uuid.UUID("82b5f35f-09cd-46cc-b44d-a93980a05e42")

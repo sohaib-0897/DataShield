@@ -1,8 +1,8 @@
 """Insert a synthetic demo alert and review policy; safe to rerun."""
 from sqlalchemy import select
 
-from database import session_scope
-from models import Alert, Event, User, AlertEvidence, AuditLog, Policy
+from legacy.flask.database import session_scope
+from legacy.flask.models import Alert, Event, User, AlertEvidence, AuditLog, Policy
 
 
 def main():

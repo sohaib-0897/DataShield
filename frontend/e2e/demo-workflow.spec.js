@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test('demo admin can investigate an alert, record a decision, and review reports and model status', async ({ page }) => {
   const password = process.env.DATASHIELD_DEMO_ADMIN_PASSWORD;
-  test.skip(!password, 'Set DATASHIELD_DEMO_ADMIN_PASSWORD after running scripts/seed_demo.py');
+  test.skip(!password, 'Set DATASHIELD_DEMO_ADMIN_PASSWORD after running scripts/demo/seed_demo.py');
 
   await page.goto('/login');
   await page.getByLabel('Username').fill('demo.admin');

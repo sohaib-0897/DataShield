@@ -8,9 +8,9 @@ os.environ['DATASHIELD_API_KEY'] = 'test-only-key'
 os.environ['DATABASE_URL'] = 'sqlite:///' + str(Path(__file__).resolve().parent / '.test_api.sqlite3')
 
 import pytest
-import admin_server as server
-from database import Base, engine
-import models  # noqa: F401
+from legacy.flask import admin_server as server
+from legacy.flask.database import Base, engine
+from legacy.flask import models  # noqa: F401
 
 
 @pytest.fixture
@@ -91,7 +91,7 @@ def test_alerts_and_decisions_survive_backend_restart(client):
     assert client.post('/upload_decision', json={'alert_id': upload_id, 'decision': 'allow'}).status_code == 200
 
     code = (
-        "import admin_server as s\n"
+        "from legacy.flask import admin_server as s\n"
         "c = s.app.test_client()\n"
         "h = {'X-API-KEY': 'test-only-key'}\n"
         "a = c.get('/alerts', headers=h).get_json()\n"

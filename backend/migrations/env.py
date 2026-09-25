@@ -3,8 +3,8 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from database import Base, database_url
-import models  # noqa: F401 - registers model metadata
+from legacy.flask.database import Base, database_url
+from legacy.flask import models as legacy_models  # noqa: F401 - registers legacy metadata
 from app import models as datashield_models  # noqa: F401
 from app.core import Base as NewBase
 

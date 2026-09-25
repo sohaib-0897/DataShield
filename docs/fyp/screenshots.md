@@ -10,4 +10,4 @@ Capture screenshots manually after loading the synthetic demo. Do not create or 
 | Supporting evidence and timeline | Masked synthetic detection, supporting events and timestamps | Raw sample text, real documents, local file paths that reveal private data |
 | Reports | Selected range, database-backed charts/breakdowns, decision counts and risky users | Real organizational data |
 | System/model status | Healthy service/database, `HEURISTIC`, no production trained model, feature schema and synthetic endpoint | `.env`, agent key, JWT, DB credentials |
-| Architecture diagram | `docs/architecture.md` Mermaid diagram rendered in GitHub or editor | Private repository URLs or workspace absolute paths |
+| Architecture diagram | `docs/architecture/architecture.md` Mermaid diagram rendered in GitHub or editor | Private repository URLs or workspace absolute paths |

@@ -1,77 +1,86 @@
 # DataShield
 
-**AI-Assisted Multi-Layer Data Loss Prevention & Insider Risk Prototype**
+DataShield is an academic data loss prevention and insider-risk prototype that turns endpoint and cooperating-client telemetry into explainable alerts for analysts.
 
-DataShield is an academic security operations prototype. Windows host agents and cooperating clients submit file, removable-media, and upload-attempt telemetry to a normalized FastAPI pipeline backed by PostgreSQL. Sensitivity rules, feature windows, and explicitly labeled heuristic behavior analysis contribute to explainable risk scores and evidence-backed alerts for the React analyst dashboard.
+## What DataShield Does
 
-| Implemented | Awaiting real dataset |
-| --- | --- |
-| ✓ Multi-channel monitoring and event ingestion | ○ CERT-trained anomaly model |
-| ✓ Sensitivity rules and feature engineering | ○ Authentic ML evaluation |
-| ✓ Heuristic behavior analysis and explainable risk scoring | |
-| ✓ Evidence-backed alert investigation, RBAC, and audit logging | |
-| ✓ PostgreSQL-backed reporting | |
+- Collects Windows endpoint telemetry for file and removable-media activity; network agents record connection metadata only.
+- Accepts upload approval requests from cooperating clients. A block decision is enforced by those clients.
+- Classifies sensitivity with bounded rules and stores masked detection evidence.
+- Combines activity features with a behavioral analysis interface and explicitly labeled heuristic fallback.
+- Produces explainable risk scores, evidence-backed alerts, analyst decisions, and audit records.
+- Provides a React analyst dashboard backed by persistent PostgreSQL data, reports, and audit history.
 
-**Release:** `0.9.0-pre-cert`. This is not a production deployment. The current behavior source is a deterministic heuristic or insufficient history; no trained model performance is claimed. See the [demo runbook](docs/fyp-demo-runbook.md).
+## Current ML Status
 
-## Status
+No CERT dataset is included, and no trained behavior model is currently activated. Runtime behavior analysis is reported as HEURISTIC, INSUFFICIENT_HISTORY, or UNAVAILABLE unless a reviewed model is explicitly activated. No model-quality or detection-performance claims are made.
 
-Implemented: persistent normalized events, idempotency, batch validation, bounded sensitive pattern scanning, feature windows, explained risk scores, threshold alerts, evidence, analyst actions, audit logs, database reports, agent heartbeats, role based access, and synthetic demo seeding.
+## Architecture
 
-No CERT data or trained model is included. Behavior results are `INSUFFICIENT_HISTORY` or a deterministic `HEURISTIC` based on prior event counts; a configured artifact failure returns `UNAVAILABLE`. Document classification is `RULE`, `DECLARED`, or `UNAVAILABLE`. Optional candidate IsolationForest training machinery is provided; no detection quality has been measured. Cooperating uploads below the alert threshold are automatically allowed by policy; escalated uploads wait for an analyst's allow/block decision. `BLOCK` is enforced only by cooperating upload clients. Completed file operations cannot be reversed. Legacy psutil/network scripts are retired because connection metadata cannot establish that an HTTPS upload happened.
+Windows agents and cooperating upload clients send telemetry to the FastAPI service. The service classifies and scores events, stores records in PostgreSQL, and exposes alerts and reports to the React dashboard. See [Architecture](docs/architecture/architecture.md) and [Database](docs/architecture/database.md).
 
-## Docker launch
+## Repository Structure
 
-Use Docker Desktop. From this directory:
+    DataShield/
+    ├── backend/       FastAPI application and Alembic migrations
+    ├── frontend/      React dashboard and Playwright tests
+    ├── agents/        Host-side filesystem, USB, upload, and network clients
+    ├── ml/            Data preparation, model registry, and training tools
+    ├── scripts/       Demo, migration, verification, and benchmark commands
+    ├── tests/         Automated tests; manual hardware tests are isolated
+    ├── docs/          Architecture, development, FYP, ML, operations, security
+    ├── legacy/        Retained Flask and Windows-service code
+    ├── docker-compose.yml
+    └── README.md
 
-```powershell
-Copy-Item .env.example .env
-# Set both API secrets and DATASHIELD_DB_PASSWORD to distinct random values (DB password URL-safe; at least 32 characters).
-docker compose up --build -d
-docker compose exec -e DATASHIELD_DEMO_ADMIN_PASSWORD=choose-a-long-demo-password backend python scripts/seed_demo.py
-```
+The supported runtime is backend/app/. Code under legacy/ is retained for migration, regression testing, or historical reference and is not started by Compose.
 
-Visit <http://localhost:3001>; sign in as `demo.admin` with the supplied password. API: <http://localhost:8001>. OpenAPI: <http://localhost:8001/docs>. PostgreSQL: local port 5434. Docker ports bind to localhost. The seed command passes seven clearly synthetic events through the real pipeline, with normal activity in three earlier windows followed by sensitive file, USB, and upload activity. It is idempotent for events; each run sets the demo admin password to the supplied value.
+## Quick Start
 
-For a repeatable clean demo, set `$env:DATASHIELD_DEMO_ADMIN_PASSWORD` to a unique value of at least 12 characters and run `./scripts/reset_demo.ps1`; type `RESET LOCAL DATASHIELD` when prompted. It deletes this checkout's local Compose database volume, rebuilds/migrates, then seeds. It is not for a shared or production database.
+Use Docker Desktop and PowerShell from the repository root. Create a local environment file only if one does not already exist, then set distinct random values for DATASHIELD_JWT_SECRET, DATASHIELD_AGENT_KEY, and URL-safe DATASHIELD_DB_PASSWORD in that file.
 
-## Local development
+    if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+    docker compose up --build -d
+    docker compose ps
+    Invoke-RestMethod http://localhost:8001/ready
 
-Use Python 3.11+, Node.js, and PostgreSQL. Run `docker compose up -d db`, then:
+The dashboard is at http://localhost:3001, the API at http://localhost:8001, and PostgreSQL is bound to local port 5434. Keep .env private; do not commit it.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-Copy-Item .env.example .env
-# Set DATABASE_URL to postgresql+psycopg://datashield:<DATASHIELD_DB_PASSWORD>@localhost:5434/datashield; set all three secrets.
-.\.venv\Scripts\python.exe -m alembic upgrade head
-$env:DATASHIELD_DEMO_ADMIN_PASSWORD='choose-a-long-demo-password'
-.\.venv\Scripts\python.exe scripts/seed_demo.py
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --reload --port 8000
-```
+## Demo
 
-In another shell, copy `frontend/.env.example` to `frontend/.env`, run `npm ci` and `npm start` in `frontend`. For the local frontend on port 3000, set `DATASHIELD_FRONTEND_ORIGIN=http://localhost:3000` in the root `.env`.
+Set a unique synthetic demo password in the current PowerShell session, then seed the demo account and scenario:
 
-Host agents run outside Docker. Install them with `python -m pip install -r requirements-agents.txt`. Set `DATASHIELD_AGENT_KEY` to the root secret and, for Docker, `DATASHIELD_URL=http://localhost:8001` (local development uses port 8000). Set `DATASHIELD_MONITOR_FOLDERS` to explicit paths separated by the OS path separator, then run `python -m agents.filesystem`. Windows USB events use `python -m agents.usb`. A cooperating client calls `agents.upload.request_approval(path, destination)` before transferring. Tests never scan user folders.
+    $env:DATASHIELD_DEMO_ADMIN_PASSWORD = 'choose-a-unique-password-of-at-least-12-characters'
+    docker compose exec -T -e "DATASHIELD_DEMO_ADMIN_PASSWORD=$env:DATASHIELD_DEMO_ADMIN_PASSWORD" backend python scripts/demo/seed_demo.py
 
-Optional `python -m agents.network` records new browser TCP connections to ports 80/443 as `NETWORK_CONNECTION` metadata. It does not inspect HTTPS content or infer an upload.
+Sign in as demo.admin at http://localhost:3001. The seed creates synthetic events and sets that account's password. For the ordered workflow and recovery notes, see the [FYP demo runbook](docs/fyp/fyp-demo-runbook.md).
 
-## Dataset and training
+## Testing
 
-No dataset is downloaded. Put licensed CERT style CSVs in `ml/data/raw/` and run:
+From the repository root:
 
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-ml.txt
-.\.venv\Scripts\python.exe -m ml.training.prepare_dataset --input ml/data/raw --output ml/data/prepared/events.jsonl
-.\.venv\Scripts\python.exe -m ml.training.train_anomaly --dataset ml/data/prepared/events.jsonl --output ml/artifacts/anomaly/candidate-v1 --real-dataset
-```
+    .\.venv\Scripts\python.exe -m pytest -q
 
-Review source mapping, fingerprint, time splitting, and evaluation before activating a candidate. Synthetic training runs must use `--synthetic-test`; candidate activation requires a distinct held-out dataset fingerprint and reviewed labeled evaluation metrics. Training never activates a candidate. Follow the explicit [CERT handoff](docs/cert-integration.md).
+From frontend/ in PowerShell:
 
-## Verification and layout
+    $env:CI = 'true'
+    npm test -- --watchAll=false
+    Remove-Item Env:CI -ErrorAction SilentlyContinue
+    npm run build
 
-Run `.\.venv\Scripts\python.exe -m pytest -q`, `npm test -- --watchAll=false` (with `CI=true`), and `npm run build` inside `frontend`. For browser E2E, start/seed the demo, install Chromium with `npx playwright install chromium`, set `DATASHIELD_FRONTEND_URL=http://localhost:3001` and `DATASHIELD_DEMO_ADMIN_PASSWORD`, then run `npm run test:e2e` in `frontend`. Run `.\.venv\Scripts\python.exe -m pip_audit` and `npm audit --omit=dev` in `frontend` for security checks. FastAPI in `backend/app/` is the supported runtime; Alembic applies a retained legacy schema migration followed by the normalized platform migration. Flask files remain only for migration/history and are not started by Docker or the React UI.
+For the browser workflow, start and seed the demo, set DATASHIELD_FRONTEND_URL to http://localhost:3001 and DATASHIELD_DEMO_ADMIN_PASSWORD in the same shell, then run npm run test:e2e from frontend/.
 
-For a local PostgreSQL performance run, start Compose and run `docker compose exec -T backend python scripts/benchmark_alerts.py`. It creates 10,000 tagged synthetic benchmark alerts and writes measured API timings and container context to ignored `artifacts/benchmarks/latest.json`, then deletes those tagged rows. See [the demonstration runbook](docs/fyp-demo-runbook.md) for the ordered walkthrough and recovery steps.
+## Security and Prototype Boundaries
 
-See [architecture](docs/architecture.md), [API](docs/api.md), [demo](docs/demo.md), [ML pipeline](docs/ml-pipeline.md), [CERT integration](docs/cert-integration.md), [security](docs/security.md), and [testing](docs/testing.md).
+DataShield is an academic prototype, not a production deployment. It does not inspect or intercept arbitrary HTTPS traffic. Upload blocking requires a cooperating client, and completed filesystem operations cannot be reversed. Agents currently share a prototype credential; use a deployment proxy with TLS for traffic outside the local development environment. See [Security](docs/security/security.md).
+
+## ML and CERT Integration
+
+The repository includes optional data preparation, training, evaluation safeguards, and model-registry code. No dataset is downloaded and training does not activate a model. Review [ML pipeline](docs/ml/ml-pipeline.md) and [CERT integration](docs/ml/cert-integration.md) before working with a licensed dataset.
+
+## Documentation
+
+- [API](docs/development/api.md) and [testing](docs/development/testing.md)
+- [Architecture](docs/architecture/architecture.md), [database](docs/architecture/database.md), and [repository audit](docs/architecture/repository-audit.md)
+- [Demo operations](docs/operations/demo.md), [USB test procedure](docs/operations/usb-testing.md), and [FYP runbook](docs/fyp/fyp-demo-runbook.md)
+- [Pre-FYP hardening checklist](docs/fyp/pre-fyp-hardening-checklist.md) and [screenshots plan](docs/fyp/screenshots.md)
