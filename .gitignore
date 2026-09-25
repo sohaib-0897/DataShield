@@ -23,3 +23,15 @@ Thumbs.db
 .idea/
 .vscode/
 pytest-cache-files-*/
+test-results/
+playwright-report/
+blob-report/
+.tmp_release_pytest/
+.tmp_test/
+ml/data/raw/
+ml/data/prepared/
+ml/artifacts/
+artifacts/
+*.joblib
+*.pkl
+*.parquet

@@ -1,86 +1,77 @@
 # DataShield
 
-**A Windows-focused data loss prevention prototype with a React analyst dashboard and Python monitoring agents.**
+**AI-Assisted Multi-Layer Data Loss Prevention & Insider Risk Prototype**
 
-DataShield brings file activity alerts, sensitive-content previews, and upload approval decisions into one review workflow. Built as a final-year project, it demonstrates endpoint monitoring, REST API integration, and an investigation interface.
+DataShield is an academic security operations prototype. Windows host agents and cooperating clients submit file, removable-media, and upload-attempt telemetry to a normalized FastAPI pipeline backed by PostgreSQL. Sensitivity rules, feature windows, and explicitly labeled heuristic behavior analysis contribute to explainable risk scores and evidence-backed alerts for the React analyst dashboard.
 
-[Architecture](docs/architecture.md) · [Demo walkthrough](docs/demo.md) · [Development](CONTRIBUTING.md)
-
-## What works
-
-- Monitor file creation, modification, movement, and deletion with a Watchdog-based desktop agent.
-- Detect CNIC-shaped identifiers using regular expressions and highlight matches in previews.
-- Send alerts to a Flask API and review them in React alert and investigation pages.
-- Record allow/block decisions and expose them to cooperating upload clients through polling.
-- Explore dashboard, user activity, and report views built with Tailwind CSS and Recharts.
-
-**Project status:** a local demonstration prototype. Alert ingestion and decisions use live API state; user activity and reporting endpoints return sample data. Risk scores are fixed or rule-based. No trained AI model is included. The monitoring scripts do not establish tamper resistance or universal HTTP/HTTPS upload interception.
-
-## Stack
-
-| Layer | Technologies |
+| Implemented | Awaiting real dataset |
 | --- | --- |
-| Dashboard | React 18, React Router, Axios, Tailwind CSS, Recharts |
-| API | Python, Flask, Flask-Cors |
-| Endpoint agents | Watchdog, psutil, Tkinter, Windows service scripts |
-| Validation | pytest API tests, React production build, GitHub Actions |
+| ✓ Multi-channel monitoring and event ingestion | ○ CERT-trained anomaly model |
+| ✓ Sensitivity rules and feature engineering | ○ Authentic ML evaluation |
+| ✓ Heuristic behavior analysis and explainable risk scoring | |
+| ✓ Evidence-backed alert investigation, RBAC, and audit logging | |
+| ✓ PostgreSQL-backed reporting | |
 
-## Quick start
+**Release:** `0.9.0-pre-cert`. This is not a production deployment. The current behavior source is a deterministic heuristic or insufficient history; no trained model performance is claimed. See the [demo runbook](docs/fyp-demo-runbook.md).
 
-Use Python 3.11+ and Node.js 22. Windows is required for the service and deployment scripts; the API and dashboard can run separately on other platforms. Run the following from the repository root in PowerShell:
+## Status
+
+Implemented: persistent normalized events, idempotency, batch validation, bounded sensitive pattern scanning, feature windows, explained risk scores, threshold alerts, evidence, analyst actions, audit logs, database reports, agent heartbeats, role based access, and synthetic demo seeding.
+
+No CERT data or trained model is included. Behavior results are `INSUFFICIENT_HISTORY` or a deterministic `HEURISTIC` based on prior event counts; a configured artifact failure returns `UNAVAILABLE`. Document classification is `RULE`, `DECLARED`, or `UNAVAILABLE`. Optional candidate IsolationForest training machinery is provided; no detection quality has been measured. Cooperating uploads below the alert threshold are automatically allowed by policy; escalated uploads wait for an analyst's allow/block decision. `BLOCK` is enforced only by cooperating upload clients. Completed file operations cannot be reversed. Legacy psutil/network scripts are retired because connection metadata cannot establish that an HTTPS upload happened.
+
+## Docker launch
+
+Use Docker Desktop. From this directory:
+
+```powershell
+Copy-Item .env.example .env
+# Set both API secrets and DATASHIELD_DB_PASSWORD to distinct random values (DB password URL-safe; at least 32 characters).
+docker compose up --build -d
+docker compose exec -e DATASHIELD_DEMO_ADMIN_PASSWORD=choose-a-long-demo-password backend python scripts/seed_demo.py
+```
+
+Visit <http://localhost:3001>; sign in as `demo.admin` with the supplied password. API: <http://localhost:8001>. OpenAPI: <http://localhost:8001/docs>. PostgreSQL: local port 5434. Docker ports bind to localhost. The seed command passes seven clearly synthetic events through the real pipeline, with normal activity in three earlier windows followed by sensitive file, USB, and upload activity. It is idempotent for events; each run sets the demo admin password to the supplied value.
+
+For a repeatable clean demo, set `$env:DATASHIELD_DEMO_ADMIN_PASSWORD` to a unique value of at least 12 characters and run `./scripts/reset_demo.ps1`; type `RESET LOCAL DATASHIELD` when prompted. It deletes this checkout's local Compose database volume, rebuilds/migrates, then seeds. It is not for a shared or production database.
+
+## Local development
+
+Use Python 3.11+, Node.js, and PostgreSQL. Run `docker compose up -d db`, then:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements-dev.txt
-$env:DATASHIELD_API_KEY = 'replace-with-your-local-demo-key'
-python backend/admin_server.py
-```
-
-In another terminal:
-
-```powershell
-cd frontend
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 Copy-Item .env.example .env
-# Set REACT_APP_API_KEY in .env to the same value as DATASHIELD_API_KEY.
-npm ci
-npm start
+# Set DATABASE_URL to postgresql+psycopg://datashield:<DATASHIELD_DB_PASSWORD>@localhost:5434/datashield; set all three secrets.
+.\.venv\Scripts\python.exe -m alembic upgrade head
+$env:DATASHIELD_DEMO_ADMIN_PASSWORD='choose-a-long-demo-password'
+.\.venv\Scripts\python.exe scripts/seed_demo.py
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --reload --port 8000
 ```
 
-Open **http://localhost:3000**. The API and legacy admin page run at **http://127.0.0.1:5000**. Restart the frontend after changing its environment file.
+In another shell, copy `frontend/.env.example` to `frontend/.env`, run `npm ci` and `npm start` in `frontend`. For the local frontend on port 3000, set `DATASHIELD_FRONTEND_ORIGIN=http://localhost:3000` in the root `.env`.
 
-Follow the [synthetic demo](docs/demo.md) to generate an alert without starting endpoint monitors. To explore desktop monitoring on Windows, activate the virtual environment, set the same `DATASHIELD_API_KEY`, and run `python backend/upload_monitor_agent.py`. The GUI starts monitoring when you click **Start Monitoring**.
+Host agents run outside Docker. Install them with `python -m pip install -r requirements-agents.txt`. Set `DATASHIELD_AGENT_KEY` to the root secret and, for Docker, `DATASHIELD_URL=http://localhost:8001` (local development uses port 8000). Set `DATASHIELD_MONITOR_FOLDERS` to explicit paths separated by the OS path separator, then run `python -m agents.filesystem`. Windows USB events use `python -m agents.usb`. A cooperating client calls `agents.upload.request_approval(path, destination)` before transferring. Tests never scan user folders.
 
-## Repository layout
+Optional `python -m agents.network` records new browser TCP connections to ports 80/443 as `NETWORK_CONNECTION` metadata. It does not inspect HTTPS content or infer an upload.
 
-```text
-DataShield/
-├── backend/                # Flask API, endpoint agents, Windows utilities
-├── frontend/               # React application and dependency lockfile
-├── tests/                  # Isolated API regression tests
-│   └── manual/             # Original scripts requiring running services
-├── docs/                   # Architecture and reproducible demo
-├── .github/workflows/      # Automated API tests and frontend build
-├── requirements-dev.txt
-└── start_dlp_system.bat    # Optional Windows multi-component launcher
-```
+## Dataset and training
 
-## Validation
+No dataset is downloaded. Put licensed CERT style CSVs in `ml/data/raw/` and run:
 
 ```powershell
-python -m pytest -q
-cd frontend
-npm run build
+.\.venv\Scripts\python.exe -m pip install -r requirements-ml.txt
+.\.venv\Scripts\python.exe -m ml.training.prepare_dataset --input ml/data/raw --output ml/data/prepared/events.jsonl
+.\.venv\Scripts\python.exe -m ml.training.train_anomaly --dataset ml/data/prepared/events.jsonl --output ml/artifacts/anomaly/candidate-v1 --real-dataset
 ```
 
-Automated tests exercise authentication, alert ingestion, decision polling, and sensitive preview escaping without monitoring personal folders. Original manual scripts are excluded from pytest discovery because they require running services and may create files in user directories.
+Review source mapping, fingerprint, time splitting, and evaluation before activating a candidate. Synthetic training runs must use `--synthetic-test`; candidate activation requires a distinct held-out dataset fingerprint and reviewed labeled evaluation metrics. Training never activates a candidate. Follow the explicit [CERT handoff](docs/cert-integration.md).
 
-## Engineering boundaries and next steps
+## Verification and layout
 
-- State is held in memory and resets when the API restarts. Persistent storage and durable audit records are future work.
-- Some legacy admin routes lack authentication. The API binds to loopback by default; use synthetic data locally. Browser API keys are visible in the bundle and are not a production authentication solution.
-- File activity decisions record analyst intent; they do not reverse completed filesystem operations. Enforcement depends on a cooperating client.
-- Production work would include consistent authorization, validated payloads, unique IDs across alert types, restricted preview access, hardened CORS/CSP, and a supported deployment model.
-- Reports and user analytics need real event aggregation before their sample values can be interpreted as measurements.
+Run `.\.venv\Scripts\python.exe -m pytest -q`, `npm test -- --watchAll=false` (with `CI=true`), and `npm run build` inside `frontend`. For browser E2E, start/seed the demo, install Chromium with `npx playwright install chromium`, set `DATASHIELD_FRONTEND_URL=http://localhost:3001` and `DATASHIELD_DEMO_ADMIN_PASSWORD`, then run `npm run test:e2e` in `frontend`. Run `.\.venv\Scripts\python.exe -m pip_audit` and `npm audit --omit=dev` in `frontend` for security checks. FastAPI in `backend/app/` is the supported runtime; Alembic applies a retained legacy schema migration followed by the normalized platform migration. Flask files remain only for migration/history and are not started by Docker or the React UI.
 
-These boundaries are documented so reviewers can distinguish implemented behavior from the project's planned direction.
+For a local PostgreSQL performance run, start Compose and run `docker compose exec -T backend python scripts/benchmark_alerts.py`. It creates 10,000 tagged synthetic benchmark alerts and writes measured API timings and container context to ignored `artifacts/benchmarks/latest.json`, then deletes those tagged rows. See [the demonstration runbook](docs/fyp-demo-runbook.md) for the ordered walkthrough and recovery steps.
+
+See [architecture](docs/architecture.md), [API](docs/api.md), [demo](docs/demo.md), [ML pipeline](docs/ml-pipeline.md), [CERT integration](docs/cert-integration.md), [security](docs/security.md), and [testing](docs/testing.md).

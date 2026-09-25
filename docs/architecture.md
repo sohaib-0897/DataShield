@@ -1,34 +1,33 @@
 # Architecture
 
 ```mermaid
-flowchart LR
-    F[File system events] --> W[Watchdog agent]
-    W -->|Alert JSON and CNIC matches| A[Flask API]
-    U[Cooperating upload client] -->|Upload alert| A
-    A --> M[(In-memory alerts and decisions)]
-    R[React analyst dashboard] -->|Read alerts and submit decisions| A
-    U -->|Poll decision| A
+flowchart TD
+  subgraph Sources[Host telemetry sources]
+    FS[Filesystem agent]
+    USB[Windows USB agent]
+    UP[Cooperating upload client]
+    NET[Network metadata agent]
+  end
+  FS --> ING[FastAPI ingestion]
+  USB --> ING
+  UP --> ING
+  NET --> ING
+  ING --> VAL[Authentication, validation, normalization]
+  VAL --> DB[(PostgreSQL event store)]
+  DB --> SEN[Sensitivity analysis: RULE / DECLARED / optional MODEL]
+  DB --> FEAT[Versioned feature aggregation]
+  FEAT --> BEH[Behavior analysis: MODEL / HEURISTIC / INSUFFICIENT HISTORY / UNAVAILABLE]
+  SEN --> RISK[Weighted risk scoring]
+  BEH --> RISK
+  RISK --> ALERT[Threshold alert manager]
+  ALERT --> EVID[Evidence]
+  ALERT --> AUDIT[Audit log and analyst decisions]
+  EVID --> UI[React analyst dashboard]
+  AUDIT --> UI
 ```
 
-`backend/admin_server.py` owns alert ingestion, combined alert retrieval, preview rendering, and analyst decisions. `frontend/src/services/api.js` centralizes Axios requests; React pages use shared request hooks and error handling. `backend/upload_monitor_agent.py` observes user folders and submits file metadata and regex matches.
+The FastAPI service is a modular monolith. SQLAlchemy models live in `backend/app/models.py`, validation in `schemas.py`, and analysis in `analysis.py`. Original Flask tables are retained by migration; the deployed stack starts only FastAPI and does not install Flask in the runtime image. `source_event_id` is unique for agent retries. Metadata is allowlisted; scanned text and raw matches are discarded.
 
-`simple_test_server.py` provides a separate local upload demonstration on port 8080. `network_monitor_agent.py` and `http_upload_blocker.py` contain experimental process-based monitoring; their names do not imply comprehensive interception. Windows service and deployment utilities are retained for exploration and are not exercised by CI.
+The optional psutil network collector emits connection metadata only. It does not label a connection as an upload.
 
-## API workflow
-
-| Method and path | Purpose |
-| --- | --- |
-| `POST /upload_alert` | Submit an upload for review; requires `X-API-KEY` |
-| `POST /file_activity_alert` | Submit a file event; requires `X-API-KEY` |
-| `GET /alerts` | Retrieve combined pending alerts; requires `X-API-KEY` |
-| `POST /upload_decision` | Record `allow` or `block` for an alert |
-| `GET /check_decision/<upload_id>` | Poll a cooperating client's decision; requires `X-API-KEY` |
-| `GET /api/reports/summary` | Demonstration report values; requires `X-API-KEY` |
-
-The two alert collections currently allocate IDs independently. A collision can make decision routing ambiguous because upload alerts are checked first. Tests cover the upload workflow independently; namespaced IDs are a documented follow-up.
-
-## Configuration
-
-All Python clients read `DATASHIELD_API_KEY` from the process environment. The API refuses to import without a nonempty key. Configure the same value in the agent process and `frontend/.env` as `REACT_APP_API_KEY`. The Flask host defaults to `127.0.0.1`; `DATASHIELD_HOST` overrides it for explicitly configured environments.
-
-The React environment file is loaded by react-scripts. Python uses process environment variables, not automatic `.env` loading. Installed Windows services require configuration in their service environment. Run the deployment utility from `backend/` so its relative file-copy paths resolve.
+Risk is a weighted sum of 0–100 components. Default weights: anomaly .20, sensitivity .30, activity .20, channel .20, history .10. Default alert threshold: 55. These are prototype triage priorities, not calibrated probabilities. Feature schema is `event-window-v2`. The unusual extension count uses a fixed archive/database extension set (`.zip`, `.7z`, `.rar`, `.sql`, `.db`); it is a heuristic indicator, not a learned rarity measure. The UI polls every 15 seconds. Host agents run outside containers to access Windows events. File copy is observable as destination creation, without reliable source inference.

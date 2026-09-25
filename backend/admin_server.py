@@ -5,12 +5,20 @@ from pathlib import Path
 import html
 import re
 import os
+from types import SimpleNamespace
+from sqlalchemy import select
+from sqlalchemy.orm import joinedload
+from database import session_scope
+from models import User, Event, Alert, AlertEvidence, AnalystDecision, AuditLog
 
 app = Flask(__name__)
+FRONTEND_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+if os.getenv('DATASHIELD_FRONTEND_ORIGIN'):
+    FRONTEND_ORIGINS.append(os.environ['DATASHIELD_FRONTEND_ORIGIN'])
 
 # Configure CORS to allow frontend requests
 CORS(app,
-     origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+     origins=FRONTEND_ORIGINS,
      allow_headers=["Content-Type", "X-API-KEY"],
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
      supports_credentials=True)
@@ -33,23 +41,13 @@ def handle_preflight():
 def add_cors_headers(response):
     """Add CORS headers to all responses for cross-origin requests."""
     origin = request.headers.get('Origin', 'http://localhost:3000')
-    if origin in ["http://localhost:3000", "http://127.0.0.1:3000"]:
+    if origin in FRONTEND_ORIGINS:
         response.headers["Access-Control-Allow-Origin"] = origin
         response.headers["Access-Control-Allow-Credentials"] = "true"
     # Development-friendly CSP: allows unsafe-eval for webpack/React HMR
     # WARNING: Remove unsafe-eval in production!
     response.headers["Content-Security-Policy"] = "default-src *; script-src * 'unsafe-eval' 'unsafe-inline'; style-src * 'unsafe-inline';"
     return response
-
-# Simple in-memory storage
-upload_alerts = {}           # id -> alert object
-upload_alert_id_counter = 1
-
-file_activity_alerts = {}    # id -> alert object
-file_activity_alert_id_counter = 1
-
-http_upload_decisions = {}   # upload_id -> 'allow'/'block'
-allowed_uploads = []         # list of dicts
 
 SECRET_API_KEY = os.environ["DATASHIELD_API_KEY"]
 if not SECRET_API_KEY.strip():
@@ -195,67 +193,88 @@ def require_api_key(req):
     api_key = req.headers.get("X-API-KEY")
     return api_key == SECRET_API_KEY
 
+
+def _alert_object(alert):
+    payload = dict.fromkeys(('client', 'filename', 'upload_url', 'file_type', 'process_name',
+                             'process_pid', 'upload_id', 'file_size', 'activity', 'file_path',
+                             'new_path', 'modified_time'))
+    payload.update(alert.event.payload)
+    payload.update(timestamp=alert.event.timestamp,
+                   sensitive=alert.evidence.sensitive if alert.evidence else False,
+                   sensitive_matches=alert.evidence.matches if alert.evidence else [],
+                   preview=alert.evidence.preview if alert.evidence else None)
+    return SimpleNamespace(**payload)
+
+
+def _pending(session, kind):
+    rows = session.scalars(select(Alert).join(Event).where(
+        Event.kind == kind, Alert.status == 'pending').options(
+        joinedload(Alert.event), joinedload(Alert.evidence)).order_by(Alert.id)).unique().all()
+    return {row.id: _alert_object(row) for row in rows}
+
+
+def _allowed_uploads(session):
+    rows = session.scalars(select(AnalystDecision).join(Alert).join(Event).where(
+        Event.kind == 'upload', AnalystDecision.decision == 'allow').options(
+        joinedload(AnalystDecision.alert).joinedload(Alert.event)).order_by(AnalystDecision.id)).all()
+    return [dict(filename=row.alert.event.payload.get('filename'),
+                 file_type=row.alert.event.payload.get('file_type') or 'Unknown',
+                 client=row.alert.event.payload.get('client'),
+                 upload_url=row.alert.event.payload.get('upload_url', 'unknown'),
+                 timestamp=row.timestamp[:19].replace('T', ' '), upload_id=row.upload_id)
+            for row in rows]
+
+
+def _audit(session, action, alert_id=None, details=None):
+    session.add(AuditLog(action=action, alert_id=alert_id, details=details or {}))
+
+
+def _create_alert(kind, data):
+    timestamp = data.get('timestamp') or datetime.now().isoformat()
+    with session_scope() as session:
+        client = data.get('client')
+        user = session.scalar(select(User).where(User.name == client)) if client else None
+        if client and user is None:
+            user = User(name=client)
+            session.add(user)
+            session.flush()
+        event = Event(user_id=user.id if user else None, kind=kind,
+                      payload={key: value for key, value in data.items()
+                               if key not in ('preview', 'sensitive_matches', 'sensitive', 'timestamp')},
+                      timestamp=timestamp)
+        alert = Alert(event=event, evidence=AlertEvidence(
+            preview=data.get('preview'), sensitive=bool(data.get('sensitive', False)),
+            matches=data.get('sensitive_matches') or []))
+        session.add(alert)
+        session.flush()
+        _audit(session, 'alert_created', alert.id, {'kind': kind})
+        return alert.id
+
 @app.route('/')
 def home():
-    return render_template_string(HTML_PAGE,
-                                  upload_alerts=upload_alerts,
-                                  file_activity_alerts=file_activity_alerts,
-                                  allowed_uploads=allowed_uploads)
+    with session_scope() as session:
+        return render_template_string(HTML_PAGE,
+                                      upload_alerts=_pending(session, 'upload'),
+                                      file_activity_alerts=_pending(session, 'file_activity'),
+                                      allowed_uploads=_allowed_uploads(session))
 
 @app.route('/upload_alert', methods=['POST'])
 def receive_upload_alert():
     if not require_api_key(request):
         abort(401)
-    global upload_alert_id_counter
     data = request.json or {}
-
-    # Build alert object (simple object using type)
-    alert = type("UploadAlert", (), {})()
-    alert.client = data.get("client")
-    alert.filename = data.get("filename")
-    alert.upload_url = data.get("upload_url")
-    alert.file_type = data.get("file_type")
-    alert.process_name = data.get("process_name")
-    alert.process_pid = data.get("process_pid")
-    alert.upload_id = data.get("upload_id")
-    alert.timestamp = data.get("timestamp") or datetime.now().isoformat()
-    # Sensitive-specific metadata (optional, agent may send)
-    alert.sensitive = data.get("sensitive", False)
-    alert.sensitive_matches = data.get("sensitive_matches", []) or []
-    alert.preview = data.get("preview")
-    alert.file_size = data.get("file_size")
-
-    upload_alerts[upload_alert_id_counter] = alert
-    print(f"[ADMIN] Received upload_alert {upload_alert_id_counter}: {alert.__dict__}")
-    upload_alert_id_counter += 1
+    _create_alert('upload', data)
     return "Upload alert received", 200
 
 @app.route('/file_activity_alert', methods=['POST'])
 def receive_file_activity_alert():
     if not require_api_key(request):
         abort(401)
-    global file_activity_alert_id_counter
     data = request.json or {}
 
     # Expecting an 'activity' field for file activity alerts
     if 'activity' in data:
-        alert = type("FileActivityAlert", (), {})()
-        alert.client = data.get("client")
-        alert.activity = data.get("activity")
-        alert.filename = data.get("filename")
-        alert.file_path = data.get("file_path")
-        alert.new_path = data.get("new_path")
-        alert.timestamp = data.get("timestamp") or datetime.now().isoformat()
-        # Sensitive metadata
-        alert.sensitive = data.get("sensitive", False)
-        alert.sensitive_matches = data.get("sensitive_matches", []) or []
-        alert.preview = data.get("preview")
-        alert.file_size = data.get("file_size")
-        alert.modified_time = data.get("modified_time")
-
-        file_activity_alerts[file_activity_alert_id_counter] = alert
-        print(f"[ADMIN] Received file_activity_alert {file_activity_alert_id_counter}: {alert.__dict__}")
-        file_activity_alert_id_counter += 1
+        _create_alert('file_activity', data)
         return "File activity alert received", 200
     else:
         # Backwards compat: treat as upload alert if no 'activity'
@@ -274,73 +293,43 @@ def upload_decision():
     if alert_id is None or decision not in ('allow', 'block'):
         return jsonify({"error": "Invalid request"}), 400
 
-    # Check if it's an upload alert (HTTP upload requiring approval)
-    if alert_id in upload_alerts:
-        alert = upload_alerts[alert_id]
-        upload_id = alert.upload_id if hasattr(alert, "upload_id") and alert.upload_id else str(alert_id)
-        http_upload_decisions[upload_id] = decision
-        print(f"[ADMIN] Decision: upload_id={upload_id}, decision={decision}, type=upload_alert")
-
-        if decision == 'allow':
-            allowed_uploads.append({
-                "filename": alert.filename,
-                "file_type": alert.file_type or "Unknown",
-                "client": alert.client,
-                "upload_url": getattr(alert, 'upload_url', 'unknown'),
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "upload_id": upload_id
-            })
-
-        # Remove the alert after decision
-        upload_alerts.pop(alert_id, None)
-        return jsonify({
-            "status": "success",
-            "decision": decision,
-            "alert_id": alert_id,
-            "alert_type": "upload",
-            "upload_id": upload_id,
-            "timestamp": datetime.now().isoformat()
-        })
-
-    # Check if it's a file activity alert (file system operation - informational)
-    elif alert_id in file_activity_alerts:
-        alert = file_activity_alerts[alert_id]
-        # For file activity alerts, record the analyst action but keep for audit
-        # Store decision metadata
-        if not hasattr(alert, 'analyst_decision'):
-            alert.analyst_decision = {}
-        alert.analyst_decision['decision'] = decision
-        alert.analyst_decision['timestamp'] = datetime.now().isoformat()
-
-        print(f"[ADMIN] Decision: alert_id={alert_id}, decision={decision}, type=file_activity_alert")
-
-        # For 'block' decision on file activity, optionally flag it differently
-        # For now, keep it in the system for audit trail
-        return jsonify({
-            "status": "success",
-            "decision": decision,
-            "alert_id": alert_id,
-            "alert_type": "file_activity",
-            "activity": alert.activity,
-            "timestamp": datetime.now().isoformat()
-        })
-
-    else:
-        return jsonify({"error": "Alert not found"}), 404
+    with session_scope() as session:
+        alert = session.get(Alert, alert_id, options=[joinedload(Alert.event)])
+        if alert is None or alert.status != 'pending':
+            return jsonify({"error": "Alert not found"}), 404
+        timestamp = datetime.now().isoformat()
+        if alert.event.kind == 'upload':
+            upload_id = alert.event.payload.get('upload_id') or str(alert_id)
+            alert.status = 'decided'
+            session.add(AnalystDecision(alert_id=alert_id, upload_id=upload_id,
+                                        decision=decision, timestamp=timestamp))
+            _audit(session, 'upload_decision', alert_id, {'decision': decision, 'upload_id': upload_id})
+            return jsonify({"status": "success", "decision": decision, "alert_id": alert_id,
+                            "alert_type": "upload", "upload_id": upload_id, "timestamp": timestamp})
+        session.add(AnalystDecision(alert_id=alert_id, decision=decision, timestamp=timestamp))
+        _audit(session, 'file_activity_decision', alert_id, {'decision': decision})
+        return jsonify({"status": "success", "decision": decision, "alert_id": alert_id,
+                        "alert_type": "file_activity", "activity": alert.event.payload.get('activity'),
+                        "timestamp": timestamp})
 
 @app.route('/pending_decisions', methods=['GET'])
 def get_pending_decisions():
     if not require_api_key(request):
         abort(401)
-    # Return copy so clients can poll
-    return jsonify(http_upload_decisions.copy())
+    with session_scope() as session:
+        rows = session.scalars(select(AnalystDecision).where(
+            AnalystDecision.upload_id.is_not(None)).order_by(AnalystDecision.id)).all()
+        return jsonify({row.upload_id: row.decision for row in rows})
 
 @app.route('/check_decision/<upload_id>', methods=['GET'])
 def check_decision(upload_id):
     if not require_api_key(request):
         abort(401)
-    if upload_id in http_upload_decisions:
-        return jsonify({"status": "decided", "decision": http_upload_decisions[upload_id]})
+    with session_scope() as session:
+        row = session.scalar(select(AnalystDecision).where(
+            AnalystDecision.upload_id == upload_id).order_by(AnalystDecision.id.desc()))
+    if row:
+        return jsonify({"status": "decided", "decision": row.decision})
     return jsonify({"status": "pending"})
 
 @app.route('/alerts', methods=['GET'])
@@ -354,6 +343,10 @@ def get_alerts():
 
     alerts = []
 
+    with session_scope() as session:
+        upload_alerts = _pending(session, 'upload')
+        file_activity_alerts = _pending(session, 'file_activity')
+
     # Add upload alerts (these are file upload attempts)
     for alert_id, alert in upload_alerts.items():
         alert_dict = {
@@ -365,7 +358,7 @@ def get_alerts():
             "riskScore": 85,  # Default risk score - could be enhanced if agent sends it
             "severity": "high" if alert.sensitive else "medium",  # Based on sensitivity
             "status": "pending",
-            "activity": f"Upload attempt to {alert.upload_url.split('/')[-1] if hasattr(alert, 'upload_url') else 'unknown'}",
+            "activity": f"Upload attempt to {(getattr(alert, 'upload_url', None) or 'unknown').split('/')[-1]}",
             "file": alert.filename,
             "fileSize": alert.file_size or "unknown",
             "isSensitive": alert.sensitive,
@@ -404,14 +397,22 @@ def dismiss_file_activity():
     alert_id = data.get("alert_id")
     if alert_id is None:
         return jsonify({"error": "Invalid request"}), 400
-    if alert_id not in file_activity_alerts:
-        return jsonify({"error": "Alert not found"}), 404
-    file_activity_alerts.pop(alert_id, None)
+    with session_scope() as session:
+        alert = session.get(Alert, alert_id, options=[joinedload(Alert.event)])
+        if alert is None or alert.status != 'pending' or alert.event.kind != 'file_activity':
+            return jsonify({"error": "Alert not found"}), 404
+        alert.status = 'dismissed'
+        _audit(session, 'file_activity_dismissed', alert_id)
     return jsonify({"status": "dismissed"})
 
 @app.route('/clear_all_file_activities', methods=['POST'])
 def clear_all_file_activities():
-    file_activity_alerts.clear()
+    with session_scope() as session:
+        rows = session.scalars(select(Alert).join(Event).where(
+            Event.kind == 'file_activity', Alert.status == 'pending')).all()
+        for alert in rows:
+            alert.status = 'dismissed'
+            _audit(session, 'file_activity_dismissed', alert.id, {'source': 'clear_all'})
     return jsonify({"status": "cleared"})
 
 def _highlight_cnic_in_html(text: str):
@@ -438,10 +439,10 @@ def view_file(alert_id):
     View details for an upload alert (HTTP upload).
     Uses preview if available; otherwise attempts to read file from test_uploads (if present).
     """
-    if alert_id not in upload_alerts:
+    with session_scope() as session:
+        alert = _pending(session, 'upload').get(alert_id)
+    if alert is None:
         return "<html><body><h2>Upload alert not found</h2></body></html>", 404
-
-    alert = upload_alerts[alert_id]
 
     # Use preview if agent provided one
     preview_text = None
@@ -510,10 +511,10 @@ def view_file_activity(alert_id):
     View details for a file activity alert (created/modified/moved).
     Uses provided preview and highlights CNICs inline.
     """
-    if alert_id not in file_activity_alerts:
+    with session_scope() as session:
+        alert = _pending(session, 'file_activity').get(alert_id)
+    if alert is None:
         return "<html><body><h2>File activity alert not found</h2></body></html>", 404
-
-    alert = file_activity_alerts[alert_id]
     preview_text = getattr(alert, "preview", None)
     highlighted = _highlight_cnic_in_html(preview_text) if preview_text else "<i>No preview available.</i>"
 
@@ -601,7 +602,8 @@ def view_allowed_uploads():
     </body>
     </html>
     """
-    return render_template_string(ALLOWED_UPLOADS_PAGE, allowed_uploads=allowed_uploads)
+    with session_scope() as session:
+        return render_template_string(ALLOWED_UPLOADS_PAGE, allowed_uploads=_allowed_uploads(session))
 
 # ============================================================================
 # User Activity API Endpoints

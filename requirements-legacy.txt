@@ -1,0 +1,3 @@
+# Only required to run retained Flask migration-reference utilities/tests.
+Flask>=3.0,<4
+Flask-Cors>=4,<7

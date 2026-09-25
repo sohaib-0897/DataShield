@@ -1,2 +1,6 @@
--r backend/requirements.txt
+-r requirements-ml.txt
+-r requirements-legacy.txt
+-r requirements-agents.txt
 pytest>=8,<10
+httpx>=0.27,<1
+pip-audit>=2.7,<3

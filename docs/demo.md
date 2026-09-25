@@ -1,30 +1,9 @@
-# Local demo with synthetic data
+# Synthetic demo
 
-Start the API and frontend as described in the root README. In a new PowerShell terminal, set the same demo key and submit this synthetic event:
+1. Start Docker Compose and run the README seed command.
+2. Sign in as `demo.admin` at <http://localhost:3001>.
+3. Overview shows stored events and alerts. Open an investigation.
+4. Inspect source labels, risk contributors, masked CNIC evidence, endpoint, and audit trail.
+5. Add a note and choose `BLOCK` or `ALLOW`; refresh to see the persisted decision.
 
-```powershell
-$env:DATASHIELD_API_KEY = 'replace-with-your-local-demo-key'
-$headers = @{ 'X-API-KEY' = $env:DATASHIELD_API_KEY }
-$body = @{
-    client = 'demo-workstation'
-    filename = 'synthetic-record.txt'
-    upload_id = 'demo-upload-001'
-    upload_url = 'https://example.com/upload'
-    file_type = '.txt'
-    sensitive = $true
-    sensitive_matches = @('00000-0000000-0')
-    preview = 'Synthetic identifier: 00000-0000000-0'
-} | ConvertTo-Json
-Invoke-RestMethod http://127.0.0.1:5000/upload_alert -Method Post -Headers $headers -ContentType 'application/json' -Body $body
-```
-
-1. Open **Alerts** in the dashboard and locate `synthetic-record.txt`.
-2. Open its investigation to inspect the supplied metadata and sensitive match.
-3. Submit an allow or block decision.
-4. Confirm the result through the polling endpoint:
-
-```powershell
-Invoke-RestMethod http://127.0.0.1:5000/check_decision/demo-upload-001 -Headers $headers
-```
-
-This demonstrates an API approval round trip. It does not upload a real file or demonstrate network-wide enforcement. Restarting the API clears the demonstration state. Reports and User Activity contain sample analytics rather than measurements of this event.
+Seeded identities and resources are explicitly synthetic. Three ordinary history windows make the later count-based behavior source `HEURISTIC`; this is a deterministic demo baseline, not trained ML. The scenario enters through the same service function as the event API and does not insert finished alerts. Repeated seeding uses the same source IDs.

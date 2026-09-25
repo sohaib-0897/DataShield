@@ -1,0 +1,11 @@
+import React, {useEffect, useState} from 'react';
+import {policy, savePolicy} from './services/api';
+
+export default function PolicyManager(){
+  const [draft,setDraft]=useState(null),[error,setError]=useState(''),[saved,setSaved]=useState(false);
+  useEffect(()=>{policy().then(r=>setDraft(r.data)).catch(e=>setError(e.message))},[]);
+  const config=(key,value)=>setDraft(d=>({...d,config:{...d.config,[key]:value}}));
+  const weight=(key,value)=>setDraft(d=>({...d,config:{...d.config,weights:{...d.config.weights,[key]:value}}}));
+  const submit=async e=>{e.preventDefault();setSaved(false);try{const result=await savePolicy({enabled:draft.enabled,config:draft.config});setDraft(d=>({...d,version:result.data.version}));setError('');setSaved(true)}catch(err){setError(JSON.stringify(err.response?.data?.detail||err.message))}};
+  return <div className="space-y-5"><h1 className="text-3xl font-bold">Policy settings</h1>{error&&<p role="alert" className="bg-red-50 text-red-700 p-3">{error}</p>}{!draft?<p role="status">Loading policy…</p>:<form onSubmit={submit} className="bg-white rounded-xl border p-6 max-w-3xl space-y-6"><p>Version {draft.version}</p><label className="flex gap-3"><input type="checkbox" checked={draft.enabled} onChange={e=>setDraft({...draft,enabled:e.target.checked})}/> Enabled</label><div className="grid sm:grid-cols-2 gap-3">{['alert_threshold','medium_threshold','high_threshold','critical_threshold','feature_window_minutes'].map(key=><label key={key} className="text-sm capitalize">{key.replaceAll('_',' ')}<input className="border rounded p-2 w-full mt-1" type="number" min="0" max={key==='feature_window_minutes'?1440:100} value={draft.config[key]} onChange={e=>config(key,Number(e.target.value))}/></label>)}</div><div><h2 className="font-semibold mb-2">Risk weights · sum must equal 1</h2><div className="grid sm:grid-cols-2 gap-3">{Object.entries(draft.config.weights).map(([key,value])=><label key={key} className="text-sm capitalize">{key}<input className="border rounded p-2 w-full mt-1" type="number" min="0" max="1" step="0.01" value={value} onChange={e=>weight(key,Number(e.target.value))}/></label>)}</div></div><button className="bg-slate-900 text-white px-4 py-2 rounded">Save policy</button>{saved&&<p role="status" className="text-green-700">Policy saved and audited.</p>}</form>}</div>;
+}
