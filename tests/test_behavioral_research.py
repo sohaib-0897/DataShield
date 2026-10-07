@@ -136,3 +136,19 @@ def test_local_artifacts_replay_and_refuse_overwrite(tmp_path):
     with pytest.raises(ValueError, match='exists'):
         ml.benchmark(path, tmp_path, output, trees=10)
     assert json.loads((output / 'report.json').read_text())['feature_version'] == VERSION
+
+
+def test_fast_threshold_matches_all_strict_candidates():
+    from research.behavioral_ml import select_threshold
+    rng = np.random.default_rng(55)
+    for _ in range(20):
+        y = rng.integers(0, 2, 100)
+        scores = np.round(rng.random(100), 1)  # Deliberate ties.
+        candidates = [float(np.nextafter(scores.min(), -np.inf)), *np.unique(scores)]
+        def objective(threshold):
+            predicted = scores > threshold
+            tp = int(((y == 1) & predicted).sum())
+            fp = int(((y == 0) & predicted).sum())
+            fn = int(((y == 1) & ~predicted).sum())
+            return (2*tp/(2*tp+fp+fn) if tp else 0), threshold
+        assert select_threshold(y, scores)[0] == max(candidates, key=objective)

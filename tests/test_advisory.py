@@ -194,3 +194,18 @@ def test_unsupported_content_keeps_independent_signals(setup):
     assert result['content']['hash_label'] == 'confidential'
     assert result['rule']['score'] == 90
     assert result['combined']['score'] is None
+
+
+def test_null_observed_counts_fall_back(setup):
+    engine, w, _ = setup
+    w['features']['http_count'] = None
+    assert observe(engine, w)['fallback']
+
+
+def test_sidecar_schema_validation(tmp_path):
+    path = tmp_path/'wrong.sqlite'
+    with sqlite3.connect(path) as db:
+        db.execute(f'PRAGMA application_id={AdvisoryStore.APP_ID}')
+        db.execute('PRAGMA user_version=1')
+        db.execute('CREATE TABLE advisory (key TEXT, private TEXT)')
+    with pytest.raises(ValueError): AdvisoryStore(path)

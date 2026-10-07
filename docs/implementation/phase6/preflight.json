@@ -1,0 +1,21 @@
+{
+  "phase5_sha": "6d51b5cf3a004d1dec0925859253f613b54d2d9c",
+  "phase5_fresh_remote_equal": true,
+  "archive_expanded_bytes": 16181487042,
+  "available_memory_gib_observed": 7.5,
+  "free_disk_gib_observed": 421,
+  "existing_feature_loader_metadata_bound_mib": 128,
+  "full_materialized_pipeline_feasible": false,
+  "reason": "16.18 GB expanded source exceeds available memory before Python object/window/index overhead. Current prepare/text study materialize metadata and events. Full raw scan is feasible; full in-memory training pipeline is not.",
+  "cohort_start_inclusive": "2010-06-07T00:00:00",
+  "cohort_end_exclusive": "2010-06-21T00:00:00",
+  "selection": "predeclared contiguous two calendar weeks; every user/source/event within the interval; no label-based sampling",
+  "max_events": 1000000,
+  "max_metadata_mib": 768,
+  "max_feature_artifact_mib": 512,
+  "cache_budget_mib": 1024,
+  "resumability": "published hash-verified indexed caches; SQLite chunk progress; failed scan restart with original inputs preserved",
+  "thresholds": "validation only; no test-driven cohort revisions",
+  "fixed_rule": "file_count > 0 AND after_hours_fraction > 0",
+  "comparison": "same frozen held-out windows: fixed rule, models, fixed OR; no weights or test tuning"
+}

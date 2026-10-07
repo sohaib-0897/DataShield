@@ -112,6 +112,8 @@ class ShadowEngine:
                     values = [window['features'][key] for key in FEATURE_NAMES]
                     if any(v is not None and (isinstance(v, bool) or not isinstance(v, (float, int)) or not math.isfinite(v)) for v in values):
                         raise ValueError('Invalid numeric feature')
+                    if any(window['features'][key] is None for key in FEATURE_NAMES[:8]):
+                        raise ValueError('Observed features missing')
                     import numpy as np
                     with self._lock:
                         model, report = self._load()
@@ -165,6 +167,9 @@ class AdvisoryStore:
             tables = db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
             if tables and (app_id != self.APP_ID or db.execute('PRAGMA user_version').fetchone()[0] != 1):
                 raise ValueError('Refuse existing/incompatible database')
+            if tables and ({t[0] for t in tables} != {'advisory'} or
+                           [(r[1], r[2]) for r in db.execute('PRAGMA table_info(advisory)')] != [('key', 'TEXT'), ('payload', 'TEXT')]):
+                raise ValueError('Incompatible sidecar schema')
             db.execute(f'PRAGMA application_id={self.APP_ID}')
             db.execute('PRAGMA user_version=1')
             db.execute('CREATE TABLE IF NOT EXISTS advisory (key TEXT PRIMARY KEY, payload TEXT NOT NULL)')

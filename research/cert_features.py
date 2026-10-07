@@ -95,7 +95,10 @@ def join_labels(events, observables):
     return labels, dict(reasons)
 
 
-def read_events(database, folder, max_events=100000):
+def read_events(database, folder, max_events=100000, max_metadata_bytes=None):
+    max_metadata_bytes = MAX_METADATA_BYTES if max_metadata_bytes is None else max_metadata_bytes
+    if max_events < 1 or max_metadata_bytes < 1:
+        raise ValueError('Materialization bounds must be positive')
     if max_events < 1:
         raise ValueError('Event memory bound must be positive')
     database = local_path(folder, database)
@@ -108,7 +111,7 @@ def read_events(database, folder, max_events=100000):
         db.execute('BEGIN')
         if db.execute('SELECT count(*) FROM events').fetchone()[0] > max_events:
             raise ValueError('Event memory bound exceeded; use a bounded research store')
-        if db.execute('SELECT coalesce(sum(length(cast(metadata_json AS BLOB))),0) FROM events').fetchone()[0] > MAX_METADATA_BYTES:
+        if db.execute('SELECT coalesce(sum(length(cast(metadata_json AS BLOB))),0) FROM events').fetchone()[0] > max_metadata_bytes:
             raise ValueError('Metadata memory bound exceeded')
         events = [dict(r) for r in db.execute('SELECT * FROM events ORDER BY source_file,source_row')]
     if not events or len({e['dataset_sha256'] for e in events}) != 1:
@@ -129,13 +132,13 @@ def coverage_from_events(events):
     return {c: (min(v), max(v)) for c, v in times.items()}
 
 
-def prepare(database, answer_manifest, folder, output, *, work_start=9, work_end=17, max_events=100000):
+def prepare(database, answer_manifest, folder, output, *, work_start=9, work_end=17, max_events=100000, max_metadata_bytes=None):
     output = local_path(folder, output)
     if output.exists():
         raise ValueError('Artifact already exists; preserve it and choose a new output')
     require_space(folder)
     answers, incidents, observables = load_answers(answer_manifest, folder)
-    events = read_events(database, folder, max_events)
+    events = read_events(database, folder, max_events, max_metadata_bytes)
     labels, audit = join_labels(events, observables)
     coverage = coverage_from_events(events)
     windows = build_windows(events, coverage, work_start=work_start, work_end=work_end)
@@ -165,9 +168,12 @@ def prepare(database, answer_manifest, folder, output, *, work_start=9, work_end
     return report
 
 
-def load_artifact(path, folder):
+def load_artifact(path, folder, max_bytes=None):
+    max_bytes = MAX_ARTIFACT_BYTES if max_bytes is None else max_bytes
+    if max_bytes < 1:
+        raise ValueError('Invalid artifact bound')
     path = local_path(folder, path)
-    if path.stat().st_size > MAX_ARTIFACT_BYTES:
+    if path.stat().st_size > max_bytes:
         raise ValueError('Feature artifact memory bound exceeded')
     value = json.loads(path.read_text())
     expected = value.pop('artifact_sha256')
@@ -188,13 +194,14 @@ def main():
     parser.add_argument('--work-start', type=int, default=9)
     parser.add_argument('--work-end', type=int, default=17)
     parser.add_argument('--max-events', type=int, default=100000)
+    parser.add_argument('--max-metadata-mib', type=int, default=128)
     args = parser.parse_args()
     folder = Path('research/local').absolute()
     report_path = local_path(folder, args.report)
     if report_path.exists() or report_path == args.output.absolute() or report_path == args.database.absolute() or report_path == args.answers.absolute():
         raise ValueError('Report must be a new separate artifact')
     report = prepare(args.database, args.answers, folder, args.output, work_start=args.work_start,
-                     work_end=args.work_end, max_events=args.max_events)
+                     work_end=args.work_end, max_events=args.max_events, max_metadata_bytes=args.max_metadata_mib * 1024**2)
     atomic_json(report_path, report)
     print(encoded(report))
 

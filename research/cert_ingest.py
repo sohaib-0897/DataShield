@@ -337,6 +337,8 @@ def _ingest(manifest, folder, database, *, chunk=500, limit=None, reserve=DEFAUL
         raise ValueError("Missing release event sources")
     for member in selected:
         filename = PurePosixPath(member["name"]).name
+        if member.get("cache_format") not in (None, "indexed-v1"):
+            raise ValueError("Unsupported cache format")
         if member["header"] != SOURCES[filename]["header"]:
             raise ValueError("Unsupported release header")
         if limit and limit > member["cached_rows"] and not member["complete"]:
@@ -380,6 +382,12 @@ def _ingest(manifest, folder, database, *, chunk=500, limit=None, reserve=DEFAUL
                     if index > goal:
                         break
                     values = json.loads(line)
+                    source_row = index
+                    if member.get('cache_format') == 'indexed-v1':
+                        if (not isinstance(values, dict) or set(values) != {'source_row', 'values'}
+                                or not isinstance(values['source_row'], int) or values['source_row'] < index):
+                            raise ValueError('Invalid indexed cache')
+                        source_row, values = values['source_row'], values['values']
                     try:
                         event = normalize(filename, member["header"], values)
                         previous = db.execute("SELECT row_hash FROM events WHERE dataset_sha256=? AND source_file=? AND source_id=?", (dataset, filename, event["source_id"])).fetchone()
@@ -390,12 +398,12 @@ def _ingest(manifest, folder, database, *, chunk=500, limit=None, reserve=DEFAUL
                             counts[3] += 1
                         else:
                             db.execute("INSERT INTO events VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                       (dataset, filename, event["source_id"], index, event["user"], event["pc"],
+                                       (dataset, filename, event["source_id"], source_row, event["user"], event["pc"],
                                         event["timestamp_raw"], event["timestamp_local"], "unspecified_release_local",
                                         event["channel"], event["action"], event["resource"], event["metadata_json"], event["row_hash"]))
                             counts[2] += 1
                     except ValueError as error:
-                        db.execute("INSERT INTO diagnostics VALUES (?,?,?,?)", (dataset, filename, index, str(error)))
+                        db.execute("INSERT INTO diagnostics VALUES (?,?,?,?)", (dataset, filename, source_row, str(error)))
                         counts[4] += 1
                     counts[0] += 1
                     if counts[0] % chunk == 0 or counts[0] == goal:
@@ -418,7 +426,7 @@ def _ingest(manifest, folder, database, *, chunk=500, limit=None, reserve=DEFAUL
         return {"version": VERSION, "dataset_sha256": dataset, "manifest_sha256": result["manifest_sha256"],
                 "bound_per_source": limit or result["row_bound_per_member"], "progress": progress,
                 "events": event_count, "errors": error_count, "labels_created": False,
-                "timezone_basis": "unspecified_release_local", "full_dataset_ingested": all(m["complete"] and (limit is None or limit >= m["cached_rows"]) for m in selected)}
+                "timezone_basis": "unspecified_release_local", "full_dataset_ingested": not result.get("cohort") and all(m["complete"] and (limit is None or limit >= m["cached_rows"]) for m in selected)}
 
 
 def main(argv=None):

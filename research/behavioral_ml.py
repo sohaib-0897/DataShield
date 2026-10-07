@@ -81,15 +81,22 @@ def select_threshold(labels, scores, *, budget=.01):
     if len(y) != len(scores) or not len(y) or not np.isfinite(scores).all() or not 0 <= budget < 1:
         raise ValueError('Invalid validation scores/budget')
     if y.sum() and (y == 0).sum():
-        candidates = [float(np.nextafter(scores.min(), -np.inf)), *map(float, np.unique(scores))]
-        def objective(threshold):
-            predicted = scores > threshold
-            tp = int(((y == 1) & predicted).sum())
-            fp = int(((y == 0) & predicted).sum())
-            fn = int(((y == 1) & ~predicted).sum())
+        # Evaluate the same strict-threshold candidates in O(n log n), rather
+        # than O(n**2) rescans for larger natural-prevalence validation cohorts.
+        order = np.argsort(scores, kind='stable')
+        sorted_scores, sorted_y = scores[order], y[order]
+        cumulative_positive = np.cumsum(sorted_y)
+        ends = np.flatnonzero(np.r_[sorted_scores[1:] != sorted_scores[:-1], True])
+        positives, negatives = int(y.sum()), int((y == 0).sum())
+        best = (2 * positives / (2 * positives + negatives), float(np.nextafter(scores.min(), -np.inf)))
+        for end in ends:
+            removed_positive = int(cumulative_positive[end])
+            tp = positives - removed_positive
+            fp = negatives - (int(end) + 1 - removed_positive)
+            fn = removed_positive
             f1 = 2 * tp / (2 * tp + fp + fn) if tp else 0
-            return f1, threshold
-        threshold = max(candidates, key=objective)
+            best = max(best, (f1, float(sorted_scores[end])))
+        threshold = best[1]
         return threshold, 'validation_max_f1_ties_prefer_higher_threshold'
     allowed = int(len(scores) * budget)
     threshold = float(np.sort(scores)[len(scores) - allowed - 1])
@@ -167,14 +174,14 @@ def score_model(name, pipeline, X):
     return -pipeline.score_samples(X) if name == 'isolation_forest' else pipeline.predict_proba(X)[:, 1]
 
 
-def benchmark(feature_path, folder, output, *, seed=42, trees=200, budget=.01, replay=True):
+def benchmark(feature_path, folder, output, *, seed=42, trees=200, budget=.01, replay=True, max_feature_bytes=64 * 1024**2):
     output = local_path(folder, output)
     if output.exists():
         raise ValueError('Output exists; retain it and use a new artifact directory')
     if not 1 <= trees <= 1000 or not 0 <= seed <= 2**32 - 1:
         raise ValueError('Invalid bounded model settings')
     require_space(folder, 16 * 1024**2)
-    feature = load_artifact(feature_path, folder)
+    feature = load_artifact(feature_path, folder, max_feature_bytes)
     splits, split_audit = chronological_split(feature['windows'])
     start = time.perf_counter()
     models, supervised = fit_models(splits['train'], splits['validation'], seed=seed, trees=trees, budget=budget)
@@ -221,7 +228,8 @@ def benchmark(feature_path, folder, output, *, seed=42, trees=200, budget=.01, r
     report = {'version': MODEL_VERSION, 'status': 'RESEARCH_ONLY_NOT_REGISTRABLE', 'feature_version': VERSION,
               'feature_names': FEATURE_NAMES, 'dataset_sha256': feature['dataset_sha256'],
               'feature_artifact_sha256': feature['artifact_sha256'], 'store_sha256': feature['store_sha256'],
-              'answers_sha256': feature['answers_sha256'], 'seed': seed, 'trees': trees, 'cpu_workers': 1,
+              'answers_sha256': feature['answers_sha256'], 'partitions_sha256': hash_file(output / 'partitions.json')['sha256'],
+              'score_artifacts_sha256': {name: hash_file(output / f'{name}_scores.json')['sha256'] for name in models}, 'seed': seed, 'trees': trees, 'cpu_workers': 1,
               'software': {'python': platform.python_version(), 'sklearn': sklearn.__version__, 'numpy': np.__version__, 'joblib': joblib.__version__},
               'splits': split_audit, 'models': model_reports, 'supervised': supervised,
               'training_seconds': training_seconds, 'full_dataset': False, 'preprocessing_fit_partition': 'train',
@@ -241,9 +249,10 @@ def main():
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--trees', type=int, default=200)
     parser.add_argument('--validation-alert-budget', type=float, default=.01)
+    parser.add_argument('--max-feature-mib', type=int, default=64)
     args = parser.parse_args()
     result = benchmark(args.features, Path('research/local').absolute(), args.output,
-                       seed=args.seed, trees=args.trees, budget=args.validation_alert_budget)
+                       seed=args.seed, trees=args.trees, budget=args.validation_alert_budget, max_feature_bytes=args.max_feature_mib * 1024**2)
     print(encoded(result))
 
 

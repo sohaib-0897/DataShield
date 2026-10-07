@@ -87,7 +87,7 @@
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | completed (bounded) |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | completed (bounded; comparison unavailable) |
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | completed (bounded) |
-| 6 | Full run, fair comparisons, error analysis, handover | 1–5 | pending |
+| 6 | Full run, fair comparisons, error analysis, handover | 1–5 | in progress |
 
 ## Phase acceptance and verification
 ### 0 — audit and baseline
