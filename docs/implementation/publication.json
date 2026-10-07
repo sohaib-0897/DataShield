@@ -40,13 +40,25 @@
       "normal_push_succeeded": true,
       "fresh_git_ls_remote_sha": "e49fb55297a6800d657132a9805f8d166f3bba1e",
       "remote_matched_local": true
+    },
+    {
+      "phase": 6,
+      "milestone": "expanded evaluation, error analysis and bounded closure",
+      "commit_sha": "85e253e3ddcc5f1690f0a9d4010cb870280ed9a1",
+      "normal_push_succeeded": true,
+      "fresh_git_ls_remote_sha": "85e253e3ddcc5f1690f0a9d4010cb870280ed9a1",
+      "remote_matched_local": true
     }
   ],
   "phase4_working_tree_after_publication": "clean",
   "force_push_or_main_merge": false,
-  "completion_scope": "bounded phase acceptance; supervised numeric/text comparisons unavailable; no sensitivity corpus",
+  "completion_scope": "remaining planned Phases 5\u20136 complete at bounded acceptance; actual labeled June cohort evaluated; full-release materialization memory-limited; strict text comparison unavailable; no sensitivity corpus or deployment validation",
   "final_documentation_commit": "resolve with git log -1 --format=%H -- CONTEXT.md; own SHA cannot be embedded in itself",
-  "final_documentation_verification": "normal push and fresh remote equality are checked after this documentation commit and reported in the morning handoff",
+  "final_documentation_verification": "closure commit is normally pushed and checked with fresh git ls-remote; exact final SHA is reported to the user (cannot embed its own SHA)",
   "continuation_initial_checkpoint": "dd4761fb97e22d3d43c25db6f7e1cd9f0f1bdee7",
-  "continuation_initial_remote_matched": true
+  "continuation_initial_remote_matched": true,
+  "historical_phases2_to4_completion_scope": "bounded phase acceptance; supervised numeric/text comparisons unavailable; no sensitivity corpus",
+  "phase6_working_tree_after_publication": "clean",
+  "remaining_phases": [],
+  "next_step": "streaming feature/text preparation with frozen-cohort parity before full-release evaluation"
 }

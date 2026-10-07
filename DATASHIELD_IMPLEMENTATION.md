@@ -182,7 +182,7 @@
 - Publication checkpoints/final resume instructions: CONTEXT.md and docs/implementation/publication.json.
 - Phase 5: 22 adapter checks/131 isolated passes; both adapters replayed 38 held-out windows; docs/implementation/phase5/.
 - Phase 5 pushed/freshly verified: 6d51b5cf3a004d1dec0925859253f613b54d2d9c; explicit disabled/shadow defaults.
-- Phase 6 tooling pushed/freshly verified: e49fb55297a6800d657132a9805f8d166f3bba1e; final evidence commit follows.
+- Phase 6 evidence pushed/freshly verified: 85e253e3ddcc5f1690f0a9d4010cb870280ed9a1; tooling checkpoint e49fb552 recorded in publication.json.
 - Phase 6: full 32,770,222-source-row scan; fixed June 7–21 cohort 978,908 events, 70 exact positive events.
 - Phase 6: 95,930 fully observed windows; chronological train/val/test 58,258/25,919/11,753, positives 14/19/8.
 - Test IF TN10,294/FP1,451/FN5/TP3, precision .002063/recall .375/F1 .004104/PR-AP .003097.

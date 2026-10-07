@@ -11,7 +11,8 @@ pushes were authorized; no merge into main/force push was performed.
   idempotent separate persistence. Explicit disabled/shadow defaults; optional
   authorized JSON/HTML views. Live/CERT schema mismatch falls back to rules.
   Published/freshly matched 6d51b5cf3a004d1dec0925859253f613b54d2d9c.
-- Phase 6 tooling: published/freshly matched e49fb55297a6800d657132a9805f8d166f3bba1e.
+- Phase 6 evidence: published/freshly matched 85e253e3ddcc5f1690f0a9d4010cb870280ed9a1.
+  Tooling checkpoint e49fb55297a6800d657132a9805f8d166f3bba1e is also recorded.
   Full safe archive scan: 32,770,222 source rows, 28 members/16.18 GB expanded.
   Predeclared June 7–21 cohort retains 978,908 events, 70 exact attack observables;
   zero errors/duplicates; indexed original source positions; idempotent replay.
