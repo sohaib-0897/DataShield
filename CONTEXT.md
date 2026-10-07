@@ -1,7 +1,41 @@
+# Current resume pointer — 2026-10-08
+
+The authorized autonomous continuation through Phases 2–4 is finished at bounded
+acceptance. Authoritative compact status: `DATASHIELD_IMPLEMENTATION.md` (191 lines).
+Detailed commands/results: `docs/implementation/phase2/features.md`,
+`phase3/behavioral-ml.md`, and `phase4/nlp-documents.md` under the same directory.
+Historical handoffs below are preserved; their pending/one-phase-only instructions
+are superseded by the user's later authorization and this current pointer.
+
+- Branch `feat/cert-ml-nlp`; Phases 2, 3 and 4 each committed, pushed normally and
+  freshly verified against GitHub. Exact SHAs: `docs/implementation/publication.json`.
+- Latest implementation SHA: `dcf66aab4619f13598aa8558df80842db0920fca`.
+  This documentation closure commit follows it; resolve current HEAD with
+  `git rev-parse HEAD`. Its final push/fresh equality is verified after committing.
+- Phase 2: 10,000 exact negative labels, 7,323 unmatched answer observables,
+  zero ambiguous joins; 164 fully observed of 3,291 active user-hours.
+- Phase 3: IsolationForest on chronological 83/43/38 windows. Held-out TN36/FP2,
+  zero positives; recall/F1/PR-AUC undefined. Threshold/preprocessing/replay verified.
+- Phase 4: 6,000 texts/111 duplicate bags; strict text cohort 81/1/0.
+  Supervised comparison unavailable. Bounded TXT/PDF/DOCX extraction and redacted
+  rule PII evidence preserve independent filename/hash signals. No sensitivity corpus.
+- Final tests: 75 targeted research + 109 isolated full-suite passes, no skips;
+  ten actual synthetic parser/status checks passed. One pre-existing warning.
+- Original/live/archive/copied-source preservation passed; application trees
+  unchanged; raw datasets/model files ignored; no model activation/policy changes.
+- Data limitations: bounded January prefixes have no attack labels; broader
+  chronological data with positives and a separate sensitivity corpus are needed.
+- Native Windows/physical-device and PostgreSQL checks remain unverified;
+  existing npm findings and development-server Docker exposure remain open.
+- Exact next action on a new request: begin Phase 5 explicit shadow/advisory
+  adapter contracts and fallback tests. Phase 5/6 are pending/outside this request.
+
+---
+
 # DataShield restart handoff — 2026-10-08
 
 Historical handoff below; recovery succeeded in the continuation recorded at the end.
-DATASHIELD_IMPLEMENTATION.md holds the current completed Phase 1 status.
+DATASHIELD_IMPLEMENTATION.md holds the current phase status; see the resume pointer above.
 
 ## Read first and current boundary
 

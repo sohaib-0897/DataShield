@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-08",
+  "branch": "feat/cert-ml-nlp",
+  "initial_checkpoint": "4c5a52ed8b6df96359ca45fe13035211993040de",
+  "initial_working_tree": "clean",
+  "initial_remote_sha_matched": true,
+  "phase_checkpoints": [
+    {
+      "phase": 2,
+      "commit_sha": "f958802f6f22b5a0fe46f3ee725c15177cf2e51f",
+      "normal_push_succeeded": true,
+      "fresh_git_ls_remote_sha": "f958802f6f22b5a0fe46f3ee725c15177cf2e51f",
+      "remote_matched_local": true
+    },
+    {
+      "phase": 3,
+      "commit_sha": "63595ab35986bdc495ed916f24735312f559752a",
+      "normal_push_succeeded": true,
+      "fresh_git_ls_remote_sha": "63595ab35986bdc495ed916f24735312f559752a",
+      "remote_matched_local": true
+    },
+    {
+      "phase": 4,
+      "commit_sha": "dcf66aab4619f13598aa8558df80842db0920fca",
+      "normal_push_succeeded": true,
+      "fresh_git_ls_remote_sha": "dcf66aab4619f13598aa8558df80842db0920fca",
+      "remote_matched_local": true
+    }
+  ],
+  "phase4_working_tree_after_publication": "clean",
+  "force_push_or_main_merge": false,
+  "completion_scope": "bounded phase acceptance; supervised numeric/text comparisons unavailable; no sensitivity corpus",
+  "final_documentation_commit": "resolve with git log -1 --format=%H -- CONTEXT.md; own SHA cannot be embedded in itself",
+  "final_documentation_verification": "normal push and fresh remote equality are checked after this documentation commit and reported in the morning handoff"
+}

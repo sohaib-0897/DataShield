@@ -183,6 +183,7 @@
 - Phase 4: text/feature replay passed; no sensitivity corpus/model claim; docs/implementation/phase4/.
 - Final preservation: 30 original/live hashes, 19 copied normalized hashes, three input stats unchanged.
 - Original application trees unchanged; research data/models ignored; no model activation or policy changes.
+- Phase 4 pushed/freshly verified: dcf66aab4619f13598aa8558df80842db0920fca.
 - Publication checkpoints/final resume instructions: CONTEXT.md and docs/implementation/publication.json.
 - Phase 5/6 remain pending/outside this request; Windows/PostgreSQL and npm findings remain unverified/open.
 - Exact next step: begin Phase 5 explicit advisory adapter contracts on a new request, keeping shadow/rule fallback.
