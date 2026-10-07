@@ -1,0 +1,12 @@
+{
+  "upstream_files_checked": 110,
+  "changed_existing_files": [
+    ".gitignore"
+  ],
+  "preserved_source_files": 19,
+  "hashes_match": true,
+  "new_script_syntax": "passed",
+  "original_preservation": true,
+  "dataset_verification": "stat only; no archive extraction or full content hashes",
+  "production_runtime_changes": []
+}

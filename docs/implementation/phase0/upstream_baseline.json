@@ -1,0 +1,32 @@
+{
+  "python": "3.14.4",
+  "exit_code": 2,
+  "base_commit": "74efcfd420d9e4442397d1c1276db67853a590f1",
+  "isolation": "tracked Python/config copied to temporary directory; DATABASE_URL=sqlite://; existing test_api DB also inside temporary copy",
+  "collection_errors": [
+    "tests/test_api.py",
+    "tests/test_demo.py",
+    "tests/test_legacy_migration.py",
+    "tests/test_ml_pipeline.py",
+    "tests/test_platform.py",
+    "tests/test_risk.py",
+    "tests/test_sensitivity.py"
+  ],
+  "summary": [
+    "    from pydantic import BaseModel, Field, field_validator, model_validator",
+    "E   ModuleNotFoundError: No module named 'pydantic'",
+    "=========================== short test summary info ============================",
+    "ERROR tests/test_api.py",
+    "ERROR tests/test_demo.py",
+    "ERROR tests/test_legacy_migration.py",
+    "ERROR tests/test_ml_pipeline.py",
+    "ERROR tests/test_platform.py",
+    "ERROR tests/test_risk.py",
+    "ERROR tests/test_sensitivity.py",
+    "!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!",
+    "7 errors in 0.18s"
+  ],
+  "node_available": false,
+  "npm_available": false,
+  "log": ".local/phase0_upstream_isolated.log"
+}

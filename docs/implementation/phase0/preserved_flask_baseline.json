@@ -1,0 +1,33 @@
+{
+  "source_root": "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/legacy/downloaded_flask",
+  "dependency_root": "/home/sohaib/Downloads/AI-DLP-Agent/venv/Lib/site-packages",
+  "python": "3.14.4",
+  "run": 22,
+  "passed": 18,
+  "skipped": [
+    {
+      "test": "test_feature_activity_only (__main__.Baseline.test_feature_activity_only)",
+      "reason": "pandas unavailable: AttributeError: module 'os' has no attribute 'add_dll_directory'"
+    },
+    {
+      "test": "test_feature_both_sources_empty (__main__.Baseline.test_feature_both_sources_empty)",
+      "reason": "pandas unavailable: AttributeError: module 'os' has no attribute 'add_dll_directory'"
+    },
+    {
+      "test": "test_feature_existing_global_aggregation_characterization (__main__.Baseline.test_feature_existing_global_aggregation_characterization)",
+      "reason": "pandas unavailable: AttributeError: module 'os' has no attribute 'add_dll_directory'"
+    },
+    {
+      "test": "test_feature_transfer_only (__main__.Baseline.test_feature_transfer_only)",
+      "reason": "pandas unavailable: AttributeError: module 'os' has no attribute 'add_dll_directory'"
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "flask_import_error": null,
+  "pandas_import_error": "AttributeError: module 'os' has no attribute 'add_dll_directory'",
+  "native_windows_verified": false,
+  "monitors_started": false,
+  "fixture_data": "synthetic; temporary SQLite and policy files",
+  "successful_available_checks": true
+}

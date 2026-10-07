@@ -1,0 +1,384 @@
+{
+  "inspection": "AST only; no server start",
+  "routes": [
+    {
+      "source": "backend/app/main.py",
+      "route": "/health",
+      "methods": [
+        "GET"
+      ],
+      "handler": "health",
+      "line": 245
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/ready",
+      "methods": [
+        "GET"
+      ],
+      "handler": "ready",
+      "line": 250
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/auth/login",
+      "methods": [
+        "POST"
+      ],
+      "handler": "login",
+      "line": 259
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/auth/me",
+      "methods": [
+        "GET"
+      ],
+      "handler": "me",
+      "line": 270
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/events",
+      "methods": [
+        "POST"
+      ],
+      "handler": "ingest",
+      "line": 275
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/events/batch",
+      "methods": [
+        "POST"
+      ],
+      "handler": "ingest_batch",
+      "line": 292
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/endpoints/heartbeat",
+      "methods": [
+        "POST"
+      ],
+      "handler": "heartbeat",
+      "line": 311
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/alerts",
+      "methods": [
+        "GET"
+      ],
+      "handler": "alerts",
+      "line": 325
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/alerts/{alert_id}",
+      "methods": [
+        "GET"
+      ],
+      "handler": "alert_detail",
+      "line": 346
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/alerts/{alert_id}/decisions",
+      "methods": [
+        "POST"
+      ],
+      "handler": "decide",
+      "line": 369
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/decisions/{upload_id}",
+      "methods": [
+        "GET"
+      ],
+      "handler": "poll_decision",
+      "line": 381
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/events",
+      "methods": [
+        "GET"
+      ],
+      "handler": "events",
+      "line": 392
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/reports/summary",
+      "methods": [
+        "GET"
+      ],
+      "handler": "summary",
+      "line": 399
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/reports/export",
+      "methods": [
+        "GET"
+      ],
+      "handler": "export_report",
+      "line": 424
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/users/activity",
+      "methods": [
+        "GET"
+      ],
+      "handler": "users_activity",
+      "line": 437
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/users/{user_id}/timeline",
+      "methods": [
+        "GET"
+      ],
+      "handler": "user_timeline",
+      "line": 453
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/policies",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_policies",
+      "line": 478
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/policies",
+      "methods": [
+        "PUT"
+      ],
+      "handler": "set_policies",
+      "line": 484
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/system/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "system_status",
+      "line": 499
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/audit",
+      "methods": [
+        "GET"
+      ],
+      "handler": "audit_logs",
+      "line": 532
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/users",
+      "methods": [
+        "POST"
+      ],
+      "handler": "create_user",
+      "line": 537
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/models",
+      "methods": [
+        "GET"
+      ],
+      "handler": "models",
+      "line": 549
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/models",
+      "methods": [
+        "POST"
+      ],
+      "handler": "register_model",
+      "line": 555
+    },
+    {
+      "source": "backend/app/main.py",
+      "route": "/api/v1/models/{model_id}/activate",
+      "methods": [
+        "POST"
+      ],
+      "handler": "activate_model",
+      "line": 579
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/",
+      "methods": [
+        "GET"
+      ],
+      "handler": "index",
+      "line": 193
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/users",
+      "methods": [
+        "GET"
+      ],
+      "handler": "users",
+      "line": 198
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/alerts",
+      "methods": [
+        "GET"
+      ],
+      "handler": "alerts",
+      "line": 219
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/alerts/<aid>",
+      "methods": [
+        "POST"
+      ],
+      "handler": "set_alert",
+      "line": 226
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/alerts.csv",
+      "methods": [
+        "GET"
+      ],
+      "handler": "alerts_csv",
+      "line": 234
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/events",
+      "methods": [
+        "GET"
+      ],
+      "handler": "events",
+      "line": 243
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/timeline",
+      "methods": [
+        "GET"
+      ],
+      "handler": "timeline",
+      "line": 255
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/rules",
+      "methods": [
+        "GET"
+      ],
+      "handler": "rules",
+      "line": 269
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/rules/<rid>",
+      "methods": [
+        "POST"
+      ],
+      "handler": "toggle_rule",
+      "line": 278
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/settings",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "handler": "settings",
+      "line": 287
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/roles",
+      "methods": [
+        "GET"
+      ],
+      "handler": "roles",
+      "line": 298
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/roles/assign",
+      "methods": [
+        "POST"
+      ],
+      "handler": "assign_role",
+      "line": 307
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/policies",
+      "methods": [
+        "GET"
+      ],
+      "handler": "policies",
+      "line": 316
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/monitors",
+      "methods": [
+        "GET"
+      ],
+      "handler": "monitors",
+      "line": 343
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/monitors/<key>",
+      "methods": [
+        "POST"
+      ],
+      "handler": "toggle",
+      "line": 352
+    },
+    {
+      "source": "legacy/downloaded_flask/dashboard.py",
+      "route": "/api/reset",
+      "methods": [
+        "POST"
+      ],
+      "handler": "reset",
+      "line": 361
+    },
+    {
+      "source": "legacy/downloaded_flask/upload_server.py",
+      "route": "/",
+      "methods": [
+        "GET"
+      ],
+      "handler": "home",
+      "line": 20
+    },
+    {
+      "source": "legacy/downloaded_flask/upload_server.py",
+      "route": "/upload",
+      "methods": [
+        "POST"
+      ],
+      "handler": "upload",
+      "line": 42
+    }
+  ]
+}

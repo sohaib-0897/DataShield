@@ -1,0 +1,106 @@
+{
+  "source_root": "/home/sohaib/Downloads/AI-DLP-Agent",
+  "destination": "legacy/downloaded_flask",
+  "copy_method": "exact bytes; top-level .py/.html only",
+  "files": {
+    "agent.py": {
+      "sha256": "35aa6d78f4d3f69980b0ed7edb31575b975dc65c2f1a53a99fbb3befd0731331",
+      "size": 1632,
+      "git_normalized_sha256": "a9d01d2d83fb752c2e2a3dc41134bcd063f8c28360b89e096f6d6fd2f919817f"
+    },
+    "baseline.py": {
+      "sha256": "8419d6eff477b1cf62f02854897383dd72c0801ef1e4880f220ac81420ef7e46",
+      "size": 3332,
+      "git_normalized_sha256": "0e059833e869c290a4660efa0c16e6379b8095aaf98bc422e846385b20ca2bdc"
+    },
+    "behavior.py": {
+      "sha256": "fc0aeb217d888d5399af13391082861e887fe3ada9e1579b6df87f5e71ebe7d7",
+      "size": 7005,
+      "git_normalized_sha256": "8f568171c53d64c2ec0d41864389713a7de020508b25f31001ff03541e9d2db4"
+    },
+    "behavioral_monitor.py": {
+      "sha256": "ba17ed5099cefb76d4d7f9c41bcee6fb575825deb4697def16eec3fc1b98dcc7",
+      "size": 4476,
+      "git_normalized_sha256": "78cae88ee6c8996dfd7145aaa290d508588613a9d8b091614f1c41e1702509cd"
+    },
+    "check_db.py": {
+      "sha256": "c6239f5f1cc243094f3e67dcae41d57c4e20c59d51eb18646db2878e4dc96fb8",
+      "size": 242,
+      "git_normalized_sha256": "712cc0f7fa7072435c074b2dd292c751af2d5d32451593a667c55da919e3effd"
+    },
+    "check_transfers.py": {
+      "sha256": "d086fd7dc36b255daf079ce0fa6bc604ef9853852ac21c11b26e91702e6f66aa",
+      "size": 419,
+      "git_normalized_sha256": "137d91947520c182df8b5c7e930d15d0c6704627b8765c2124a80b75c0d06606"
+    },
+    "dashboard.html": {
+      "sha256": "ca366576ada3bea9adee6a47de5ebcfc7c35b091acae5d377ae55a35914324e1",
+      "size": 35750,
+      "git_normalized_sha256": "3b284681cb9ad9fab1b6bfd11fd284a7e5b62fec6bace00a667112ea1331df83"
+    },
+    "dashboard.py": {
+      "sha256": "dc4850de95c05eeec5d70bfdd72f21a0e9041bf9a53ebcbfb9caf49d4835d9fd",
+      "size": 19537,
+      "git_normalized_sha256": "a0e9214218cc7c596c81711ca8b3baf91a3e465b8a843f66f6da1908e96bf4c4"
+    },
+    "database.py": {
+      "sha256": "5bf9c81cda6807d725f49ad6b1ac61a6f1c9e43cf4da25b681dfb2477f7a9830",
+      "size": 2743,
+      "git_normalized_sha256": "a5dbebccf5b9dc16646329ae763d863333c89991c3e0e5cf612d96629e662564"
+    },
+    "feature_builder.py": {
+      "sha256": "6304ad525c6b32b55ba4ec20619a57052bf952d4a793be73cb3e3d6614a926da",
+      "size": 8348,
+      "git_normalized_sha256": "cf5c96e56535ac973ec706d829a1bb954322764a012b8f3362c7f676f0214d4c"
+    },
+    "google_drive_monitor.py": {
+      "sha256": "2b2bc9a7dfc835e48dbaadc96656fc4d55c94792b921def7d182ba4a28c10961",
+      "size": 3493,
+      "git_normalized_sha256": "2031e966818abc01994da41629bd70fedf454bb64bb423d88e9d50e644c22954"
+    },
+    "local_copy_monitor.py": {
+      "sha256": "0acc62fd9e0b1cb9e7f9a9120b9df7eb81f8bc388632437c67150bcc00cca875",
+      "size": 3348,
+      "git_normalized_sha256": "491067c6769373a892ada3360f30a03e9aa1a68f9755047c5d188daa1c5103fa"
+    },
+    "prepare_training.py": {
+      "sha256": "22dd2a03a202733f193caac12ddf06be3c7815d95548f1520df429872e1ba8c1",
+      "size": 1684,
+      "git_normalized_sha256": "2d880292d5426f67fdaf2291376a62d4106df9596d540e5b30d56a1e22459138"
+    },
+    "risk_engine.py": {
+      "sha256": "299f219f3ca52f25ac9472577ae39f6eba0e3f75451d71e165468e42f6c4050d",
+      "size": 1782,
+      "git_normalized_sha256": "09f1c94c598a0783e4ee9d1cf419a8ffc3fe09636ebd0aa883fd121a5e087a98"
+    },
+    "sensitivity.py": {
+      "sha256": "63c8cdcc036a068ecce0e72ad3423d4e68527df63fbe52073f2f63a70d61578d",
+      "size": 1552,
+      "git_normalized_sha256": "3f0450cead88b681cfed53d9f849e110e23c6a7e07c90891ce8fb598262806d5"
+    },
+    "upload_server.py": {
+      "sha256": "22f47c7f6365670fa8d288ea1689fa7c3b476b6f5f6ee0b4032977c0b27892ae",
+      "size": 2905,
+      "git_normalized_sha256": "6e05bc4d0853251cc040df7d4fe64f9147888aef433b5ac54670e3fcc0c55af7"
+    },
+    "usb_copy_monitor.py": {
+      "sha256": "fa595863cffe36973ca63eb2721657b0cdd347016f3cff0216ed2e6629c088a5",
+      "size": 3593,
+      "git_normalized_sha256": "49eeb22e1ef2d0d056f54c4d9efb90a71e85f8d50f4bdd3f6ea537ca689196c5"
+    },
+    "usb_monitor.py": {
+      "sha256": "8431536f053d244523e781dc44f07e0ad463ecb1ac7637863882aabaf4be6596",
+      "size": 2786,
+      "git_normalized_sha256": "6ce732ce8c1bf4f200786bb2b9593a2b9e7329faa8e6c9bc499523e2ad8689fe"
+    },
+    "windows_monitor.py": {
+      "sha256": "49d91074832d3b18238e82e0a14dcedef9252ae89ae8b133736a71e2c0e2dd16",
+      "size": 14232,
+      "git_normalized_sha256": "dbc53c9f388daab69c0fbfdefe8f1056056665cc35541b33275d10b24c133c5a"
+    }
+  },
+  "excluded": "venv, .venv, caches, live DBs, policy, logs, datasets, sensitive documents, credentials",
+  "base_commit": "74efcfd420d9e4442397d1c1276db67853a590f1",
+  "existing_upstream_files_replaced": [],
+  "git_line_endings": "Existing .gitattributes normalizes source text CRLF to LF; both source and normalized hashes recorded."
+}

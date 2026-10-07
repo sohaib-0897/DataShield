@@ -1,0 +1,51 @@
+{
+  "access": "read-only immutable query_only; no event contents read",
+  "tables": {
+    "activity": {
+      "columns": [
+        "id",
+        "timestamp",
+        "username",
+        "event_type",
+        "file_path",
+        "sensitivity",
+        "application"
+      ],
+      "rows": 5
+    },
+    "alert_state": {
+      "columns": [
+        "alert_id",
+        "status",
+        "updated"
+      ],
+      "rows": 1
+    },
+    "behavior_events": {
+      "columns": [
+        "id",
+        "timestamp",
+        "username",
+        "event_type",
+        "application",
+        "window_title",
+        "idle_seconds"
+      ],
+      "rows": 241
+    },
+    "transfers": {
+      "columns": [
+        "id",
+        "timestamp",
+        "username",
+        "event_type",
+        "source_path",
+        "destination_path",
+        "sensitivity",
+        "destination_type",
+        "file_hash"
+      ],
+      "rows": 2
+    }
+  }
+}

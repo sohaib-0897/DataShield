@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataShield</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--panel:#fff;--ink:#14202b;--muted:#667585;--line:#dde3e9;--side:#17222d;--accent:#1f6fd0;
+--LOW:#2f9e6b;--MEDIUM:#d9a21b;--HIGH:#e0702b;--CRITICAL:#c62f3b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.45 "IBM Plex Sans",system-ui,sans-serif;display:flex;min-height:100vh}
+nav{width:220px;background:var(--side);color:#b7c4d0;padding:20px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;flex:none}
+nav .brand{color:#fff;font-weight:600;font-size:18px;padding:0 10px 2px}nav .tag{font-size:12px;padding:0 10px 18px;color:#7d8e9e}
+nav a{display:flex;justify-content:space-between;align-items:center;padding:9px 10px;border-radius:7px;color:inherit;text-decoration:none;cursor:pointer}
+nav a:hover{background:#1a2937}nav a.on{background:#22364d;color:#fff;font-weight:500;box-shadow:inset 3px 0 var(--accent)}
+nav .n{background:var(--CRITICAL);color:#fff;border-radius:99px;font-size:11.5px;padding:1px 8px;font-weight:600}nav .n:empty{display:none}
+nav .foot{margin-top:auto;font-size:12px;padding:10px;color:#7d8e9e}
+.main{flex:1;min-width:0}
+.top{display:flex;align-items:center;gap:12px;padding:10px 28px;background:#1f2f40;color:#fff;position:sticky;top:0;z-index:2}.top .mut{color:#9fb0c2}.top select,.top .btn{background:#2a3d52;color:#fff;border-color:#3a4f66}.top input{background:#14202c;border:1px solid #3a4f66;color:#fff;border-radius:7px;padding:7px 12px;width:280px;font:inherit}.top input::placeholder{color:#8396a9}
+.top h1{font-size:16px;margin:0;font-weight:500;min-width:110px}.top .sp{flex:1}
+select,.btn{font:inherit;border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 12px;color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}.btn.pri{background:var(--accent);color:#fff;border-color:var(--accent)}.btn.sm{padding:3px 9px;font-size:12.5px}.btn.dng:hover{border-color:var(--CRITICAL);color:var(--CRITICAL)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#view{padding:22px 28px;max-width:1300px}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:2fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.wd{display:flex;gap:16px;align-items:center}.wd .lg div{display:flex;gap:8px;align-items:center;font-size:13px;padding:1px 0}.wd .lg i{width:10px;height:10px;border-radius:2px}
+.p{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.p h2{font-size:13.5px;font-weight:600;color:var(--muted);margin:0 0 10px;display:flex;justify-content:space-between;align-items:center}
+.kpi b{font-size:30px;font-weight:600;display:block;line-height:1.1}.kpi span{color:var(--muted);font-size:13px}.kpi.hot b{color:var(--CRITICAL)}
+table{width:100%;border-collapse:collapse}th{text-align:left;font-weight:500;color:var(--muted);font-size:12.5px;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:middle}tr:last-child td{border-bottom:0}
+tr.row{cursor:pointer}tr.row:hover td{background:#f6f8fa}
+.sev{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;color:#fff}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:12.5px}.mut{color:var(--muted);font-size:12.5px}
+.ell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:360px}
+.bar{height:8px;background:#e6ebef;border-radius:9px;overflow:hidden;min-width:90px}.bar i{display:block;height:100%;border-radius:9px;transition:width .6s}
+.av{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:600;flex:none}
+.who{display:flex;gap:10px;align-items:center}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:18px 0 12px}
+.tabs a{padding:8px 14px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent}.tabs a.on{color:var(--ink);border-color:var(--accent);font-weight:500}
+.prof{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.ring{position:relative;width:96px;height:96px;flex:none}.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#b8c2cc;margin-right:6px}.dot.on{background:var(--LOW);box-shadow:0 0 0 3px #2f9e6b22}
+.empty{color:var(--muted);padding:26px;text-align:center}
+.sw{width:38px;height:22px;border-radius:99px;background:#c5cdd5;border:0;position:relative;cursor:pointer;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s}.sw.on{background:var(--accent)}.sw.on::after{transform:translateX(16px)}
+.mon{display:flex;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--line)}.mon:first-of-type{border-top:0}.mon div{flex:1}
+.tl{padding-left:18px;border-left:2px solid var(--line);margin-left:6px}.tl .it{position:relative;padding:0 0 14px 10px}.tl .it::before{content:"";position:absolute;left:-24px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--c,#9db4c4);border:2px solid #fff}
+.flash{animation:fl 1.5s}@keyframes fl{from{background:#fbe3e5}to{background:transparent}}
+@media(max-width:1000px){.g3,.g4,.g2{grid-template-columns:1fr 1fr}nav{width:64px}nav a span,nav .tag,nav .foot,nav .brand small{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.p{border-radius:12px;box-shadow:0 1px 2px #10223310,0 6px 18px #10223308}
+th{font-size:12px;letter-spacing:.2px}td{padding:12px 10px}
+.hero{background:linear-gradient(115deg,#1b2b3d,#1f5190);color:#fff;border-radius:14px;padding:22px 26px;display:flex;gap:24px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.rw{background:#fff;border-radius:50%;padding:6px}.chips{display:flex;gap:10px}.chips div{background:#ffffff1c;border-radius:10px;padding:10px 16px;font-size:12px;text-align:center}.chips b{display:block;font-size:22px}
+tr.sevrow{cursor:pointer}tr.sevrow td:first-child{box-shadow:inset 3px 0 var(--c)}tr.sevrow:hover td{background:#f6f8fa}
+.dr{position:fixed;top:0;right:0;width:440px;max-width:100%;height:100%;background:#fff;box-shadow:-10px 0 40px #0003;transform:translateX(105%);transition:transform .25s;z-index:10;padding:24px;overflow:auto}.dr.on{transform:none}
+.dr h3{margin:10px 0 4px;font-size:18px}.dr dl{display:grid;grid-template-columns:90px 1fr;gap:8px 12px;margin:16px 0}.dr dt{color:var(--muted);font-size:13px}.dr dd{margin:0;word-break:break-all}
+.dr .why{background:#f3f6f9;border-radius:10px;padding:12px 14px;margin:12px 0}.dr ol{padding-left:18px;color:#344556}.dr .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.toast{position:fixed;bottom:24px;right:24px;background:#14202b;color:#fff;padding:12px 18px;border-radius:10px;z-index:20;box-shadow:0 10px 30px #0004;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;max-width:380px}.toast.on{opacity:1;transform:none}
+.flg{background:var(--CRITICAL);color:#fff;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;margin-left:8px;animation:pulse 1.8s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 #c62f3b88}100%{box-shadow:0 0 0 9px #c62f3b00}}
+.flagbar{background:#fbe3e5;border:1px solid #e9a9af;color:#8c1d28;border-radius:10px;padding:12px 16px;margin:10px 0}
+.btn.ok{background:#e6f5ee;border-color:#9fd3b9;color:#1d6b46}.btn.ok:hover{background:var(--LOW);color:#fff}.btn.bad{background:#fbe3e5;border-color:#e9a9af;color:#a3202d}.btn.bad:hover{background:var(--CRITICAL);color:#fff}
+.dr .acts .btn{padding:11px 18px;font-weight:500}.dr .q{font-size:15px;font-weight:600;margin:18px 0 2px}
+html[data-t=dark]{--bg:#0d1620;--panel:#152231;--ink:#e6edf3;--muted:#8b9db0;--line:#24364a}
+html[data-t=dark] select,html[data-t=dark] .btn{background:#1d2e42;color:var(--ink);border-color:#2c4059}html[data-t=dark] .dr{background:var(--panel)}html[data-t=dark] .dr .why{background:#1d2e42}
+html[data-t=dark] tr.row:hover td,html[data-t=dark] tr.sevrow:hover td{background:#1b2d41}html[data-t=dark] .bar{background:#24364a}html[data-t=dark] svg [stroke="#e6ebef"]{stroke:#24364a}html[data-t=dark] svg text{fill:var(--ink)}
+html[data-t=dark] .btn.ok{background:#17382b;color:#7fd8ab}html[data-t=dark] .btn.bad{background:#3d1b21;color:#f19ba4}html[data-t=dark] .flagbar{background:#3d1b21;border-color:#7a2d37;color:#f4b3ba}html[data-t=dark] .tl .it::before{border-color:var(--panel)}
+</style></head><body>
+<nav>
+  <div class="brand"><svg width="20" height="22" viewBox="0 0 20 22" style="vertical-align:-4px;margin-right:6px"><path d="M10 1l8 3v6c0 5-3.5 9-8 11C5.5 19 2 15 2 10V4z" fill="#1f6fd0"/><path d="M6.5 11l2.5 2.5L14 8" stroke="#fff" stroke-width="2" fill="none"/></svg>DataShield</div><div class="tag">Data loss prevention</div>
+  <a data-v="overview"><span>Dashboard</span></a>
+  <a data-v="alerts"><span>Alerts</span><i class="n" id="nAlerts"></i></a>
+  <a data-v="users"><span>Devices</span></a>
+  <a data-v="policies"><span>Data and policies</span></a>
+  <a data-v="monitors"><span>Agents</span></a>
+  <div class="foot" id="clock"></div>
+</nav>
+<div class="main">
+  <div class="top"><h1 id="title"></h1><input id="q" type="search" placeholder="Search devices, users, alerts, files" aria-label="Search"><div class="sp"></div><span class="mut">Site: Crown Tech</span>
+    <label class="mut" for="win">Period</label>
+    <select id="win"><option value="60">Last hour</option><option value="240">Last 4 hours</option><option value="1440" selected>Last 24 hours</option><option value="10080">Last 7 days</option></select>
+    <span class="mut"><span class="dot on"></span>Live</span><button class="btn" id="th" aria-label="Toggle theme">Dark mode</button><a class="btn" id="csv" href="#">Export alerts</a></div>
+  <div id="view"></div>
+</div>
+<div class="dr" id="dr" role="dialog" aria-label="Alert details"></div><div class="toast" id="toast" role="status"></div>
+<script>
+const $=id=>document.getElementById(id),J=(u,o)=>fetch(u,o).then(r=>r.json());
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const Q=()=>$("q").value.toLowerCase(),base=p=>esc((p||"").split(/[\\/]/).pop()),W=()=>$("win").value;
+const LBL={FILE_READ:"File opened",FILE_WRITE:"File edited",FILE_DELETE:"File deleted",USB_INSERTED:"USB plugged in",USB_REMOVED:"USB removed",MODIFIED:"File changed",CREATED:"File created",DELETED:"File deleted",MOVED:"File moved",SENSITIVE_LOCAL_COPY:"Copied locally",SENSITIVE_USB_COPY:"Copied to USB",SENSITIVE_CLOUD_COPY:"Sent to Google Drive",SENSITIVE_UPLOAD:"Uploaded to web"};
+const TITLES={overview:"Dashboard",alerts:"Alerts",users:"Devices",user:"User profile",policies:"Data and policies",monitors:"Agents"};
+const sev=s=>`<span class="sev" style="background:var(--${s})">${s}</span>`;
+const bar=(v,l)=>`<div class="bar"><i style="width:${v}%;background:var(--${l})"></i></div>`;
+const when=t=>t?new Date(t).toLocaleString([],{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}):"never";
+const ring=(v,l)=>{const c=2*Math.PI*40;return `<div class="ring"><svg viewBox="0 0 100 100" width="96" height="96"><circle cx="50" cy="50" r="40" fill="none" stroke="#e6ebef" stroke-width="9"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--${l})" stroke-width="9" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-v/100)}" transform="rotate(-90 50 50)"/></svg><b>${v}</b></div>`};
+function chart(bk){const mx=Math.max(4,...bk.map(b=>b.activity+b.transfers)),w=600/bk.length,H=140;let s=`<line x1="0" y1="${H}" x2="600" y2="${H}" stroke="#dde3e9"/>`;
+ bk.forEach((b,i)=>{const a=b.activity/mx*(H-8),t=b.transfers/mx*(H-8),x=i*w+6;s+=`<rect x="${x}" y="${H-a}" width="${w-12}" height="${a}" rx="2" fill="#9db4c4"/><rect x="${x}" y="${H-a-t}" width="${w-12}" height="${t}" rx="2" fill="var(--CRITICAL)"/>`;
+ if(i%3==0)s+=`<text x="${x}" y="156" font-size="10.5" fill="#667585" font-family="IBM Plex Mono">${new Date(b.start).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</text>`});
+ return `<svg viewBox="0 0 600 160" preserveAspectRatio="none" style="width:100%;height:160px">${s}</svg><div class="mut"><span style="color:#9db4c4">&#9632;</span> File and USB activity &nbsp; <span style="color:var(--CRITICAL)">&#9632;</span> Sensitive transfers</div>`}
+function alertRows(a,showUser=true){a=a.filter(x=>!Q()||(x.title+x.file+x.user+x.detail).toLowerCase().includes(Q()));a.forEach(x=>AL[x.id]=x);if(!a.length)return `<div class="empty">No alerts in this period.</div>`;
+ return `<table><tr><th>Severity</th><th>What happened</th>${showUser?"<th>User</th>":""}<th>When</th><th></th></tr>`+a.map(x=>`<tr data-d="${x.id}" class="sevrow ${x.status=="open"&&isNew(x.id)?"flash":""}" style="--c:var(--${x.severity})">
+ <td>${sev(x.severity)}</td><td><b>${esc(x.title)}</b><div class="mut ell">${base(x.file)} · ${esc(x.detail)}</div></td>${showUser?`<td><a href="#user/${esc(x.user)}">${esc(x.user)}</a></td>`:""}
+ <td class="mut">${when(x.ts)}</td><td style="white-space:nowrap">${x.status=="open"?`<button class="btn sm ok" data-a="${x.id}" data-s="approved">Mark as okay</button> <button class="btn sm bad" data-a="${x.id}" data-s="suspicious">Flag as suspicious</button>`:stl(x.status)}</td></tr>`).join("")+"</table>"}
+let seen=null;const isNew=id=>seen&&!seen.has(id);
+function feed(rows){if(!rows.length)return `<div class="empty">Nothing recorded yet. Turn on an agent, then open or copy a sensitive file.</div>`;
+ return `<div class="tl">`+rows.map(e=>{const bad=e.kind=="transfer"&&e.event_type!="SENSITIVE_LOCAL_COPY",c=bad?"var(--CRITICAL)":["HIGH","CRITICAL"].includes(e.sensitivity)?"var(--HIGH)":"#9db4c4";
+ const nm=e.kind=="transfer"?base(e.source_path)+` → ${esc(e.destination_type.toLowerCase().replace("_"," "))}`:base(e.file_path);
+ return `<div class="it" style="--c:${c}"><b>${LBL[e.event_type]||esc(e.event_type)}</b> <span class="mut">· ${nm} · ${esc(e.sensitivity)}${e.application?" · "+esc(e.application):""}</span><div class="mut mono">${when(e.timestamp)}</div></div>`}).join("")+"</div>"}
+
+const flag=x=>x.flagged?'<span class="flg">Flagged</span>':'';
+const stl=s=>s=="auto_approved"?'<span class="sev" style="background:#1f6fd0">Auto-approved</span>':s=="approved"?'<span class="sev" style="background:var(--LOW)">Marked okay</span>':s=="suspicious"?'<span class="sev" style="background:var(--CRITICAL)">Flagged suspicious</span>':s;
+const setT=d=>{document.documentElement.dataset.t=d?"dark":"";$("th").textContent=d?"Light mode":"Dark mode";try{localStorage.t=d?"1":""}catch(e){}};
+const AL={};let known=null,tt;
+const toast=m=>{const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),3800)};
+const WHY=[[/USB/,"Removable media moves data out of the company with no network trace."],[/Drive|web/,"Company data placed on outside services is no longer under our control."],[/deleted/,"Deleting protected data can be sabotage or an attempt to hide activity."],[/Critical/,"Critical data should only be touched with a clear business reason."],[/After-hours/,"Access outside working hours is a common sign of insider activity."]];
+function drawer(id){const x=AL[id];if(!x)return;const why=(WHY.find(w=>w[0].test(x.title))||[0,"Unusual activity involving protected data."])[1];
+ $("dr").innerHTML=`<button class="btn sm" id="xdr">Close</button><h3>${esc(x.title)}</h3>${sev(x.severity)} ${stl(x.status)}
+ <dl><dt>User</dt><dd><a href="#user/${esc(x.user)}">${esc(x.user)}</a></dd><dt>File</dt><dd class="mono">${esc(x.file)}</dd><dt>Details</dt><dd>${esc(x.detail)}</dd><dt>Time</dt><dd>${when(x.ts)}</dd></dl>
+ ${x.reason?`<div class="why"><b>Policy decision</b><div class="mut" style="margin-top:4px">${esc(x.reason)}</div></div>`:""}<div class="why"><b>Why this matters</b><div class="mut" style="margin-top:4px">${why}</div></div><div class="q">Is this expected for this user?</div><div class="mut">A finance user opening a finance file is normal. The same user opening server credentials is not.</div><b style="display:block;margin-top:14px">Recommended steps</b><ol><li>Confirm with the user or their manager that this was authorised.</li><li>Check the destination and remove the copy if it was not.</li><li>Legitimate? Mark it as okay and the risk score drops.</li><li>Not legitimate? Flag it as suspicious. The user is flagged and the score rises.</li></ol>
+ <div class="acts">${x.status=="open"?`<button class="btn ok" data-a="${x.id}" data-s="approved">Mark as okay</button><button class="btn bad" data-a="${x.id}" data-s="suspicious">Flag as suspicious</button>`:`<button class="btn" data-a="${x.id}" data-s="open">Reopen alert</button>`}</div>`;$("dr").classList.add("on")}
+async function act(id,st){const x=AL[id],name=x?.user;await J("/api/alerts/"+id,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({status:st})});
+ $("dr").classList.remove("on");const us=await J("/api/users?window="+W()),u=us.find(v=>v.name==name);toast(`${st=="approved"?"Marked as okay":st=="suspicious"?"Flagged as suspicious. "+name+" is now flagged":"Alert reopened"}${u?`. Risk is now ${u.score} (inherent ${u.raw}).`:""}`);render()}
+const online=x=>x.last_seen&&Date.now()-new Date(x.last_seen)<120000;
+function donut(items,total,label){const c=2*Math.PI*38;let off=0,seg="";items.forEach(([l,v,col])=>{const d=total?v/total*c:0;seg+=`<circle cx="50" cy="50" r="38" fill="none" stroke="${col}" stroke-width="14" stroke-dasharray="${d} ${c-d}" stroke-dashoffset="${-off}" transform="rotate(-90 50 50)"/>`;off+=d});
+ return `<div class="wd"><svg viewBox="0 0 100 100" width="120" height="120"><circle cx="50" cy="50" r="38" fill="none" stroke="#e6ebef" stroke-width="14"/>${seg}<text x="50" y="55" text-anchor="middle" font-size="20" font-weight="600" fill="#14202b">${total}</text></svg><div class="lg">${items.map(([l,v,col])=>`<div><i style="background:${col}"></i>${l}: <b>${v}</b></div>`).join("")}</div></div>`}
+const V={
+async overview(){const [u,all,t]=await Promise.all([J("/api/users?window="+W()),J("/api/alerts?permitted=1&window="+W()),J("/api/timeline?window="+W())]);const a=all.filter(x=>x.status=="open");
+ const crit=a.filter(x=>x.severity=="CRITICAL").length,out=a.filter(x=>/USB|Drive|web/.test(x.title)).length,top=a.filter(x=>["CRITICAL","HIGH"].includes(x.severity)).slice(0,5);
+ const cnt=l=>a.filter(x=>x.severity==l).length,on=u.filter(online).length,t1=u[0],hi=cnt("CRITICAL")+cnt("HIGH"),ack=all.filter(x=>x.status=="permitted").length,cl=all.filter(x=>x.status=="suspicious").length;
+ const hero=`<div class="hero"><div class="rw">${ring(t1?t1.score:0,t1?t1.level:"LOW")}</div><div style="flex:1;min-width:260px"><div style="opacity:.75;font-size:13px">Security posture, highest-risk device</div><div style="font-size:22px;font-weight:600;margin:2px 0 4px">${hi?`${hi} high-priority alert${hi>1?"s":""} need review`:"No unresolved high-priority alerts"}</div><div style="opacity:.8;font-size:13.5px">Access your role permits raises no alert. DataShield alerts on access outside a role, and on any copy, upload or move.</div></div><div class="chips"><div><b>${u.length}</b>Devices</div><div><b>${a.length}</b>Need review</div><div><b>${ack}</b>Permitted, no alert</div><div><b>${cl}</b>Flagged</div></div></div>`;
+ return `${hero}<div class="grid g3"><div class="p"><h2>Open alerts by priority</h2>${donut([["Critical",cnt("CRITICAL"),"#c62f3b"],["High",cnt("HIGH"),"#e0702b"],["Moderate",cnt("MEDIUM"),"#d9a21b"],["Low",cnt("LOW"),"#1f6fd0"]],a.length)}</div>
+ <div class="p"><h2>Device status</h2>${donut([["Online",on,"#2f9e6b"],["Offline",u.length-on,"#b8c2cc"]],u.length)}</div>
+ <div class="p kpi ${out?"hot":""}"><h2>Data leaving devices</h2><b>${out}</b><span>sensitive file transfers to USB, cloud or web in this period</span></div></div>
+ <div class="grid g2" style="margin-top:16px"><div class="p"><h2>Needs attention <a href="#alerts" class="mut">All alerts</a></h2>${top.length?alertRows(top):`<div class="empty">No high-priority alerts. All clear.</div>`}</div>
+ <div class="p"><h2>Highest-risk users <a href="#users" class="mut">All users</a></h2>${u.length?u.slice(0,5).map(x=>`<div class="who" style="padding:8px 0"><a href="#user/${esc(x.name)}" class="who" style="flex:1;color:inherit;text-decoration:none"><span class="av">${esc(x.name[0])}</span><div style="flex:1"><b>${esc(x.name)}</b>${flag(x)}${bar(x.score,x.level)}</div></a>${sev(x.level)}</div>`).join(""):`<div class="empty">No users reporting yet.</div>`}</div></div>
+ <div class="p" style="margin-top:16px"><h2>Activity across all users</h2>${chart(t)}</div>`},
+async alerts(){const a=await J("/api/alerts?window="+W()),f=window.fS||"open",s=window.fV||"ALL";window.alertCache=a;
+ const rows=a.filter(x=>(f=="all"||x.status==f)&&(s=="ALL"||x.severity==s));
+ return `<div class="p"><h2><span>Triage queue</span><span><select id="fs">${["open","auto_approved","approved","suspicious","all"].map(o=>`<option ${o==f?"selected":""}>${o}</option>`)}</select> <select id="fv">${["ALL","CRITICAL","HIGH","MEDIUM","LOW"].map(o=>`<option ${o==s?"selected":""}>${o}</option>`)}</select></span></h2>${alertRows(rows)}</div>`},
+async users(){const u=(await J("/api/users?window="+W())).filter(x=>!Q()||(x.name+x.device).toLowerCase().includes(Q()));
+ return `<div class="p">${u.length?`<table><tr><th>Status</th><th>Device and user</th><th>Risk</th><th>Open alerts</th><th>Sensitive accesses</th><th>Data out</th><th>Last seen</th></tr>`+u.map(x=>`<tr class="row" data-u="${esc(x.name)}"><td>${online(x)?'<span class="dot on"></span>Online':'<span class="dot"></span>Offline'}</td><td><div class="who"><span class="av">${esc(x.name[0])}</span><div><b>${esc(x.device)}</b>${flag(x)}<div class="mut">${esc(x.name)} · ${esc(x.role)}</div></div></div></td>
+ <td style="width:200px"><div style="display:flex;gap:8px;align-items:center">${sev(x.level)}<b>${x.score}</b>${x.raw>x.score?`<span class="mut">was ${x.raw}</span>`:""}</div>${bar(x.score,x.level)}</td><td>${x.open_alerts?`<b style="color:var(--CRITICAL)">${x.open_alerts}</b>`:"0"}</td>
+ <td>${x.behavior.sensitive_files_accessed}</td><td>${x.behavior.usb_copies+x.behavior.cloud_uploads+x.behavior.sensitive_uploads}</td><td class="mut">${when(x.last_seen)}</td></tr>`).join("")+"</table>":`<div class="empty">No users yet. Agents on each device will register users here.</div>`}</div>`},
+async user(name){const w=W(),[us,a,ev,t]=await Promise.all([J("/api/users?window="+w),J("/api/alerts?user="+encodeURIComponent(name)+"&window="+w),J("/api/events?user="+encodeURIComponent(name)+"&cat="+(window.uc||"all")+"&window="+w),J("/api/timeline?user="+encodeURIComponent(name)+"&window="+w)]);
+ const u=us.find(x=>x.name==name);if(!u)return `<div class="empty">User not found.</div>`;const b=u.behavior,n=u.now,live=n&&Date.now()-new Date(n.timestamp)<30000;
+ const st=[["Sensitive accesses",b.sensitive_files_accessed],["Critical files",b.critical_files_accessed],["Copied to USB",b.usb_copies],["Sent to cloud",b.cloud_uploads],["Web uploads",b.sensitive_uploads],["After hours",b.after_hours_events],["USB inserted",b.usb_insertions],["Files edited",b.files_modified],["Files deleted",b.files_deleted]];
+ const tabs=[["all","Everything"],["files","File access"],["usb","USB"],["cloud","Cloud and uploads"]];
+ return `<a href="#users" class="mut">&larr; All devices</a>${u.flagged?`<div class="flagbar"><b>${esc(name)} is flagged as suspicious.</b> An administrator marked activity from this user as not legitimate. Reopen the alert to clear the flag.</div>`:""}<div class="p prof" style="margin-top:8px">${ring(u.score,u.level)}<div style="flex:1"><div class="who"><span class="av">${esc(name[0])}</span><div><h2 style="margin:0;font-size:20px;color:var(--ink)">${esc(name)}${flag(u)}</h2><div class="mut">${esc(u.device)} · ${esc(u.role)} · last seen ${when(u.last_seen)}</div></div></div>
+ <div style="margin-top:8px">${sev(u.level)} <span class="mut">${u.open_alerts} open alerts${u.raw>u.score?` · inherent risk ${u.raw}, lowered by ${u.raw-u.score} through handled alerts`:""}</span></div></div><div><span class="dot ${live&&n.idle_seconds<60?"on":""}"></span>${live?esc(n.application):"No live behavior data"}<div class="mut">${live?(n.idle_seconds>=60?"Idle "+n.idle_seconds+"s":"Active now"):"Turn on the user behavior agent"}</div></div></div>
+ <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));margin-top:16px">${st.map(([l,v])=>`<div class="p kpi ${v&&/USB|cloud|uploads|Critical/.test(l)?"hot":""}"><b>${v}</b><span>${l}</span></div>`).join("")}</div>
+ <div class="grid g2" style="margin-top:16px"><div class="p"><h2>Activity</h2>${chart(t)}</div><div class="p"><h2>Open alerts</h2>${alertRows(a.filter(x=>x.status=="open").slice(0,4),false)}</div></div>
+ <div class="tabs">${tabs.map(([k,l])=>`<a data-c="${k}" class="${(window.uc||"all")==k?"on":""}">${l}</a>`).join("")}</div><div class="p">${feed(ev)}</div>`},
+async policies(){const t=window.pt||"rules",[rl,rules,st,{files}]=await Promise.all([J("/api/roles"),J("/api/rules"),J("/api/settings"),J("/api/policies")]);
+ const tabs=[["rules","Detection rules"],["roles","Roles and access"],["data","Data classification"],["settings","Settings"],["method","Methodology"]];let b="";
+ if(t=="rules")b=`<div class="p"><table><tr><th>ID</th><th>Rule</th><th>Detected from</th><th>Severity</th><th>ISO 27001:2022</th><th>Hits, 30 days</th><th>On</th></tr>${rules.map(r=>`<tr><td class="mono">${r.id}</td><td><b>${esc(r.name)}</b><div class="mut">${esc(r.why)}</div></td><td class="mut">${esc(r.source)}</td><td>${esc(r.severity)}</td><td class="mut">${esc(r.iso)}</td><td>${r.hits}</td><td><button class="sw ${r.enabled?"on":""}" role="switch" aria-checked="${r.enabled}" aria-label="${esc(r.name)}" data-r="${r.id}"></button></td></tr>`).join("")}</table></div>`;
+ if(t=="roles")b=`<div class="grid g2"><div class="p"><h2>Role access rules</h2>${Object.entries(rl.roles).map(([r,f])=>`<div style="padding:8px 0;border-top:1px solid var(--line)"><b>${esc(r)}</b><div class="mut">${f.map(esc).join(", ")}</div></div>`).join("")}<div class="mut" style="margin-top:8px">Opening or editing a permitted file raises no alert. Access outside the role, and any copy, upload or move, does. Alerts outside working hours are raised one severity level.</div></div><div class="p"><h2>Assign roles</h2>${rl.users.map(u=>`<div class="who" style="padding:8px 0;justify-content:space-between"><b>${esc(u)}</b><select data-role="${esc(u)}" aria-label="Role for ${esc(u)}">${["Unassigned",...Object.keys(rl.roles)].map(r=>`<option ${r==(rl.assign[u]||"Unassigned")?"selected":""}>${esc(r)}</option>`)}</select></div>`).join("")}</div></div>`;
+ if(t=="data")b=`<div class="p"><h2>Classification scheme (ISO 27001:2022 A.5.12)</h2><table><tr><th>Level</th><th>Meaning</th><th>Handling</th></tr><tr><td>${sev("LOW")} Normal</td><td class="mut">Public or low impact</td><td class="mut">Not monitored</td></tr><tr><td>${sev("HIGH")} High</td><td class="mut">Confidential business data</td><td class="mut">Monitored. Access outside the role and any copy, upload or move alerts</td></tr><tr><td>${sev("CRITICAL")} Critical</td><td class="mut">Restricted, severe harm if leaked</td><td class="mut">Access outside the role is High or Critical. Any transfer out is Critical</td></tr></table></div><div class="p" style="margin-top:16px"><h2>Protected files</h2><table><tr><th>File</th><th>Class</th><th>Status</th><th>Accesses</th><th>Transfers</th></tr>${files.map(f=>`<tr><td><b>${esc(f.name)}</b><div class="mut ell mono">${esc(f.path)}</div></td><td>${esc(f.sensitivity)}</td><td>${f.exists?"Fingerprinted":'<span style="color:var(--CRITICAL)">File missing</span>'}</td><td>${f.accesses}</td><td>${f.transfers}</td></tr>`).join("")}</table></div>`;
+ if(t=="settings")b=`<div class="p" style="max-width:560px"><h2>Policy settings</h2>${[["work_start","Working hours start (hour, 0 to 23)"],["work_end","Working hours end (hour, 0 to 23)"],["half_life_h","Alert half-life (hours)"],["saturation","Score curve constant k (higher is slower to rise)"],["flag_floor","Minimum score for a flagged user"]].map(([k,l])=>`<label class="who" style="justify-content:space-between;padding:8px 0">${l}<input class="setf" data-k="${k}" type="number" min="1" value="${st[k]}" style="width:90px;padding:6px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)"></label>`).join("")}<label class="who" style="justify-content:space-between;padding:8px 0">No alert for role-permitted open or edit<input class="setf" data-k="auto_approve" type="checkbox" ${st.auto_approve?"checked":""}></label><button class="btn pri" id="savest" style="margin-top:10px">Save settings</button></div>`;
+ if(t=="method")b=`<div class="grid g2"><div class="p"><h2>How events are detected</h2><ol class="mut" style="color:var(--ink);line-height:1.7"><li><b>Content fingerprinting.</b> Each protected file gets a SHA-256 hash. Any copy with identical content is recognised, even if renamed.</li><li><b>File activity.</b> Windows Security events 4663 (access) and 4660 (deletion), correlated by handle ID.</li><li><b>Destinations.</b> USB through WMI and drive monitoring, Google Drive through its sync folder, web through an upload gateway.</li><li><b>Context.</b> Active application and idle time from the behavior agent.</li></ol></div>
+<div class="p"><h2>How the risk score is calculated</h2><div class="mono" style="background:var(--bg);padding:12px;border-radius:8px;line-height:1.8">L = sum( weight x status x 0.5^(age / half-life) )<br>score = 100 x (1 - e^(-L / k))</div><ul class="mut" style="line-height:1.7"><li>Weights: Critical 25, High 15, Medium 6, Low 1.</li><li>Status factor: open 1, suspicious 2, approved or auto-approved 0.</li><li>Alerts fade with a half-life, so risk cools on its own.</li><li>The curve is bounded at 100 and has diminishing returns, so one event cannot spike a score.</li><li>A flagged user never drops below the flag floor until the alert is reopened.</li></ul></div></div>
+<div class="grid g2" style="margin-top:16px"><div class="p"><h2>Human review and least privilege</h2><p class="mut" style="line-height:1.7">Access is judged against the user's role. Opening or editing a file your role permits raises no alert, but it is still logged. Copying, uploading or moving any protected file, and any access outside the role, raises an alert that needs an administrator decision, which is stored with a timestamp for audit. This follows least privilege (ISO 27001:2022 A.5.15, A.8.3) and keeps analysts focused on exceptions.</p></div>
+<div class="p"><h2>Known limitations</h2><ul class="mut" style="line-height:1.7"><li>Detect and alert only. It does not block transfers.</li><li>Exact hash matching misses edited, compressed or encrypted copies. Fuzzy hashing and content inspection are future work.</li><li>Cloud coverage is the Google Drive sync folder, not browser uploads.</li><li>Windows only. File auditing (SACL) must be enabled and the file agent run as Administrator.</li></ul></div></div>`;
+ return `<div class="tabs" style="margin-top:0">${tabs.map(([k,l])=>`<a data-p="${k}" class="${t==k?"on":""}">${l}</a>`).join("")}</div>${b}`},
+async monitors(){const m=await J("/api/monitors");
+ return `<div class="p"><h2>Collection agents on this device</h2>${m.map(x=>`<div class="mon"><span class="dot ${x.running?"on":""}"></span><div><b>${esc(x.name)}</b><div class="mut">${esc(x.desc)}</div>${x.exited?`<div style="color:var(--CRITICAL);font-size:12px;margin-top:3px">Stopped: ${esc(x.log.slice(-180)||"no output")}</div>`:""}</div><span class="mut mono">${esc(x.script)}</span><button class="sw ${x.running?"on":""}" role="switch" aria-checked="${x.running}" aria-label="${esc(x.name)}" data-m="${x.key}"></button></div>`).join("")}</div>
+ <div class="p" style="margin-top:16px"><h2>Demo tools</h2><button class="btn dng" id="reset">Clear all events and alerts</button></div>`}
+};
+
+let cur="overview",arg=null,busy=false;
+async function render(){if(busy)return;busy=true;try{
+ const h=location.hash.slice(1).split("/");cur=h[0]||"overview";arg=decodeURIComponent(h[1]||"");
+ if(!V[cur])cur="overview";
+ document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.v==cur||(cur=="user"&&a.dataset.v=="users")));
+ $("title").textContent=cur=="user"?arg:TITLES[cur];
+ const html=await V[cur](arg);if(!["SELECT","INPUT"].includes(document.activeElement?.tagName)||document.activeElement.id=="q")$("view").innerHTML=html;
+ const open=await J("/api/alerts?status=open&window="+W());$("nAlerts").textContent=open.length||"";if(known){const nw=open.filter(x=>!known.has(x.id)&&x.severity!="LOW");if(nw.length)toast(`New ${nw[0].severity.toLowerCase()} alert: ${nw[0].title}`)}known=new Set(open.map(x=>x.id));
+ if(!seen||cur!="alerts")seen=new Set(open.map(x=>x.id));
+ $("csv").href="/api/alerts.csv?window="+W();
+}finally{busy=false}}
+document.addEventListener("click",async e=>{const t=e.target;
+ if(t.id=="th")return setT(document.documentElement.dataset.t!="dark");if(t.dataset.p){window.pt=t.dataset.p;return render()}if(t.dataset.r){await J("/api/rules/"+t.dataset.r,{method:"POST"});return render()}
+ if(t.id=="savest"){const b={};document.querySelectorAll(".setf").forEach(i=>b[i.dataset.k]=i.type=="checkbox"?i.checked:i.value);await J("/api/settings",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)});toast("Settings saved. Scores and alerts use them immediately.");return render()}
+ if(t.dataset.a)return act(t.dataset.a,t.dataset.s);if(t.id=="xdr")return $("dr").classList.remove("on");const d=t.closest("tr[data-d]");if(d&&!t.closest("a"))return drawer(d.dataset.d);
+ if(t.dataset.m){await J("/api/monitors/"+t.dataset.m,{method:"POST"});return render()}
+ if(t.dataset.c){window.uc=t.dataset.c;return render()}
+ if(t.id=="reset"&&confirm("Delete all recorded events and alerts? This is for starting a clean demo.")){await J("/api/reset",{method:"POST"});return render()}
+ const r=t.closest("tr.row");if(r&&r.dataset.u)location.hash="user/"+r.dataset.u});
+document.addEventListener("change",async e=>{if(e.target.dataset.role){const u=e.target.dataset.role,r=e.target.value;e.target.blur();await J("/api/roles/assign",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({user:u,role:r})});toast(`${u} is now ${r==="Unassigned"?"unassigned":"a "+r+" user"}. Policy applies immediately.`);return render()}if(e.target.id=="fs"){window.fS=e.target.value;render()}if(e.target.id=="fv"){window.fV=e.target.value;render()}});
+document.addEventListener("keydown",e=>{if(e.key=="Escape")$("dr").classList.remove("on")});$("win").onchange=render;$("q").oninput=render;document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>location.hash=a.dataset.v);
+addEventListener("hashchange",render);setInterval(render,3000);setInterval(()=>$("clock").textContent=new Date().toLocaleTimeString(),1000);try{setT(localStorage.t=="1")}catch(e){setT(false)}render();
+</script></body></html>

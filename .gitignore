@@ -36,3 +36,10 @@ datashield_pgdata-backup-*.tar.gz
 *.joblib
 *.pkl
 *.parquet
+# CERT research and the preserved Flask instance keep local data out of Git.
+/research/local/
+/proj/dataset/
+/dataset/
+*.tar.bz2
+/legacy/downloaded_flask/data/
+/legacy/downloaded_flask/sensitive_files/
