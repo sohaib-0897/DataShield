@@ -12,6 +12,8 @@ from research.cert_ingest import SOURCES, atomic_json, encoded, hash_file, local
 from ml.features.windows import CHANNELS, FEATURE_NAMES, VERSION, build_windows
 
 LABEL_VERSION = 'cert-r42-exact-observable-v1'
+MAX_METADATA_BYTES = 128 * 1024**2
+MAX_ARTIFACT_BYTES = 64 * 1024**2
 
 
 def cached_rows(member, folder):
@@ -94,6 +96,8 @@ def join_labels(events, observables):
 
 
 def read_events(database, folder, max_events=100000):
+    if max_events < 1:
+        raise ValueError('Event memory bound must be positive')
     database = local_path(folder, database)
     if not database.is_file():
         raise ValueError('Missing research store')
@@ -101,8 +105,11 @@ def read_events(database, folder, max_events=100000):
         if db.execute('PRAGMA application_id').fetchone()[0] != 0x43455254 or db.execute('PRAGMA user_version').fetchone()[0] != 1:
             raise ValueError('Incompatible CERT store')
         db.row_factory = sqlite3.Row
+        db.execute('BEGIN')
         if db.execute('SELECT count(*) FROM events').fetchone()[0] > max_events:
             raise ValueError('Event memory bound exceeded; use a bounded research store')
+        if db.execute('SELECT coalesce(sum(length(cast(metadata_json AS BLOB))),0) FROM events').fetchone()[0] > MAX_METADATA_BYTES:
+            raise ValueError('Metadata memory bound exceeded')
         events = [dict(r) for r in db.execute('SELECT * FROM events ORDER BY source_file,source_row')]
     if not events or len({e['dataset_sha256'] for e in events}) != 1:
         raise ValueError('Require one nonempty dataset')
@@ -160,6 +167,8 @@ def prepare(database, answer_manifest, folder, output, *, work_start=9, work_end
 
 def load_artifact(path, folder):
     path = local_path(folder, path)
+    if path.stat().st_size > MAX_ARTIFACT_BYTES:
+        raise ValueError('Feature artifact memory bound exceeded')
     value = json.loads(path.read_text())
     expected = value.pop('artifact_sha256')
     if hashlib.sha256(encoded(value).encode()).hexdigest() != expected:

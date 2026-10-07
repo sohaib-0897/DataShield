@@ -1,0 +1,66 @@
+{
+  "comparison": null,
+  "comparison_status": "UNAVAILABLE",
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "document_sensitivity_corpus": "NOT_ESTABLISHED",
+  "duplicate_normalized_keyword_bags": 111,
+  "events": 10000,
+  "feature_artifact_sha256": "5160696f307757b45a2fe9f2bc35b1d9b99a6abfd689e2690098a5293936543d",
+  "full_dataset": false,
+  "held_out_prevalence_policy": "no class resampling; report filtered common cohort explicitly",
+  "leakage_audit": {
+    "duplicate_policy": "drop later windows containing any prior normalized keyword bag",
+    "identity_policy": "drop later users observed in any prior partition",
+    "incident_disjoint": true,
+    "partitions": {
+      "test": {
+        "after": 0,
+        "before": 38,
+        "removed": {
+          "missing_text": 1,
+          "seen_identity": 37
+        }
+      },
+      "train": {
+        "after": 81,
+        "before": 83,
+        "removed": {
+          "missing_text": 2
+        }
+      },
+      "validation": {
+        "after": 1,
+        "before": 43,
+        "removed": {
+          "seen_identity": 42
+        }
+      }
+    },
+    "scenario_disjoint": true,
+    "shared_incident_count": 0,
+    "shared_scenario_count": 0
+  },
+  "live_activation": false,
+  "nonempty_sanitized_text_events": 6000,
+  "original_numeric_population": {
+    "test": 38,
+    "train": 83,
+    "validation": 43
+  },
+  "store_sha256": "b7786288d4560b90e8f8c80e3aa9e51e5a6eaa48cff27357eb065fde4d7f03a4",
+  "task": "CERT malicious event-window keyword detection; NOT document sensitivity",
+  "text_source_events": 6000,
+  "text_sources": "content keyword fields only; file hex headers removed; no resources or identities",
+  "train_class_counts": {
+    "0": 81
+  },
+  "unavailable_reasons": [
+    "insufficient_training_classes",
+    "insufficient_validation_classes",
+    "empty_held_out_cohort_after_leakage_controls"
+  ],
+  "validation_class_counts": {
+    "0": 1
+  },
+  "version": "cert-keyword-text-research-v1"
+}

@@ -1,0 +1,245 @@
+{
+  "documents": 10,
+  "kind": "SYNTHETIC_TEST_ONLY_NOT_A_SENSITIVITY_CORPUS",
+  "limits": {
+    "cpu_seconds": 5,
+    "max_bytes": 2097152,
+    "max_chars": 32768,
+    "max_pages": 40,
+    "max_zip_bytes": 16777216,
+    "max_zip_entries": 512,
+    "memory_bytes": 536870912
+  },
+  "live_data_used": false,
+  "passed_status_checks": 10,
+  "raw_text_logged": false,
+  "results": {
+    "empty.txt": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "EMPTY",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "version": "document-extraction-evidence-v1"
+    },
+    "encrypted.pdf": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "ENCRYPTED",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "8e97d07ca0da322b910238f7c4bfe0c4497850ca3d6cf33b5c1acd92655a8d7a",
+      "version": "document-extraction-evidence-v1"
+    },
+    "malformed.docx": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "MALFORMED",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "a3989126344744ef800dbc88bf7e744853f3f2eac75c9ab3301f4e845ef22078",
+      "version": "document-extraction-evidence-v1"
+    },
+    "malformed.pdf": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "MALFORMED",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "07bcbca5e5cff5eadb6a3578850bb9413f9bfd2406d9210b0c25b7f78449889a",
+      "version": "document-extraction-evidence-v1"
+    },
+    "malformed.txt": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "MALFORMED",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f",
+      "version": "document-extraction-evidence-v1"
+    },
+    "no_text.pdf": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "SCANNED_OR_NO_TEXT",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "b37a58fb510237b6b60b1e610deecd3eb013ff71836b831faf66958f83affbe3",
+      "version": "document-extraction-evidence-v1"
+    },
+    "report.docx": {
+      "automated_blocking": false,
+      "content_available": true,
+      "extracted_chars": 102,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [
+        {
+          "count": 1,
+          "spans": [
+            [
+              64,
+              79
+            ]
+          ],
+          "spans_truncated": false,
+          "type": "cnic_like"
+        },
+        {
+          "count": 1,
+          "spans": [
+            [
+              31,
+              51
+            ]
+          ],
+          "spans_truncated": false,
+          "type": "email_address"
+        }
+      ],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "097c0bc5c2d02ae0da9ff14262601cc39fb6dc19bed090b737ccc3b81a292e21",
+      "version": "document-extraction-evidence-v1"
+    },
+    "report.pdf": {
+      "automated_blocking": false,
+      "content_available": true,
+      "extracted_chars": 81,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [
+        {
+          "count": 1,
+          "spans": [
+            [
+              64,
+              79
+            ]
+          ],
+          "spans_truncated": false,
+          "type": "cnic_like"
+        },
+        {
+          "count": 1,
+          "spans": [
+            [
+              31,
+              51
+            ]
+          ],
+          "spans_truncated": false,
+          "type": "email_address"
+        }
+      ],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "91db66dd3a270af02e32a91744fddbf05d0a707d2ad1cd4375f022ddada59a94",
+      "version": "document-extraction-evidence-v1"
+    },
+    "report.txt": {
+      "automated_blocking": false,
+      "content_available": true,
+      "extracted_chars": 80,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [
+        {
+          "count": 1,
+          "spans": [
+            [
+              64,
+              79
+            ]
+          ],
+          "spans_truncated": false,
+          "type": "cnic_like"
+        },
+        {
+          "count": 1,
+          "spans": [
+            [
+              31,
+              51
+            ]
+          ],
+          "spans_truncated": false,
+          "type": "email_address"
+        }
+      ],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "aac68e836b2474687cacaadea798240aab0fd2026688757ddd2dbf2ff77f55e2",
+      "version": "document-extraction-evidence-v1"
+    },
+    "unsupported.xlsx": {
+      "automated_blocking": false,
+      "content_available": false,
+      "extracted_chars": 0,
+      "extraction_status": "UNSUPPORTED",
+      "extraction_truncated": false,
+      "filename_label": null,
+      "hash_available": true,
+      "hash_label": null,
+      "pii_evidence": [],
+      "pii_source": "RULE_PATTERNS",
+      "sensitivity_model_status": "UNAVAILABLE_NO_LABELED_CORPUS",
+      "sha256": "7f6d26eac1124dee8f6b28f323466dd5545cc8b75a7f00c4b4fcdc57cfe8a45b",
+      "version": "document-extraction-evidence-v1"
+    }
+  },
+  "seconds": 0.6277845700024045,
+  "sensitivity_model_trained": false,
+  "software": {
+    "lxml": "6.1.3",
+    "pypdf": "6.19.0",
+    "python-docx": "1.2.0"
+  },
+  "timeout_seconds": 8
+}

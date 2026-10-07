@@ -85,7 +85,7 @@
 | 1 | Actual release inspection and safe resumable ingestion | completed 0 | completed |
 | 2 | Exact-event labels and shared per-user features | 1 | completed (bounded) |
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | completed (bounded) |
-| 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | pending |
+| 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | completed (bounded; comparison unavailable) |
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | pending |
 | 6 | Full run, fair comparisons, error analysis, handover | 1–5 | pending |
 
@@ -164,27 +164,27 @@
 - Bounded data/artifacts ignored; Phase 2 label/features evidence: docs/implementation/phase2/.
 
 ## Current phase, checkpoint, and exact next action
-- Phase 0 completed: normal fetch/push and fresh remote verification succeeded on 2026-10-08.
-- Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b.
-- Phase 1 completed: acceptance passed, checkpoint pushed normally, fresh remote SHA matched local HEAD.
-- Phase 1 verified implementation checkpoint: 07a39cadc924357b2b93e984e2bfd23e73ebf991.
-- Release inspection: 28 r4.2 members, 202 answers members; input SHA-256 hashes recorded.
-- Isolated CLI: research/cert_ingest.py; actual schemas and mappings: docs/implementation/phase1/ingestion.md.
-- Prepared bound: 2,000 rows per CSV; expanded archive members 16,181,487,042 bytes; cache 6,252,530 bytes.
-- Real acceptance: interrupted at 250 committed rows, resumed to 5,000, then 10,000 events; zero errors/duplicates.
-- API/CLI repeats idempotent; 10,000 rows verified against raw source metadata; no labels/models created.
-- Tests: 28 passed/no failures/skips; unsafe paths/links, resource bounds, resume/rollback, dedup, concurrent writers.
-- Preservation: 30 original source/live hashes, 19 copied normalized hashes, 3 input stats unchanged; app trees unchanged.
-- Detailed results: docs/implementation/phase1/acceptance.json, tests.json, preservation.json; raw data ignored.
-- Current authorization: complete Phases 2–4 sequentially, commit/push each tested milestone.
-- Phase 2 bounded acceptance: 10,000 negatives; 7,323 unmatched observables; zero ambiguous events.
-- Feature schema cert-user-hour-v1: 3,291 active hours, 164 fully observed; past-only per-user baselines.
-- Phase 2 checks: 43 targeted passes; 62 isolated tracked regressions; deterministic replay/preservation passed.
-- Phase 2 evidence/commands: docs/implementation/phase2/features.md, acceptance.json, verification.json.
-- Phase 2 pushed/freshly verified: f958802f6f22b5a0fe46f3ee725c15177cf2e51f; Phase 3 in progress.
-- Zero positives prohibit supervised training/quality claims for this prefix; report undefined metrics honestly.
-- Phase 3 real benchmark: 83/43/38 chronological windows, all zero-positive; 200 trees/seed 42/one CPU.
-- Test TN36/FP2/FN0/TP0; precision 0; recall/F1/PR-AUC null; 0.05263 false alerts/evaluated user-day.
-- Training/reload/artifact hashes deterministic; supervised unavailable; no detection-quality claim.
-- Phase 3 evidence/commands: docs/implementation/phase3/behavioral-ml.md and benchmark.json.
-- Phase 3 isolated full suite: 85 passed/no skips; preservation and 19 copied hashes passed.
+- User authorized Phases 2–4 sequentially without routine confirmation; implementation/acceptance now finished.
+- Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b; baseline results preserved above.
+- Phase 1 verified implementation: 07a39cadc924357b2b93e984e2bfd23e73ebf991; final start HEAD 4c5a52ed.
+- Phase 1: 10,000 events/zero errors, interrupted resume/idempotency; 28 safety tests; no full ingestion claim.
+- Phase 2 pushed/freshly verified: f958802f6f22b5a0fe46f3ee725c15177cf2e51f.
+- Phase 2: exact labels, 10,000 negatives, 7,323 unmatched observables, zero ambiguous; 50 impersonated subjects.
+- Phase 2: 3,291 active user-hours/164 fully observed; past-only users, availability, configurable work hours.
+- Phase 2: 43 targeted + 62 isolated tracked passes; deterministic feature replay; docs/implementation/phase2/.
+- Phase 3 pushed/freshly verified: 63595ab35986bdc495ed916f24735312f559752a.
+- Phase 3: 83/43/38 chronological train/val/test windows, zero positives; seed 42/200 trees/one CPU worker.
+- Phase 3: train-only preprocessing, validation-only threshold; deterministic scores/serialized artifact hashes.
+- Test TN36/FP2/FN0/TP0; precision 0; recall/F1/PR-AUC null; false alerts/evaluated user-day 0.05263.
+- Phase 3: 51 targeted/85 isolated full passes; supervised unavailable; docs/implementation/phase3/.
+- Phase 4: 6,000 texts/111 duplicate bags; filtered train/val/test 81/1/0; supervised comparison unavailable.
+- Phase 4: bounded TXT/PDF/DOCX, explicit unavailable outcomes, redacted PII + independent filename/hash evidence.
+- Phase 4: ten synthetic actual parser checks; 75 targeted/109 isolated full passes, no skips, one prior warning.
+- Phase 4: text/feature replay passed; no sensitivity corpus/model claim; docs/implementation/phase4/.
+- Final preservation: 30 original/live hashes, 19 copied normalized hashes, three input stats unchanged.
+- Original application trees unchanged; research data/models ignored; no model activation or policy changes.
+- Publication checkpoints/final resume instructions: CONTEXT.md and docs/implementation/publication.json.
+- Phase 5/6 remain pending/outside this request; Windows/PostgreSQL and npm findings remain unverified/open.
+- Exact next step: begin Phase 5 explicit advisory adapter contracts on a new request, keeping shadow/rule fallback.
+- For detection-quality comparisons, first prepare a broader chronological CERT cohort with positive examples.
+- Independent document-sensitivity supervision is also required before a trained sensitivity accuracy claim.

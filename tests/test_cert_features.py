@@ -163,3 +163,26 @@ def test_observable_subject_can_differ_from_incident_actor(tmp_path):
     assert rows[0]['metadata']['user'] == 'victim'
     labels, _ = features.join_labels([event(user='victim')], rows)
     assert labels[('d', 'file.csv', '1')]['label'] == 1
+
+
+def test_byte_bounds_reject_before_materialization(tmp_path, monkeypatch):
+    import sqlite3
+    from research.cert_ingest import SCHEMA
+    database = tmp_path / 'research.sqlite'
+    with sqlite3.connect(database) as db:
+        db.executescript(SCHEMA)
+        db.execute('PRAGMA application_id=1128616532')
+        db.execute('PRAGMA user_version=1')
+        db.execute('INSERT INTO events VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+                   ('d', 'file.csv', 'id', 1, 'a', 'pc', 'date', '2010-01-04T08:00:00',
+                    'unspecified_release_local', 'FILE', 'copy', 'resource', '{"content":"synthetic"}', 'hash'))
+    monkeypatch.setattr(features, 'MAX_METADATA_BYTES', 1)
+    with pytest.raises(ValueError, match='Metadata memory'):
+        features.read_events(database, tmp_path)
+    with pytest.raises(ValueError, match='positive'):
+        features.read_events(database, tmp_path, max_events=0)
+    path = tmp_path / 'feature.json'
+    path.write_text('synthetic oversized fixture')
+    monkeypatch.setattr(features, 'MAX_ARTIFACT_BYTES', 1)
+    with pytest.raises(ValueError, match='artifact memory'):
+        features.load_artifact(path, tmp_path)

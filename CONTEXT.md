@@ -295,3 +295,30 @@ docs/implementation/phase3/verification.json. No active model or live changes.
 After publishing/verifying this checkpoint proceed to Phase 4, as authorized;
 text supervision is likewise unavailable on this prefix. Numeric report and
 exact commands: docs/implementation/phase3/behavioral-ml.md and benchmark.json.
+
+## Phase 4 bounded acceptance — 2026-10-08
+
+Phase 3 checkpoint 63595ab35986bdc495ed916f24735312f559752a was pushed and
+freshly verified before Phase 4. Real text study: 6,000 keyword events, 111 duplicate
+bags, zero positives. Identity/duplicate controls retain 81/1/0 train/val/test
+windows; supervised numeric/text comparison is unavailable, with no invented metrics.
+TXT/PDF/DOCX extraction runs in bounded subprocesses, handles unavailable outcomes,
+produces redacted rule PII evidence, and preserves separate caller filename/hash
+signals. Ten synthetic actual parser checks passed; 75 targeted tests/no skips.
+No genuine sensitivity corpus, trained text/sensitivity model, active research model,
+live data/policy modification or full ingestion is claimed. Commands and exact
+results: docs/implementation/phase4/nlp-documents.md, text_study.json and
+document_acceptance.json. Full isolated regression/preservation verification and
+publication are the final closure steps. Phase 5/6 remain outside this request.
+
+## Phase 4 verification closure — 2026-10-08
+
+109 tests passed in the staged-source isolated full suite, no skips, one existing
+Starlette/httpx warning. 75 targeted research tests and ten actual synthetic
+document status checks passed. Text replay and the feature replay after memory
+guards are identical. Thirty original/live hashes, nineteen preserved normalized
+hashes and three archive stat records match; all original application trees are
+unchanged. Phase 4 verification: docs/implementation/phase4/verification.json.
+Commit/push/fresh SHA verification closes this phase; publication evidence and a
+new current resume pointer will be recorded after that success. Phase 5/6 remain
+pending and outside this request. No new live model, policy, schema or data change.

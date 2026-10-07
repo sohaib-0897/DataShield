@@ -1,0 +1,44 @@
+{
+  "targeted": {
+    "passed": 75,
+    "skipped": 0,
+    "document_cases": 18,
+    "text_cases": 5,
+    "numeric_cases": 8,
+    "feature_cases": 16,
+    "ingestion_cases": 28
+  },
+  "isolated_full_suite": {
+    "passed": 109,
+    "skipped": 0,
+    "warnings": 1,
+    "exit_code": 0,
+    "source": "staged Python source copied to disposable SQLite sandbox"
+  },
+  "historical_initial_targeted_run": {
+    "passed": 22,
+    "failed": 1,
+    "reason": "synthetic zero-label fixture retained stale positive numeric partition audit",
+    "resolution": "regenerated numeric prerequisite audit; snapshot equality guard retained"
+  },
+  "synthetic_document_actual_status_checks": {
+    "passed": 10,
+    "sensitivity_accuracy_claim": false
+  },
+  "text_study_replay_equal": true,
+  "feature_replay_after_memory_guards_equal": true,
+  "original_preservation": {
+    "source_live_hashes": 30,
+    "archive_stat_records": 3,
+    "matches_before": true,
+    "preserved_normalized_hashes": 19
+  },
+  "research_store_sha256_unchanged": true,
+  "application_trees_changed": [],
+  "raw_artifacts_staged": false,
+  "live_model_activation": false,
+  "supervised_cert_text_comparison": "UNAVAILABLE",
+  "document_sensitivity_corpus": "NOT_ESTABLISHED",
+  "native_windows": "UNVERIFIED",
+  "postgresql": "UNVERIFIED"
+}
