@@ -1,5 +1,13 @@
 # Security boundaries
 
+Latest dependency scope review (2026-10-08): the user's `npm ci` reported 106 findings
+(3 low, 36 moderate, 65 high, 2 critical). Cached advisory matching reproduces the count:
+two moderate production-declared React Router package findings and 104 development-graph
+findings. Current Docker startup uses the CRA development server, so the dev classification
+does not exclude deployed-process exposure. No dependencies were changed. See the
+[Phase 0 review](../implementation/phase0/npm_audit_review.md) for evidence, critical
+package paths and limits; the dated September results below are historical.
+
 Interactive users use Argon2 hashes and eight-hour JWTs. Logout removes the browser's session token; expired or inactive-user tokens receive 401 and the client clears the token and redirects to sign-in. There is no token revocation or refresh. Agents use one shared long secret rather than per-endpoint keys; per-endpoint credential rotation is deferred to avoid changing the established host-agent protocol during the demo release. Secrets belong in ignored `.env` or environment variables. CORS allows one configured origin. Roles are enforced server side. Event bodies are capped at 256 KiB and metadata at 16 KiB. Stored metadata is allowlisted; scanned text is discarded and matches are masked. The active API does not serve arbitrary file previews. The file agent sends at most 12 KiB of text for server side scanning over the configured HTTP connection; run this prototype on localhost or place it behind TLS before using any non-synthetic confidential text.
 
 This remains an academic prototype. Agent keys are shared rather than per endpoint. JWTs lack rotation and revocation. Use localhost or a trusted development network. The system does not intercept arbitrary HTTPS traffic or undo completed disk operations.

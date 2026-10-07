@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-08",
+  "backend": {
+    "exit_code": 0,
+    "passed": 34,
+    "warnings": 1,
+    "source": "upstream_baseline_completed.json"
+  },
+  "remaining_features": {
+    "passed": 4,
+    "skipped": 0,
+    "source": "remaining_feature_checks_completed.json"
+  },
+  "flask_baseline": "22 distinct checks pass across initial 18-pass run and completed 4-feature run; not a claimed single 22-test native run",
+  "frontend": {
+    "npm_ci": "user verified success; npm log exit 0",
+    "tests_passed": 7,
+    "tests_source": "user verified terminal count; npm test log exit 0",
+    "production_build": "user verified successful compile; npm build log exit 0 and asset manifest exists",
+    "asset_manifest_sha256": "312fee8a497c89def6d1a87586f0e14d3b2f7fd8901439a513020807664534e3",
+    "logs": {
+      "npm_ci": {
+        "log": "/home/sohaib/.npm/_logs/2026-10-07T18_56_08_453Z-debug-0.log",
+        "sha256": "bb47bc15cf4135bd9e0855f336e667f379dce505e2785442c1dcfff8c1b87889",
+        "command_exit_lines": [
+          "20 verbose title npm ci",
+          "6836 verbose exit 0",
+          "6838 info ok"
+        ]
+      },
+      "frontend_tests": {
+        "log": "/home/sohaib/.npm/_logs/2026-10-07T18_57_53_633Z-debug-0.log",
+        "sha256": "9bb90da812d1dff8c9084da5571b192fe6db434a4f8deba3fda4498815f773a0",
+        "command_exit_lines": [
+          "20 verbose title npm test",
+          "35 verbose exit 0",
+          "37 info ok"
+        ]
+      },
+      "frontend_build": {
+        "log": "/home/sohaib/.npm/_logs/2026-10-07T18_57_57_196Z-debug-0.log",
+        "sha256": "ff241aaa42a61f0a60b729e768832912ae4a9bcbc9dab04a6e27b47d918487c3",
+        "command_exit_lines": [
+          "20 verbose title npm run build",
+          "34 verbose exit 0",
+          "36 info ok"
+        ]
+      }
+    }
+  },
+  "preservation": {
+    "original_source_live_files": 30,
+    "original_hashes_unchanged": true,
+    "archive_stats_unchanged": true,
+    "preserved_source_files": 19,
+    "normalized_hashes_unchanged": true,
+    "upstream_files_checked": 110,
+    "intentional_changed_files": [
+      ".gitignore",
+      "docs/security/security.md"
+    ],
+    "application_source_or_lock_changes": []
+  },
+  "native_windows_verified": false,
+  "postgresql_integration_verified": false,
+  "fresh_remote_verification": "unavailable: github.com DNS fails; user confirmed ea65336 push and cached origin matches",
+  "phase1_started": false
+}

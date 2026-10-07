@@ -1,7 +1,7 @@
 # Phase 0: checkout comparison and regression baseline
 
-Updated 2026-10-07. **Phase remains incomplete:** native dependencies/frontend tooling
-and remote checkpoint verification are unavailable. This is the current audit;
+Updated 2026-10-08. **Functional Phase 0 checks are finished; reviewed checkpoint
+publication/remote verification remains pending because this session lacks GitHub DNS.** This is the current audit;
 `phase0_audit.md` retains the earlier detailed inspection of the supplied Flask source.
 
 ## Checkout and preservation decision
@@ -72,11 +72,13 @@ No model was trained, activated or assigned new fusion weights by this phase.
 
 | Check | Actual result | Evidence/limits |
 |---|---|---|
-| Downloaded Flask original | 18 passed, 4 skipped, no failures/errors | `phase0_baseline.json`; initial safe check |
-| Preserved Flask copy | 18 passed, 4 skipped, no failures/errors | `preserved_flask_baseline.json`; synthetic fixtures/temp DBs/policies |
+| Downloaded Flask original (initial) | 18 passed, 4 skipped, no failures/errors | Historical `phase0_baseline.json`; initial safe check |
+| Preserved Flask copy (initial) | 18 passed, 4 skipped, no failures/errors | Historical `preserved_flask_baseline.json` |
+| Four outstanding feature checks | 4 passed, no skips/failures/errors | `remaining_feature_checks_completed.json`; native pandas, temporary SQLite |
 | Existing upstream CERT-format tests | 2 passed | `python3 -B -m pytest -q tests/test_cert_loader.py -p no:cacheprovider` |
-| Full existing upstream pytest | Collection stopped with 7 errors | `upstream_baseline.json`; missing Flask/Pydantic/SQLAlchemy/FastAPI dependencies |
-| Frontend Jest/build | Not run | Node and npm unavailable; no dependency directories copied |
+| Full existing upstream pytest | Exit 0, 34 passed, 1 warning | `upstream_baseline_completed.json`; earlier 7 dependency errors remain historical |
+| Frontend Jest | 7 passed | User's verified terminal count; npm test log exit 0 |
+| Frontend install/build | npm ci exit 0; production build compiled | User's verified terminal result, npm logs exit 0, existing build asset manifest |
 | Native Windows / PostgreSQL | Not run | Parser/logging mocks are not endpoint or database-service validation |
 
 The preserved Flask tests exercise logging/schema idempotence, user isolation, filename/hash
@@ -84,17 +86,23 @@ signals, API fields, rules, role/settings persistence, decisions/scoring, dedupl
 CSV export, and synthetic copy/upload detection. Process starts are prohibited; no watchers,
 servers, physical devices or live policies were used. Four hourly-feature checks require
 native Linux pandas: both empty, activity only, transfer only, and global-user aggregation.
-They remain skipped; empty-table success or failure must not be invented.
+They now pass with native pandas. The global-user aggregation test confirms the known
+legacy behavior: two users in the same hour are combined. Passing that characterization
+does not mean the legacy builder isolates users; correcting research features is Phase 2 work.
+There are 22 distinct passing Flask checks across the initial 18-pass run and completed
+four-case run; no single new 22-test native run is claimed or repeated.
 
 The upstream isolation wrapper copies tracked Python/config into a temporary directory and
 sets synthetic secrets and SQLite-only storage. The legacy API test's test-specific database
-is also inside that temporary copy. Its failures reproduce the dependency baseline established
-before modifications. The repository's prior claims of 34 Python and 7 frontend passes remain
-historical evidence, not results reproduced in this environment.
+is also inside that temporary copy. The completed report records 34 passes and one
+Starlette/httpx TestClient deprecation warning. It is a warning, not a test failure.
+Historical missing-dependency errors remain in `upstream_baseline.json`.
+The frontend test count is attributed to the user's verified terminal result; npm command
+logs corroborate exit 0. `closure_verification.json` identifies evidence paths and hashes.
 
 Source and live-file integrity observations are in `phase0_preservation*.json`; no content is
 stored there. The downloaded originals and all upstream files except the intentionally extended
-`.gitignore` are checked against their pre-work hashes. The preservation snapshot excludes
+`.gitignore` and the intentionally updated security documentation are checked against their pre-work hashes. The preservation snapshot excludes
 newly added files from the upstream comparison.
 
 ## Paths and exact recovery/check commands
@@ -114,10 +122,10 @@ python3 -m venv .local/phase0-venv
 python3 -B scripts/verification/phase0_preservation.py --source-root /home/sohaib/Downloads/AI-DLP-Agent --dataset-root /home/sohaib/Downloads --output .local/preservation_after.json --compare docs/implementation/phase0/phase0_preservation_before.json
 ```
 
-The isolated venv was created here, but pip could not resolve pandas (`No matching distribution
-found for pandas`). System dependencies remain unavailable. The current Flask-only checks
-used pure-Python Flask packages in the supplied Windows venv via `--dependency-root`; the
-Windows pandas build fails on `os.add_dll_directory` and was not emulated.
+Initially, pip could not resolve pandas and the first Flask-only checks used pure-Python
+Flask from the Windows venv; those historical dependency failures remain in the original
+reports. Native dependencies are now installed in `.local/phase0-venv`, and the four
+previously skipped cases have completed. Node 22.22.1 and npm 9.2.0 are also available.
 
 With Node/npm installed, run `npm ci`, `npm test`, and `npm run build` inside `frontend/`.
 Do not run E2E against a live stack or reseed existing accounts; a disposable service setup
@@ -137,11 +145,10 @@ git rev-parse HEAD
 git ls-remote origin refs/heads/feat/cert-ml-nlp
 ```
 
-Inspect divergence first and never force-push. Remaining Phase 0 work: resolve dependencies,
-finish skipped feature tests/full regression/frontend checks, review any genuine baseline
-failures, and verify the required remote checkpoint before advancing to Phase 1.
+Inspect divergence first and never force-push. Remaining Phase 0 work is publishing and
+verifying this reviewed checkpoint. No functional baseline checks remain unfinished.
 
-## Remaining-check retry after manual push
+## Historical remaining-check retry after manual push
 
 The prior passing checks were not repeated. An explicit PyPI installation retry still failed
 with `No matching distribution found for pandas` (exit 1). Native isolated venv imports are
@@ -174,3 +181,32 @@ Keep the prior result files as historical evidence. Record genuine feature failu
 if native pandas exposes them; Phase 0 identifies pre-existing defects rather than rewriting
 the feature builder prematurely. All checks use synthetic/temp storage; no live stack restart,
 migration, seeding, reset, or endpoint collection is part of these commands.
+
+## Reviewed closure — 2026-10-08
+
+The completed user-generated JSON reports were read and validated against the current
+checkpoint `ea65336f41c233114b8a5e8761811db7695bc922`. The backend report has exit 0,
+34 passes and one deprecation warning; the four feature cases have no skips/failures/errors.
+The user's frontend results are 7 passes, successful npm ci, and successful production
+compilation. Read-only npm logs corroborate command exit 0 and the build asset manifest
+exists. Completed checks were not repeated; every earlier report was retained.
+
+All 30 original source/live-file hashes, the 19 preserved source hashes, and all three
+archive size/mtime/inode observations remain unchanged. Upstream application source,
+package manifest and lockfile are unchanged. `closure_verification.json` records the
+evidence and preservation checks. Native Windows monitoring and PostgreSQL service
+integration remain explicitly unverified; Linux/SQLite/mocked tests do not replace them.
+
+The npm scope review is in [npm_audit_review.md](npm_audit_review.md), with summarized
+cached evidence in `npm_audit_review.json`. It reproduces the user's 106 finding groups:
+two moderate production-declared React Router groups and 104 dev groups, including
+two critical groups. Current Docker uses CRA's development server, so install-time
+scope is not proof of runtime inapplicability. These pre-existing findings remain open;
+no forced upgrade, audit fix, package edit, or framework migration was performed.
+
+No functional Phase 0 check remains incomplete. This reviewed checkpoint still needs
+publication and remote verification; GitHub fetch/query/actual push fail on DNS here.
+The actual push failure is recorded in ignored `.local/phase0-reviewed-push.log` (exit 128).
+Phase 1 has not started. After publishing/verifying this checkpoint, complete Phase 0's
+status and start Phase 1: inspect the supplied README/release documentation/archive members
+and actual CSV headers before implementing mappings or extracting/ingesting any records.
