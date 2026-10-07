@@ -84,7 +84,7 @@
 | 0 | Audit, source preservation, isolated baseline, plan/checkpoint | published and freshly verified | completed |
 | 1 | Actual release inspection and safe resumable ingestion | completed 0 | completed |
 | 2 | Exact-event labels and shared per-user features | 1 | completed (bounded) |
-| 3 | Reproducible behavioral ML and held-out evaluation | 2 | pending |
+| 3 | Reproducible behavioral ML and held-out evaluation | 2 | completed (bounded) |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | pending |
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | pending |
 | 6 | Full run, fair comparisons, error analysis, handover | 1–5 | pending |
@@ -181,5 +181,10 @@
 - Feature schema cert-user-hour-v1: 3,291 active hours, 164 fully observed; past-only per-user baselines.
 - Phase 2 checks: 43 targeted passes; 62 isolated tracked regressions; deterministic replay/preservation passed.
 - Phase 2 evidence/commands: docs/implementation/phase2/features.md, acceptance.json, verification.json.
-- Next: publish/verify Phase 2, then Phase 3 chronological CPU IsolationForest on fully observed windows.
+- Phase 2 pushed/freshly verified: f958802f6f22b5a0fe46f3ee725c15177cf2e51f; Phase 3 in progress.
 - Zero positives prohibit supervised training/quality claims for this prefix; report undefined metrics honestly.
+- Phase 3 real benchmark: 83/43/38 chronological windows, all zero-positive; 200 trees/seed 42/one CPU.
+- Test TN36/FP2/FN0/TP0; precision 0; recall/F1/PR-AUC null; 0.05263 false alerts/evaluated user-day.
+- Training/reload/artifact hashes deterministic; supervised unavailable; no detection-quality claim.
+- Phase 3 evidence/commands: docs/implementation/phase3/behavioral-ml.md and benchmark.json.
+- Phase 3 isolated full suite: 85 passed/no skips; preservation and 19 copied hashes passed.

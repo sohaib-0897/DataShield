@@ -280,3 +280,18 @@ original/live/archive preservation passed. Commands/evidence: docs/implementatio
 Publish/verify this checkpoint, then proceed to Phase 3 and Phase 4 as authorized.
 No full-dataset or supervised performance claim is supported by this zero-positive
 January prefix. Raw artifacts are ignored; application behavior is untouched.
+
+## Phase 3 bounded acceptance — 2026-10-08
+
+Phase 2 checkpoint f958802f6f22b5a0fe46f3ee725c15177cf2e51f was pushed and
+freshly matched GitHub before Phase 3. Frozen features support 83 train, 43
+validation, 38 test windows; all zero-positive. CPU IsolationForest trained with
+training-only preprocessing; validation-only 1% alert budget selected threshold.
+Held-out TN36/FP2/FN0/TP0; precision 0, recall/F1/PR-AUC null. False alerts per
+evaluated user-day 0.05263. Supervised baseline implemented but unavailable on
+this real prefix. Independent training and serialized reload scores/hashes match.
+51 targeted passes; full isolated staged-source regression evidence will be in
+docs/implementation/phase3/verification.json. No active model or live changes.
+After publishing/verifying this checkpoint proceed to Phase 4, as authorized;
+text supervision is likewise unavailable on this prefix. Numeric report and
+exact commands: docs/implementation/phase3/behavioral-ml.md and benchmark.json.

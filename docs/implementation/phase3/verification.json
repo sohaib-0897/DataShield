@@ -1,0 +1,20 @@
+{
+  "targeted_passed": 51,
+  "numeric_cases": 8,
+  "isolated_full_suite": {
+    "passed": 85,
+    "skipped": 0,
+    "warnings": 1,
+    "exit_code": 0,
+    "source": "staged Python source copied to disposable SQLite sandbox"
+  },
+  "original_preservation": {
+    "source_live_hashes": 30,
+    "archive_stat_records": 3,
+    "matches_before": true,
+    "preserved_normalized_hashes": 19
+  },
+  "application_trees_changed": [],
+  "live_model_activation": false,
+  "research_artifacts_ignored": true
+}
