@@ -1,3 +1,17 @@
+# Active continuation — 2026-10-08
+
+User authorized remaining Phases 5–6, including tested commits and normal pushes.
+The existing plan ends at 6; no Phase 7 will be invented. Initial HEAD/fresh remote
+matched dd4761fb97e22d3d43c25db6f7e1cd9f0f1bdee7; clean tree, divergence 0/0.
+No AGENTS.md found. Phase 5 bounded acceptance complete: 22 adapter tests, 131
+isolated full-suite passes; both adapters replayed 38 frozen windows, one cached
+artifact load, unchanged original responses and policy behavior. Evidence:
+`docs/implementation/phase5/advisory.md`, `replay.json`, `verification.json`.
+Phase 6 is next; native Windows/PostgreSQL remain unverified. Historical pointers
+below are superseded by this authorization and current DATASHIELD_IMPLEMENTATION.md.
+
+---
+
 # Current resume pointer — 2026-10-08
 
 The authorized autonomous continuation through Phases 2–4 is finished at bounded

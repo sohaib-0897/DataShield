@@ -1,0 +1,20 @@
+{
+  "advisory_tests": 22,
+  "isolated_full_suite": {
+    "passed": 131,
+    "skipped": 0,
+    "warnings": 1,
+    "exit_code": 0
+  },
+  "replay": "replay.json",
+  "original_preservation": {
+    "source_live_hashes": 30,
+    "input_stats": 3,
+    "unchanged": true
+  },
+  "native_windows": "UNVERIFIED",
+  "postgresql": "UNVERIFIED",
+  "live_activation": false,
+  "initial_failed_cases": 2,
+  "resolution": "Bind replay identity to input feature digest; identical scores do not establish identical inputs."
+}

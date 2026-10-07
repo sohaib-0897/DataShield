@@ -2,7 +2,7 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Current authorization: execute Phases 2–4 sequentially; finish acceptance before advancing.
+- Current authorization: complete remaining Phases 5–6 autonomously; plan ends at 6.
 - Verify the previous checkpoint and pending push before starting another phase.
 - Goal: safe CERT r4.2 ingestion, ground truth/features, behavioral ML, NLP, evaluation, advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
@@ -86,7 +86,7 @@
 | 2 | Exact-event labels and shared per-user features | 1 | completed (bounded) |
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | completed (bounded) |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | completed (bounded; comparison unavailable) |
-| 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | pending |
+| 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | completed (bounded) |
 | 6 | Full run, fair comparisons, error analysis, handover | 1–5 | pending |
 
 ## Phase acceptance and verification
@@ -164,7 +164,7 @@
 - Bounded data/artifacts ignored; Phase 2 label/features evidence: docs/implementation/phase2/.
 
 ## Current phase, checkpoint, and exact next action
-- User authorized Phases 2–4 sequentially without routine confirmation; implementation/acceptance now finished.
+- User authorized remaining Phases 5–6; no Phase 7 exists in this plan.
 - Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b; baseline results preserved above.
 - Phase 1 verified implementation: 07a39cadc924357b2b93e984e2bfd23e73ebf991; final start HEAD 4c5a52ed.
 - Phase 1: 10,000 events/zero errors, interrupted resume/idempotency; 28 safety tests; no full ingestion claim.
@@ -185,7 +185,7 @@
 - Original application trees unchanged; research data/models ignored; no model activation or policy changes.
 - Phase 4 pushed/freshly verified: dcf66aab4619f13598aa8558df80842db0920fca.
 - Publication checkpoints/final resume instructions: CONTEXT.md and docs/implementation/publication.json.
-- Phase 5/6 remain pending/outside this request; Windows/PostgreSQL and npm findings remain unverified/open.
-- Exact next step: begin Phase 5 explicit advisory adapter contracts on a new request, keeping shadow/rule fallback.
+- Phase 5: 22 adapter checks/131 isolated passes; both adapters replayed 38 held-out windows; docs/implementation/phase5/.
+- Phase 6 next: bounded resumable broader chronological processing, evaluation/error analysis and handover.
 - For detection-quality comparisons, first prepare a broader chronological CERT cohort with positive examples.
 - Independent document-sensitivity supervision is also required before a trained sensitivity accuracy claim.
