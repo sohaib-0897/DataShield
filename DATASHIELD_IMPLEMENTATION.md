@@ -82,7 +82,7 @@
 | Phase | Scope | Depends on | Status |
 |---|---|---|---|
 | 0 | Audit, source preservation, isolated baseline, plan/checkpoint | published and freshly verified | completed |
-| 1 | Actual release inspection and safe resumable ingestion | completed 0 | in progress |
+| 1 | Actual release inspection and safe resumable ingestion | completed 0 | completed |
 | 2 | Exact-event labels and shared per-user features | 1 | pending |
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | pending |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | pending |
@@ -166,7 +166,8 @@
 ## Current phase, checkpoint, and exact next action
 - Phase 0 completed: normal fetch/push and fresh remote verification succeeded on 2026-10-08.
 - Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b.
-- Phase 1 acceptance complete; checkpoint publication/verification is the remaining closure action.
+- Phase 1 completed: acceptance passed, checkpoint pushed normally, fresh remote SHA matched local HEAD.
+- Phase 1 verified implementation checkpoint: 07a39cadc924357b2b93e984e2bfd23e73ebf991.
 - Release inspection: 28 r4.2 members, 202 answers members; input SHA-256 hashes recorded.
 - Isolated CLI: research/cert_ingest.py; actual schemas and mappings: docs/implementation/phase1/ingestion.md.
 - Prepared bound: 2,000 rows per CSV; expanded archive members 16,181,487,042 bytes; cache 6,252,530 bytes.
@@ -175,5 +176,5 @@
 - Tests: 28 passed/no failures/skips; unsafe paths/links, resource bounds, resume/rollback, dedup, concurrent writers.
 - Preservation: 30 original source/live hashes, 19 copied normalized hashes, 3 input stats unchanged; app trees unchanged.
 - Detailed results: docs/implementation/phase1/acceptance.json, tests.json, preservation.json; raw data ignored.
-- Exact next action: normal Phase 1 checkpoint commit/push; fresh remote SHA must equal HEAD before closure.
+- Exact next action after a new phase request: verify checkpoint, then begin Phase 2 exact-event label inspection.
 - Phase 2 and later remain pending; stop at Phase 1 boundary; no new phase without a new request.

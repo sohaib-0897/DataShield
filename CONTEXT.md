@@ -1,7 +1,7 @@
 # DataShield restart handoff — 2026-10-08
 
 Historical handoff below; recovery succeeded in the continuation recorded at the end.
-DATASHIELD_IMPLEMENTATION.md holds the current Phase 1 status.
+DATASHIELD_IMPLEMENTATION.md holds the current completed Phase 1 status.
 
 ## Read first and current boundary
 
@@ -252,3 +252,16 @@ The user explicitly authorized recovery and Phase 1. Elevated-access fetch and
 normal push succeeded; fresh GitHub branch SHA `3548f75cb805f3645f65a1ab55f38773e8b0fc5b`
 matched local HEAD. The earlier no-Phase-1 authorization applied to the old handoff
 request. Phase 0 is now complete; consult DATASHIELD_IMPLEMENTATION.md for Phase 1 progress.
+
+## Phase 1 completed — 2026-10-08
+
+Phase 1 now meets bounded acceptance: release-aware isolated ingestion, 10,000
+real events, zero errors, interrupted resume and idempotent API/CLI repeats,
+28 passing safety tests, unchanged originals/live files/archives/applications.
+The implementation checkpoint `07a39cadc924357b2b93e984e2bfd23e73ebf991` was pushed
+normally and freshly verified against GitHub. The documentation closure commit
+can be resolved using `git log -1 -- DATASHIELD_IMPLEMENTATION.md`; routine normal
+push/fresh verification also applies to it. Raw data remains ignored. No labels,
+models, live migration or automatic blocking were introduced. Phase 2 is pending
+and requires a new request. Consult docs/implementation/phase1/ingestion.md and
+the compact status file for exact commands, evidence and remaining limitations.
