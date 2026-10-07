@@ -2,7 +2,7 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Execute exactly one phase per request; finish an unfinished phase before advancing.
+- Current authorization: execute Phases 2–4 sequentially; finish acceptance before advancing.
 - Verify the previous checkpoint and pending push before starting another phase.
 - Goal: safe CERT r4.2 ingestion, ground truth/features, behavioral ML, NLP, evaluation, advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
@@ -43,7 +43,7 @@
 - Forbidden research destination: downloaded original data/activity.db or any production DB.
 - Preserved Flask's legacy/downloaded_flask/data/ is separate and ignored; no live DB copied there.
 - Upstream production store remains PostgreSQL; migrations must not run against live data for this work.
-- Phase 1 release inspection/input hashing and bounded ingestion complete; labels/training/evaluation remain pending.
+- Phase 1 ingestion and Phase 2 bounded labels/features complete; models remain isolated research only.
 - About 424 GiB free in workspace filesystem; /tmp is a 7.7 GiB tmpfs.
 
 ## Verified supplied Flask architecture
@@ -83,7 +83,7 @@
 |---|---|---|---|
 | 0 | Audit, source preservation, isolated baseline, plan/checkpoint | published and freshly verified | completed |
 | 1 | Actual release inspection and safe resumable ingestion | completed 0 | completed |
-| 2 | Exact-event labels and shared per-user features | 1 | pending |
+| 2 | Exact-event labels and shared per-user features | 1 | completed (bounded) |
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | pending |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | pending |
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | pending |
@@ -136,7 +136,7 @@
 - Distinguish CERT synthetic-benchmark results from real endpoint/hardware validation.
 
 ## Decisions, evidence, and current limitations
-- Research schema v1 established; timezone unspecified; exact-event label granularity remains Phase 2 work.
+- Research schema v1; timezone unspecified; exact all-source-field label joins, separate incident actors.
 - Answer-derived identifiers/scenarios never enter inference; unavailable signals are not genuine zero counts.
 - Separate research/live artifacts if feature coverage differs; chronological disjoint evaluation windows.
 - IsolationForest scores are not probabilities; anomaly training population assumption must be documented.
@@ -161,7 +161,7 @@
 - Native Windows monitors, physical devices and PostgreSQL integration were not verified in this environment.
 - No monitors/servers started; no live content logged; baseline/current source hashes are verified separately.
 - Pre-existing Flask findings: global feature users mix, watchdog summaries omit changes, permitted after-hours hidden.
-- Bounded CERT research data remains ignored; no new models, labels or evaluation results exist.
+- Bounded data/artifacts ignored; Phase 2 label/features evidence: docs/implementation/phase2/.
 
 ## Current phase, checkpoint, and exact next action
 - Phase 0 completed: normal fetch/push and fresh remote verification succeeded on 2026-10-08.
@@ -176,5 +176,10 @@
 - Tests: 28 passed/no failures/skips; unsafe paths/links, resource bounds, resume/rollback, dedup, concurrent writers.
 - Preservation: 30 original source/live hashes, 19 copied normalized hashes, 3 input stats unchanged; app trees unchanged.
 - Detailed results: docs/implementation/phase1/acceptance.json, tests.json, preservation.json; raw data ignored.
-- Exact next action after a new phase request: verify checkpoint, then begin Phase 2 exact-event label inspection.
-- Phase 2 and later remain pending; stop at Phase 1 boundary; no new phase without a new request.
+- Current authorization: complete Phases 2–4 sequentially, commit/push each tested milestone.
+- Phase 2 bounded acceptance: 10,000 negatives; 7,323 unmatched observables; zero ambiguous events.
+- Feature schema cert-user-hour-v1: 3,291 active hours, 164 fully observed; past-only per-user baselines.
+- Phase 2 checks: 43 targeted passes; 62 isolated tracked regressions; deterministic replay/preservation passed.
+- Phase 2 evidence/commands: docs/implementation/phase2/features.md, acceptance.json, verification.json.
+- Next: publish/verify Phase 2, then Phase 3 chronological CPU IsolationForest on fully observed windows.
+- Zero positives prohibit supervised training/quality claims for this prefix; report undefined metrics honestly.

@@ -1,0 +1,22 @@
+{
+  "targeted": {
+    "passed": 43,
+    "skipped": 0,
+    "feature_label_cases": 15,
+    "ingestion_cases": 28
+  },
+  "isolated_regressions": {
+    "passed": 62,
+    "warnings": 1,
+    "exit_code": 0,
+    "scope": "tracked baseline plus Phase 1; new targeted tests run separately"
+  },
+  "feature_replay_equal": true,
+  "research_store_read_only": true,
+  "original_preservation": {
+    "source_live_files": 30,
+    "archive_stat_records": 3,
+    "matches_before": true
+  },
+  "live_model_activation": false
+}

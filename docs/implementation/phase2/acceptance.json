@@ -1,0 +1,52 @@
+{
+  "active_user_hours_only": true,
+  "answers_sha256": "ed21bf921def01e97326b314f2d1fa77651a945bd31bf513095f8ac7658c9ddd",
+  "coverage": {
+    "EMAIL": [
+      "2010-01-02T07:11:45",
+      "2010-01-04T09:01:35"
+    ],
+    "FILE": [
+      "2010-01-02T07:23:14",
+      "2010-01-05T09:56:52"
+    ],
+    "HTTP": [
+      "2010-01-02T06:55:16",
+      "2010-01-02T12:53:52"
+    ],
+    "LOGON": [
+      "2010-01-02T06:49:00",
+      "2010-01-04T16:53:00"
+    ],
+    "USB": [
+      "2010-01-02T07:21:06",
+      "2010-01-05T12:22:47"
+    ]
+  },
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "events": 10000,
+  "feature_artifact_sha256": "5160696f307757b45a2fe9f2bc35b1d9b99a6abfd689e2690098a5293936543d",
+  "feature_version": "cert-user-hour-v1",
+  "full_dataset": false,
+  "fully_observed_windows": 164,
+  "incidents": 70,
+  "label_version": "cert-r42-exact-observable-v1",
+  "labels": {
+    "negative": 10000,
+    "unmatched_observables": 7323
+  },
+  "observable_actor_identity_differences": 50,
+  "observables": 7323,
+  "scenarios": {
+    "1": 30,
+    "2": 30,
+    "3": 10
+  },
+  "store_sha256": "b7786288d4560b90e8f8c80e3aa9e51e5a6eaa48cff27357eb065fde4d7f03a4",
+  "unknown_windows": 0,
+  "windows": 3291,
+  "work_hours": [
+    9,
+    17
+  ]
+}
