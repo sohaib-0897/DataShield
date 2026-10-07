@@ -23,7 +23,7 @@
 - Dedicated branch: feat/cert-ml-nlp, created from existing checkout; no reset or merge performed.
 - User confirms manual push succeeded; branch now tracks origin/feat/cert-ml-nlp.
 - At resume, HEAD/cached remote matched ea65336f41c233114b8a5e8761811db7695bc922; user confirms its push.
-- Fresh remote SHA query still fails: Could not resolve host: github.com; no live verification claimed.
+- Phase 0 handoff published 2026-10-08; fresh GitHub branch SHA equals HEAD: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b.
 - No AGENTS.md found in actual checkout, parent workspace, ancestors, or downloaded source.
 - Downloaded original: /home/sohaib/Downloads/AI-DLP-Agent (user-confirmed implementation to preserve).
 - Preserved copy: legacy/downloaded_flask/; 19 top-level .py/.html files, no live/config/document files.
@@ -38,12 +38,12 @@
 - Actual r4.2: /home/sohaib/Downloads/r4.2.tar.bz2 (4,824,287,500 bytes).
 - Actual answers: /home/sohaib/Downloads/answers.tar.bz2 (1,254,678 bytes).
 - Actual README: /home/sohaib/Downloads/SEI_Insider_README.txt (1,446 bytes).
-- Local path configuration: .local/cert_paths.json (ignored); no ingestion CLI consumes it yet.
-- Planned research DB: research/local/cert_r42.sqlite; research/local/ is ignored.
+- Local path configuration: .local/cert_paths.json (ignored); consumed by research/cert_ingest.py.
+- Research DB: research/local/cert_r42.sqlite; bounded 10,000 events; research/local/ is ignored.
 - Forbidden research destination: downloaded original data/activity.db or any production DB.
 - Preserved Flask's legacy/downloaded_flask/data/ is separate and ignored; no live DB copied there.
 - Upstream production store remains PostgreSQL; migrations must not run against live data for this work.
-- Archive extraction, README/header inspection, ingestion, labeling, authentic training/evaluation: not run.
+- Phase 1 release inspection/input hashing and bounded ingestion complete; labels/training/evaluation remain pending.
 - About 424 GiB free in workspace filesystem; /tmp is a 7.7 GiB tmpfs.
 
 ## Verified supplied Flask architecture
@@ -81,8 +81,8 @@
 ## Phase table
 | Phase | Scope | Depends on | Status |
 |---|---|---|---|
-| 0 | Audit, source preservation, isolated baseline, plan/checkpoint | publish reviewed checkpoint | blocked |
-| 1 | Actual release inspection and safe resumable ingestion | completed 0 | pending |
+| 0 | Audit, source preservation, isolated baseline, plan/checkpoint | published and freshly verified | completed |
+| 1 | Actual release inspection and safe resumable ingestion | completed 0 | in progress |
 | 2 | Exact-event labels and shared per-user features | 1 | pending |
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | pending |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | pending |
@@ -102,7 +102,7 @@
 - Preserve source IDs/users/times/actions/channels/resources/metadata in separate research storage.
 - Acceptance: bounded subset, idempotent rerun/resume, source hashes, counts/errors, documented mappings.
 - Checks: unsafe archives, interrupted rerun, empty/malformed rows, disk limits, count reconciliation + regressions.
-- Record exact ingestion CLI when implemented; existing expected-format loader is not r4.2 validation.
+- CLI: python3 -B research/cert_ingest.py --config .local/cert_paths.json inspect --rows 2000; ingest commands in docs/implementation/phase1/ingestion.md.
 ### 2 — ground truth and shared features
 - Inspect answers' actual granularity; exact matching, unmatched/ambiguous audits, separate scenario metadata.
 - Build versioned per-user windows, past-only baselines, configurable work hours and explicit availability.
@@ -136,7 +136,7 @@
 - Distinguish CERT synthetic-benchmark results from real endpoint/hardware validation.
 
 ## Decisions, evidence, and current limitations
-- Research schema/label granularity/timezone mapping remain deferred until actual release inspection.
+- Research schema v1 established; timezone unspecified; exact-event label granularity remains Phase 2 work.
 - Answer-derived identifiers/scenarios never enter inference; unavailable signals are not genuine zero counts.
 - Separate research/live artifacts if feature coverage differs; chronological disjoint evaluation windows.
 - IsolationForest scores are not probabilities; anomaly training population assumption must be documented.
@@ -157,24 +157,23 @@
 - Production-declared: 2 moderate React Router groups; dev graph: 104, including critical proxy-addr/shell-quote.
 - Dev tooling also runs under current Docker npm start; no package/lockfile upgrades or audit fix applied.
 - Review: docs/implementation/phase0/npm_audit_review.md and npm_audit_review.json (cached, not fresh registry audit).
-- Session DNS still blocks GitHub/PyPI/npm access; installed native checks are completed, not skipped.
+- GitHub works with elevated access; sandbox DNS remains restricted; installed baseline checks are complete.
 - Native Windows monitors, physical devices and PostgreSQL integration were not verified in this environment.
 - No monitors/servers started; no live content logged; baseline/current source hashes are verified separately.
 - Pre-existing Flask findings: global feature users mix, watchdog summaries omit changes, permitted after-hours hidden.
-- New model artifacts, CERT research data, authentic evaluation results: none.
+- Bounded CERT research data remains ignored; no new models, labels or evaluation results exist.
 
 ## Current phase, checkpoint, and exact next action
-- Current phase: 0 verification finished; blocked only on publishing/verifying this reviewed checkpoint.
-- Previous phase WIP checkpoint: ea65336f41c233114b8a5e8761811db7695bc922 (manual push confirmed by user).
-- Base upstream SHA: 74efcfd420d9e4442397d1c1276db67853a590f1.
-- Intended current commit: docs: verify phase 0 baseline and npm audit scope.
-- Resolve this checkpoint SHA using git log -1; avoid editing this file just to record its own commit SHA.
-- Previous push blocker resolved manually; session GitHub DNS restriction still limits fetch/new pushes.
-- Exact next action: push reviewed checkpoint from a working terminal, verify its SHA, then complete 0/start 1.
-- Harness --test selects unfinished checks; --require-no-skips returns exit 2 for skips, preserving default behavior.
-- Reviewed checkpoint push/remote SHA verification failed (DNS); .local/phase0-reviewed-push.log records failure.
-- No functional Phase 0 checks remain; Windows/PostgreSQL remain explicitly unverified platform limitations.
-- Preserve completed terminal reports; do not rerun completed checks without a change or new concern.
-- With working GitHub DNS/network: git fetch origin; inspect divergence; git push -u origin feat/cert-ml-nlp.
-- Verify git ls-remote origin refs/heads/feat/cert-ml-nlp equals local checkpoint; never force-push.
-- Do not advance to Phase 1 until Phase 0 checks and pending checkpoint push/verification are resolved.
+- Phase 0 completed: normal fetch/push and fresh remote verification succeeded on 2026-10-08.
+- Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b.
+- Phase 1 acceptance complete; checkpoint publication/verification is the remaining closure action.
+- Release inspection: 28 r4.2 members, 202 answers members; input SHA-256 hashes recorded.
+- Isolated CLI: research/cert_ingest.py; actual schemas and mappings: docs/implementation/phase1/ingestion.md.
+- Prepared bound: 2,000 rows per CSV; expanded archive members 16,181,487,042 bytes; cache 6,252,530 bytes.
+- Real acceptance: interrupted at 250 committed rows, resumed to 5,000, then 10,000 events; zero errors/duplicates.
+- API/CLI repeats idempotent; 10,000 rows verified against raw source metadata; no labels/models created.
+- Tests: 28 passed/no failures/skips; unsafe paths/links, resource bounds, resume/rollback, dedup, concurrent writers.
+- Preservation: 30 original source/live hashes, 19 copied normalized hashes, 3 input stats unchanged; app trees unchanged.
+- Detailed results: docs/implementation/phase1/acceptance.json, tests.json, preservation.json; raw data ignored.
+- Exact next action: normal Phase 1 checkpoint commit/push; fresh remote SHA must equal HEAD before closure.
+- Phase 2 and later remain pending; stop at Phase 1 boundary; no new phase without a new request.

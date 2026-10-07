@@ -1,0 +1,436 @@
+{
+  "readme": {
+    "sha256": "dc23efbbc5ea9c14f2cbcf31f927f39bcfdcdf550d0608650ad7f90d17cbaceb",
+    "bytes": 1446,
+    "mtime_ns": 1791391004673529160,
+    "inode": 18358310
+  },
+  "archive_validation": "all member paths/types inspected; no filesystem extraction",
+  "archives": [
+    {
+      "archive": "r4.2.tar.bz2",
+      "input": {
+        "sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+        "bytes": 4824287500,
+        "mtime_ns": 1791391637872487521,
+        "inode": 18358189
+      },
+      "members": 28,
+      "expanded_bytes": 16181487042,
+      "elapsed_seconds": 579.132,
+      "inventory": [
+        {
+          "name": "r4.2",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "r4.2/file.csv",
+          "bytes": 193055265,
+          "type": "file",
+          "header": [
+            "id",
+            "date",
+            "user",
+            "pc",
+            "filename",
+            "content"
+          ]
+        },
+        {
+          "name": "r4.2/license.txt",
+          "bytes": 3923,
+          "type": "file"
+        },
+        {
+          "name": "r4.2/http.csv",
+          "bytes": 14536257467,
+          "type": "file",
+          "header": [
+            "id",
+            "date",
+            "user",
+            "pc",
+            "url",
+            "content"
+          ]
+        },
+        {
+          "name": "r4.2/readme.txt",
+          "bytes": 6613,
+          "type": "file"
+        },
+        {
+          "name": "r4.2/logon.csv",
+          "bytes": 58514706,
+          "type": "file",
+          "header": [
+            "id",
+            "date",
+            "user",
+            "pc",
+            "activity"
+          ]
+        },
+        {
+          "name": "r4.2/psychometric.csv",
+          "bytes": 44672,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "O",
+            "C",
+            "E",
+            "A",
+            "N"
+          ]
+        },
+        {
+          "name": "r4.2/email.csv",
+          "bytes": 1362101939,
+          "type": "file",
+          "header": [
+            "id",
+            "date",
+            "user",
+            "pc",
+            "to",
+            "cc",
+            "bcc",
+            "from",
+            "size",
+            "attachments",
+            "content"
+          ]
+        },
+        {
+          "name": "r4.2/device.csv",
+          "bytes": 28982749,
+          "type": "file",
+          "header": [
+            "id",
+            "date",
+            "user",
+            "pc",
+            "activity"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "r4.2/LDAP/2011-03.csv",
+          "bytes": 128969,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-11.csv",
+          "bytes": 136363,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2011-04.csv",
+          "bytes": 127277,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-07.csv",
+          "bytes": 144625,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-09.csv",
+          "bytes": 140493,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2011-05.csv",
+          "bytes": 127120,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2011-02.csv",
+          "bytes": 130614,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-10.csv",
+          "bytes": 138106,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-08.csv",
+          "bytes": 142475,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-01.csv",
+          "bytes": 150609,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-06.csv",
+          "bytes": 145683,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-05.csv",
+          "bytes": 146599,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-02.csv",
+          "bytes": 148860,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2011-01.csv",
+          "bytes": 132131,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-03.csv",
+          "bytes": 147778,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-04.csv",
+          "bytes": 147493,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2009-12.csv",
+          "bytes": 150609,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        },
+        {
+          "name": "r4.2/LDAP/2010-12.csv",
+          "bytes": 133904,
+          "type": "file",
+          "header": [
+            "employee_name",
+            "user_id",
+            "email",
+            "role",
+            "business_unit",
+            "functional_unit",
+            "department",
+            "team",
+            "supervisor"
+          ]
+        }
+      ]
+    },
+    {
+      "archive": "answers.tar.bz2",
+      "input": {
+        "sha256": "ed21bf921def01e97326b314f2d1fa77651a945bd31bf513095f8ac7658c9ddd",
+        "bytes": 1254678,
+        "mtime_ns": 1791390993633147992,
+        "inode": 18358303
+      },
+      "members": 202,
+      "expanded_bytes": 7504747,
+      "elapsed_seconds": 0.226,
+      "insiders_header": [
+        "dataset",
+        "scenario",
+        "details",
+        "user",
+        "start",
+        "end"
+      ],
+      "observables_format": "mixed record types, variable-length rows; Phase 2 exact-event labels pending"
+    }
+  ]
+}

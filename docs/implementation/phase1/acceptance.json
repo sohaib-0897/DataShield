@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-08",
+  "scope": "bounded real CERT r4.2 prefix; no full-dataset or detection evaluation",
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "prepared_bound_per_csv": 2000,
+  "interruption": {
+    "simulated": true,
+    "after_committed_chunk": true,
+    "persisted_events": 250,
+    "persisted_progress": [
+      [
+        "file.csv",
+        250
+      ]
+    ]
+  },
+  "initial_1000": {
+    "version": "cert-r42-ingestion-v1",
+    "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+    "manifest_sha256": "8be99a1f3b1aae45f9bd83c02ff0b0b425e9407b77e1c1bab4148fdd6851e679",
+    "bound_per_source": 1000,
+    "progress": [
+      {
+        "source": "device.csv",
+        "processed": 1000,
+        "valid": 1000,
+        "inserted": 1000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "email.csv",
+        "processed": 1000,
+        "valid": 1000,
+        "inserted": 1000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "file.csv",
+        "processed": 1000,
+        "valid": 1000,
+        "inserted": 1000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "http.csv",
+        "processed": 1000,
+        "valid": 1000,
+        "inserted": 1000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "logon.csv",
+        "processed": 1000,
+        "valid": 1000,
+        "inserted": 1000,
+        "duplicates": 0,
+        "invalid": 0
+      }
+    ],
+    "events": 5000,
+    "errors": 0,
+    "labels_created": false,
+    "timezone_basis": "unspecified_release_local",
+    "full_dataset_ingested": false
+  },
+  "resumed_2000": {
+    "version": "cert-r42-ingestion-v1",
+    "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+    "manifest_sha256": "8be99a1f3b1aae45f9bd83c02ff0b0b425e9407b77e1c1bab4148fdd6851e679",
+    "bound_per_source": 2000,
+    "progress": [
+      {
+        "source": "device.csv",
+        "processed": 2000,
+        "valid": 2000,
+        "inserted": 2000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "email.csv",
+        "processed": 2000,
+        "valid": 2000,
+        "inserted": 2000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "file.csv",
+        "processed": 2000,
+        "valid": 2000,
+        "inserted": 2000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "http.csv",
+        "processed": 2000,
+        "valid": 2000,
+        "inserted": 2000,
+        "duplicates": 0,
+        "invalid": 0
+      },
+      {
+        "source": "logon.csv",
+        "processed": 2000,
+        "valid": 2000,
+        "inserted": 2000,
+        "duplicates": 0,
+        "invalid": 0
+      }
+    ],
+    "events": 10000,
+    "errors": 0,
+    "labels_created": false,
+    "timezone_basis": "unspecified_release_local",
+    "full_dataset_ingested": false
+  },
+  "idempotent_repeat_equal": true,
+  "source_rows_verified_against_cache": 10000,
+  "source_fields_preserved": true,
+  "action_counts": [
+    {
+      "channel": "EMAIL",
+      "action": "send",
+      "count": 2000
+    },
+    {
+      "channel": "FILE",
+      "action": "copy_to_removable_media",
+      "count": 2000
+    },
+    {
+      "channel": "HTTP",
+      "action": "visit",
+      "count": 2000
+    },
+    {
+      "channel": "LOGON",
+      "action": "Logoff",
+      "count": 488
+    },
+    {
+      "channel": "LOGON",
+      "action": "Logon",
+      "count": 1512
+    },
+    {
+      "channel": "USB",
+      "action": "Connect",
+      "count": 1008
+    },
+    {
+      "channel": "USB",
+      "action": "Disconnect",
+      "count": 992
+    }
+  ],
+  "labels_or_models_created": false,
+  "elapsed_ingestion_seconds": 18.493,
+  "preparation": {
+    "all_members_validated": true,
+    "expanded_bytes": 16181487042,
+    "cached_bytes": 6252530,
+    "elapsed_seconds": 542.616
+  },
+  "cli_repeat_equal": true,
+  "cli_original_archive_rehash_verified": true
+}

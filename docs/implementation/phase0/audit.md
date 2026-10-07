@@ -1,7 +1,7 @@
 # Phase 0: checkout comparison and regression baseline
 
-Updated 2026-10-08. **Functional Phase 0 checks are finished; reviewed checkpoint
-publication/remote verification remains pending because this session lacks GitHub DNS.** This is the current audit;
+Updated 2026-10-08. **Phase 0 is complete: checks passed and publication was freshly verified.**
+The recovery evidence is recorded at the end; earlier failures below are historical. This is the current audit;
 `phase0_audit.md` retains the earlier detailed inspection of the supplied Flask source.
 
 ## Checkout and preservation decision
@@ -210,3 +210,11 @@ The actual push failure is recorded in ignored `.local/phase0-reviewed-push.log`
 Phase 1 has not started. After publishing/verifying this checkpoint, complete Phase 0's
 status and start Phase 1: inspect the supplied README/release documentation/archive members
 and actual CSV headers before implementing mappings or extracting/ingesting any records.
+
+## Publication verified — 2026-10-08
+
+Normal elevated-access fetch succeeded. Ahead/behind was 1/0, and normal push
+published the handoff. A fresh `git ls-remote origin refs/heads/feat/cert-ml-nlp`
+returned `3548f75cb805f3645f65a1ab55f38773e8b0fc5b`, exactly equal to local HEAD.
+Phase 0 is completed; earlier DNS failures remain historical evidence. The user
+authorized Phase 1 in the continuation request. No unchanged baseline checks were repeated.

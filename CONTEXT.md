@@ -1,5 +1,8 @@
 # DataShield restart handoff — 2026-10-08
 
+Historical handoff below; recovery succeeded in the continuation recorded at the end.
+DATASHIELD_IMPLEMENTATION.md holds the current Phase 1 status.
+
 ## Read first and current boundary
 
 Read this file, applicable AGENTS.md, `DATASHIELD_IMPLEMENTATION.md`, and
@@ -242,3 +245,10 @@ The implementation status/audit and all historical reports were left unchanged.
 Recovery: restart the terminal, fetch/inspect divergence, push this local branch
 normally, and verify GitHub's branch SHA equals local HEAD using the commands above.
 Phase 1 remains pending. Windows monitoring/PostgreSQL remain unverified.
+
+## Continuation recovery — 2026-10-08
+
+The user explicitly authorized recovery and Phase 1. Elevated-access fetch and
+normal push succeeded; fresh GitHub branch SHA `3548f75cb805f3645f65a1ab55f38773e8b0fc5b`
+matched local HEAD. The earlier no-Phase-1 authorization applied to the old handoff
+request. Phase 0 is now complete; consult DATASHIELD_IMPLEMENTATION.md for Phase 1 progress.

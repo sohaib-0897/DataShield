@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-08",
+  "original_source_and_live_files": 30,
+  "original_source_and_live_hashes_unchanged": true,
+  "dataset_stat_records": 3,
+  "dataset_stats_unchanged": true,
+  "preserved_source_normalized_hashes_verified": 19,
+  "upstream_application_trees_changed": [],
+  "compared_with": "docs/implementation/phase0/phase0_preservation_before.json",
+  "full_detail_ignored": "research/local/phase1_preservation_details.json",
+  "no_monitors_servers_or_live_database_connections": true
+}

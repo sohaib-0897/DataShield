@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-08",
+  "command": ".local/phase0-venv/bin/python -B -m pytest -q tests/test_cert_ingestion.py -p no:cacheprovider",
+  "exit_code": 0,
+  "passed": 28,
+  "failed": 0,
+  "skipped": 0,
+  "summary": "28 passed in 0.11s",
+  "source_sha256": "189ef541a6db445dbcc398cbbbccdc8f626a143b67dd7b4ad0a93c53d70960e7",
+  "scope": "synthetic temporary archive/SQLite fixtures; no application imports or live resources",
+  "unchanged_phase0_suites_repeated": false,
+  "previous_27_pass_log_retained": ".local/phase1-pytest.log"
+}
