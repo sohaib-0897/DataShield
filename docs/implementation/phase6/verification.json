@@ -1,0 +1,41 @@
+{
+  "implementation": "complete",
+  "acceptance": "bounded expanded cohort passed; full-release materialization resource-limited",
+  "isolated_pytest": {
+    "passed": 142,
+    "skipped": 0,
+    "warnings": 1,
+    "exit_code": 0
+  },
+  "preserved_flask": {
+    "passed": 22,
+    "skipped": 0,
+    "native_windows_verified": false
+  },
+  "cohort_events": 978908,
+  "fully_observed_windows": 95930,
+  "test_windows": 11753,
+  "test_positives": 8,
+  "supervised_numeric": "trained; poor precision; no deployment quality claim",
+  "text_comparison": "UNAVAILABLE: strict held-out populations empty",
+  "sensitivity_corpus": "NOT_ESTABLISHED",
+  "models_independent_fit_reload_hash_equal": true,
+  "thresholds_fit_partition": "validation",
+  "preprocessing_fit_partition": "train",
+  "fixed_rule_and_union_same_test_population": true,
+  "rule_is_endpoint_policy": false,
+  "full_dataset_evaluated": false,
+  "original_source_live_hashes": 30,
+  "preserved_normalized_source_hashes": 19,
+  "input_stat_records": 3,
+  "application_trees_changed": [],
+  "historical_research_artifacts_changed": false,
+  "raw_artifacts_or_secrets_staged": false,
+  "model_activation": false,
+  "research_automated_blocking": false,
+  "native_windows": "UNVERIFIED",
+  "postgresql": "UNVERIFIED",
+  "docker": "UNVERIFIED: binary unavailable",
+  "npm_findings": "106 open, freshly audited",
+  "plan_ends_at": 6
+}

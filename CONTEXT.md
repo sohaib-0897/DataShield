@@ -1,14 +1,54 @@
-# Active continuation — 2026-10-08
+# Completed continuation — 2026-10-08
 
-User authorized remaining Phases 5–6, including tested commits and normal pushes.
-The existing plan ends at 6; no Phase 7 will be invented. Initial HEAD/fresh remote
-matched dd4761fb97e22d3d43c25db6f7e1cd9f0f1bdee7; clean tree, divergence 0/0.
-No AGENTS.md found. Phase 5 bounded acceptance complete: 22 adapter tests, 131
-isolated full-suite passes; both adapters replayed 38 frozen windows, one cached
-artifact load, unchanged original responses and policy behavior. Evidence:
-`docs/implementation/phase5/advisory.md`, `replay.json`, `verification.json`.
-Phase 6 is next; native Windows/PostgreSQL remain unverified. Historical pointers
-below are superseded by this authorization and current DATASHIELD_IMPLEMENTATION.md.
+The user-authorized remaining Phases 5–6 are complete at bounded acceptance.
+The implementation plan ends at 6; no Phase 7 was added. Initial clean HEAD/fresh
+remote matched dd4761fb97e22d3d43c25db6f7e1cd9f0f1bdee7 (divergence 0/0).
+No AGENTS.md exists in the checkout/ancestors. Routine tested commits and normal
+pushes were authorized; no merge into main/force push was performed.
+
+- Phase 5: 22 adapter checks/131 isolated full passes; both adapters replayed all
+  38 historical test windows with score equality, preserved rule responses and
+  idempotent separate persistence. Explicit disabled/shadow defaults; optional
+  authorized JSON/HTML views. Live/CERT schema mismatch falls back to rules.
+  Published/freshly matched 6d51b5cf3a004d1dec0925859253f613b54d2d9c.
+- Phase 6 tooling: published/freshly matched e49fb55297a6800d657132a9805f8d166f3bba1e.
+  Full safe archive scan: 32,770,222 source rows, 28 members/16.18 GB expanded.
+  Predeclared June 7–21 cohort retains 978,908 events, 70 exact attack observables;
+  zero errors/duplicates; indexed original source positions; idempotent replay.
+- 95,930 fully observed windows; chronological train/validation/test counts
+  58,258/25,919/11,753 with 14/19/8 positives. All test windows retained naturally.
+  IF test TN10,294/FP1,451/FN5/TP3 (recall .375, precision .002063, F1 .004104).
+  Logistic TN11,197/FP548/FN7/TP1 (recall .125, precision .001821, F1 .003591).
+  Thresholds validation-only; both fits/scores/serialized hashes reproduced.
+  Poor precision; eight test positives do not establish deployment quality.
+- Fixed research heuristic/model/OR comparison uses one frozen common test cohort;
+  OR adds false alerts without recall gain. This is not live endpoint policy.
+  Numeric evaluation measures later time on observed users/continuing incidents;
+  shared groups are disclosed, not unseen-user/incident generalization.
+- 940,871 sanitized text events; strict text train/validation/test 54,763/0/0.
+  Text comparison remains unavailable after identity controls. No sensitivity
+  corpus/model accuracy claim; synthetic parser fixtures remain test evidence.
+- Phase 6: 142 isolated pytest + 22 preserved Flask passes, no skips, one existing
+  Starlette/httpx warning. Peak text RSS 3.73 GiB; full-release materialization
+  exceeds available memory in the current pipeline. Full scan is not full eval.
+- 30 original source/live hashes, 19 copied normalized sources, three input stats,
+  upstream application trees and historical January research fingerprints match.
+  Raw data/model files remain ignored; no activation or enforcement change.
+- Fresh npm audit confirms 106 open findings (including two production-declared
+  moderate groups); Docker still executes development tooling. No force upgrade.
+  Windows monitoring/physical devices, PostgreSQL and Docker remain unverified.
+- Authoritative status (under 200 lines): DATASHIELD_IMPLEMENTATION.md.
+  Evidence: docs/implementation/phase5/advisory.md and phase6/evaluation.md,
+  comparison.json, benchmark.json, text-study.json, verification.json, handover.md.
+  Publication checkpoints: docs/implementation/publication.json; resolve final
+  HEAD using git rev-parse HEAD. Final normal push/fresh SHA equality is checked
+  after the closure commit and reported to the user.
+- Exact next engineering step: implement streaming feature/text preparation with
+  parity against this frozen bounded cohort before full-release evaluation.
+
+Historical handoffs below are preserved and superseded by this pointer and the
+user's latest authorization. Do not interpret their pending phases/old blockers
+as current. There are no remaining phases in the existing plan.
 
 ---
 

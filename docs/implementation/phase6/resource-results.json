@@ -1,0 +1,39 @@
+{
+  "counts_equal": true,
+  "events_after_replay": 978908,
+  "new_rows_on_replay": 0,
+  "original_row_positions": "indexed caches preserve source_row; ingestion stores original positions",
+  "fixture_interrupt_resume": "test_cohort_resume_committed_chunks passed",
+  "stages": {
+    "ingestion": {
+      "elapsed": "1:38.82",
+      "peak_rss_kib": 40568,
+      "exit_code": 0
+    },
+    "ingestion-replay": {
+      "elapsed": "0:13.12",
+      "peak_rss_kib": 40676,
+      "exit_code": 0
+    },
+    "features": {
+      "elapsed": "0:21.75",
+      "peak_rss_kib": 2968992,
+      "exit_code": 0
+    },
+    "benchmark": {
+      "elapsed": "0:09.98",
+      "peak_rss_kib": 1023532,
+      "exit_code": 0
+    },
+    "comparison": {
+      "elapsed": "0:02.28",
+      "peak_rss_kib": 792472,
+      "exit_code": 0
+    },
+    "text": {
+      "elapsed": "1:24.89",
+      "peak_rss_kib": 3906412,
+      "exit_code": 0
+    }
+  }
+}

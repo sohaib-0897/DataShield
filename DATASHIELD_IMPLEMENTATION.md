@@ -2,7 +2,7 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Current authorization: complete remaining Phases 5–6 autonomously; plan ends at 6.
+- Authorized Phases 5–6 completed at bounded acceptance; the plan ends at 6 (no Phase 7).
 - Verify the previous checkpoint and pending push before starting another phase.
 - Goal: safe CERT r4.2 ingestion, ground truth/features, behavioral ML, NLP, evaluation, advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
@@ -16,13 +16,10 @@
 
 ## Verified checkout and reconciliation (2026-10-08)
 - Actual checkout: /home/sohaib/Insider_Threat_Test_Dataset/DataShield~ (literal trailing tilde).
-- Parent workspace .git is only an empty read-only placeholder; run Git inside actual checkout.
 - User-provided checkout was clean on main at 74efcfd420d9e4442397d1c1276db67853a590f1.
-- Local origin/main has that same SHA; remote freshness remains unverified because DNS is unavailable.
 - Origin: https://github.com/sohaib-0897/DataShield.git; verified matches requested repository.
 - Dedicated branch: feat/cert-ml-nlp, created from existing checkout; no reset or merge performed.
 - User confirms manual push succeeded; branch now tracks origin/feat/cert-ml-nlp.
-- At resume, HEAD/cached remote matched ea65336f41c233114b8a5e8761811db7695bc922; user confirms its push.
 - Phase 0 handoff published 2026-10-08; fresh GitHub branch SHA equals HEAD: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b.
 - No AGENTS.md found in actual checkout, parent workspace, ancestors, or downloaded source.
 - Downloaded original: /home/sohaib/Downloads/AI-DLP-Agent (user-confirmed implementation to preserve).
@@ -30,8 +27,6 @@
 - Original 19 files copied byte-for-byte; existing .gitattributes normalizes committed text to LF.
 - Provenance/raw+normalized hashes: docs/implementation/phase0/source_reconciliation.json.
 - No upstream application files replaced; only additive source/tests/docs and ignore protections.
-- Source versions have different schema/API/event/scoring contracts; do not substitute one for the other.
-- FYP reference documentation exists under docs/fyp/; no standalone supplied FYP report found.
 
 ## Dataset and storage separation
 - Requested proj/dataset and workspace dataset subfolder do not exist; do not create duplicate archives.
@@ -87,7 +82,7 @@
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | completed (bounded) |
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | completed (bounded; comparison unavailable) |
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | completed (bounded) |
-| 6 | Full run, fair comparisons, error analysis, handover | 1–5 | in progress |
+| 6 | Full run, fair comparisons, error analysis, handover | 1–5 | completed (bounded; full memory-limited) |
 
 ## Phase acceptance and verification
 ### 0 — audit and baseline
@@ -153,18 +148,18 @@
 - Staged review retains one original whitespace-only line in imported risk_engine.py; other new files pass whitespace checks.
 - Original 30 source/live hashes and three archive-stat records remain unchanged; final_preservation_check.json records checks.
 - Native deps now installed: .local/phase0-venv (Python 3.14.4); Node 22.22.1/npm 9.2.0 available.
-- npm findings: 106 package groups (3 low/36 moderate/65 high/2 critical), reproduced from install cache.
+- npm findings: 106 groups (3 low/36 moderate/65 high/2 critical), cached then freshly confirmed in Phase 6.
 - Production-declared: 2 moderate React Router groups; dev graph: 104, including critical proxy-addr/shell-quote.
 - Dev tooling also runs under current Docker npm start; no package/lockfile upgrades or audit fix applied.
-- Review: docs/implementation/phase0/npm_audit_review.md and npm_audit_review.json (cached, not fresh registry audit).
-- GitHub works with elevated access; sandbox DNS remains restricted; installed baseline checks are complete.
+- npm review: phase0/npm_audit_review.md (historical cache), phase6/npm-review.md/json (fresh registry audit).
+- Current GitHub publication/npm registry access works; historical DNS failures remain documented.
 - Native Windows monitors, physical devices and PostgreSQL integration were not verified in this environment.
 - No monitors/servers started; no live content logged; baseline/current source hashes are verified separately.
 - Pre-existing Flask findings: global feature users mix, watchdog summaries omit changes, permitted after-hours hidden.
 - Bounded data/artifacts ignored; Phase 2 label/features evidence: docs/implementation/phase2/.
 
 ## Current phase, checkpoint, and exact next action
-- User authorized remaining Phases 5–6; no Phase 7 exists in this plan.
+- Remaining Phases 5–6 implemented/tested; detailed acceptance/evaluation: docs/implementation/phase5/ and phase6/.
 - Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b; baseline results preserved above.
 - Phase 1 verified implementation: 07a39cadc924357b2b93e984e2bfd23e73ebf991; final start HEAD 4c5a52ed.
 - Phase 1: 10,000 events/zero errors, interrupted resume/idempotency; 28 safety tests; no full ingestion claim.
@@ -186,6 +181,18 @@
 - Phase 4 pushed/freshly verified: dcf66aab4619f13598aa8558df80842db0920fca.
 - Publication checkpoints/final resume instructions: CONTEXT.md and docs/implementation/publication.json.
 - Phase 5: 22 adapter checks/131 isolated passes; both adapters replayed 38 held-out windows; docs/implementation/phase5/.
-- Phase 6 next: bounded resumable broader chronological processing, evaluation/error analysis and handover.
-- For detection-quality comparisons, first prepare a broader chronological CERT cohort with positive examples.
-- Independent document-sensitivity supervision is also required before a trained sensitivity accuracy claim.
+- Phase 5 pushed/freshly verified: 6d51b5cf3a004d1dec0925859253f613b54d2d9c; explicit disabled/shadow defaults.
+- Phase 6 tooling pushed/freshly verified: e49fb55297a6800d657132a9805f8d166f3bba1e; final evidence commit follows.
+- Phase 6: full 32,770,222-source-row scan; fixed June 7–21 cohort 978,908 events, 70 exact positive events.
+- Phase 6: 95,930 fully observed windows; chronological train/val/test 58,258/25,919/11,753, positives 14/19/8.
+- Test IF TN10,294/FP1,451/FN5/TP3, precision .002063/recall .375/F1 .004104/PR-AP .003097.
+- Test logistic TN11,197/FP548/FN7/TP1, precision .001821/recall .125/F1 .003591/PR-AP .007288.
+- Fixed research rule/OR use identical test cohort; OR adds false alerts without recall gain; no endpoint-policy claim.
+- Both numeric models reproduce fits/scores/hashes; threshold validation-only; poor precision, 8 test positives.
+- Numeric cohort is later-time/seen-user/continuing-incident; shared groups disclosed in phase6/population-audit.json.
+- Strict text cohort 54,763/0/0 after identity controls; text comparison unavailable; no sensitivity corpus.
+- Phase 6: 142 isolated pytest + 22 preserved Flask passes, no skips; one prior warning. Originals/store preserved.
+- Full-release materialization exceeds available memory; text peak 3.73 GiB on bounded cohort; no full eval claim.
+- Windows/PostgreSQL/Docker remain unverified; 106 npm findings open; no models activated or enforcement changed.
+- Final results/commands/limitations: phase6/evaluation.md, verification.json, handover.md; publication.json has SHAs.
+- Exact next step: streaming feature/text preparation with frozen-cohort parity before full-release evaluation.

@@ -1,0 +1,65 @@
+{
+  "comparison": null,
+  "comparison_status": "UNAVAILABLE",
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "document_sensitivity_corpus": "NOT_ESTABLISHED",
+  "duplicate_normalized_keyword_bags": 6600,
+  "events": 978908,
+  "feature_artifact_sha256": "00178c4efb6c8a87304e0295916cf18019d2d5563b4882ade0b75ebb4b8ed247",
+  "full_dataset": false,
+  "held_out_prevalence_policy": "no class resampling; report filtered common cohort explicitly",
+  "leakage_audit": {
+    "duplicate_policy": "drop later windows containing any prior normalized keyword bag",
+    "identity_policy": "drop later users observed in any prior partition",
+    "incident_disjoint": true,
+    "partitions": {
+      "test": {
+        "after": 0,
+        "before": 11753,
+        "removed": {
+          "missing_text": 765,
+          "seen_identity": 10988
+        }
+      },
+      "train": {
+        "after": 54763,
+        "before": 58258,
+        "removed": {
+          "missing_text": 3495
+        }
+      },
+      "validation": {
+        "after": 0,
+        "before": 25919,
+        "removed": {
+          "missing_text": 1267,
+          "seen_identity": 24652
+        }
+      }
+    },
+    "scenario_disjoint": true,
+    "shared_incident_count": 0,
+    "shared_scenario_count": 0
+  },
+  "live_activation": false,
+  "nonempty_sanitized_text_events": 940871,
+  "original_numeric_population": {
+    "test": 11753,
+    "train": 58258,
+    "validation": 25919
+  },
+  "store_sha256": "9ceae9600f0cc8c05fac45996bf2061aabffe67de53bb20b6a96617d26b0abee",
+  "task": "CERT malicious event-window keyword detection; NOT document sensitivity",
+  "text_source_events": 940871,
+  "text_sources": "content keyword fields only; file hex headers removed; no resources or identities",
+  "train_class_counts": {
+    "0": 54749,
+    "1": 14
+  },
+  "unavailable_reasons": [
+    "insufficient_validation_classes",
+    "empty_held_out_cohort_after_leakage_controls"
+  ],
+  "validation_class_counts": {},
+  "version": "cert-keyword-text-research-v1"
+}

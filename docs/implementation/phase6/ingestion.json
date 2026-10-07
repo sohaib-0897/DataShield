@@ -1,0 +1,53 @@
+{
+  "bound_per_source": 1000000,
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "errors": 0,
+  "events": 978908,
+  "full_dataset_ingested": false,
+  "labels_created": false,
+  "manifest_sha256": "bdfe29ea32e68ff18970ffd87bc872d0c4603cdd0f8e11480ee3f2d7bf7f7d4c",
+  "progress": [
+    {
+      "duplicates": 0,
+      "inserted": 12320,
+      "invalid": 0,
+      "processed": 12320,
+      "source": "device.csv",
+      "valid": 12320
+    },
+    {
+      "duplicates": 0,
+      "inserted": 78602,
+      "invalid": 0,
+      "processed": 78602,
+      "source": "email.csv",
+      "valid": 78602
+    },
+    {
+      "duplicates": 0,
+      "inserted": 13173,
+      "invalid": 0,
+      "processed": 13173,
+      "source": "file.csv",
+      "valid": 13173
+    },
+    {
+      "duplicates": 0,
+      "inserted": 849096,
+      "invalid": 0,
+      "processed": 849096,
+      "source": "http.csv",
+      "valid": 849096
+    },
+    {
+      "duplicates": 0,
+      "inserted": 25717,
+      "invalid": 0,
+      "processed": 25717,
+      "source": "logon.csv",
+      "valid": 25717
+    }
+  ],
+  "timezone_basis": "unspecified_release_local",
+  "version": "cert-r42-ingestion-v1"
+}

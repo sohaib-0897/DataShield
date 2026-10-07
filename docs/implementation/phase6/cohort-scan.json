@@ -1,0 +1,76 @@
+{
+  "all_members_validated": true,
+  "archive": "r4.2.tar.bz2",
+  "cached_bytes": 527725863,
+  "cohort": {
+    "end_exclusive": "2010-06-21T00:00:00",
+    "selection": "all users/events in predeclared contiguous interval; labels not consulted",
+    "start_inclusive": "2010-06-07T00:00:00"
+  },
+  "elapsed_seconds": 660.858,
+  "expanded_bytes": 16181487042,
+  "full_dataset_retained": false,
+  "full_source_scan": true,
+  "input": {
+    "bytes": 4824287500,
+    "sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c"
+  },
+  "manifest_sha256": "bdfe29ea32e68ff18970ffd87bc872d0c4603cdd0f8e11480ee3f2d7bf7f7d4c",
+  "row_bound_per_member": 1000000,
+  "version": "cert-r42-ingestion-v1",
+  "manifest_local_path": "research/local/cohort-tf2zqu5i/manifest.json",
+  "sources": [
+    {
+      "bytes": 193055265,
+      "cache_format": "indexed-v1",
+      "cache_hash": "88ce821fcf73605975b8a07ba7ee2c530b35337c8459c0120c5aabf3666e7d09",
+      "cached_rows": 13173,
+      "complete": true,
+      "name": "r4.2/file.csv",
+      "source_rows": 445581,
+      "type": "file"
+    },
+    {
+      "bytes": 14536257467,
+      "cache_format": "indexed-v1",
+      "cache_hash": "992aa61d23782480b290e01f0a4231b6947aa09937b6f816562a988971eec2fd",
+      "cached_rows": 849096,
+      "complete": true,
+      "name": "r4.2/http.csv",
+      "source_rows": 28434423,
+      "type": "file"
+    },
+    {
+      "bytes": 58514706,
+      "cache_format": "indexed-v1",
+      "cache_hash": "0ca51560a384e2ab646de6b2ae740029139adcc39cf81f4b5289dfc7f9b08ccb",
+      "cached_rows": 25717,
+      "complete": true,
+      "name": "r4.2/logon.csv",
+      "source_rows": 854859,
+      "type": "file"
+    },
+    {
+      "bytes": 1362101939,
+      "cache_format": "indexed-v1",
+      "cache_hash": "c81d9e4082bb23ebe07ee83541928e37f9f7afb9b61420917dccf9e8a10f6a20",
+      "cached_rows": 78602,
+      "complete": true,
+      "name": "r4.2/email.csv",
+      "source_rows": 2629979,
+      "type": "file"
+    },
+    {
+      "bytes": 28982749,
+      "cache_format": "indexed-v1",
+      "cache_hash": "d6002c970f0701e831df2850e00291f360723ccb79e730b602f0280fb6a59007",
+      "cached_rows": 12320,
+      "complete": true,
+      "name": "r4.2/device.csv",
+      "source_rows": 405380,
+      "type": "file"
+    }
+  ],
+  "members": 28,
+  "retained_events": 978908
+}

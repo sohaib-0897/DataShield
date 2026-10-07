@@ -1,0 +1,24 @@
+{
+  "overlap_counts": {
+    "train_validation": {
+      "users": 970,
+      "incidents": 1,
+      "scenarios": 2
+    },
+    "train_test": {
+      "users": 970,
+      "incidents": 1,
+      "scenarios": 2
+    },
+    "validation_test": {
+      "users": 970,
+      "incidents": 3,
+      "scenarios": 2
+    }
+  },
+  "interpretation": "chronological later-time cohort on observed users; shared scenarios/incidents are not unseen incident generalization",
+  "identity_or_incident_features": false,
+  "test_used_for_fit_or_tuning": false,
+  "overlapping_windows": false,
+  "feature_labels": "exact event observables only; no actor-history propagation"
+}

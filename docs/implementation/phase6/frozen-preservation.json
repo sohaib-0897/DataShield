@@ -1,0 +1,7 @@
+{
+  "historical_store": true,
+  "historical_features": true,
+  "historical_model": true,
+  "preserved_source": true,
+  "application_trees": true
+}

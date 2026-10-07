@@ -1,0 +1,302 @@
+{
+  "anomaly_training_population": "all eligible chronological training windows; no label-based cleaning",
+  "answers_sha256": "ed21bf921def01e97326b314f2d1fa77651a945bd31bf513095f8ac7658c9ddd",
+  "baseline_history_policy": "observed past windows allowed online across boundaries; labels never used",
+  "cpu_workers": 1,
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "evaluated_windows": 95930,
+  "feature_artifact_sha256": "00178c4efb6c8a87304e0295916cf18019d2d5563b4882ade0b75ebb4b8ed247",
+  "feature_names": [
+    "file_count",
+    "http_count",
+    "email_count",
+    "logon_count",
+    "usb_count",
+    "total_count",
+    "after_hours_fraction",
+    "unique_pc_count",
+    "novel_pc_fraction",
+    "past_mean_total",
+    "total_over_past_mean",
+    "history_windows",
+    "cold_start",
+    "file_available",
+    "http_available",
+    "email_available",
+    "logon_available",
+    "usb_available"
+  ],
+  "feature_version": "cert-user-hour-v1",
+  "full_dataset": false,
+  "latency_basis": "local CPU batch score, excludes event ingestion/window preparation; one observation",
+  "models": {
+    "isolation_forest": {
+      "artifact_sha256": "a4fa32279b14664a442a82985d76f799d332c88c29c6911bca7ad75bc22db463",
+      "batch_inference_seconds": 0.09501055499640643,
+      "imputer_statistics": [
+        0.0,
+        7.0,
+        0.0,
+        0.0,
+        0.0,
+        8.0,
+        0.0,
+        1.0,
+        0.0,
+        10.28,
+        0.9302325581395349,
+        29.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "independent_training_equal": true,
+      "mean_inference_ms_per_window": 0.008083940695686754,
+      "preprocessing_fit_rows": 58258,
+      "replay_artifact_hash_equal": true,
+      "restored_scores_equal": true,
+      "score_kind": "negative_score_samples_not_probability",
+      "test": {
+        "alerts": 1454,
+        "confusion": {
+          "fn": 5,
+          "fp": 1451,
+          "tn": 10294,
+          "tp": 3
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 1919,
+        "f1": 0.004103967168262654,
+        "false_alerts_per_active_user_hour": 0.12345784055134859,
+        "false_alerts_per_evaluated_user_day": 0.7561229807191245,
+        "false_positive_rate": 0.12354193273733503,
+        "median_first_alert_seconds_from_first_labeled_window_start": 3600.0,
+        "positive_windows": 8,
+        "pr_auc_average_precision": 0.003096759010339025,
+        "precision": 0.0020632737276478678,
+        "prevalence": 0.0006806772738875181,
+        "recall": 0.375,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 5
+          },
+          "3": {
+            "detected_windows": 3,
+            "positive_windows": 3
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 11753
+      },
+      "threshold": 0.495354418620347,
+      "threshold_partition": "validation",
+      "threshold_strategy": "validation_max_f1_ties_prefer_higher_threshold",
+      "validation": {
+        "alerts": 2601,
+        "confusion": {
+          "fn": 15,
+          "fp": 2597,
+          "tn": 23303,
+          "tp": 4
+        },
+        "detected_incidents": 2,
+        "evaluated_user_days": 2910,
+        "f1": 0.0030534351145038168,
+        "false_alerts_per_active_user_hour": 0.10019676685057294,
+        "false_alerts_per_evaluated_user_day": 0.8924398625429554,
+        "false_positive_rate": 0.10027027027027027,
+        "median_first_alert_seconds_from_first_labeled_window_start": 10800.0,
+        "positive_windows": 19,
+        "pr_auc_average_precision": 0.0007815156531639235,
+        "precision": 0.0015378700499807767,
+        "prevalence": 0.000733052972722713,
+        "recall": 0.21052631578947367,
+        "scenarios": {
+          "2": {
+            "detected_windows": 1,
+            "positive_windows": 13
+          },
+          "3": {
+            "detected_windows": 3,
+            "positive_windows": 6
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 25919
+      }
+    },
+    "logistic_regression": {
+      "artifact_sha256": "f1e2ffe769c5be0ae9a71e33d87444b2d0d5467b8aa7cfbea2139cc4f472d42b",
+      "batch_inference_seconds": 0.00298106699847267,
+      "imputer_statistics": [
+        0.0,
+        7.0,
+        0.0,
+        0.0,
+        0.0,
+        8.0,
+        0.0,
+        1.0,
+        0.0,
+        10.28,
+        0.9302325581395349,
+        29.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "independent_training_equal": true,
+      "mean_inference_ms_per_window": 0.0002536430697245529,
+      "preprocessing_fit_rows": 58258,
+      "replay_artifact_hash_equal": true,
+      "restored_scores_equal": true,
+      "score_kind": "uncalibrated_class_probability",
+      "test": {
+        "alerts": 549,
+        "confusion": {
+          "fn": 7,
+          "fp": 548,
+          "tn": 11197,
+          "tp": 1
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 1919,
+        "f1": 0.003590664272890485,
+        "false_alerts_per_active_user_hour": 0.04662639326129499,
+        "false_alerts_per_evaluated_user_day": 0.28556539864512764,
+        "false_positive_rate": 0.04665815240527884,
+        "median_first_alert_seconds_from_first_labeled_window_start": 86400.0,
+        "positive_windows": 8,
+        "pr_auc_average_precision": 0.007288048988267427,
+        "precision": 0.0018214936247723133,
+        "prevalence": 0.0006806772738875181,
+        "recall": 0.125,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 5
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 3
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 11753
+      },
+      "threshold": 0.9920701238356384,
+      "threshold_partition": "validation",
+      "threshold_strategy": "validation_max_f1_ties_prefer_higher_threshold",
+      "validation": {
+        "alerts": 327,
+        "confusion": {
+          "fn": 18,
+          "fp": 326,
+          "tn": 25574,
+          "tp": 1
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 2910,
+        "f1": 0.005780346820809248,
+        "false_alerts_per_active_user_hour": 0.012577645742505498,
+        "false_alerts_per_evaluated_user_day": 0.11202749140893471,
+        "false_positive_rate": 0.012586872586872588,
+        "median_first_alert_seconds_from_first_labeled_window_start": 25200.0,
+        "positive_windows": 19,
+        "pr_auc_average_precision": 0.0014416420078420652,
+        "precision": 0.0030581039755351682,
+        "prevalence": 0.000733052972722713,
+        "recall": 0.05263157894736842,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 13
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 6
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 25919
+      }
+    }
+  },
+  "partitions_sha256": "69ca7f6bfbe944c752ed21f79aceb4efe6dbdf93e586fce99c5e68b367463adb",
+  "preprocessing_fit_partition": "train",
+  "quality_claim_supported": true,
+  "score_artifacts_sha256": {
+    "isolation_forest": "848935afde6f364f0a240931cfbcf282c98efe6f202bb6d48a3fafbed0256950",
+    "logistic_regression": "9a071342dceabc78dd3406f7717720212ee389d67aa68f038848160447366cdf"
+  },
+  "seed": 42,
+  "software": {
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "python": "3.14.4",
+    "sklearn": "1.9.1"
+  },
+  "splits": {
+    "excluded_windows": 133,
+    "partitions": {
+      "test": {
+        "end": "2010-06-20T16:00:00",
+        "positives": 8,
+        "start": "2010-06-17T16:00:00",
+        "users": 970,
+        "windows": 11753
+      },
+      "train": {
+        "end": "2010-06-15T04:00:00",
+        "positives": 14,
+        "start": "2010-06-07T07:00:00",
+        "users": 973,
+        "windows": 58258
+      },
+      "validation": {
+        "end": "2010-06-17T16:00:00",
+        "positives": 19,
+        "start": "2010-06-15T04:00:00",
+        "users": 970,
+        "windows": 25919
+      }
+    },
+    "policy": "60/20/20 of distinct chronological hours; all users share boundaries",
+    "purged_overlaps": 0,
+    "test_start": "2010-06-17T16:00:00",
+    "validation_start": "2010-06-15T04:00:00"
+  },
+  "status": "RESEARCH_ONLY_NOT_REGISTRABLE",
+  "store_sha256": "9ceae9600f0cc8c05fac45996bf2061aabffe67de53bb20b6a96617d26b0abee",
+  "supervised": {
+    "reason": null,
+    "status": "trained",
+    "train_class_counts": {
+      "0": 58244,
+      "1": 14
+    },
+    "validation_class_counts": {
+      "0": 25900,
+      "1": 19
+    }
+  },
+  "training_seconds": 2.3130513899996004,
+  "trees": 200,
+  "validation_alert_budget": 0.01,
+  "version": "cert-behavior-research-v1"
+}

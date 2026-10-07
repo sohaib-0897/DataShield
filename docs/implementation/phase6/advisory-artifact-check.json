@@ -1,0 +1,19 @@
+{
+  "coverage": "first and last held-out expanded windows; four adapter observations",
+  "checks": {
+    "preserved_flask": {
+      "checks": 2,
+      "frozen_scores_match": true,
+      "rule_preserved": true
+    },
+    "upstream_fastapi": {
+      "checks": 2,
+      "frozen_scores_match": true,
+      "rule_preserved": true
+    }
+  },
+  "artifact_loads": 1,
+  "automated_blocking": false,
+  "live_deployment": false,
+  "model_report_sha256": "9685ee205977fe901396d24161b148a09cf89d5e77e162527b580dddaad5d38a"
+}

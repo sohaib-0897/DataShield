@@ -1,4 +1,6 @@
-# Phase 6 progress checkpoint
+# Historical Phase 6 tooling checkpoint
+
+Superseded by `evaluation.md` and `verification.json`; the final bounded run is complete.
 
 Phase 5 implementation `6d51b5cf3a004d1dec0925859253f613b54d2d9c` was normally
 pushed and freshly verified before starting Phase 6. The plan ends at Phase 6.

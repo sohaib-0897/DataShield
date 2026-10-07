@@ -25,11 +25,28 @@
       "normal_push_succeeded": true,
       "fresh_git_ls_remote_sha": "dcf66aab4619f13598aa8558df80842db0920fca",
       "remote_matched_local": true
+    },
+    {
+      "phase": 5,
+      "commit_sha": "6d51b5cf3a004d1dec0925859253f613b54d2d9c",
+      "normal_push_succeeded": true,
+      "fresh_git_ls_remote_sha": "6d51b5cf3a004d1dec0925859253f613b54d2d9c",
+      "remote_matched_local": true
+    },
+    {
+      "phase": 6,
+      "milestone": "bounded cohort/comparison tooling",
+      "commit_sha": "e49fb55297a6800d657132a9805f8d166f3bba1e",
+      "normal_push_succeeded": true,
+      "fresh_git_ls_remote_sha": "e49fb55297a6800d657132a9805f8d166f3bba1e",
+      "remote_matched_local": true
     }
   ],
   "phase4_working_tree_after_publication": "clean",
   "force_push_or_main_merge": false,
   "completion_scope": "bounded phase acceptance; supervised numeric/text comparisons unavailable; no sensitivity corpus",
   "final_documentation_commit": "resolve with git log -1 --format=%H -- CONTEXT.md; own SHA cannot be embedded in itself",
-  "final_documentation_verification": "normal push and fresh remote equality are checked after this documentation commit and reported in the morning handoff"
+  "final_documentation_verification": "normal push and fresh remote equality are checked after this documentation commit and reported in the morning handoff",
+  "continuation_initial_checkpoint": "dd4761fb97e22d3d43c25db6f7e1cd9f0f1bdee7",
+  "continuation_initial_remote_matched": true
 }
