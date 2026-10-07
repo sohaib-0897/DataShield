@@ -21,7 +21,9 @@
 - Local origin/main has that same SHA; remote freshness remains unverified because DNS is unavailable.
 - Origin: https://github.com/sohaib-0897/DataShield.git; verified matches requested repository.
 - Dedicated branch: feat/cert-ml-nlp, created from existing checkout; no reset or merge performed.
-- Fetch, push preflight, actual push, and remote SHA verification failed: Could not resolve host: github.com.
+- User confirms manual push succeeded; branch now tracks origin/feat/cert-ml-nlp.
+- At resume, HEAD and cached remote branch both equaled db47089b00b4613ea981f44182081d3ec0a5196e.
+- Fresh remote SHA query still fails: Could not resolve host: github.com; no live verification claimed.
 - No AGENTS.md found in actual checkout, parent workspace, ancestors, or downloaded source.
 - Downloaded original: /home/sohaib/Downloads/AI-DLP-Agent (user-confirmed implementation to preserve).
 - Preserved copy: legacy/downloaded_flask/; 19 top-level .py/.html files, no live/config/document files.
@@ -79,7 +81,7 @@
 ## Phase table
 | Phase | Scope | Depends on | Status |
 |---|---|---|---|
-| 0 | Audit, source preservation, isolated baseline, plan/checkpoint | dependencies + remote access | blocked |
+| 0 | Audit, source preservation, isolated baseline, plan/checkpoint | remaining dependency/regression checks | blocked |
 | 1 | Actual release inspection and safe resumable ingestion | completed 0 | pending |
 | 2 | Exact-event labels and shared per-user features | 1 | pending |
 | 3 | Reproducible behavioral ML and held-out evaluation | 2 | pending |
@@ -91,7 +93,7 @@
 ### 0 — audit and baseline
 - Audit actual checkout plus supplied implementation; compare before transferring source; preserve both.
 - Acceptance: isolated regression baseline, preserved originals/upstream behavior, accurate plan, commit/push.
-- Commands: python -B -m pytest -q; python -B tests/phase0_regression.py --source-root legacy/downloaded_flask.
+- Commands: python -B -m pytest -q; python -B tests/phase0_regression.py --source-root legacy/downloaded_flask --require-no-skips.
 - Commands: python -B scripts/verification/phase0_preservation.py --help; git diff --check; wc -l DATASHIELD_IMPLEMENTATION.md.
 - Also npm ci/test/build in frontend with native tooling; see docs/implementation/phase0/audit.md.
 ### 1 — dataset inspection and safe ingestion
@@ -142,12 +144,15 @@
 - Detailed audit: docs/implementation/phase0/audit.md; historical supplied-code audit: phase0_audit.md alongside it.
 - Copy manifest: docs/implementation/phase0/source_reconciliation.json; original hashes: phase0_preservation*.json.
 - Supplied baseline: 22 attempted, 18 passed, 4 pandas checks skipped; zero failures/errors.
+- Prior passing checks were not repeated; four pending feature checks retried separately: 0 passed, 4 skipped, exit 2.
+- New evidence: docs/implementation/phase0/remaining_feature_checks.json and dependency_readiness.json.
 - Final integrity: 110 upstream files checked; only .gitignore changed; 19 source copy hashes match.
 - Staged review retains one original whitespace-only line in imported risk_engine.py; other new files pass whitespace checks.
 - Original 30 source/live hashes and three archive-stat records remain unchanged; final_preservation_check.json records checks.
 - Preserved copy baseline: same 18 passed/4 skipped; real Flask loaded from existing pure-Python venv packages.
 - Upstream existing CSV loader: 2 passed; full pytest stops at 7 missing-dependency collection errors.
-- Native pandas/FastAPI/SQLAlchemy/Pydantic dependencies missing; isolated pip installation failed to resolve pandas.
+- Native dependencies still missing; explicit PyPI install retry failed to resolve pandas (exit 1).
+- Native isolated venv: 0/17 required module imports available; GitHub/PyPI/npm DNS all fail.
 - Node/npm unavailable; frontend tests/build not rerun. Prior upstream claims are historical, not current evidence.
 - Native Windows monitors, physical devices and PostgreSQL integration were not verified in this environment.
 - No monitors/servers started; no live content logged; baseline/current source hashes are verified separately.
@@ -155,16 +160,18 @@
 - New model artifacts, CERT research data, authentic evaluation results: none.
 
 ## Current phase, checkpoint, and exact next action
-- Current phase: 0 blocked; source comparison/preservation and available baseline checks finished.
-- Previous checkpoint/base SHA: 74efcfd420d9e4442397d1c1276db67853a590f1; no earlier phase commit.
-- Intended current commit: docs: WIP DataShield phase 0 audit and source preservation.
+- Current phase: 0 blocked on native dependencies/tooling; Phase 1 remains pending.
+- Previous phase WIP checkpoint: db47089b00b4613ea981f44182081d3ec0a5196e (manual push confirmed by user).
+- Base upstream SHA: 74efcfd420d9e4442397d1c1276db67853a590f1.
+- Intended current commit: chore: WIP phase 0 dependency checks and manual push status.
 - Git author identity inferred from existing base commit and configured only in this repository.
 - Resolve this checkpoint SHA using git log -1; avoid editing this file just to record its own commit SHA.
-- WIP checkpoint preserves phase files locally; actual push exit 128 (DNS); .local/phase0-push.log records failure.
-- Worktree is clean after local checkpoint; GitHub checkpoint is NOT verified/published.
-- Exact next action on resume: verify local WIP history, fetch/push with working DNS, then finish missing dependency checks.
+- Previous push blocker resolved manually; session GitHub DNS restriction still limits fetch/new pushes.
+- Exact next action: install dependencies/tooling from a working terminal, then run outstanding checks per audit.md.
+- Harness --test selects unfinished checks; --require-no-skips returns exit 2 for skips, preserving default behavior.
+- Current checkpoint push preflight failed (DNS); new checkpoint publication remains pending.
 - Recovery: install requirements-dev.txt plus pandas in a native Linux venv; install frontend Node/npm dependencies.
-- Rerun full suites and four skipped feature cases; preserve/review pre-existing failures before completing Phase 0.
+- Run unfinished full upstream/frontend checks and four feature cases; do not erase historical baseline failures/skips.
 - With working GitHub DNS/network: git fetch origin; inspect divergence; git push -u origin feat/cert-ml-nlp.
 - Verify git ls-remote origin refs/heads/feat/cert-ml-nlp equals local checkpoint; never force-push.
 - Do not advance to Phase 1 until Phase 0 checks and pending checkpoint push/verification are resolved.

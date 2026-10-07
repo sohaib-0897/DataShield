@@ -347,10 +347,16 @@ def main():
     parser.add_argument("--source-root", required=True, type=Path)
     parser.add_argument("--dependency-root", type=Path)
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--test", action="append", help="Run only this named Baseline test; repeat for multiple tests")
+    parser.add_argument("--require-no-skips", action="store_true", help="Exit nonzero if any selected check is skipped")
     args = parser.parse_args()
     SOURCE = args.source_root.resolve()
     if not all((SOURCE / name).is_file() for name in ("database.py", "dashboard.py", "dashboard.html", "feature_builder.py")):
         parser.error("source root must contain the existing DataShield application")
+    if args.test:
+        for name in args.test:
+            if not name.startswith("test_") or not callable(getattr(Baseline, name, None)):
+                parser.error(f"Unknown baseline test: {name}")
     sys.dont_write_bytecode = True
     sys.path.insert(0, str(SOURCE))
     if args.dependency_root:
@@ -364,7 +370,8 @@ def main():
                 FLASK_ERROR = error
             else:
                 PANDAS_ERROR = error
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(Baseline)
+    suite = (unittest.TestSuite(Baseline(name) for name in args.test) if args.test
+             else unittest.defaultTestLoader.loadTestsFromTestCase(Baseline))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     report = {"source_root": str(SOURCE), "dependency_root": str(args.dependency_root) if args.dependency_root else None,
               "python": sys.version.split()[0], "run": result.testsRun,
@@ -374,11 +381,14 @@ def main():
               "errors": [{"test": str(test), "traceback": trace} for test, trace in result.errors],
               "flask_import_error": FLASK_ERROR, "pandas_import_error": PANDAS_ERROR,
               "native_windows_verified": False, "monitors_started": False,
-              "fixture_data": "synthetic; temporary SQLite and policy files", "successful_available_checks": result.wasSuccessful()}
+              "fixture_data": "synthetic; temporary SQLite and policy files", "successful_available_checks": result.wasSuccessful(),
+              "selected_tests": args.test, "complete_verification": result.wasSuccessful() and not result.skipped}
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, indent=2) + "\n")
-    return 0 if result.wasSuccessful() else 1
+    if not result.wasSuccessful():
+        return 1
+    return 2 if args.require_no_skips and result.skipped else 0
 
 
 if __name__ == "__main__":

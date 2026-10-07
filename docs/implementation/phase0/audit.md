@@ -123,10 +123,11 @@ With Node/npm installed, run `npm ci`, `npm test`, and `npm run build` inside `f
 Do not run E2E against a live stack or reseed existing accounts; a disposable service setup
 is required for any additional integration check.
 
-GitHub fetch, push preflight, actual push, and remote SHA verification all fail with
-`Could not resolve host: github.com` (exit 128). The push log is `.local/phase0-push.log`.
-An incomplete phase is preserved as a local WIP commit; no successful GitHub checkpoint
-is claimed. With working network access, run:
+The user subsequently confirmed a successful manual push of `db47089b00b4613ea981f44182081d3ec0a5196e`.
+At resume, local HEAD and cached `origin/feat/cert-ml-nlp` matched that SHA; upstream tracking is configured.
+This resolves the previous checkpoint's push blocker. A fresh remote SHA query still fails
+with `Could not resolve host: github.com` (exit 128); cached equality is not live verification.
+New checkpoint pushes from this session may still require a manual push. With working access, run:
 
 ```bash
 git fetch origin
@@ -139,3 +140,37 @@ git ls-remote origin refs/heads/feat/cert-ml-nlp
 Inspect divergence first and never force-push. Remaining Phase 0 work: resolve dependencies,
 finish skipped feature tests/full regression/frontend checks, review any genuine baseline
 failures, and verify the required remote checkpoint before advancing to Phase 1.
+
+## Remaining-check retry after manual push
+
+The prior passing checks were not repeated. An explicit PyPI installation retry still failed
+with `No matching distribution found for pandas` (exit 1). Native isolated venv imports are
+unavailable for all 17 required modules checked; Node/npm are absent. Direct DNS lookups for
+GitHub, PyPI and npm's registry all fail with temporary name-resolution errors. No unsupported
+Python-version claim is inferred from pip's error. See `dependency_readiness.json`.
+
+Only the four previously skipped feature checks were attempted. They again skipped because
+pandas is unavailable: **0 passed, 4 skipped, no test failures/errors**. A new strict harness
+flag returns exit 2 for this incomplete run, even though unittest prints `OK (skipped=4)`.
+The separate `remaining_feature_checks.json` preserves this result without overwriting the
+earlier 18-pass/4-skip baseline. Backend and frontend suites were not rerun with unchanged,
+missing dependencies; their previous failures/unavailable status remain recorded.
+
+From a terminal with native dependencies and working package-index access:
+
+```bash
+cd '/home/sohaib/Insider_Threat_Test_Dataset/DataShield~'
+.local/phase0-venv/bin/python -m pip install -r requirements-dev.txt pandas
+.local/phase0-venv/bin/python -B scripts/verification/phase0_upstream_baseline.py --report docs/implementation/phase0/upstream_baseline_completed.json --log .local/phase0_upstream_completed.log
+.local/phase0-venv/bin/python -B tests/phase0_regression.py --source-root legacy/downloaded_flask --test test_feature_both_sources_empty --test test_feature_activity_only --test test_feature_transfer_only --test test_feature_existing_global_aggregation_characterization --require-no-skips --report docs/implementation/phase0/remaining_feature_checks_completed.json
+cd frontend
+npm ci
+CI=true npm test
+npm run build
+```
+
+Install Node/npm first if unavailable; repository CI uses Node 22 and Python 3.11.
+Keep the prior result files as historical evidence. Record genuine feature failures separately
+if native pandas exposes them; Phase 0 identifies pre-existing defects rather than rewriting
+the feature builder prematurely. All checks use synthetic/temp storage; no live stack restart,
+migration, seeding, reset, or endpoint collection is part of these commands.

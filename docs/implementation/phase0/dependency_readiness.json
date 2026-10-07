@@ -1,0 +1,87 @@
+{
+  "interpreter": "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/bin/python",
+  "python": "3.14.4",
+  "modules": {
+    "pytest": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'pytest'"
+    },
+    "flask": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'flask'"
+    },
+    "flask_cors": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'flask_cors'"
+    },
+    "pandas": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'pandas'"
+    },
+    "sqlalchemy": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'sqlalchemy'"
+    },
+    "pydantic": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'pydantic'"
+    },
+    "fastapi": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'fastapi'"
+    },
+    "alembic": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'alembic'"
+    },
+    "dotenv": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'dotenv'"
+    },
+    "pwdlib": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'pwdlib'"
+    },
+    "jwt": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'jwt'"
+    },
+    "httpx": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'httpx'"
+    },
+    "psycopg": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'psycopg'"
+    },
+    "sklearn": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'sklearn'"
+    },
+    "joblib": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'joblib'"
+    },
+    "watchdog": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'watchdog'"
+    },
+    "psutil": {
+      "import": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'psutil'"
+    }
+  },
+  "node": null,
+  "npm": null,
+  "dns": {
+    "github.com": "gaierror: [Errno -3] Temporary failure in name resolution",
+    "pypi.org": "gaierror: [Errno -3] Temporary failure in name resolution",
+    "registry.npmjs.org": "gaierror: [Errno -3] Temporary failure in name resolution"
+  },
+  "dependency_installation_exit": 1,
+  "dependency_log": ".local/phase0-dependency-retry.log",
+  "backend_regression": "not rerun: missing dependencies unchanged",
+  "frontend_regression": "not run: Node/npm absent; registry DNS unavailable",
+  "previous_push": "user reports manual success; local HEAD equals cached origin/feat/cert-ml-nlp at db47089b00b4613ea981f44182081d3ec0a5196e",
+  "live_remote_verification": "failed DNS; cached equality is not a live check"
+}
