@@ -18,8 +18,10 @@ external text transfer, text logging or persistence. Actual frozen-model interfa
 replays all 6,713 predictions exactly. Checks: 221 isolated, 22 Flask, 88 final
 targeted passes; all 13 frozen artifacts, DS2 files and original/live preservation
 match. Fixed the observed DS2 pypdf CI failure by including research dependencies
-in development requirements; extraction tests remain enabled. CI publication
-status is reported separately after push; obtain final SHA from Git.
+in development requirements; extraction tests remain enabled. Source checkpoint
+9130a96e2909ff5f09ba9ff9fec0160b9316e4a6 pushed normally and freshly matched the
+remote. GitHub CI run 37767822921 passed: 221 Python tests, seven frontend tests
+and production build. Final documentation SHA/latest CI are reported in the final handoff.
 
 Stop after DS3. Organizational sensitivity remains blocked on independent labels
 and owner-approved policy/context. Exact next human action: authorized de-identified

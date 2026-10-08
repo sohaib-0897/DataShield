@@ -245,8 +245,14 @@ failed with 11 extraction-test failures: `ModuleNotFoundError: No module named '
 The local environment masked that dependency omission. `requirements-dev.txt`
 now includes `requirements-research.txt`, installing both pypdf and python-docx
 through the workflow's existing dev install; no tests are skipped or weakened.
-Dependency dry-run succeeds, and all extraction tests pass locally. Fresh GitHub
-CI is inspected after publication and reported separately from local checks.
+Dependency dry-run succeeds, and all extraction tests pass locally. Published
+source checkpoint `9130a96e2909ff5f09ba9ff9fec0160b9316e4a6` pushed normally and
+freshly matched the remote. [GitHub CI run 37767822921](https://github.com/sohaib-0897/DataShield/actions/runs/37767822921)
+completed successfully: **221 Python tests** (including extraction, no skips),
+**seven frontend tests**, successful production build and CI PostgreSQL migrations.
+The existing Starlette warning remains. This is separate CI evidence, not local
+PostgreSQL runtime validation. The final documentation checkpoint's fresh remote
+SHA and latest CI status are reported in the final handoff.
 
 [Verification evidence](ds3-verification.json) records resources, snapshots,
 interface replay, checks and prior CI observation; [frozen preservation](ds3-frozen-preservation.json)

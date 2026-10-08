@@ -186,7 +186,7 @@
 - Checks: 221 isolated + 22 Flask passes; final targeted 88 passes; existing Starlette warning only, no skips.
 - Original/live 30 hashes, 19 normalized copies, three archive stats, all 13 canonical frozen artifacts and all DS2 files match.
 - Earlier DS2 GitHub CI failed 11 extraction tests on absent pypdf; dev requirements now include research parser dependencies.
-- Dependency dry-run succeeds; GitHub status is verified separately after normal push, reported in final handoff/evidence.
+- GitHub source checkpoint 9130a96: CI 37767822921 passed (221 Python/7 frontend tests + build); normal push/remote verified.
 - Detailed actual results/interface/commands/preservation: docs/implementation/document-sensitivity/ds3-report.md and ds3-*.json.
 - Organizational sensitivity remains BLOCKED on independent human labels and owner-approved versioned policy/context.
 - Exact next action: owner supplies authorized de-identified 100-document pilot and policy/context; two blind reviewers + adjudicator.

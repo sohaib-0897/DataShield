@@ -122,6 +122,26 @@
     ]
   },
   "publication": "normal branch push with remote equality and exact latest CI inspection follows; final SHA/status from Git and final handoff",
+  "published_source_checkpoint": {
+    "commit_sha": "9130a96e2909ff5f09ba9ff9fec0160b9316e4a6",
+    "final_documentation_checkpoint": "final SHA and latest CI from Git and final handoff; source unchanged",
+    "fresh_remote_equals_local": true,
+    "github_actions": {
+      "api_ci_migrations": "success",
+      "conclusion": "success",
+      "frontend_build": "success",
+      "frontend_tests_passed": 7,
+      "jobs": {
+        "api": "success",
+        "frontend": "success"
+      },
+      "python_tests_passed": 221,
+      "run_id": 37767822921,
+      "status": "completed",
+      "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37767822921"
+    },
+    "normal_push": true
+  },
   "resource_basis": "GNU time per-command elapsed wall and maximum process/child RSS; not concurrent aggregate",
   "snapshot_preservation": {
     "all_ds2_private_files_preserved": true,
