@@ -1,0 +1,111 @@
+{
+  "phase": "DS1",
+  "status": "METADATA_VERIFIED_CORPUS_ACQUISITION_BLOCKED",
+  "repository": "https://github.com/NorskRegnesentral/text-anonymization-benchmark",
+  "revision": "558e09e26d6b36f5f78440074e6a233946d98bd9",
+  "license": "MIT; copyright and permission notice retained locally",
+  "tree_url": "https://api.github.com/repos/NorskRegnesentral/text-anonymization-benchmark/git/trees/558e09e26d6b36f5f78440074e6a233946d98bd9",
+  "tree_sha256": "763e40625473fe9555d390e26efb959ba955ff0cb135dbeb0a14bb39085a1f87",
+  "verified_metadata_files": [
+    {
+      "file": "LICENSE.txt",
+      "git_blob_sha1": "08ff062c0c385aa532d64064029a82f6bebc59da",
+      "sha256": "9569b31acf50e1cb3f38f47220f2c3a42f533e07e72fe2d18c2871e89098a8c7",
+      "bytes": 1089
+    },
+    {
+      "file": "README.md",
+      "git_blob_sha1": "50cb33c003a830106a623e70683a15b14c119302",
+      "sha256": "81a4d41a06f5962c90df94361e453216b12d510e50120c98d0648e4f909c032d",
+      "bytes": 3512
+    },
+    {
+      "file": "guidelines.md",
+      "git_blob_sha1": "79b40726a3ab19b85ada4ed7a75463ba468df316",
+      "sha256": "cbd72dcb48d323c77fcbce4fa6401680afd48207e047e93dff85d3ebebcd298e",
+      "bytes": 19788
+    }
+  ],
+  "expected_source_files": [
+    {
+      "file": "LICENSE.txt",
+      "bytes": 1089,
+      "git_blob_sha1": "08ff062c0c385aa532d64064029a82f6bebc59da"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3512,
+      "git_blob_sha1": "50cb33c003a830106a623e70683a15b14c119302"
+    },
+    {
+      "file": "guidelines.md",
+      "bytes": 19788,
+      "git_blob_sha1": "79b40726a3ab19b85ada4ed7a75463ba468df316"
+    },
+    {
+      "file": "echr_train.json",
+      "bytes": 47503662,
+      "git_blob_sha1": "3a1912f7f942b4e72adc4736053f9a873ec8b1ec"
+    },
+    {
+      "file": "echr_dev.json",
+      "bytes": 12643092,
+      "git_blob_sha1": "cccf25a4ee806aee822d336684d958c6b6fd3088"
+    },
+    {
+      "file": "echr_test.json",
+      "bytes": 13103290,
+      "git_blob_sha1": "0a797c636723b687817f28b142f6cd88d1cc0dd3"
+    }
+  ],
+  "partial_downloads": [
+    {
+      "path": "research/local/document_sensitivity/tab-source-558e09e.zip.partial",
+      "bytes": 379336,
+      "sha256": "a8b9a80394d477960a5518aaeac4ebfb52bdd8c5d8c829ae11cf93f46b4e8e58",
+      "trusted_complete_source": false
+    },
+    {
+      "path": "research/local/document_sensitivity/tab-source-http1-558e09e.zip.partial",
+      "bytes": 489298,
+      "sha256": "61c06971effbf59fef988c3a1bb0afe6047f5454712f1081838eac377174cf64",
+      "trusted_complete_source": false
+    },
+    {
+      "path": "research/local/document_sensitivity/tab_558e09e/echr_train.json.partial",
+      "bytes": 5242880,
+      "sha256": "2fb9f5232609dfe43dd14d2327a99d52f5d6f8fb5014449bbfebb1ef62c5adce",
+      "trusted_complete_source": false
+    },
+    {
+      "path": "research/local/document_sensitivity/tab_v1/echr_train.json.partial",
+      "bytes": 1196023,
+      "sha256": "450dfb3e83c8c16fe8410940acf7e2224405fc384dd4badb2c14b105744811c1",
+      "trusted_complete_source": false
+    }
+  ],
+  "attempts": [
+    {
+      "method": "urllib pinned raw files",
+      "result": "socket/TLS read timeout; three metadata files complete; train incomplete"
+    },
+    {
+      "method": "curl pinned raw train",
+      "result": "bounded retries timed out; train incomplete"
+    },
+    {
+      "method": "curl pinned ZIP HTTP/2",
+      "result": "exit 92 HTTP/2 CANCEL; 379336 partial bytes"
+    },
+    {
+      "method": "curl pinned ZIP HTTP/1.1",
+      "result": "exit 28; 240.002 seconds; 489298 partial bytes"
+    }
+  ],
+  "complete_corpus_manifest_published": false,
+  "actual_document_counts": null,
+  "actual_class_counts": null,
+  "training_performed": false,
+  "model_evaluation_performed": false,
+  "organizational_human_labels_completed": 0
+}

@@ -2,9 +2,9 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Phases 0–6 and authorized NLP follow-up completed at bounded acceptance; no Phase 7.
+- Original Phases 0–6/NLP follow-up and DS1 complete; next session executes DS2 only when requested.
 - Verify the previous checkpoint and pending push before starting another phase.
-- Goal: safe CERT r4.2 ingestion, ground truth/features, behavioral ML, NLP, evaluation, advisory integration.
+- Goal: preserve completed CERT workflow; establish defensible content labels, evaluation and advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
 - Preserve both supplied Flask/SQLite application and existing upstream FastAPI/PostgreSQL/React runtime.
 - No framework/database migration is authorized or needed; use additive shared modules/adapters.
@@ -83,6 +83,9 @@
 | 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | completed (bounded; comparison unavailable) |
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | completed (bounded) |
 | 6 | Full run, fair comparisons, error analysis, handover | 1–5 | completed (bounded; full memory-limited) |
+| DS1 | Sensitivity taxonomy, dataset/license research, annotation plan | NLP follow-up | complete; acquisition blocked |
+| DS2 | Corpus preparation, leakage-resistant splits, CPU baseline training | DS1 + suitable labels | pending; next session |
+| DS3 | Evaluation, error analysis, optional shadow integration | DS2 | pending; separate session |
 
 ## Phase acceptance and verification
 ### 0 — audit and baseline
@@ -182,4 +185,13 @@
 - Detailed commands/results: docs/implementation/nlp-followup/report.md, streaming.md, sensitivity.md and JSON evidence.
 - Streaming milestone verified: 3500e23d1a57e224280a83af837a8e4faf2c937f; evaluation verified: 521331df8f651aa1c3797d488a913964f3581c55.
 - Both normal pushes/fresh remote SHA equalities succeeded; documentation closure follows; final HEAD via Git.
-- Exact next action: bounded training vocabulary/matrices with frozen feature/score parity before larger evaluation.
+- DS1 complete; started clean at local/fresh remote b881673ea91e5a31bc7036caebe8f62236079a06; no CERT rerun.
+- DS1 taxonomy, seven-source/license registry, blank human-review CLI and bounded TAB inventory implemented.
+- DS1 evidence/commands/recovery: docs/implementation/document-sensitivity/report.md and adjacent JSON/guide/plan.
+- TAB selected only for supplied-span semantic categories; metadata verified; corpus downloads incomplete/timed out.
+- No organizational corpus/labels, real sensitivity training/evaluation or activation; raw/partial storage ignored.
+- DS1 checks: 175 isolated + 22 Flask passes; 42 targeted; 388.340 MiB peak / 22.78s full check; originals preserved.
+- DS2 acceptance: source/version/chunk/near-duplicate grouped splits, train-only transforms, validation thresholds.
+- DS3 acceptance: untouched natural test cohort, per-class P/R/F1/AP/confusion, rule comparison/error analysis.
+- Organizational labels require policy/context and human review; categories alone cannot assign NORMAL/HIGH/CRITICAL.
+- Exact next action: DS2 only after request; verify Git, retry pinned TAB acquisition, audit groups/labels, freeze splits.

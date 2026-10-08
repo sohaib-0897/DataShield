@@ -1,0 +1,87 @@
+{
+  "phase": "DS1",
+  "initial_commit": "b881673ea91e5a31bc7036caebe8f62236079a06",
+  "isolated_pytest": {
+    "python": "3.14.4",
+    "exit_code": 0,
+    "base_commit": "b881673ea91e5a31bc7036caebe8f62236079a06",
+    "isolation": "tracked Python/config copied to temporary directory; DATABASE_URL=sqlite://; existing test_api DB also inside temporary copy",
+    "collection_errors": [],
+    "summary": [
+      "........................................................................ [ 41%]",
+      "........................................................................ [ 82%]",
+      "...............................                                          [100%]",
+      "=============================== warnings summary ===============================",
+      "../../home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1",
+      "  /home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.",
+      "    from starlette.testclient import TestClient as TestClient  # noqa",
+      "",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "175 passed, 1 warning in 20.06s"
+    ],
+    "node_available": true,
+    "npm_available": true,
+    "log": ".local/ds1-isolated-tests.log"
+  },
+  "preserved_flask": {
+    "source_root": "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/legacy/downloaded_flask",
+    "dependency_root": null,
+    "python": "3.14.4",
+    "run": 22,
+    "passed": 22,
+    "skipped": [],
+    "failures": [],
+    "errors": [],
+    "flask_import_error": null,
+    "pandas_import_error": null,
+    "native_windows_verified": false,
+    "monitors_started": false,
+    "fixture_data": "synthetic; temporary SQLite and policy files",
+    "successful_available_checks": true,
+    "selected_tests": null,
+    "complete_verification": true
+  },
+  "source_live_and_archive_stat_match": true,
+  "isolated_resources": {
+    "wall_seconds": 22.78,
+    "maximum_rss_kib": 397660,
+    "rss_mib": 388.33984375
+  },
+  "flask_resources": {
+    "wall_seconds": 1.48,
+    "maximum_rss_kib": 103680
+  },
+  "logs": [
+    ".local/ds1-isolated-tests.log",
+    ".local/ds1-isolated-resource.txt",
+    ".local/ds1-flask-resource.txt",
+    ".local/ds1-packet-resource.txt"
+  ],
+  "blank_packet_cli": {
+    "extraction_fixture_only": true,
+    "labels_assigned": false,
+    "status": "AWAITING_INDEPENDENT_REVIEWS",
+    "wall_seconds": 0.3,
+    "maximum_rss_kib": 24088
+  },
+  "application_and_prior_nlp_diff_from_start": "empty",
+  "actual_sensitivity_model_training": false,
+  "targeted_checks": {
+    "passed": 42,
+    "seconds": 7.01,
+    "command": "pytest -q tests/test_document_sensitivity_phase1.py tests/test_document_research.py -p no:cacheprovider",
+    "command_wall_seconds": 8.06,
+    "maximum_rss_kib": 118072
+  },
+  "status_file_below_200_lines": true,
+  "frozen_preservation": {
+    "checks": 13,
+    "all_match": true,
+    "report": "docs/implementation/document-sensitivity/frozen-preservation.json",
+    "feature_verification_command_wall_seconds": 6.22,
+    "feature_verification_maximum_rss_kib": 801832,
+    "feature_verification_rss_mib": 783.0390625,
+    "no_training_or_preparation_rerun": true
+  },
+  "status_file_lines": 197
+}

@@ -1,0 +1,23 @@
+{
+  "read_only_preservation_checks": {
+    "phase3_benchmark_v1/features": true,
+    "phase3_benchmark_v1/store": true,
+    "phase3_benchmark_v1/isolation_forest": true,
+    "phase6_benchmark_v1/features": true,
+    "phase6_benchmark_v1/store": true,
+    "phase6_benchmark_v1/isolation_forest": true,
+    "phase6_benchmark_v1/logistic_regression": true,
+    "nlp_known_users_v1/combined": true,
+    "nlp_known_users_v1/numeric": true,
+    "nlp_known_users_v1/text": true,
+    "nlp_known_users_v1/cohort.json": true,
+    "nlp_known_users_v1/frozen_thresholds.json": true,
+    "nlp_june_stream.sqlite": true
+  },
+  "all_match": true,
+  "seconds": 4.60505078999995,
+  "no_preparation_or_training_rerun": true,
+  "feature_hash_contract": "canonical JSON payload excluding artifact_sha256, validated by existing research.cert_features.load_artifact; other hashes are whole-file SHA-256",
+  "feature_hash_check_seconds": 6.109521437996591,
+  "initial_feature_raw_file_comparison": "wrong hash domain; diagnostic preserved in ignored .local/ds1-frozen-rawhash-check.json; no files changed"
+}

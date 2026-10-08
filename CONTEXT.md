@@ -1,4 +1,44 @@
-# Completed NLP follow-up — 2026-10-08
+# Document sensitivity DS1 complete — 2026-10-08
+
+This session executed DS1 only. “Start next phase” means DS2 only: verify the
+current Git checkpoint/push, retry pinned TAB acquisition, validate hashes/schema,
+reconcile annotations and audit case/subject/source/version/duplicate groups,
+freeze splits, then train a CPU baseline only if supported labels are defensible.
+Do not repeat CERT ingestion/training, replace the original strict-cohort result,
+or combine the known-user experiment with document-sensitivity evidence.
+
+- Started clean `feat/cert-ml-nlp`, local/fresh remote both
+  `b881673ea91e5a31bc7036caebe8f62236079a06`; no AGENTS.md found.
+- Separate content categories PERSONAL_INFORMATION / FINANCIAL_INFORMATION /
+  CREDENTIALS / BUSINESS_CONFIDENTIAL from context-dependent NORMAL/HIGH/CRITICAL.
+  Public PII or financial text alone cannot assign a policy level; unknown stays null.
+- Seven primary-source dataset/license reviews. TAB selected narrowly for provided
+  entity-span semantic categories, never whole-document organizational sensitivity.
+  Natural human-reviewed machine-assisted annotations; disagreements remain relevant.
+- MIT release pinned at `558e09e26d6b36f5f78440074e6a233946d98bd9`.
+  Three metadata files match official Git blobs; actual corpus acquisition blocked
+  by raw-download and archive timeouts. Four partial files are untrusted; no
+  acquisition manifest or actual corpus counts. Storage: ignored private
+  `research/local/document_sensitivity/`; download recovery in DS1 report.
+- Blank private annotation CLI and context/two-reviewer/adjudication validation
+  implemented; existing bounded extractors reused. Standalone fixture CLI assigns
+  no labels. Human work still needed: owner-approved policy/examples, 100-document
+  pilot, proposed 1,200-document corpus with two independent reviews plus resolution.
+- No real sensitivity fitting/evaluation, no organizational labels produced and
+  no active artifact/policy/runtime changes. CERT/historical artifacts preserved.
+- Verification: 175 isolated pytest + 22 Flask passes; 42 targeted tests.
+  Full check 22.78s / 388.340 MiB peak RSS, existing Starlette warning only.
+  All 30 source/live hash/stat entries and three archive/readme stats unchanged.
+  All 13 frozen artifact checks match; read-only canonical feature verification
+  command 6.22s / 783.039 MiB, the largest observed DS1 command peak.
+- Detailed status, commands, blockers, artifact paths and exact next actions:
+  `docs/implementation/document-sensitivity/report.md`; taxonomy/guide,
+  dataset-research.md, later-phases.md and aggregate JSON evidence alongside it.
+- Final checkpoint is current Git HEAD on feat/cert-ml-nlp; publication is a
+  normal push and fresh `ls-remote` equality, reported at phase handoff.
+  DS3 evaluation/error analysis/optional shadow remains a separate later phase.
+
+# Historical completed NLP follow-up — 2026-10-08
 
 User-authorized autonomous NLP follow-up is complete at bounded evaluation.
 Start was clean `feat/cert-ml-nlp`, local/fresh remote matched
