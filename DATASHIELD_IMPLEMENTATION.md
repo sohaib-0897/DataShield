@@ -2,7 +2,7 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Authorized Phases 5–6 completed at bounded acceptance; the plan ends at 6 (no Phase 7).
+- Phases 0–6 and authorized NLP follow-up completed at bounded acceptance; no Phase 7.
 - Verify the previous checkpoint and pending push before starting another phase.
 - Goal: safe CERT r4.2 ingestion, ground truth/features, behavioral ML, NLP, evaluation, advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
@@ -171,7 +171,14 @@
 - Root cause strict empty cohorts: every later eligible user already seen; not a label/text mapping defect.
 - Original strict results retained; separately declared known-user/content-disjoint chronological experiment.
 - Alternative sizes 54,763/23,616/10,553, positives 14/19/8; no identifiers/answers/future evidence as features.
-- Numeric/text/combined fitting and independent sensitivity interface in progress; no production activation.
-- 24 targeted stream/feature/text checks passed; follow-up regressions pending.
-- Detailed commands/results: docs/implementation/nlp-followup/streaming.md and protocol.md.
-- Exact next action: complete alternative comparison, supervision interface, advisory verification and publication.
+- Numeric/text/combined test precision .002198/.50/.074074; recall .125/.125/.25; F1 .004320/.20/.114286.
+- AP .007826/.154422/.167069; false alerts/1,000 windows 43.020942/.094760/2.368995.
+- Same 10,553 test windows / 8 positives; train-only transforms, validation thresholds, refit/hash replay equal.
+- Training/reproduction 499.263s / 8.52 GiB peak RSS; full-release fitting still resource-limited.
+- Separate sensitivity interface runnable; only synthetic tests; independent supervision remains unavailable.
+- Shadow defaults disabled; six actual scores match, rule fallback/provenance/schema tests pass; no activation.
+- Final isolated regressions 151 passes + 22 preserved Flask passes; no skips, one existing warning.
+- Originals/live/copies/archives/application trees and frozen January/June research artifacts preserved.
+- Detailed commands/results: docs/implementation/nlp-followup/report.md, streaming.md, sensitivity.md and JSON evidence.
+- Streaming milestone pushed/fresh remote verified: 3500e23d1a57e224280a83af837a8e4faf2c937f; final HEAD via Git.
+- Exact next action: bounded training vocabulary/matrices with frozen feature/score parity before larger evaluation.

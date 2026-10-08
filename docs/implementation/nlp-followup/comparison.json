@@ -1,0 +1,509 @@
+{
+  "cohort_sha256": "3b8c2459f2792ee67074d79134102e7b37c235176cd88da8f27d6c1266902e95",
+  "common_population": {
+    "test": {
+      "class_counts": {
+        "0": 10545,
+        "1": 8
+      },
+      "windows": 10553
+    },
+    "train": {
+      "class_counts": {
+        "0": 54749,
+        "1": 14
+      },
+      "windows": 54763
+    },
+    "validation": {
+      "class_counts": {
+        "0": 23597,
+        "1": 19
+      },
+      "windows": 23616
+    }
+  },
+  "comparison_status": "COMPLETED",
+  "document_sensitivity_validation": "NOT_ESTABLISHED",
+  "feature_names": [
+    "file_count",
+    "http_count",
+    "email_count",
+    "logon_count",
+    "usb_count",
+    "total_count",
+    "after_hours_fraction",
+    "unique_pc_count",
+    "novel_pc_fraction",
+    "past_mean_total",
+    "total_over_past_mean",
+    "history_windows",
+    "cold_start",
+    "file_available",
+    "http_available",
+    "email_available",
+    "logon_available",
+    "usb_available"
+  ],
+  "feature_version": "cert-user-hour-v1",
+  "fit_partition": "train",
+  "frozen_thresholds_sha256": "1c34833342656b230e29ea97de83bb0cbdf65e22c5bd0e4f7db8d8251c5f0810",
+  "full_dataset": false,
+  "group_overlap": {
+    "train_test": {
+      "incidents": 1,
+      "scenarios": 2,
+      "users": 968
+    },
+    "train_validation": {
+      "incidents": 1,
+      "scenarios": 2,
+      "users": 970
+    },
+    "validation_test": {
+      "incidents": 3,
+      "scenarios": 2,
+      "users": 968
+    }
+  },
+  "live_activation": false,
+  "models": {
+    "combined": {
+      "artifact_sha256": "ebc18717bb16b5f5f02715592a97f300d38f317a535d1f44855d3b7859ae91ac",
+      "batch_inference_seconds": 4.920043572994473,
+      "error_analysis": {
+        "fn": {
+          "after_hours_windows": 3,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {
+            "2": 6,
+            "3": 4
+          },
+          "text_word_count_mean": 343.1666666666667,
+          "windows": 6
+        },
+        "fp": {
+          "after_hours_windows": 9,
+          "cold_start_windows": 0,
+          "file_windows": 3,
+          "positive_scenarios": {},
+          "text_word_count_mean": 400.56,
+          "windows": 25
+        },
+        "tn": {
+          "after_hours_windows": 3374,
+          "cold_start_windows": 0,
+          "file_windows": 406,
+          "positive_scenarios": {},
+          "text_word_count_mean": 468.78070342205325,
+          "windows": 10520
+        },
+        "tp": {
+          "after_hours_windows": 2,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {
+            "3": 5
+          },
+          "text_word_count_mean": 403.0,
+          "windows": 2
+        }
+      },
+      "fit_rows": 54763,
+      "replay_artifact_hash_equal": true,
+      "replay_scores_threshold_equal": true,
+      "test": {
+        "alerts": 27,
+        "confusion": {
+          "fn": 6,
+          "fp": 25,
+          "tn": 10520,
+          "tp": 2
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 1827,
+        "f1": 0.11428571428571428,
+        "false_alerts_per_1000_windows": 2.368994598692315,
+        "false_alerts_per_active_user_hour": 0.002368994598692315,
+        "false_alerts_per_evaluated_user_day": 0.013683634373289545,
+        "false_positive_rate": 0.002370791844476055,
+        "median_first_alert_seconds_from_first_labeled_window_start": 86400.0,
+        "positive_windows": 8,
+        "pr_auc_average_precision": 0.16706902290902576,
+        "precision": 0.07407407407407407,
+        "prevalence": 0.0007580782715815408,
+        "recall": 0.25,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 5
+          },
+          "3": {
+            "detected_windows": 2,
+            "positive_windows": 3
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 10553
+      },
+      "threshold": 0.6412215631841454,
+      "threshold_strategy": "validation_max_f1_ties_prefer_higher_threshold",
+      "training_and_validation_seconds": 110.97208503299771,
+      "validation": {
+        "alerts": 21,
+        "confusion": {
+          "fn": 17,
+          "fp": 19,
+          "tn": 23578,
+          "tp": 2
+        },
+        "detected_incidents": 2,
+        "evaluated_user_days": 2902,
+        "f1": 0.1,
+        "false_alerts_per_1000_windows": 0.8045392953929539,
+        "false_alerts_per_active_user_hour": 0.000804539295392954,
+        "false_alerts_per_evaluated_user_day": 0.006547208821502412,
+        "false_positive_rate": 0.0008051871000550918,
+        "median_first_alert_seconds_from_first_labeled_window_start": 63000.0,
+        "positive_windows": 19,
+        "pr_auc_average_precision": 0.02859962558967065,
+        "precision": 0.09523809523809523,
+        "prevalence": 0.000804539295392954,
+        "recall": 0.10526315789473684,
+        "scenarios": {
+          "2": {
+            "detected_windows": 1,
+            "positive_windows": 13
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 6
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 23616
+      },
+      "vocabulary_size": 10000
+    },
+    "numeric": {
+      "artifact_sha256": "9349cea90acb6e9d5f972322c5a5aec3de1478513f7f3ee6595a43e15e281d14",
+      "batch_inference_seconds": 0.04778903599799378,
+      "error_analysis": {
+        "fn": {
+          "after_hours_windows": 4,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {
+            "2": 6,
+            "3": 7
+          },
+          "text_word_count_mean": 304.7142857142857,
+          "windows": 7
+        },
+        "fp": {
+          "after_hours_windows": 22,
+          "cold_start_windows": 0,
+          "file_windows": 49,
+          "positive_scenarios": {},
+          "text_word_count_mean": 401.4162995594714,
+          "windows": 454
+        },
+        "tn": {
+          "after_hours_windows": 3361,
+          "cold_start_windows": 0,
+          "file_windows": 360,
+          "positive_scenarios": {},
+          "text_word_count_mean": 471.64245367158856,
+          "windows": 10091
+        },
+        "tp": {
+          "after_hours_windows": 1,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {
+            "3": 2
+          },
+          "text_word_count_mean": 732.0,
+          "windows": 1
+        }
+      },
+      "fit_rows": 54763,
+      "replay_artifact_hash_equal": true,
+      "replay_scores_threshold_equal": true,
+      "test": {
+        "alerts": 455,
+        "confusion": {
+          "fn": 7,
+          "fp": 454,
+          "tn": 10091,
+          "tp": 1
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 1827,
+        "f1": 0.004319654427645789,
+        "false_alerts_per_1000_windows": 43.02094191225244,
+        "false_alerts_per_active_user_hour": 0.04302094191225244,
+        "false_alerts_per_evaluated_user_day": 0.24849480021893816,
+        "false_positive_rate": 0.04305357989568516,
+        "median_first_alert_seconds_from_first_labeled_window_start": 86400.0,
+        "positive_windows": 8,
+        "pr_auc_average_precision": 0.007826135216953113,
+        "precision": 0.002197802197802198,
+        "prevalence": 0.0007580782715815408,
+        "recall": 0.125,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 5
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 3
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 10553
+      },
+      "threshold": 4.817499168764567,
+      "threshold_strategy": "validation_max_f1_ties_prefer_higher_threshold",
+      "training_and_validation_seconds": 0.47912089800229296,
+      "validation": {
+        "alerts": 260,
+        "confusion": {
+          "fn": 18,
+          "fp": 259,
+          "tn": 23338,
+          "tp": 1
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 2902,
+        "f1": 0.007168458781362007,
+        "false_alerts_per_1000_windows": 10.967140921409214,
+        "false_alerts_per_active_user_hour": 0.010967140921409215,
+        "false_alerts_per_evaluated_user_day": 0.08924879393521709,
+        "false_positive_rate": 0.010975971521803619,
+        "median_first_alert_seconds_from_first_labeled_window_start": 25200.0,
+        "positive_windows": 19,
+        "pr_auc_average_precision": 0.001626929076280525,
+        "precision": 0.0038461538461538464,
+        "prevalence": 0.000804539295392954,
+        "recall": 0.05263157894736842,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 13
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 6
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 23616
+      },
+      "vocabulary_size": null
+    },
+    "text": {
+      "artifact_sha256": "5719d2152f7230b83195101c9f1cae6c9eb0d0dcdb400ded60d2018307446df9",
+      "batch_inference_seconds": 4.799202131005586,
+      "error_analysis": {
+        "fn": {
+          "after_hours_windows": 4,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {
+            "2": 6,
+            "3": 6
+          },
+          "text_word_count_mean": 398.7142857142857,
+          "windows": 7
+        },
+        "fp": {
+          "after_hours_windows": 0,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {},
+          "text_word_count_mean": 59.0,
+          "windows": 1
+        },
+        "tn": {
+          "after_hours_windows": 3383,
+          "cold_start_windows": 0,
+          "file_windows": 409,
+          "positive_scenarios": {},
+          "text_word_count_mean": 468.6578148710167,
+          "windows": 10544
+        },
+        "tp": {
+          "after_hours_windows": 1,
+          "cold_start_windows": 0,
+          "file_windows": 0,
+          "positive_scenarios": {
+            "3": 3
+          },
+          "text_word_count_mean": 74.0,
+          "windows": 1
+        }
+      },
+      "fit_rows": 54763,
+      "replay_artifact_hash_equal": true,
+      "replay_scores_threshold_equal": true,
+      "test": {
+        "alerts": 2,
+        "confusion": {
+          "fn": 7,
+          "fp": 1,
+          "tn": 10544,
+          "tp": 1
+        },
+        "detected_incidents": 1,
+        "evaluated_user_days": 1827,
+        "f1": 0.2,
+        "false_alerts_per_1000_windows": 0.0947597839476926,
+        "false_alerts_per_active_user_hour": 9.47597839476926e-05,
+        "false_alerts_per_evaluated_user_day": 0.0005473453749315818,
+        "false_positive_rate": 9.48316737790422e-05,
+        "median_first_alert_seconds_from_first_labeled_window_start": 86400.0,
+        "positive_windows": 8,
+        "pr_auc_average_precision": 0.15442187345808328,
+        "precision": 0.5,
+        "prevalence": 0.0007580782715815408,
+        "recall": 0.125,
+        "scenarios": {
+          "2": {
+            "detected_windows": 0,
+            "positive_windows": 5
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 3
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 10553
+      },
+      "threshold": -0.3216458848189836,
+      "threshold_strategy": "validation_max_f1_ties_prefer_higher_threshold",
+      "training_and_validation_seconds": 91.46712442900025,
+      "validation": {
+        "alerts": 4,
+        "confusion": {
+          "fn": 17,
+          "fp": 2,
+          "tn": 23595,
+          "tp": 2
+        },
+        "detected_incidents": 2,
+        "evaluated_user_days": 2902,
+        "f1": 0.17391304347826086,
+        "false_alerts_per_1000_windows": 0.08468834688346884,
+        "false_alerts_per_active_user_hour": 8.468834688346883e-05,
+        "false_alerts_per_evaluated_user_day": 0.0006891798759476223,
+        "false_positive_rate": 8.47565368479044e-05,
+        "median_first_alert_seconds_from_first_labeled_window_start": 63000.0,
+        "positive_windows": 19,
+        "pr_auc_average_precision": 0.1068996621745769,
+        "precision": 0.5,
+        "prevalence": 0.000804539295392954,
+        "recall": 0.10526315789473684,
+        "scenarios": {
+          "2": {
+            "detected_windows": 1,
+            "positive_windows": 13
+          },
+          "3": {
+            "detected_windows": 1,
+            "positive_windows": 6
+          }
+        },
+        "supported_incidents": 3,
+        "timing_basis": "window end relative to first labeled TEST window start; not full incident onset",
+        "undefined_reason": null,
+        "windows": 23616
+      },
+      "vocabulary_size": 10000
+    }
+  },
+  "peak_rss_mib": 8726.00390625,
+  "preparation_contract": {
+    "answer_manifest_sha256": "722f181d72addedf30701ef645f190f90544b0177cea867386f9939e83774458",
+    "answers_sha256": "ed21bf921def01e97326b314f2d1fa77651a945bd31bf513095f8ac7658c9ddd",
+    "checkpoint_unit": "atomic complete user; incomplete user rolls back",
+    "complete": true,
+    "completed_users": 973,
+    "coverage": {
+      "EMAIL": [
+        "2010-06-07T06:49:00",
+        "2010-06-20T18:58:12"
+      ],
+      "FILE": [
+        "2010-06-07T00:23:07",
+        "2010-06-20T16:40:28"
+      ],
+      "HTTP": [
+        "2010-06-07T06:46:15",
+        "2010-06-20T19:28:49"
+      ],
+      "LOGON": [
+        "2010-06-07T00:08:53",
+        "2010-06-20T19:30:00"
+      ],
+      "USB": [
+        "2010-06-07T00:22:56",
+        "2010-06-20T16:43:21"
+      ]
+    },
+    "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+    "duplicate_normalized_keyword_bags": 6600,
+    "events": 978908,
+    "feature_version": "cert-user-hour-v1",
+    "full_dataset": false,
+    "fully_observed_windows": 95930,
+    "label_version": "cert-r42-exact-observable-v1",
+    "live_activation": false,
+    "max_hour_bytes": 16777216,
+    "max_hour_events": 50000,
+    "negative": 978838,
+    "nonempty_sanitized_text_events": 940871,
+    "peak_rss_mib": 425.3125,
+    "positive": 70,
+    "seconds_this_run": 122.66812466800184,
+    "store_sha256": "9ceae9600f0cc8c05fac45996bf2061aabffe67de53bb20b6a96617d26b0abee",
+    "text_source_events": 940871,
+    "unmatched_observables": 7253,
+    "users_processed_this_run": 953,
+    "version": "cert-stream-preparation-v1",
+    "windows": 96063,
+    "work_hours": [
+      9,
+      17
+    ]
+  },
+  "prepared_sha256": "b067cd967ea482ab22eb00b29b297da7a80636721af41c2780f831e4699b5036",
+  "protocol": "known-users-later-time-v1",
+  "score_kind": "uncalibrated_linear_decision_function",
+  "seconds": 499.2632109719998,
+  "seed": 42,
+  "software": {
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "python": "3.14.4",
+    "sklearn": "1.9.1"
+  },
+  "status": "RESEARCH_ONLY_NOT_REGISTRABLE",
+  "task": "CERT malicious event-window keywords; not sensitivity",
+  "threshold_partition": "validation",
+  "unavailable_reasons": [],
+  "version": "cert-known-users-nlp-v1"
+}

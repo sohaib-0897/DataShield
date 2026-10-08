@@ -75,9 +75,9 @@ class ExactLabelJoiner:
 
     def label(self, event):
         candidates = self.index.get((event['source_file'], event['source_id']), ())
+        actual = json.loads(event['metadata_json'])
         if not candidates:
             return {'label': 0, 'provenance': [], 'reason': 'not_in_complete_answers'}
-        actual = json.loads(event['metadata_json'])
         exact = [o for o in candidates if o['metadata'] == actual]
         if len(exact) != len(candidates) or len({o['incident'] for o in exact}) != 1:
             return {'label': None, 'provenance': [], 'reason': 'ambiguous_or_conflicting'}

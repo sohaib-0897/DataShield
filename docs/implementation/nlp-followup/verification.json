@@ -1,0 +1,68 @@
+{
+  "isolated_pytest": {
+    "passed": 151,
+    "skipped": 0,
+    "warnings": 1,
+    "exit_code": 0
+  },
+  "preserved_flask": {
+    "passed": 22,
+    "skipped": 0,
+    "native_windows": false
+  },
+  "new_stream_nlp_tests": 9,
+  "events_prepared": 978908,
+  "windows_prepared": 96063,
+  "frozen_window_feature_label_key_text_bag_parity": true,
+  "original_strict_cohort": [
+    54763,
+    0,
+    0
+  ],
+  "alternative_cohort": [
+    54763,
+    23616,
+    10553
+  ],
+  "alternative_positive_windows": [
+    14,
+    19,
+    8
+  ],
+  "training_only_vocabulary_preprocessing": true,
+  "validation_only_frozen_thresholds": true,
+  "test_class_resampling": false,
+  "all_three_models_reload_refit_threshold_hash_equal": true,
+  "actual_shadow_observations": 2,
+  "actual_shadow_scores": 6,
+  "actual_shadow_score_tolerance": 1e-12,
+  "original_source_live_hashes_preserved": 30,
+  "copied_normalized_source_hashes_preserved": 19,
+  "archive_stat_records_preserved": 3,
+  "historical_and_june_features_stores_models_preserved": true,
+  "application_trees_changed": [],
+  "raw_text_datasets_model_binaries_secrets_committed": false,
+  "new_model_activation": false,
+  "automatic_blocking": false,
+  "sensitivity_independent_validation": "NOT_ESTABLISHED",
+  "sensitivity_test_runs": "synthetic fixture interface only",
+  "full_release_import_training_evaluation": false,
+  "memory_mib": {
+    "stream_preparation": 425.3125,
+    "frozen_june_parity": 928.453125,
+    "train_and_reproduce": 8726.00390625
+  },
+  "runtime_seconds": {
+    "initial_20_user_checkpoint": 6.480180841004767,
+    "remaining_stream_preparation": 122.66812466800184,
+    "idempotent_replay": 4.21932027299772,
+    "june_parity": 56.33287100000598,
+    "train_evaluate_reproduce": 499.2632109719998
+  },
+  "remaining_blockers": [
+    "independent human-annotated policy sensitivity corpus unavailable",
+    "strict later-time unseen-user held-outs absent in frozen workforce cohort",
+    "full-release fitting needs bounded vocabulary/matrices or more resources"
+  ],
+  "native_windows_devices_postgresql_docker": "UNVERIFIED"
+}

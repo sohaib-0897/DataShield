@@ -1,0 +1,9 @@
+{
+  "branch": "feat/cert-ml-nlp",
+  "starting_local_fresh_remote_sha": "216a0eb2a49161ab2f185af7dec53e035c278a35",
+  "streaming_milestone_sha": "3500e23d1a57e224280a83af837a8e4faf2c937f",
+  "streaming_milestone_push": "normal; fresh ls-remote SHA equality verified",
+  "final_checkpoint": "resolve git rev-parse HEAD; final normal push and fresh remote equality recorded after commit",
+  "force_push": false,
+  "main_merge": false
+}

@@ -1,0 +1,175 @@
+{
+  "source_root": "/home/sohaib/Downloads/AI-DLP-Agent",
+  "dataset_root": "/home/sohaib/Downloads",
+  "source_and_live_files": {
+    "agent.py": {
+      "sha256": "35aa6d78f4d3f69980b0ed7edb31575b975dc65c2f1a53a99fbb3befd0731331",
+      "size": 1632,
+      "mtime_ns": 1790985518000000000
+    },
+    "baseline.py": {
+      "sha256": "8419d6eff477b1cf62f02854897383dd72c0801ef1e4880f220ac81420ef7e46",
+      "size": 3332,
+      "mtime_ns": 1791070586000000000
+    },
+    "behavior.py": {
+      "sha256": "fc0aeb217d888d5399af13391082861e887fe3ada9e1579b6df87f5e71ebe7d7",
+      "size": 7005,
+      "mtime_ns": 1791241002000000000
+    },
+    "behavioral_monitor.py": {
+      "sha256": "ba17ed5099cefb76d4d7f9c41bcee6fb575825deb4697def16eec3fc1b98dcc7",
+      "size": 4476,
+      "mtime_ns": 1791244348000000000
+    },
+    "check_db.py": {
+      "sha256": "c6239f5f1cc243094f3e67dcae41d57c4e20c59d51eb18646db2878e4dc96fb8",
+      "size": 242,
+      "mtime_ns": 1791072092000000000
+    },
+    "check_transfers.py": {
+      "sha256": "d086fd7dc36b255daf079ce0fa6bc604ef9853852ac21c11b26e91702e6f66aa",
+      "size": 419,
+      "mtime_ns": 1791150206000000000
+    },
+    "dashboard.html": {
+      "sha256": "ca366576ada3bea9adee6a47de5ebcfc7c35b091acae5d377ae55a35914324e1",
+      "size": 35750,
+      "mtime_ns": 1791369256000000000
+    },
+    "dashboard.py": {
+      "sha256": "dc4850de95c05eeec5d70bfdd72f21a0e9041bf9a53ebcbfb9caf49d4835d9fd",
+      "size": 19537,
+      "mtime_ns": 1791369244000000000
+    },
+    "data/activity.db": {
+      "sha256": "de92fb84ee50f1bd4dc79d7010d24b8c5e9e7236732e6c890793e2881a531039",
+      "size": 102400,
+      "mtime_ns": 1791374074000000000
+    },
+    "data/features.csv": {
+      "sha256": "d4ba707d7c87c376c0daa05f5416bdca496995e773d9eb8e042853457534fb75",
+      "size": 7317,
+      "mtime_ns": 1791333702000000000
+    },
+    "data/logs/behavior.log": {
+      "sha256": "9df4d196d13ae326ab27ffee7f5d3aab5f65038620d51debf552dc9fcf01ede7",
+      "size": 62106,
+      "mtime_ns": 1791374074000000000
+    },
+    "data/logs/drive.log": {
+      "sha256": "19cd1166c94c4139232894bbff57ca8f62f6498e4ea7a3fa263e91b89503ff46",
+      "size": 1685,
+      "mtime_ns": 1791373758000000000
+    },
+    "data/logs/files.log": {
+      "sha256": "7b6c44e694137f3857f97ba5ef10bf4af03e1c7f56b069278c41da50e7880b9d",
+      "size": 3566,
+      "mtime_ns": 1791373418000000000
+    },
+    "data/logs/local.log": {
+      "sha256": "794fe823cba950878eed78992f500e37bdaa780416beb0496c760a4795401264",
+      "size": 670,
+      "mtime_ns": 1791370918000000000
+    },
+    "data/logs/upload.log": {
+      "sha256": "c07fa5412986e6f353aa58676ac2324f831ef81be3b096a9f386de48b8794f5a",
+      "size": 442,
+      "mtime_ns": 1791369314000000000
+    },
+    "data/logs/usb.log": {
+      "sha256": "40ff71dfafa48c22c5fd56e9ebb6c82adce8b3cbc75a6dfe17a8afcac09930a2",
+      "size": 612,
+      "mtime_ns": 1791373086000000000
+    },
+    "data/logs/usbcopy.log": {
+      "sha256": "26198fc4bebafafc7c8feeb0539b9264297408bd0e834c430ba675fb900a1304",
+      "size": 649,
+      "mtime_ns": 1791373694000000000
+    },
+    "data/policy.json": {
+      "sha256": "419d8640e1d2f11de17b61d22d5aab1ac51b1f2d639bb57a45cd6762c81f6812",
+      "size": 467,
+      "mtime_ns": 1791336146000000000
+    },
+    "data/training_features.csv": {
+      "sha256": "665f4b8d07ae97450164468a9cfb08e249164f9ec19d95d8de95fbf690638bcc",
+      "size": 820,
+      "mtime_ns": 1791243426000000000
+    },
+    "database.py": {
+      "sha256": "5bf9c81cda6807d725f49ad6b1ac61a6f1c9e43cf4da25b681dfb2477f7a9830",
+      "size": 2743,
+      "mtime_ns": 1791330946000000000
+    },
+    "feature_builder.py": {
+      "sha256": "6304ad525c6b32b55ba4ec20619a57052bf952d4a793be73cb3e3d6614a926da",
+      "size": 8348,
+      "mtime_ns": 1791241906000000000
+    },
+    "google_drive_monitor.py": {
+      "sha256": "2b2bc9a7dfc835e48dbaadc96656fc4d55c94792b921def7d182ba4a28c10961",
+      "size": 3493,
+      "mtime_ns": 1791156236000000000
+    },
+    "local_copy_monitor.py": {
+      "sha256": "0acc62fd9e0b1cb9e7f9a9120b9df7eb81f8bc388632437c67150bcc00cca875",
+      "size": 3348,
+      "mtime_ns": 1791150098000000000
+    },
+    "prepare_training.py": {
+      "sha256": "22dd2a03a202733f193caac12ddf06be3c7815d95548f1520df429872e1ba8c1",
+      "size": 1684,
+      "mtime_ns": 1791242404000000000
+    },
+    "risk_engine.py": {
+      "sha256": "299f219f3ca52f25ac9472577ae39f6eba0e3f75451d71e165468e42f6c4050d",
+      "size": 1782,
+      "mtime_ns": 1791330910000000000
+    },
+    "sensitivity.py": {
+      "sha256": "63c8cdcc036a068ecce0e72ad3423d4e68527df63fbe52073f2f63a70d61578d",
+      "size": 1552,
+      "mtime_ns": 1791072332000000000
+    },
+    "upload_server.py": {
+      "sha256": "22f47c7f6365670fa8d288ea1689fa7c3b476b6f5f6ee0b4032977c0b27892ae",
+      "size": 2905,
+      "mtime_ns": 1791152438000000000
+    },
+    "usb_copy_monitor.py": {
+      "sha256": "fa595863cffe36973ca63eb2721657b0cdd347016f3cff0216ed2e6629c088a5",
+      "size": 3593,
+      "mtime_ns": 1791150112000000000
+    },
+    "usb_monitor.py": {
+      "sha256": "8431536f053d244523e781dc44f07e0ad463ecb1ac7637863882aabaf4be6596",
+      "size": 2786,
+      "mtime_ns": 1791070902000000000
+    },
+    "windows_monitor.py": {
+      "sha256": "49d91074832d3b18238e82e0a14dcedef9252ae89ae8b133736a71e2c0e2dd16",
+      "size": 14232,
+      "mtime_ns": 1791151864000000000
+    }
+  },
+  "dataset_stat_only": {
+    "r4.2.tar.bz2": {
+      "size": 4824287500,
+      "mtime_ns": 1791391637872487521,
+      "inode": 18358189
+    },
+    "answers.tar.bz2": {
+      "size": 1254678,
+      "mtime_ns": 1791390993633147992,
+      "inode": 18358303
+    },
+    "SEI_Insider_README.txt": {
+      "size": 1446,
+      "mtime_ns": 1791391004673529160,
+      "inode": 18358310
+    }
+  },
+  "archive_contents_hashed": false,
+  "matches_before": true
+}

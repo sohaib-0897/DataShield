@@ -1,0 +1,53 @@
+{
+  "answer_manifest_sha256": "722f181d72addedf30701ef645f190f90544b0177cea867386f9939e83774458",
+  "answers_sha256": "ed21bf921def01e97326b314f2d1fa77651a945bd31bf513095f8ac7658c9ddd",
+  "checkpoint_unit": "atomic complete user; incomplete user rolls back",
+  "complete": false,
+  "completed_users": 20,
+  "coverage": {
+    "EMAIL": [
+      "2010-06-07T06:49:00",
+      "2010-06-20T18:58:12"
+    ],
+    "FILE": [
+      "2010-06-07T00:23:07",
+      "2010-06-20T16:40:28"
+    ],
+    "HTTP": [
+      "2010-06-07T06:46:15",
+      "2010-06-20T19:28:49"
+    ],
+    "LOGON": [
+      "2010-06-07T00:08:53",
+      "2010-06-20T19:30:00"
+    ],
+    "USB": [
+      "2010-06-07T00:22:56",
+      "2010-06-20T16:43:21"
+    ]
+  },
+  "dataset_sha256": "586446b00e83ce5cdabf9dc889b0b6e7a9f44556cee3c03d39445d790122556c",
+  "duplicate_normalized_keyword_bags": 5,
+  "events": 14136,
+  "feature_version": "cert-user-hour-v1",
+  "full_dataset": false,
+  "fully_observed_windows": 1974,
+  "label_version": "cert-r42-exact-observable-v1",
+  "live_activation": false,
+  "max_hour_bytes": 16777216,
+  "max_hour_events": 50000,
+  "negative": 14136,
+  "nonempty_sanitized_text_events": 13531,
+  "peak_rss_mib": 425.3125,
+  "seconds_this_run": 6.480180841004767,
+  "store_sha256": "9ceae9600f0cc8c05fac45996bf2061aabffe67de53bb20b6a96617d26b0abee",
+  "text_source_events": 13531,
+  "unmatched_observables": 7323,
+  "users_processed_this_run": 20,
+  "version": "cert-stream-preparation-v1",
+  "windows": 1976,
+  "work_hours": [
+    9,
+    17
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "automated_blocking": false,
+  "frozen_score_match_1e_12": true,
+  "models_per_observation": 3,
+  "observations": 2,
+  "original_rules_preserved": true,
+  "results": [
+    {
+      "automated_blocking": false,
+      "fallback": "existing_rules",
+      "mode": "shadow",
+      "models": {
+        "combined": {
+          "score": -3.756541891104018,
+          "threshold_exceeded": false
+        },
+        "numeric": {
+          "score": 3.0602203749882904,
+          "threshold_exceeded": false
+        },
+        "text": {
+          "score": -4.977881239609045,
+          "threshold_exceeded": false
+        }
+      },
+      "report_sha256": "b2ee63e38a512ebc6ee0443db5f85cb633efd15c029f3fa0c50bd0035a672f59",
+      "score_kind": "uncalibrated_linear_decision_function",
+      "status": "SHADOW_SCORED",
+      "task": "CERT malicious window; NOT document sensitivity"
+    },
+    {
+      "automated_blocking": false,
+      "fallback": "existing_rules",
+      "mode": "shadow",
+      "models": {
+        "combined": {
+          "score": -4.224308152318959,
+          "threshold_exceeded": false
+        },
+        "numeric": {
+          "score": 0.534643893322239,
+          "threshold_exceeded": false
+        },
+        "text": {
+          "score": -6.170791928636666,
+          "threshold_exceeded": false
+        }
+      },
+      "report_sha256": "b2ee63e38a512ebc6ee0443db5f85cb633efd15c029f3fa0c50bd0035a672f59",
+      "score_kind": "uncalibrated_linear_decision_function",
+      "status": "SHADOW_SCORED",
+      "task": "CERT malicious window; NOT document sensitivity"
+    }
+  ]
+}

@@ -1,16 +1,44 @@
-# NLP follow-up in progress — 2026-10-08
+# Completed NLP follow-up — 2026-10-08
 
-Latest user instruction authorizes autonomous NLP diagnosis, streaming preparation,
-training/evaluation, document supervision search, advisory checks, commits/pushes.
-Starting clean local/fresh remote SHA: 216a0eb2a49161ab2f185af7dec53e035c278a35.
-Streaming preparation matches every frozen January and June feature/label/key/text/
-bag; 978,908 June events prepared with 425 MiB peak RSS, resumable user checkpoints.
-Original strict cohort remains 54,763/0/0; all later text-bearing identities seen
-in training. Independent stage audit confirms content-disjoint known-user alternative
-54,763/23,616/10,553, positives 14/19/8. Predeclared alternative is a separate
-experiment, not a replacement for unseen-user results. Training/comparison in progress.
-Evidence: docs/implementation/nlp-followup/streaming.md and protocol.md.
-No live files/policies/models changed. Historical handoffs below remain preserved.
+User-authorized autonomous NLP follow-up is complete at bounded evaluation.
+Start was clean `feat/cert-ml-nlp`, local/fresh remote matched
+216a0eb2a49161ab2f185af7dec53e035c278a35. No AGENTS.md found.
+
+- Streaming prepared 978,908 events / 96,063 windows, exact feature/label/key/text/
+  bag parity with every frozen January and June window. Peak RSS 425 MiB;
+  20-user checkpoint 6.480s + resumed 122.668s; idempotency 4.219s / zero new rows.
+- Strict 54,763/0/0 remains unavailable: all later eligible identities already seen.
+  No label, split or text-to-window defect. Missing-text/duplicate/identity stages
+  and per-class counts are independently recorded; original results retained.
+- Separately predeclared known-user/content-disjoint chronological experiment:
+  54,763/23,616/10,553 windows, 14/19/8 positives; no held-out resampling.
+- Numeric/text/combined logistic test TN/FP/FN/TP: 10091/454/7/1;
+  10544/1/7/1; 10520/25/6/2. Precision .002198/.50/.074074,
+  recall .125/.125/.25; F1 .004320/.20/.114286; AP .007826/.154422/.167069.
+  False alerts/1,000 windows 43.020942/.094760/2.368995. Eight positives are limited.
+- Train-only transforms, validation-only thresholds frozen before test; all three
+  independent fits/reloads/scores/thresholds/artifact hashes reproduce. No activation.
+- Training/reproduction: 499.263s / 8.52 GiB peak RSS. Full-release training still
+  requires bounded vocabulary/matrices or more resources; no full-release run claim.
+- Local/official public corpus review found no defensible policy sensitivity labels;
+  no dataset downloaded. Separate runnable sensitivity interface tested only using
+  explicitly unvalidated synthetic fixtures; CERT/PII/rule/model labels refused.
+- NLP shadow loader defaults disabled; schema/digest/provenance/software/fallback
+  tests pass. Six actual boundary-window scores match within 1e-12; rules preserved.
+- Final isolated regression: 151 passed, no skips, one existing Starlette warning;
+  preserved Flask: 22 passes. Original/live/copies/archives/application trees and
+  frozen January/June research artifacts preserved. Raw text/data/models remain ignored.
+- Authoritative detailed handoff: docs/implementation/nlp-followup/report.md;
+  commands/resources in streaming.md, corpus requirement in sensitivity.md;
+  comparison.json/cohort-audit.json/verification.json/publication.json hold evidence.
+- Streaming milestone pushed/freshly verified at 3500e23d1a57e224280a83af837a8e4faf2c937f.
+  Resolve final HEAD using git rev-parse HEAD; normal final push/fresh remote SHA
+  equality reported after closure. No force push or merge into main.
+- Exact next engineering step: predeclare external-memory training vocabulary/sparse
+  matrix preparation, prove feature/score parity on this frozen run, then attempt
+  larger chronological processing. Independent sensitivity corpus remains separate.
+
+Historical handoffs below are preserved and superseded by this pointer.
 
 ---
 
