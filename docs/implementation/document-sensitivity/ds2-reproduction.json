@@ -1,0 +1,10 @@
+{
+  "independent_model_hash_equality": {
+    "context": true,
+    "entity": true
+  },
+  "manifest_hashes_equal": true,
+  "same_manifest_hashes": true,
+  "v1_preparation": "initial offset deduplication audit",
+  "v2_preparation": "explicit duplicate-offset conflict guard; actual eligible rows and hashes unchanged"
+}

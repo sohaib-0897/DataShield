@@ -2,7 +2,7 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Original Phases 0–6/NLP follow-up and DS1 complete; next session executes DS2 only when requested.
+- Original Phases 0–6/NLP follow-up and DS1/DS2 complete; stop after DS2; DS3 requires a new request.
 - Verify the previous checkpoint and pending push before starting another phase.
 - Goal: preserve completed CERT workflow; establish defensible content labels, evaluation and advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
@@ -84,54 +84,14 @@
 | 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | completed (bounded) |
 | 6 | Full run, fair comparisons, error analysis, handover | 1–5 | completed (bounded; full memory-limited) |
 | DS1 | Sensitivity taxonomy, dataset/license research, annotation plan | NLP follow-up | complete; acquisition blocked |
-| DS2 | Corpus preparation, leakage-resistant splits, CPU baseline training | DS1 + suitable labels | pending; next session |
-| DS3 | Evaluation, error analysis, optional shadow integration | DS2 | pending; separate session |
+| DS2 | Acquisition, grouped splits, CPU supplied-span baseline/evaluation | DS1 + suitable labels | complete; offline TAB task only |
+| DS3 | Further evaluation/optional shadow integration | DS2 + explicit request | pending; separate session |
 
-## Phase acceptance and verification
-### 0 — audit and baseline
-- Audit actual checkout plus supplied implementation; compare before transferring source; preserve both.
-- Acceptance: isolated regression baseline, preserved originals/upstream behavior, accurate plan, commit/push.
-- Commands: python -B -m pytest -q; python -B tests/phase0_regression.py --source-root legacy/downloaded_flask --require-no-skips.
-- Commands: python -B scripts/verification/phase0_preservation.py --help; git diff --check; wc -l DATASHIELD_IMPLEMENTATION.md.
-- Also npm ci/test/build in frontend with native tooling; see docs/implementation/phase0/audit.md.
-### 1 — dataset inspection and safe ingestion
-- Read actual README, release docs, archive members and headers before mapping semantics.
-- Implement traversal/link rejection, disk checks, chunking, resumable progress, deduplication/diagnostics.
-- Preserve source IDs/users/times/actions/channels/resources/metadata in separate research storage.
-- Acceptance: bounded subset, idempotent rerun/resume, source hashes, counts/errors, documented mappings.
-- Checks: unsafe archives, interrupted rerun, empty/malformed rows, disk limits, count reconciliation + regressions.
-- CLI: python3 -B research/cert_ingest.py --config .local/cert_paths.json inspect --rows 2000; ingest commands in docs/implementation/phase1/ingestion.md.
-### 2 — ground truth and shared features
-- Inspect answers' actual granularity; exact matching, unmatched/ambiguous audits, separate scenario metadata.
-- Build versioned per-user windows, past-only baselines, configurable work hours and explicit availability.
-- Acceptance: traceable labels, isolated users, no future leakage, documented research/live contracts.
-- Checks: answer joins, two-user fixtures, empty/missing signals, cold starts, future invariance + regressions.
-- Record exact label/feature commands when implemented; do not label a malicious user's entire history.
-### 3 — behavioral ML and evaluation
-- Reproducible CPU IsolationForest and simple supervised baseline if positives support it.
-- Chronological train/validation/test; purge overlapping windows; training/past-only fitting.
-- Validation-only thresholds/tuning; natural held-out prevalence; audit zero-positive partitions honestly.
-- Acceptance: actual runs, reproducible versioned artifacts, leakage checks, measured subset/full coverage.
-- Checks: split audit, deterministic replay/training, artifact hashes, preprocessing fit boundaries + regressions.
-- Report precision/recall/F1/PR-AUC/confusion, false alerts per user-day, volume, latency and supported scenarios/timing.
-### 4 — NLP and documents
-- CERT text detection and independently labeled document sensitivity are separate tasks.
-- TF-IDF+linear comparison only with usable supervision; prevent duplicate-text/identity/scenario leakage.
-- Bounded TXT/PDF/DOCX extraction, unsupported/encrypted/scanned/malformed/empty handling, PII evidence.
-- Acceptance: extraction/evidence tests, preserved hash/filename signals, honest supervision/model claims.
-- Checks: extraction/evidence fixtures, duplicate/leakage audit, numeric vs text comparison + regressions.
-- Synthetic documents are test/demo only; no raw sensitive-content logging or invented validated corpus.
-### 5 — advisory integration
-- Shared inference contract with compatible adapters for preserved Flask and existing upstream application.
-- Cache compatible artifacts; flags/shadow default; additive persistence; rule fallback on missing/failing models.
-- Expose separate rule/anomaly/content/combined signals, versions and evidence; avoid double counting.
-- Acceptance: enabled/disabled/failure regressions, preserved API/workflows/policies, isolated deterministic replay.
-- Checks: adapter contracts, schema compatibility, fallback and replay timestamps; no new automatic blocking.
-### 6 — full run and handover
-- Smoke then full run if resources permit; keep smoke/full results separate; fair common-population comparisons.
-- Acceptance: measured results, error analysis, exact pipeline/startup commands, limitations, handover/checkpoints.
-- Checks: full pipeline where feasible, rule/ML/combined population audit, integration/regressions.
-- Distinguish CERT synthetic-benchmark results from real endpoint/hardware validation.
+## Completed acceptance history
+- Original Phases 0–6 and NLP follow-up are complete at bounded acceptance.
+- Detailed contracts, exact commands and historical results: docs/implementation/phase0–6/ and nlp-followup/.
+- Preserve source/live/archive checks, frozen features/models and strict-cohort results; do not rerun CERT work.
+- DS1 source/license/taxonomy/annotation evidence: docs/implementation/document-sensitivity/report.md.
 
 ## Decisions, evidence, and current limitations
 - Research schema v1; timezone unspecified; exact all-source-field label joins, separate incident actors.
@@ -194,4 +154,19 @@
 - DS2 acceptance: source/version/chunk/near-duplicate grouped splits, train-only transforms, validation thresholds.
 - DS3 acceptance: untouched natural test cohort, per-class P/R/F1/AP/confusion, rule comparison/error analysis.
 - Organizational labels require policy/context and human review; categories alone cannot assign NORMAL/HIGH/CRITICAL.
-- Exact next action: DS2 only after request; verify Git, retry pinned TAB acquisition, audit groups/labels, freeze splits.
+- DS2 complete: 2026-10-08; clean start local/fresh remote 67f6c02149558ec1205dd0e3eabd4ef8a5ea9a5d.
+- No AGENTS.md found; all runtime/live/rule decisions and 13 frozen artifacts preserved; no model activation.
+- Pinned TAB acquired and checksum/schema/license verified: 1,268 documents, 155,006 raw annotation records.
+- Task ONLY supplied-span entity-category classification; original annotations retained; eight identity-mapped TAB classes.
+- Reviewed unanimous spans; group controls quarantine 7 train/3 dev documents; 686 unreviewed documents excluded.
+- Frozen train/validation/test: 22,939/6,810/6,713 spans, 326/124/127 documents, 325/124/125 families.
+- Family overlap zero; repeated vocabulary remains (disclosed); exhaustive five-word Jaccard >=.8 and subject controls.
+- CPU TF-IDF/LinearSVC train-only fits; validation selects entity-only (.8190 macro F1) over context (.7509).
+- Final test entity macro/micro F1 .7763/.8856; context .7379/.8781; majority .0681/.3746.
+- Two independent fits have identical artifact hashes/reload scores; raw margins are not probabilities.
+- Final preparation 26.92s/455.863 MiB; training 81.67s/908.094 MiB; evaluation 21.62s/349.953 MiB.
+- Organizational sensitivity BLOCKED: zero independent labels; exact packet/next owner-review action in ds2-human-annotation-packet.json.
+- All raw corpus/manifests/models remain in ignored research/local/document_sensitivity/; final folders use v2.
+- Actual commands, per-class results, resources and limitations: docs/implementation/document-sensitivity/ds2-report.md.
+- Verification/publication evidence: adjacent ds2-verification.json; final SHA via Git; normal push/fresh remote equality required.
+- Stop after DS2. Exact next human action: owner-approved policy/context and authorized 100-document blind-review pilot.

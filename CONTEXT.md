@@ -1,3 +1,36 @@
+# Document sensitivity DS2 completed — 2026-10-08
+
+DS2 executed only, starting clean on feat/cert-ml-nlp at local/fresh remote
+67f6c02149558ec1205dd0e3eabd4ef8a5ea9a5d. No AGENTS.md found. The user explicitly
+included final evaluation in DS2; historical DS1 wording assigning evaluation to
+DS3 is superseded for this request. Stop here; no runtime/shadow integration.
+
+- Official pinned TAB acquisition succeeded; six source files have matching sizes,
+  Git blob IDs and local SHA-256. 1,268 documents / 155,006 raw annotation records.
+- Supported task: supplied-span entity-category classification only (eight TAB classes).
+  Original annotations retained; reviewed exact-span unanimity, abstentions for conflicts.
+- Family/subject/normalized/near-duplicate controls quarantine 7 train and 3 dev cases.
+  Frozen train/validation/test: 22,939/6,810/6,713 spans; 326/124/127 documents.
+- Train-only TF-IDF + CPU LinearSVC. Validation selected entity text; both candidate
+  models frozen before final test. Test macro/micro F1 .7763/.8856; majority .0681/.3746.
+- Repeated vocabulary remains; unseen entity text is weaker. Legal-domain results
+  do not establish entity detection, whole-document sensitivity or policy levels.
+- Independent fits reproduce hashes; reload scores match; scores are uncalibrated margins.
+- New artifacts offline and ignored under research/local/document_sensitivity/ (v2 folders).
+  All 13 frozen artifacts, original/live files, archive stats and application trees preserved.
+- Independently reviewed organizational labels absent. Exact owner policy/context,
+  provenance and blind-review pilot packet: ds2-human-annotation-packet.json in report directory.
+- Detailed evidence, checks, resources, commands and next action:
+  docs/implementation/document-sensitivity/ds2-report.md and adjacent ds2-*.json.
+- Final publication: normal push to the existing branch; fresh remote must equal local
+  HEAD. Resolve SHA with git rev-parse HEAD; final handoff reports actual push outcome.
+- Exact next human action: owner supplies authorized de-identified 100-document pilot
+  and approved versioned policy/context; two independent reviewers, third for conflicts.
+
+Historical handoffs below are retained; their old pending statuses are superseded.
+
+---
+
 # Document sensitivity DS1 complete — 2026-10-08
 
 This session executed DS1 only. “Start next phase” means DS2 only: verify the

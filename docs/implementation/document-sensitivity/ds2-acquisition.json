@@ -1,0 +1,109 @@
+{
+  "acquisition": {
+    "acquisition_method": "bounded HTTPS curl; resumable where supported; DS1 pinned Git blobs",
+    "files": [
+      {
+        "bytes": 1089,
+        "file": "LICENSE.txt",
+        "git_blob_sha1": "08ff062c0c385aa532d64064029a82f6bebc59da",
+        "sha256": "9569b31acf50e1cb3f38f47220f2c3a42f533e07e72fe2d18c2871e89098a8c7",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/LICENSE.txt"
+      },
+      {
+        "bytes": 3512,
+        "file": "README.md",
+        "git_blob_sha1": "50cb33c003a830106a623e70683a15b14c119302",
+        "sha256": "81a4d41a06f5962c90df94361e453216b12d510e50120c98d0648e4f909c032d",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/README.md"
+      },
+      {
+        "bytes": 19788,
+        "file": "guidelines.md",
+        "git_blob_sha1": "79b40726a3ab19b85ada4ed7a75463ba468df316",
+        "sha256": "cbd72dcb48d323c77fcbce4fa6401680afd48207e047e93dff85d3ebebcd298e",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/guidelines.md"
+      },
+      {
+        "bytes": 47503662,
+        "file": "echr_train.json",
+        "git_blob_sha1": "3a1912f7f942b4e72adc4736053f9a873ec8b1ec",
+        "sha256": "4aba41f8ac305ff9e93dd6f0bbc16756e57e9ace396c827931fab70e18d8c6a6",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/echr_train.json"
+      },
+      {
+        "bytes": 12643092,
+        "file": "echr_dev.json",
+        "git_blob_sha1": "cccf25a4ee806aee822d336684d958c6b6fd3088",
+        "sha256": "8c3c7306f46b8d54debeb38ae11d8b0b8bcf4bdccbc3b6f13c12ad7be16893ec",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/echr_dev.json"
+      },
+      {
+        "bytes": 13103290,
+        "file": "echr_test.json",
+        "git_blob_sha1": "0a797c636723b687817f28b142f6cd88d1cc0dd3",
+        "sha256": "cd0f0f15f84a8739654c7cf30c6be8ce27b051ef73974d39d792a0cb8c846379",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/echr_test.json"
+      }
+    ],
+    "license": "MIT",
+    "repository": "https://github.com/NorskRegnesentral/text-anonymization-benchmark",
+    "revision": "558e09e26d6b36f5f78440074e6a233946d98bd9",
+    "tree": {
+      "bytes": 2988,
+      "sha256": "763e40625473fe9555d390e26efb959ba955ff0cb135dbeb0a14bb39085a1f87"
+    }
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "bytes": 1089,
+      "curl_exit": 0,
+      "file": "LICENSE.txt",
+      "resumed": false,
+      "seconds": 1.1939481890003663
+    },
+    {
+      "attempt": 1,
+      "bytes": 3512,
+      "curl_exit": 0,
+      "file": "README.md",
+      "resumed": false,
+      "seconds": 0.49893282300035935
+    },
+    {
+      "attempt": 1,
+      "bytes": 19788,
+      "curl_exit": 0,
+      "file": "guidelines.md",
+      "resumed": false,
+      "seconds": 0.8059327299997676
+    },
+    {
+      "attempt": 1,
+      "bytes": 47503662,
+      "curl_exit": 0,
+      "file": "echr_train.json",
+      "resumed": false,
+      "seconds": 19.82464439100295
+    },
+    {
+      "attempt": 1,
+      "bytes": 12643092,
+      "curl_exit": 0,
+      "file": "echr_dev.json",
+      "resumed": false,
+      "seconds": 6.381536870998389
+    },
+    {
+      "attempt": 1,
+      "bytes": 13103290,
+      "curl_exit": 0,
+      "file": "echr_test.json",
+      "resumed": false,
+      "seconds": 2.954437277003308
+    }
+  ],
+  "partial_data_parsed": false,
+  "status": "ACQUIRED_PINNED_FILES",
+  "trusted_manifest": true
+}

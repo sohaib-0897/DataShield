@@ -1,0 +1,606 @@
+{
+  "config": {
+    "C": 1.0,
+    "address_space_bytes": 4294967296,
+    "char_features": 20000,
+    "class_weight": null,
+    "context_characters_each_side": 160,
+    "cpu_seconds": 300,
+    "maximum_input_bytes": 83886080,
+    "maximum_rows": 100000,
+    "min_df": 2,
+    "modes": [
+      "entity",
+      "context"
+    ],
+    "pr_auc": "average precision; >=5 positives and >=5 negatives per class",
+    "prediction": "multiclass argmax; no threshold tuning",
+    "seed": 42,
+    "selection": "validation macro F1; ties prefer entity",
+    "word_features": 20000
+  },
+  "contract": {
+    "bytes": 988,
+    "sha256": "6ab51bcbc78c8773b36ac1b41adbb25ec5c7e847bd9a7fd9153b10ec15c508a0"
+  },
+  "fit_partition": "train",
+  "live_activation": false,
+  "majority_class": "DATETIME",
+  "majority_validation": {
+    "confusion_labels": [
+      "CODE",
+      "DATETIME",
+      "DEM",
+      "LOC",
+      "MISC",
+      "ORG",
+      "PERSON",
+      "QUANTITY"
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        397,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2470,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        327,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        457,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        183,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1640,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1150,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        186,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "macro_f1": 0.06654094827586207,
+    "micro_f1": 0.36270190895741555,
+    "per_class": {
+      "CODE": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 397,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 397,
+        "tp": 0
+      },
+      "DATETIME": {
+        "average_precision": null,
+        "f1": 0.5323275862068966,
+        "fn": 0,
+        "fp": 4340,
+        "precision": 0.36270190895741555,
+        "recall": 1.0,
+        "support": 2470,
+        "tp": 2470
+      },
+      "DEM": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 327,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 327,
+        "tp": 0
+      },
+      "LOC": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 457,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 457,
+        "tp": 0
+      },
+      "MISC": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 183,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 183,
+        "tp": 0
+      },
+      "ORG": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 1640,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 1640,
+        "tp": 0
+      },
+      "PERSON": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 1150,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 1150,
+        "tp": 0
+      },
+      "QUANTITY": {
+        "average_precision": null,
+        "f1": 0.0,
+        "fn": 186,
+        "fp": 0,
+        "precision": null,
+        "recall": 0.0,
+        "support": 186,
+        "tp": 0
+      }
+    },
+    "predicted_rows": 6810,
+    "rows": 6810
+  },
+  "models": {
+    "context": {
+      "artifact": {
+        "bytes": 2666993,
+        "sha256": "97805efcaf442aba26c82df3f9d5f1c9b8dfa69f8418d5a784b0387ce3d9590c"
+      },
+      "reload_equal": true,
+      "seconds": 71.57335837799474,
+      "train_rows": 22939,
+      "validation": {
+        "confusion_labels": [
+          "CODE",
+          "DATETIME",
+          "DEM",
+          "LOC",
+          "MISC",
+          "ORG",
+          "PERSON",
+          "QUANTITY"
+        ],
+        "confusion_matrix": [
+          [
+            204,
+            23,
+            0,
+            1,
+            4,
+            0,
+            162,
+            3
+          ],
+          [
+            0,
+            2447,
+            5,
+            3,
+            3,
+            8,
+            0,
+            4
+          ],
+          [
+            0,
+            8,
+            199,
+            5,
+            39,
+            52,
+            18,
+            6
+          ],
+          [
+            0,
+            6,
+            9,
+            328,
+            11,
+            85,
+            16,
+            2
+          ],
+          [
+            0,
+            25,
+            15,
+            7,
+            74,
+            42,
+            6,
+            14
+          ],
+          [
+            0,
+            18,
+            18,
+            26,
+            15,
+            1519,
+            41,
+            3
+          ],
+          [
+            0,
+            28,
+            13,
+            6,
+            8,
+            9,
+            1077,
+            9
+          ],
+          [
+            0,
+            31,
+            6,
+            1,
+            7,
+            13,
+            6,
+            122
+          ]
+        ],
+        "macro_f1": 0.7508798687836395,
+        "micro_f1": 0.8766519823788547,
+        "per_class": {
+          "CODE": {
+            "average_precision": 0.8723515062902407,
+            "f1": 0.6788685524126455,
+            "fn": 193,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.5138539042821159,
+            "support": 397,
+            "tp": 204
+          },
+          "DATETIME": {
+            "average_precision": 0.9980088043427147,
+            "f1": 0.9679588607594937,
+            "fn": 23,
+            "fp": 139,
+            "precision": 0.9462490332559939,
+            "recall": 0.9906882591093117,
+            "support": 2470,
+            "tp": 2447
+          },
+          "DEM": {
+            "average_precision": 0.7339070783272956,
+            "f1": 0.6722972972972973,
+            "fn": 128,
+            "fp": 66,
+            "precision": 0.7509433962264151,
+            "recall": 0.6085626911314985,
+            "support": 327,
+            "tp": 199
+          },
+          "LOC": {
+            "average_precision": 0.82052963887787,
+            "f1": 0.7865707434052758,
+            "fn": 129,
+            "fp": 49,
+            "precision": 0.870026525198939,
+            "recall": 0.7177242888402626,
+            "support": 457,
+            "tp": 328
+          },
+          "MISC": {
+            "average_precision": 0.29326502458111836,
+            "f1": 0.43023255813953487,
+            "fn": 109,
+            "fp": 87,
+            "precision": 0.45962732919254656,
+            "recall": 0.40437158469945356,
+            "support": 183,
+            "tp": 74
+          },
+          "ORG": {
+            "average_precision": 0.9615988620007955,
+            "f1": 0.9020190023752969,
+            "fn": 121,
+            "fp": 209,
+            "precision": 0.8790509259259259,
+            "recall": 0.926219512195122,
+            "support": 1640,
+            "tp": 1519
+          },
+          "PERSON": {
+            "average_precision": 0.9668229794090426,
+            "f1": 0.869951534733441,
+            "fn": 73,
+            "fp": 249,
+            "precision": 0.8122171945701357,
+            "recall": 0.9365217391304348,
+            "support": 1150,
+            "tp": 1077
+          },
+          "QUANTITY": {
+            "average_precision": 0.7538782165816245,
+            "f1": 0.6991404011461319,
+            "fn": 64,
+            "fp": 41,
+            "precision": 0.7484662576687117,
+            "recall": 0.6559139784946236,
+            "support": 186,
+            "tp": 122
+          }
+        },
+        "predicted_rows": 6810,
+        "rows": 6810
+      }
+    },
+    "entity": {
+      "artifact": {
+        "bytes": 1283093,
+        "sha256": "23a14f549c57ef866f42ed6549c90e9c55483cbf3bea6764bf626e73c492f8c1"
+      },
+      "reload_equal": true,
+      "seconds": 6.439192778998404,
+      "train_rows": 22939,
+      "validation": {
+        "confusion_labels": [
+          "CODE",
+          "DATETIME",
+          "DEM",
+          "LOC",
+          "MISC",
+          "ORG",
+          "PERSON",
+          "QUANTITY"
+        ],
+        "confusion_matrix": [
+          [
+            368,
+            4,
+            0,
+            0,
+            0,
+            0,
+            22,
+            3
+          ],
+          [
+            0,
+            2466,
+            3,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            212,
+            7,
+            46,
+            29,
+            27,
+            5
+          ],
+          [
+            0,
+            1,
+            22,
+            318,
+            11,
+            54,
+            51,
+            0
+          ],
+          [
+            0,
+            2,
+            40,
+            1,
+            97,
+            27,
+            10,
+            6
+          ],
+          [
+            0,
+            0,
+            30,
+            37,
+            49,
+            1439,
+            78,
+            7
+          ],
+          [
+            0,
+            1,
+            6,
+            10,
+            7,
+            8,
+            1118,
+            0
+          ],
+          [
+            3,
+            2,
+            2,
+            0,
+            2,
+            4,
+            12,
+            161
+          ]
+        ],
+        "macro_f1": 0.818999021434647,
+        "micro_f1": 0.9073421439060205,
+        "per_class": {
+          "CODE": {
+            "average_precision": 0.9834874613802468,
+            "f1": 0.9583333333333334,
+            "fn": 29,
+            "fp": 3,
+            "precision": 0.9919137466307277,
+            "recall": 0.9269521410579346,
+            "support": 397,
+            "tp": 368
+          },
+          "DATETIME": {
+            "average_precision": 0.9997625815988056,
+            "f1": 0.9969678593086719,
+            "fn": 4,
+            "fp": 11,
+            "precision": 0.9955591441259588,
+            "recall": 0.9983805668016195,
+            "support": 2470,
+            "tp": 2466
+          },
+          "DEM": {
+            "average_precision": 0.7591283001423494,
+            "f1": 0.660436137071651,
+            "fn": 115,
+            "fp": 103,
+            "precision": 0.6730158730158731,
+            "recall": 0.6483180428134556,
+            "support": 327,
+            "tp": 212
+          },
+          "LOC": {
+            "average_precision": 0.8536266178879672,
+            "f1": 0.7662650602409639,
+            "fn": 139,
+            "fp": 55,
+            "precision": 0.8525469168900804,
+            "recall": 0.6958424507658644,
+            "support": 457,
+            "tp": 318
+          },
+          "MISC": {
+            "average_precision": 0.5990345385573499,
+            "f1": 0.4898989898989899,
+            "fn": 86,
+            "fp": 116,
+            "precision": 0.45539906103286387,
+            "recall": 0.5300546448087432,
+            "support": 183,
+            "tp": 97
+          },
+          "ORG": {
+            "average_precision": 0.9625498387509885,
+            "f1": 0.8990940331146516,
+            "fn": 201,
+            "fp": 122,
+            "precision": 0.9218449711723254,
+            "recall": 0.8774390243902439,
+            "support": 1640,
+            "tp": 1439
+          },
+          "PERSON": {
+            "average_precision": 0.9836207252575756,
+            "f1": 0.9059967585089141,
+            "fn": 32,
+            "fp": 200,
+            "precision": 0.8482549317147192,
+            "recall": 0.9721739130434782,
+            "support": 1150,
+            "tp": 1118
+          },
+          "QUANTITY": {
+            "average_precision": 0.9107872430890122,
+            "f1": 0.875,
+            "fn": 25,
+            "fp": 21,
+            "precision": 0.8846153846153846,
+            "recall": 0.8655913978494624,
+            "support": 186,
+            "tp": 161
+          }
+        },
+        "predicted_rows": 6810,
+        "rows": 6810
+      }
+    }
+  },
+  "preparation": {
+    "bytes": 7772,
+    "sha256": "2cdbea2d8972125e76f299c60e5c917854e7975bacab350904735b9dea81d8e7"
+  },
+  "score_kind": "uncalibrated LinearSVC decision margins; not probabilities",
+  "selected_mode": "entity",
+  "selection_partition": "validation",
+  "software": {
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "python": "3.14.4",
+    "sklearn": "1.9.1"
+  },
+  "status": "OFFLINE_RESEARCH_ONLY",
+  "task": "supplied-span entity-category classification; spans are provided",
+  "test_loaded": false,
+  "version": "tab-supplied-span-ds2-v1"
+}

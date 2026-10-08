@@ -1,0 +1,35 @@
+{
+  "status": "BLOCKED_AWAITING_AUTHORIZED_DOCUMENTS_POLICY_AND_INDEPENDENT_HUMAN_LABELS",
+  "completed_independent_organizational_documents": 0,
+  "template_only_not_a_labeled_example": true,
+  "private_packet_destination": "research/local/document_sensitivity/annotations/blank-<source-id>.json",
+  "source_inventory_required": {
+    "source_id": null,
+    "family_id": null,
+    "version_and_chunk_parent_ids": null,
+    "original_container_sha256": null,
+    "authorization_and_retention_reference": null,
+    "source_organization": null,
+    "owner_review_id": null,
+    "owner_approved_policy_version_and_digest": null,
+    "authorized_audience": null,
+    "release_status": null,
+    "harm_context": null,
+    "review_timestamp": null
+  },
+  "generated_packet_fields": [
+    "version", "source_id", "family_id", "policy_version", "extraction_status",
+    "truncated", "private_text", "text_sha256", "two_blank_reviews", "adjudication"
+  ],
+  "each_independent_review_requires": [
+    "distinct_reviewer_id", "independent_human_origin", "review_timestamp",
+    "categories_or_explicit_abstention", "evidence_span_offsets_bound_to_text_digest",
+    "organizational_level_or_null", "owner_policy_audience_release_harm_context",
+    "uncertainty_and_reason", "no_rule_model_or_other_reviewer_outputs"
+  ],
+  "disagreement_resolution": "Distinct third reviewer, reason and owner clarification; unresolved cases abstain. Retain original reviews and audit trail.",
+  "existing_cli": "research.document_annotation --prepare <authorized-document> --source-id <id> --family-id <family> --policy-version <owner-approved-version> --output <private-packet>",
+  "next_human_action": "Owner supplies an approved versioned policy and authorized de-identified 100-document pilot inventory with family/version/context/provenance. Two reviewers complete separate blind packets; third reviewer resolves disagreements. Freeze guide before collecting the proposed 1200-family-sampled corpus.",
+  "ds1_cli_limit": "CLI validates declared reviewer/context/digest fields; external governance must verify authorization/independence. Evidence spans, container provenance and review timestamps require additional export validation before organizational training.",
+  "forbidden_substitutions": ["TAB entity labels", "CERT attack labels", "filename/hash policies", "regex or model outputs", "synthetic validation examples"]
+}

@@ -1,0 +1,188 @@
+{
+  "application_tree_diff_from_initial": "empty",
+  "archive_stat_records": 3,
+  "final_isolated_regression": {
+    "base_commit": "67f6c02149558ec1205dd0e3eabd4ef8a5ea9a5d",
+    "collection_errors": [],
+    "exit_code": 0,
+    "isolation": "tracked Python/config copied to temporary directory; DATABASE_URL=sqlite://; existing test_api DB also inside temporary copy",
+    "log": ".local/ds2-final-regression.log",
+    "node_available": true,
+    "npm_available": true,
+    "python": "3.14.4",
+    "summary": [
+      "........................................................................ [ 38%]",
+      "........................................................................ [ 76%]",
+      ".............................................                            [100%]",
+      "=============================== warnings summary ===============================",
+      "../../home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1",
+      "  /home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.",
+      "    from starlette.testclient import TestClient as TestClient  # noqa",
+      "",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "189 passed, 1 warning in 23.35s"
+    ]
+  },
+  "frozen": {
+    "all_match": true,
+    "checks": 13,
+    "existing_canonical_verifier": "research.cert_features.load_artifact",
+    "report": "ds2-frozen-preservation.json"
+  },
+  "initial_commit": "67f6c02149558ec1205dd0e3eabd4ef8a5ea9a5d",
+  "initial_worktree": "clean; local and fresh remote match",
+  "live_activation": false,
+  "monitors_started": false,
+  "new_regressions": [],
+  "organizational_label_search": {
+    "findings": "DS1 inert blank packet and source/rule/synthetic artifacts only; no independent organizational review corpus",
+    "locations": [
+      "checkout and research/local",
+      "workspace",
+      "Downloads",
+      "Documents",
+      "Desktop"
+    ],
+    "packet": "ds2-human-annotation-packet.json",
+    "reviewed_document_count": 0,
+    "status": "BLOCKED_ON_HUMAN_LABELS"
+  },
+  "original_live_and_archive_preservation": true,
+  "original_live_hashes": 30,
+  "phase": "DS2",
+  "preexisting_failures": [],
+  "preexisting_regression": {
+    "base_commit": "67f6c02149558ec1205dd0e3eabd4ef8a5ea9a5d",
+    "collection_errors": [],
+    "exit_code": 0,
+    "isolation": "tracked Python/config copied to temporary directory; DATABASE_URL=sqlite://; existing test_api DB also inside temporary copy",
+    "log": ".local/ds2-before-regression.log",
+    "node_available": true,
+    "npm_available": true,
+    "python": "3.14.4",
+    "summary": [
+      "........................................................................ [ 41%]",
+      "........................................................................ [ 82%]",
+      "...............................                                          [100%]",
+      "=============================== warnings summary ===============================",
+      "../../home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1",
+      "  /home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.",
+      "    from starlette.testclient import TestClient as TestClient  # noqa",
+      "",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "175 passed, 1 warning in 24.44s"
+    ]
+  },
+  "preexisting_warnings": [
+    "Starlette httpx deprecation"
+  ],
+  "preserved_flask": {
+    "complete_verification": true,
+    "dependency_root": null,
+    "errors": [],
+    "failures": [],
+    "fixture_data": "synthetic; temporary SQLite and policy files",
+    "flask_import_error": null,
+    "monitors_started": false,
+    "native_windows_verified": false,
+    "pandas_import_error": null,
+    "passed": 22,
+    "python": "3.14.4",
+    "run": 22,
+    "selected_tests": null,
+    "skipped": [],
+    "source_root": "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/legacy/downloaded_flask",
+    "successful_available_checks": true
+  },
+  "publication": "normal branch push and fresh remote equality performed as final step; final SHA from Git and final handoff",
+  "raw_and_models_ignored": true,
+  "resource_basis": "GNU time -v per-command elapsed wall and maximum child/process RSS; not aggregate simultaneous memory",
+  "source_hashes": {
+    "research/tab_acquire.py": "36c4c5d8991baedf12c62ac514f7cf594485df08d2f88cc4d623d61609869128",
+    "research/tab_baseline.py": "bc595c390e4ee897933687f3ba0bc644fbcb78eae63244eb30779c9b117ba209",
+    "research/tab_prepare.py": "42ecd7603e229a2a11c2f7558a17349914b2bed812ad6c0716144c476e27945d",
+    "scripts/verification/ds2_frozen_preservation.py": "806a7dd92e41106e91276f8ebb8322be5a8b5b338b878dd5c32b0d5880962595",
+    "tests/test_tab_ds2.py": "e73d8b501b9a7f2c3a6d79d44751512ba4a4f85c334dd59ba4c3578c91d2df00"
+  },
+  "stage_resources": {
+    "acquisition": {
+      "peak_rss_kib": 44536,
+      "peak_rss_mib": 43.4921875,
+      "raw_log": ".local/ds2-acquisition-resource.txt",
+      "wall_seconds": 32.65
+    },
+    "evaluation": {
+      "peak_rss_kib": 358352,
+      "peak_rss_mib": 349.953125,
+      "raw_log": ".local/ds2-evaluation-resource.txt",
+      "wall_seconds": 21.62
+    },
+    "independent_initial_fit": {
+      "peak_rss_kib": 921944,
+      "peak_rss_mib": 900.3359375,
+      "raw_log": ".local/ds2-training-resource.txt",
+      "wall_seconds": 82.03
+    },
+    "preliminary_preparation": {
+      "peak_rss_kib": 466536,
+      "peak_rss_mib": 455.6015625,
+      "raw_log": ".local/ds2-preparation-resource.txt",
+      "wall_seconds": 23.74
+    },
+    "preparation_final": {
+      "peak_rss_kib": 466804,
+      "peak_rss_mib": 455.86328125,
+      "raw_log": ".local/ds2-preparation-final-resource.txt",
+      "wall_seconds": 26.92
+    },
+    "preservation_flask": {
+      "peak_rss_kib": 103896,
+      "peak_rss_mib": 101.4609375,
+      "raw_log": ".local/ds2-flask-resource.txt",
+      "wall_seconds": 1.83
+    },
+    "preservation_frozen": {
+      "peak_rss_kib": 808056,
+      "peak_rss_mib": 789.1171875,
+      "raw_log": ".local/ds2-frozen-resource.txt",
+      "wall_seconds": 12.98
+    },
+    "preservation_source_live": {
+      "peak_rss_kib": 21232,
+      "peak_rss_mib": 20.734375,
+      "raw_log": ".local/ds2-live-preservation-resource.txt",
+      "wall_seconds": 0.13
+    },
+    "regression_before": {
+      "peak_rss_kib": 398356,
+      "peak_rss_mib": 389.01953125,
+      "raw_log": ".local/ds2-before-regression-resource.txt",
+      "wall_seconds": 27.21
+    },
+    "regression_final": {
+      "peak_rss_kib": 398356,
+      "peak_rss_mib": 389.01953125,
+      "raw_log": ".local/ds2-final-regression-resource.txt",
+      "wall_seconds": 26.18
+    },
+    "targeted": {
+      "peak_rss_kib": 251092,
+      "peak_rss_mib": 245.20703125,
+      "raw_log": ".local/ds2-targeted-resource.txt",
+      "wall_seconds": 12.73
+    },
+    "training_final": {
+      "peak_rss_kib": 929888,
+      "peak_rss_mib": 908.09375,
+      "raw_log": ".local/ds2-training-final-resource.txt",
+      "wall_seconds": 81.67
+    }
+  },
+  "status_file_lines": 172,
+  "targeted": {
+    "includes": "14 DS2 + 42 existing document checks",
+    "passed": 56,
+    "pytest_seconds": 10.91,
+    "synthetic_fixtures_not_model_validation": true
+  }
+}

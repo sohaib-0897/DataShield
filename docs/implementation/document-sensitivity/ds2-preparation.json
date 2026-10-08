@@ -1,0 +1,310 @@
+{
+  "acquisition": {
+    "acquisition_method": "bounded HTTPS curl; resumable where supported; DS1 pinned Git blobs",
+    "files": [
+      {
+        "bytes": 1089,
+        "file": "LICENSE.txt",
+        "git_blob_sha1": "08ff062c0c385aa532d64064029a82f6bebc59da",
+        "sha256": "9569b31acf50e1cb3f38f47220f2c3a42f533e07e72fe2d18c2871e89098a8c7",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/LICENSE.txt"
+      },
+      {
+        "bytes": 3512,
+        "file": "README.md",
+        "git_blob_sha1": "50cb33c003a830106a623e70683a15b14c119302",
+        "sha256": "81a4d41a06f5962c90df94361e453216b12d510e50120c98d0648e4f909c032d",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/README.md"
+      },
+      {
+        "bytes": 19788,
+        "file": "guidelines.md",
+        "git_blob_sha1": "79b40726a3ab19b85ada4ed7a75463ba468df316",
+        "sha256": "cbd72dcb48d323c77fcbce4fa6401680afd48207e047e93dff85d3ebebcd298e",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/guidelines.md"
+      },
+      {
+        "bytes": 47503662,
+        "file": "echr_train.json",
+        "git_blob_sha1": "3a1912f7f942b4e72adc4736053f9a873ec8b1ec",
+        "sha256": "4aba41f8ac305ff9e93dd6f0bbc16756e57e9ace396c827931fab70e18d8c6a6",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/echr_train.json"
+      },
+      {
+        "bytes": 12643092,
+        "file": "echr_dev.json",
+        "git_blob_sha1": "cccf25a4ee806aee822d336684d958c6b6fd3088",
+        "sha256": "8c3c7306f46b8d54debeb38ae11d8b0b8bcf4bdccbc3b6f13c12ad7be16893ec",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/echr_dev.json"
+      },
+      {
+        "bytes": 13103290,
+        "file": "echr_test.json",
+        "git_blob_sha1": "0a797c636723b687817f28b142f6cd88d1cc0dd3",
+        "sha256": "cd0f0f15f84a8739654c7cf30c6be8ce27b051ef73974d39d792a0cb8c846379",
+        "url": "https://raw.githubusercontent.com/NorskRegnesentral/text-anonymization-benchmark/558e09e26d6b36f5f78440074e6a233946d98bd9/echr_test.json"
+      }
+    ],
+    "license": "MIT",
+    "repository": "https://github.com/NorskRegnesentral/text-anonymization-benchmark",
+    "revision": "558e09e26d6b36f5f78440074e6a233946d98bd9",
+    "tree": {
+      "bytes": 2988,
+      "sha256": "763e40625473fe9555d390e26efb959ba955ff0cb135dbeb0a14bb39085a1f87"
+    }
+  },
+  "annotation_audit": {
+    "conflicting_duplicate_offsets_within_annotation_set": 7,
+    "duplicate_offsets_within_annotation_set": 17,
+    "eligible_consensus_spans": 36706,
+    "overlapping_reviewed_span_pairs": 1395,
+    "quarantined_family_overlap_documents": 10,
+    "raw_category_disagreements": 936,
+    "raw_exact_spans": 108016,
+    "reviewed_boundary_or_presence_disagreements": 3321,
+    "reviewed_category_disagreements": 162,
+    "unreviewed_documents": 686
+  },
+  "annotation_policy": "reviewed sets only; exact spans unanimous across every reviewed set; disagreements abstain; unreviewed documents excluded",
+  "classes": [
+    "CODE",
+    "DATETIME",
+    "DEM",
+    "LOC",
+    "MISC",
+    "ORG",
+    "PERSON",
+    "QUANTITY"
+  ],
+  "context_characters_each_side": 160,
+  "cross_official_split_groups": 7,
+  "cross_split_group_overlap": 0,
+  "document_manifest": {
+    "bytes": 526523,
+    "sha256": "c090b12b6a52e0d2d029e3345ee025d52348e7c4e35d7b83ca9820e82f6bf3ae"
+  },
+  "documents": 1268,
+  "fit_partition": "train",
+  "group_edge_reasons": {
+    "five_word_jaccard_ge_0.8": 6,
+    "subject": 28
+  },
+  "group_edges": {
+    "bytes": 812,
+    "sha256": "b681b5e3fd7c8caada58cd579db45ae48d752975caaef0fe4b856f80161115f0"
+  },
+  "grouping": "source doc_id, NFKC lowercase alphanumeric normalized text, protected task/applicant identity, exhaustive five-word Jaccard >=0.8; transitive closure",
+  "groups": 1249,
+  "license": "MIT; retain copyright and permission notice",
+  "live_activation": false,
+  "manifest_hashes": {
+    "test": {
+      "bytes": 4626084,
+      "sha256": "36b9d733b6c9d87f1ff9d53c4565e5994f58bdd0efc6789f514e0d681f555945"
+    },
+    "train": {
+      "bytes": 15894421,
+      "sha256": "f5609788a5091f5901694fa8a69d398434ac709c5a375d9d4aafafd0714a9c4b"
+    },
+    "validation": {
+      "bytes": 4690794,
+      "sha256": "b8c7bea3e28b7718127b879a7ced1d1851119d468014f8961e9f7e6ad56e9e1f"
+    }
+  },
+  "mapping": {
+    "CODE": "CODE",
+    "DATETIME": "DATETIME",
+    "DEM": "DEM",
+    "LOC": "LOC",
+    "MISC": "MISC",
+    "ORG": "ORG",
+    "PERSON": "PERSON",
+    "QUANTITY": "QUANTITY"
+  },
+  "near_duplicate_pairs": 6,
+  "official_split_policy": "official test unchanged; quarantine earlier overlapping families; validation wins over train",
+  "organizational_category_mapping": null,
+  "organizational_labels": false,
+  "repeated_mentions": {
+    "entity_strings_in_multiple_documents": 9098,
+    "entity_strings_in_multiple_official_splits": 4267,
+    "person_strings_in_multiple_official_splits": 370
+  },
+  "revision": "558e09e26d6b36f5f78440074e6a233946d98bd9",
+  "selection_partition": "validation",
+  "source_inventory": {
+    "dev": {
+      "confidential_status_annotation_counts": {
+        "BELIEF": 406,
+        "ETHNIC": 186,
+        "HEALTH": 351,
+        "NOT_CONFIDENTIAL": 28340,
+        "POLITICS": 101,
+        "SEX": 51
+      },
+      "count_unit": "raw mention annotation records; multi-annotator mentions are not independent examples",
+      "counts": {
+        "annotation_sets": 541,
+        "documents": 127,
+        "documents_over_extractor_character_limit": 0,
+        "mention_annotation_records": 29435,
+        "quality_checked_documents": 127,
+        "quality_reviewed_annotation_sets": 313,
+        "text_characters": 668796
+      },
+      "entity_type_annotation_counts": {
+        "CODE": 2525,
+        "DATETIME": 9793,
+        "DEM": 1851,
+        "LOC": 1961,
+        "MISC": 1416,
+        "ORG": 6462,
+        "PERSON": 4679,
+        "QUANTITY": 748
+      },
+      "findings": {},
+      "identifier_type_annotation_counts": {
+        "DIRECT": 1450,
+        "NO_MASK": 9162,
+        "QUASI": 18823
+      },
+      "shared_document_ids_with_earlier_splits": 0,
+      "shared_exact_texts_with_earlier_splits": 0
+    },
+    "test": {
+      "confidential_status_annotation_counts": {
+        "BELIEF": 53,
+        "ETHNIC": 157,
+        "HEALTH": 395,
+        "NOT_CONFIDENTIAL": 29732,
+        "POLITICS": 154,
+        "SEX": 50
+      },
+      "count_unit": "raw mention annotation records; multi-annotator mentions are not independent examples",
+      "counts": {
+        "annotation_sets": 555,
+        "documents": 127,
+        "documents_over_extractor_character_limit": 0,
+        "mention_annotation_records": 30541,
+        "quality_checked_documents": 127,
+        "quality_reviewed_annotation_sets": 315,
+        "text_characters": 647638
+      },
+      "entity_type_annotation_counts": {
+        "CODE": 1646,
+        "DATETIME": 10352,
+        "DEM": 1899,
+        "LOC": 2191,
+        "MISC": 1585,
+        "ORG": 7344,
+        "PERSON": 4685,
+        "QUANTITY": 839
+      },
+      "findings": {},
+      "identifier_type_annotation_counts": {
+        "DIRECT": 1612,
+        "NO_MASK": 9732,
+        "QUASI": 19197
+      },
+      "shared_document_ids_with_earlier_splits": 0,
+      "shared_exact_texts_with_earlier_splits": 0
+    },
+    "train": {
+      "confidential_status_annotation_counts": {
+        "BELIEF": 196,
+        "ETHNIC": 463,
+        "HEALTH": 1574,
+        "NOT_CONFIDENTIAL": 91598,
+        "POLITICS": 784,
+        "SEX": 415
+      },
+      "count_unit": "raw mention annotation records; multi-annotator mentions are not independent examples",
+      "counts": {
+        "annotation_sets": 1112,
+        "documents": 1014,
+        "documents_over_extractor_character_limit": 0,
+        "mention_annotation_records": 95030,
+        "quality_checked_documents": 328,
+        "quality_reviewed_annotation_sets": 328,
+        "text_characters": 8267218
+      },
+      "entity_type_annotation_counts": {
+        "CODE": 2300,
+        "DATETIME": 33523,
+        "DEM": 4933,
+        "LOC": 5830,
+        "MISC": 4043,
+        "ORG": 26889,
+        "PERSON": 14958,
+        "QUANTITY": 2554
+      },
+      "findings": {},
+      "identifier_type_annotation_counts": {
+        "DIRECT": 3677,
+        "NO_MASK": 31129,
+        "QUASI": 60224
+      },
+      "shared_document_ids_with_earlier_splits": 0,
+      "shared_exact_texts_with_earlier_splits": 0
+    }
+  },
+  "splits": {
+    "test": {
+      "class_counts": {
+        "CODE": 328,
+        "DATETIME": 2515,
+        "DEM": 287,
+        "LOC": 484,
+        "MISC": 192,
+        "ORG": 1722,
+        "PERSON": 1012,
+        "QUANTITY": 173
+      },
+      "documents": 127,
+      "groups": 125,
+      "spans": 6713
+    },
+    "train": {
+      "class_counts": {
+        "CODE": 765,
+        "DATETIME": 8346,
+        "DEM": 1271,
+        "LOC": 1418,
+        "MISC": 969,
+        "ORG": 6158,
+        "PERSON": 3185,
+        "QUANTITY": 827
+      },
+      "documents": 326,
+      "groups": 325,
+      "spans": 22939
+    },
+    "validation": {
+      "class_counts": {
+        "CODE": 397,
+        "DATETIME": 2470,
+        "DEM": 327,
+        "LOC": 457,
+        "MISC": 183,
+        "ORG": 1640,
+        "PERSON": 1150,
+        "QUANTITY": 186
+      },
+      "documents": 124,
+      "groups": 124,
+      "spans": 6810
+    }
+  },
+  "task": "supplied-span entity-category classification; spans are provided",
+  "test_access": "mechanical inventory/grouping only; no fitted transforms or model selection",
+  "unsupported_organizational_targets": [
+    "PERSONAL_INFORMATION",
+    "FINANCIAL_INFORMATION",
+    "CREDENTIALS",
+    "BUSINESS_CONFIDENTIAL",
+    "NORMAL",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "version": "tab-supplied-span-ds2-v1"
+}
