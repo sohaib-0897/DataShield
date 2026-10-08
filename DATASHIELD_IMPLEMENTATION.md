@@ -14,11 +14,13 @@
 - Never commit data, private documents/packets, models, live DBs, credentials, caches or environments.
 
 ## Current phase and publication
-- A1 VERIFIED: label readiness + bounded deterministic automatic detection; publication gate follows.
+- A1 COMPLETE (bounded offline): label readiness + deterministic detection; source published/CI passed.
 - Started clean at local/fresh remote 22dc822c75cf6f1e106980bbd974fd576d025588, divergence 0/0.
 - Previous Git checkpoint: 22dc822c75cf6f1e106980bbd974fd576d025588; no later user edits found.
-- Publication pending: verify, commit phase-related files, normal push, fresh remote equality, inspect CI.
-- Exact next action: publish verified A1; on next request A2 contextual-span feasibility + freeze B protocol.
+- Publication: source ebc23dbbe63b9933829bee812ae9438f6d9d06e3 normal push/fresh equality verified.
+- CI 37770109324 succeeded: 287 Python/7 frontend tests, build and CI migrations.
+- No failed push pending; documentation closure SHA is Git HEAD; verify its remote/CI on resume.
+- Exact next action on “start next phase”: verify closure publication, then A2 contextual feasibility + B protocol.
 - At A1 boundary stop; next requested phase is A2 contextual-span feasibility + frozen evaluation protocol.
 - Labels remain BLOCKED: searched candidates contain only an inert blank packet, zero verified reviews.
 - Owner must supply authorized pilot inventory, approved policy/context, independent reviews and resolution.
@@ -26,7 +28,7 @@
 ## Remaining bounded plan
 | Phase | Deliverable / gate | Status |
 |---|---|---|
-| A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | verified; publication pending |
+| A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | complete (bounded offline), source published/CI passed |
 | A2 | Assess contextual full-span annotations/local NER feasibility; freeze B protocol before selection | pending |
 | B1 | Audit evaluation families/annotation coverage; separately version eligible development population | pending A2 |
 | B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | pending B1 |

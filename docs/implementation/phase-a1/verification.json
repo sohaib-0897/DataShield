@@ -109,7 +109,24 @@
     "tab_source_files_match": true
   },
   "previous_checkpoint": "22dc822c75cf6f1e106980bbd974fd576d025588",
-  "publication": "verified source prepared; normal push, remote equality and latest CI follow at phase boundary",
+  "publication": {
+    "ci": {
+      "api_migrations": "success",
+      "conclusion": "success",
+      "frontend_build": "success",
+      "frontend_tests_passed": 7,
+      "head_sha": "ebc23dbbe63b9933829bee812ae9438f6d9d06e3",
+      "python_tests_passed": 287,
+      "run_id": 37770109324,
+      "status": "completed",
+      "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37770109324"
+    },
+    "closure_checkpoint": "publication receipt commit; derive HEAD and freshly verify remote; final handoff reports latest exact-SHA CI",
+    "fresh_remote_equals_local": true,
+    "normal_push": true,
+    "verified_source_checkpoint": "ebc23dbbe63b9933829bee812ae9438f6d9d06e3",
+    "working_tree_after_source_push": "clean"
+  },
   "resources": {
     "cli": {
       "exit_status": 0,

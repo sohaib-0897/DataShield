@@ -138,3 +138,23 @@ A1 engineering fixtures must not be passed off as independent corpus validation.
 Publication is a normal branch push; final remote SHA and current CI are inspected
 at the boundary. Resolve phase SHA with `git log -1 --format=%H -- ml/content_detection.py`.
 Next requested phase: A2 contextual-span feasibility and frozen B evaluation protocol.
+
+
+## Verified publication receipt
+
+Source checkpoint `ebc23dbbe63b9933829bee812ae9438f6d9d06e3` pushed normally;
+fresh GitHub branch SHA equals local HEAD and working tree was clean.
+[CI 37770109324](https://github.com/sohaib-0897/DataShield/actions/runs/37770109324)
+completed successfully for that exact SHA: 287 Python tests (one existing warning),
+seven frontend tests, production build and CI PostgreSQL migrations. This clean
+CI result is separate from local temporary-SQLite/fixture verification and does
+not establish native Windows or live PostgreSQL monitoring.
+
+A1 is complete at its bounded offline acceptance. This documentation-only
+receipt/closure checkpoint follows the verified source; its normal push/fresh
+remote equality and current exact-SHA CI are checked in the phase-end handoff.
+No failed publication is pending; on resume verify HEAD/remote/CI before A2.
+If a subsequent push fails, retain the local closure checkpoint and recover with
+`git push origin feat/cert-ml-nlp`; never force-push. No implementation work is
+pending in A1. Stop here. A2 handles contextual feasibility and freezes the
+end-to-end evaluation protocol before model selection or B execution.
