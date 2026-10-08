@@ -1,0 +1,141 @@
+{
+  "applicable_AGENTS_md": "none found",
+  "checks": {
+    "detector_contract_tests": 66,
+    "failures": 0,
+    "isolated_full_suite": 287,
+    "isolated_warnings": 1,
+    "preserved_flask_tests": 22,
+    "skips": 0
+  },
+  "engineering_smoke": {
+    "blank_packet": {
+      "adjudication_rejected": true,
+      "empty_review_slots": 2,
+      "human_labels_created": 0,
+      "status": "AWAITING_INDEPENDENT_REVIEWS"
+    },
+    "corpus_accuracy_measured": false,
+    "measurements": {
+      "ascii_no_match": {
+        "candidate_count": 0,
+        "input_chars": 32768,
+        "iterations": 20,
+        "max_ms": 11.842,
+        "median_ms": 7.938,
+        "returned_spans": 0,
+        "spans_truncated": false
+      },
+      "candidate_overflow": {
+        "candidate_count": 1820,
+        "input_chars": 32768,
+        "iterations": 20,
+        "max_ms": 34.227,
+        "median_ms": 26.434,
+        "returned_spans": 100,
+        "spans_truncated": true
+      },
+      "long_assignment": {
+        "candidate_count": 0,
+        "input_chars": 31000,
+        "iterations": 20,
+        "max_ms": 10.949,
+        "median_ms": 8.843,
+        "returned_spans": 0,
+        "spans_truncated": false
+      },
+      "malformed_mailbox": {
+        "candidate_count": 0,
+        "input_chars": 32011,
+        "iterations": 20,
+        "max_ms": 14.242,
+        "median_ms": 10.793,
+        "returned_spans": 0,
+        "spans_truncated": false
+      },
+      "unicode_no_match": {
+        "candidate_count": 0,
+        "input_chars": 32768,
+        "iterations": 20,
+        "max_ms": 21.419,
+        "median_ms": 16.023,
+        "returned_spans": 0,
+        "spans_truncated": false
+      }
+    },
+    "process_peak_rss_mib": 26.484375,
+    "synthetic_contract_smoke_only": true
+  },
+  "historical_ci": {
+    "conclusion": "success",
+    "freshly_observed": true,
+    "head_sha": "22dc822c75cf6f1e106980bbd974fd576d025588",
+    "run_id": 37768161104
+  },
+  "initial_git": "clean; fresh remote equals local; fetched divergence 0/0",
+  "integration": {
+    "document_values_logged": false,
+    "external_inference": false,
+    "monitors_started": false,
+    "new_application_flags_enabled": false,
+    "new_dependencies": false,
+    "policy_or_enforcement_change": false,
+    "runtime_calls_added": false,
+    "supplied_span_interface_preserved": true
+  },
+  "label_readiness": {
+    "status": "BLOCKED_OWNER_INVENTORY_POLICY_AND_BLIND_REVIEWS",
+    "verified_completed_pilot": false,
+    "verified_independent_documents": 0,
+    "verified_owner_approved_policy": false
+  },
+  "next_phase": "A2 contextual full-span feasibility and frozen evaluation protocol; no B metrics or organizational training executed",
+  "phase": "A1",
+  "preservation": {
+    "all_match": true,
+    "archive_stat_observations": 3,
+    "canonical_all_match": true,
+    "canonical_frozen_artifacts": 13,
+    "changed": [],
+    "ds3_bound_input_files": 12,
+    "ds3_bound_inputs_match": true,
+    "existing_application_dependency_and_historical_report_diff": "empty",
+    "normalized_copies": 19,
+    "normalized_copies_match": true,
+    "original_live_all_match": true,
+    "original_live_hash_entries": 30,
+    "preexisting_private_files": 60,
+    "tab_source_files": 6,
+    "tab_source_files_match": true
+  },
+  "previous_checkpoint": "22dc822c75cf6f1e106980bbd974fd576d025588",
+  "publication": "verified source prepared; normal push, remote equality and latest CI follow at phase boundary",
+  "resources": {
+    "cli": {
+      "exit_status": 0,
+      "peak_rss_mib": 21.73046875,
+      "wall_seconds": 0.31
+    },
+    "flask": {
+      "exit_status": 0,
+      "peak_rss_mib": 101.2890625,
+      "wall_seconds": 1.77
+    },
+    "frozen": {
+      "exit_status": 0,
+      "peak_rss_mib": 788.78515625,
+      "wall_seconds": 12.74
+    },
+    "regression": {
+      "exit_status": 0,
+      "peak_rss_mib": 388.89453125,
+      "wall_seconds": 27.49
+    }
+  },
+  "source_hashes": {
+    "ml/content_detection.py": "030e9e29565be7c575804f226de0a0717fb6c1623faacd9de219ef0a5e61028f",
+    "research/automatic_content.py": "4584fa1e223492fe882112be2f2aec06d34022f6e72f5cd331789db9289d8b69",
+    "tests/test_content_detection.py": "6c46180f1f07d012d20c254e0b6c5c9928391e3e5c02fab64207d4545f1bb3b6"
+  },
+  "status": "VERIFIED_OFFLINE_BOUNDED"
+}

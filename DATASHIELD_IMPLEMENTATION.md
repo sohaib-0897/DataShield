@@ -1,193 +1,131 @@
 # DataShield implementation memory
 
-## Resume protocol and goal
-- Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Original Phases 0–6/NLP follow-up and DS1–DS3 complete; stop after DS3; further work needs a new request.
-- Verify the previous checkpoint and pending push before starting another phase.
-- Goal: preserve completed CERT workflow; establish defensible content labels, evaluation and advisory integration.
-- Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
-- Preserve both supplied Flask/SQLite application and existing upstream FastAPI/PostgreSQL/React runtime.
-- No framework/database migration is authorized or needed; use additive shared modules/adapters.
-- Retain monitor behavior/logging, API fields/routes, policies/roles/decisions, and rule fallback.
-- New model decisions default to advisory/shadow; no new automatic blocking.
-- Never start monitors during ingestion/training/tests; never touch physical devices in automated tests.
-- Never reset live data, overwrite policies, discard user work, force-push, or merge into main automatically.
-- Never commit source data, live DBs, sensitive documents, credentials, environments, or large models.
+## Resume contract
+- Existing checkout: `/home/sohaib/Insider_Threat_Test_Dataset/DataShield~`; literal trailing tilde.
+- Origin: https://github.com/sohaib-0897/DataShield.git; branch: feat/cert-ml-nlp.
+- Read applicable AGENTS.md, this file, CONTEXT.md and referenced phase report before work.
+- No AGENTS.md found in checkout/ancestors during A1 audit; recheck on resume.
+- Execute exactly one bounded phase per request; resume unfinished verification/publication first.
+- Keep this file strictly below 200 lines; details belong in separate reports.
+- Preserve post-checkpoint work; no reset, force push, unrelated upgrades or replacement checkout.
+- Preserve both FastAPI/PostgreSQL/React and legacy Flask/SQLite apps, monitors and policies.
+- Use temporary DBs, fake devices and isolated checks; never import/start physical monitors for research.
+- New functionality stays offline or disabled by default; no model enforcement activation.
+- Never commit data, private documents/packets, models, live DBs, credentials, caches or environments.
 
-## Verified checkout and reconciliation (2026-10-08)
-- Actual checkout: /home/sohaib/Insider_Threat_Test_Dataset/DataShield~ (literal trailing tilde).
-- User-provided checkout was clean on main at 74efcfd420d9e4442397d1c1276db67853a590f1.
-- Origin: https://github.com/sohaib-0897/DataShield.git; verified matches requested repository.
-- Dedicated branch: feat/cert-ml-nlp, created from existing checkout; no reset or merge performed.
-- User confirms manual push succeeded; branch now tracks origin/feat/cert-ml-nlp.
-- Phase 0 handoff published 2026-10-08; fresh GitHub branch SHA equals HEAD: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b.
-- No AGENTS.md found in actual checkout, parent workspace, ancestors, or downloaded source.
-- Downloaded original: /home/sohaib/Downloads/AI-DLP-Agent (user-confirmed implementation to preserve).
-- Preserved copy: legacy/downloaded_flask/; 19 top-level .py/.html files, no live/config/document files.
-- Original 19 files copied byte-for-byte; existing .gitattributes normalizes committed text to LF.
-- Provenance/raw+normalized hashes: docs/implementation/phase0/source_reconciliation.json.
-- No upstream application files replaced; only additive source/tests/docs and ignore protections.
+## Current phase and publication
+- A1 VERIFIED: label readiness + bounded deterministic automatic detection; publication gate follows.
+- Started clean at local/fresh remote 22dc822c75cf6f1e106980bbd974fd576d025588, divergence 0/0.
+- Previous Git checkpoint: 22dc822c75cf6f1e106980bbd974fd576d025588; no later user edits found.
+- Publication pending: verify, commit phase-related files, normal push, fresh remote equality, inspect CI.
+- Exact next action: publish verified A1; on next request A2 contextual-span feasibility + freeze B protocol.
+- At A1 boundary stop; next requested phase is A2 contextual-span feasibility + frozen evaluation protocol.
+- Labels remain BLOCKED: searched candidates contain only an inert blank packet, zero verified reviews.
+- Owner must supply authorized pilot inventory, approved policy/context, independent reviews and resolution.
 
-## Dataset and storage separation
-- Requested proj/dataset and workspace dataset subfolder do not exist; do not create duplicate archives.
-- Actual r4.2: /home/sohaib/Downloads/r4.2.tar.bz2 (4,824,287,500 bytes).
-- Actual answers: /home/sohaib/Downloads/answers.tar.bz2 (1,254,678 bytes).
-- Actual README: /home/sohaib/Downloads/SEI_Insider_README.txt (1,446 bytes).
-- Local path configuration: .local/cert_paths.json (ignored); consumed by research/cert_ingest.py.
-- Research DB: research/local/cert_r42.sqlite; bounded 10,000 events; research/local/ is ignored.
-- Forbidden research destination: downloaded original data/activity.db or any production DB.
-- Preserved Flask's legacy/downloaded_flask/data/ is separate and ignored; no live DB copied there.
-- Upstream production store remains PostgreSQL; migrations must not run against live data for this work.
-- Phase 1 ingestion and Phase 2 bounded labels/features complete; models remain isolated research only.
-- About 424 GiB free in workspace filesystem; /tmp is a 7.7 GiB tmpfs.
+## Remaining bounded plan
+| Phase | Deliverable / gate | Status |
+|---|---|---|
+| A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | verified; publication pending |
+| A2 | Assess contextual full-span annotations/local NER feasibility; freeze B protocol before selection | pending |
+| B1 | Audit evaluation families/annotation coverage; separately version eligible development population | pending A2 |
+| B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | pending B1 |
+| C1 | Analyze independent pilot; strengthen training/export validation, or record exact blockers | pending labels; interface work possible |
+| C2 | Grouped CPU sensitivity experiment vs approved policy, only if defensible | blocked labels/policy |
+| D1 | Disabled authenticated automatic advice; extraction bounds, schema/cache/failure tests | pending A/B contracts |
+| D2 | Separate dashboard advice and regression/fallback checks; no enforcement changes | pending D1 |
+| E1 | Diagnose CERT errors; predeclare new past-only versioned experiment/population | pending; original results retained |
+| E2 | Run fixed behavioral experiment, common-population comparisons and honest negative findings | pending E1 |
+| F1 | Linux smoke/replay and runnable Windows native verification harness | pending integrations |
+| F2 | Demonstration/handover, limitations and reviewable activation proposal only | pending F1; native checks conditional |
+- Split again if a row exceeds a bounded session; never mark blocked/skipped work completed.
+- C can provide policy-derived advisory only after explicit owner-approved versioned policy/context.
+- Missing context produces review-needed/unknown, never inferred NORMAL.
 
-## Verified supplied Flask architecture
-- legacy/downloaded_flask/database.py: SQLite activity/transfers, naive receipt timestamps, getpass identity.
-- agent.py: watchdog events; DB/observer/busy loop start at import, so never import during research.
-- windows_monitor.py: Security 4663/4660, app filtering, deduplication, handle deletion correlation.
-- usb_monitor.py: WMI device polling; copy monitors: USB/local/Google Drive watched-folder hash matching.
-- upload_server.py: localhost upload test gateway; sensitivity.py: filename policies and SHA-256.
-- behavioral_monitor.py: Win32 foreground app/idle samples in behavior_events, five-second interval.
-- baseline.py: historical printed summaries; behavior.py: recent optional-user summaries, fixed work hours.
-- feature_builder.py: global hourly mixes users; both-empty/activity-only/transfer-only checks pass.
-- prepare_training.py filters/exports CSV only; risk_engine.py is capped rules with 25/50/75 levels.
-- dashboard.py/dashboard.html: JSON policies, roles, alert_state, analyst decisions, monitor controls.
-- Dashboard score uses alert decay/weights/saturation and differs from legacy risk_engine score.
-- Original live columns inspected read-only; 5 activity, 2 transfers, 241 behavior, 1 alert-state rows.
-- Windows identity parsed from Security events is not passed to log_activity's getpass-based logger.
+## Architecture and integration boundaries
+- `research/documents.py`: offline TXT/PDF/DOCX bounded subprocess extraction; redacted legacy patterns.
+- Existing extraction: 2 MiB file, 40 pages, 32768 text characters, 8s wall, 5 CPU seconds, 512 MiB.
+- Keep extraction statuses/truncation explicit; encrypted/scanned/malformed/unsupported are unavailable.
+- `research/document_annotation.py`: blank private packets + declaration validation; not proof of independence.
+- `ml/supplied_spans.py`: eight TAB supplied-span categories, operator-pinned artifacts, cached success/failure.
+- `backend/app/span_advisory.py`: POST /api/v1/advisory/supplied-spans; ADMIN/ANALYST authentication.
+- DATASHIELD_SPAN_ADVISORY_ENABLED=false; existing interface and enforcement unchanged.
+- Existing rules: `backend/app/analysis.py`, `backend/app/sensitivity.py`, legacy sensitivity/dashboard.
+- Existing behavior: `ml/registry/`, `backend/app/advisory.py`, shared research adapters; keep rule fallback.
+- `ml/content_detection.py`: structured-content-detectors-v1; offline-only; no runtime calls.
+- `research/automatic_content.py`: opt-in extraction bridge; redacted offsets; policy null/review-needed.
+- 32768 chars/131072 bytes, 100 returned candidates; DE/GB/PK IBAN structure/checksum; no new dependency.
+- D adds separately flagged API later; A2 assesses unsupported contextual entities before evaluation.
+- Detection, supplied-span classification, policy sensitivity, learned sensitivity and behavior are distinct tasks.
+- No automatic mapping from TAB/CERT outputs or current four-level policy to NORMAL/HIGH/CRITICAL.
+- Do not send/log whole documents externally; no persistence/alert creation from A1 evidence.
 
-## Verified upstream architecture and existing components
-- backend/app/main.py: FastAPI /api/v1 ingestion, alerts/evidence/decisions, reports, users, policy, models.
-- backend/app/core.py/models.py: SQLAlchemy/PostgreSQL sessions, JWT/Argon2/RBAC, normalized persistence.
-- backend/migrations/: existing Alembic head 9e20ab47c132; legacy SQLAlchemy tables remain supported.
-- frontend/src/: React analyst workflows; agents/: filesystem, USB, upload and network collectors.
-- backend/app/analysis.py: numeric features event-window-v2, heuristic behavior, weighted-v1 scoring.
-- Upstream live features filter user in ingestion, but rolling per-event windows overlap.
-- ml/data/loader.py: three expected CSV mappings, UTC assumption; http visits mapped to CLOUD.
-- ml/data/prepare_dataset.py: JSONL preparation; lacks safe extraction/resume/full diagnostics.
-- ml/training/train_anomaly.py: optional IsolationForest candidate, chronological 80/20 split, no labels/evaluation.
-- Training hourly features duplicate live rolling-window logic; availability and partition purging are absent.
-- ml/registry/: artifact compatibility/provenance guards; no bundled or active trained model found.
-- backend/app/sensitivity.py: rule/declared text classification and optional model interface; no file extraction.
-- Runtime artifact loaders load per assessment; model caching/advisory integration remains future work.
-- Upstream config defaults and model guards remain intact; no new weights/models activated.
-- legacy/flask/ is a different SQLAlchemy Flask app, not the supplied SQLite dashboard; keep both.
+## Frozen datasets, artifacts and completed history
+- Phases 0–6 + NLP follow-up + DS1–DS3 complete at documented bounded acceptance.
+- Detailed historical reports: `docs/implementation/phase0/` through `phase6/`, `nlp-followup/`.
+- DS1: `docs/implementation/document-sensitivity/report.md`, taxonomy-and-annotation.md, dataset-research.md.
+- DS2/DS3: same directory, ds2-report.md, ds3-report.md and sanitized adjacent JSON evidence.
+- Original Flask source `/home/sohaib/Downloads/AI-DLP-Agent`; 19 preserved files in legacy/downloaded_flask/.
+- Actual CERT r4.2/answers archives and README in `/home/sohaib/Downloads/`; `.local/cert_paths.json` ignored.
+- Stores/features/models: ignored `research/local/`; preserve strict cohort and known-user experiments separately.
+- CERT phase6: 978908 events; 95930 full windows; original test 11753 / 8 positives, poor precision.
+- Strict text cohort 54763/0/0; every later eligible user already seen; never weaken identity controls.
+- Separate known-user test 10553 / 8 positives: numeric/text/combined precision .002198/.50/.074074;
+  recall .125/.125/.25, AP .007826/.154422/.167069; offline/shadow only, no deployment claim.
+- TAB pinned upstream 558e09e26d6b36f5f78440074e6a233946d98bd9; MIT with notices retained privately.
+- Private TAB source: research/local/document_sensitivity/tab_ds2/; no new acquisition/training needed.
+- Frozen manifests/models/evaluation: ds2_prepared_v2/, ds2_models_v2/, ds2_evaluation_v2/ under same root.
+- Diagnostics: ds3_diagnostics_v2/; all 1268 documents accounted for, 577 used/681 unreviewed/10 quarantined.
+- Frozen documents 326/124/127, spans 22939/6810/6713; 325/124/125 families, no cross-split family overlap.
+- Selected supplied-span macro/micro F1 .776293/.885595; legal-domain subset, no detector sensitivity claim.
+- DS2 task/version `tab-supplied-span-ds2-v1`; TF-IDF + LinearSVC, raw uncalibrated margins.
+- Selection pin f820f6eb6c0656b0aad22407cf75665d2deeaf20b95cbc679b075a81604b7477.
+- Runtime artifact requires recorded Python 3.14.4/sklearn 1.9.1/NumPy 2.5.3/joblib 1.6.0; explicit failure otherwise.
+- DS3 reports 221 isolated/22 Flask tests; all 13 canonical frozen artifacts and DS2 files preserved.
+- GitHub checkpoint 22dc822 CI 37768161104 freshly observed success in A1 audit.
+- pypdf CI omission fixed historically: requirements-dev.txt includes requirements-research.txt; no change needed.
 
-## Phase table
-| Phase | Scope | Depends on | Status |
-|---|---|---|---|
-| 0 | Audit, source preservation, isolated baseline, plan/checkpoint | published and freshly verified | completed |
-| 1 | Actual release inspection and safe resumable ingestion | completed 0 | completed |
-| 2 | Exact-event labels and shared per-user features | 1 | completed (bounded) |
-| 3 | Reproducible behavioral ML and held-out evaluation | 2 | completed (bounded) |
-| 4 | CERT text study and document extraction/evidence | 2 + numeric benchmark 3 | completed (bounded; comparison unavailable) |
-| 5 | Advisory adapters, status/explanations, deterministic replay | 3 + 4 | completed (bounded) |
-| 6 | Full run, fair comparisons, error analysis, handover | 1–5 | completed (bounded; full memory-limited) |
-| DS1 | Sensitivity taxonomy, dataset/license research, annotation plan | NLP follow-up | complete; acquisition blocked |
-| DS2 | Acquisition, grouped splits, CPU supplied-span baseline/evaluation | DS1 + suitable labels | complete; offline TAB task only |
-| DS3 | Frozen evaluation diagnostics/optional supplied-span advice | DS2 + explicit request | complete; disabled by default |
+## A1 acceptance and verification commands (repository root)
+- Supported candidates must have valid Unicode code-point offsets, category, method, redacted evidence/limits.
+- Validate email syntax and supported IBAN structure/checksum; CNIC shape/credentials remain unconfirmed candidates.
+- Bound inputs/results; reject malformed/oversized inputs; no TAB model call or policy/risk output.
+- Synthetic fixtures test contracts only; corpus P/R/F1 belongs to B, never infer coverage from fixture passes.
+- Verify actual blank CLI leaves labels null; record missing decisions/provenance and reviewer instructions.
+- Reuse canonical verifier: scripts/verification/ds2_frozen_preservation.py; never substitute feature file hashes.
+- Snapshot private DS2/DS3 files read-only; preserve historical reports and all existing application trees.
+```bash
+.local/phase0-venv/bin/python -B -m pytest -q tests/test_content_detection.py -p no:cacheprovider
+OPENBLAS_NUM_THREADS=1 .local/phase0-venv/bin/python -B scripts/verification/phase0_upstream_baseline.py --report .local/phase-a1/regression.json --log .local/phase-a1/regression.log
+.local/phase0-venv/bin/python -B tests/phase0_regression.py --source-root legacy/downloaded_flask --require-no-skips --report .local/phase-a1/flask.json
+.local/phase0-venv/bin/python -B scripts/verification/ds2_frozen_preservation.py --output research/local/document_sensitivity/phase_a1_frozen.json
+python3 -B scripts/verification/phase0_preservation.py --source-root /home/sohaib/Downloads/AI-DLP-Agent --dataset-root /home/sohaib/Downloads --output .local/phase-a1/live.json --compare docs/implementation/phase0/phase0_preservation_before.json
+git diff --check
+git diff --cached --check
+wc -l DATASHIELD_IMPLEMENTATION.md
+git push origin feat/cert-ml-nlp
+git ls-remote origin refs/heads/feat/cert-ml-nlp
+gh run list --branch feat/cert-ml-nlp --limit 3 --json databaseId,headSha,status,conclusion
+```
+- Stage new Python/tests before isolated runner: it copies tracked/index-listed Python source only.
+- Dependencies unchanged; use existing `.local/phase0-venv/`; clean dependency check if configuration changes.
+- If push fails retain local checkpoint, record error/recover via `git push origin feat/cert-ml-nlp`.
 
-## Completed acceptance history
-- Original Phases 0–6 and NLP follow-up are complete at bounded acceptance.
-- Detailed contracts, exact commands and historical results: docs/implementation/phase0–6/ and nlp-followup/.
-- Preserve source/live/archive checks, frozen features/models and strict-cohort results; do not rerun CERT work.
-- DS1 source/license/taxonomy/annotation evidence: docs/implementation/document-sensitivity/report.md.
+## Known limitations and human actions
+- No owner-approved organizational policy/context or independently labeled organizational corpus verified.
+- Existing packet declarations need container provenance/timestamps/span-export validation before C training.
+- Reviewer identities, authorization and blindness require external governance; code cannot prove them.
+- Pilot is guide-development only, excluded from final test; assess required later counts from actual evidence.
+- Original proposal of 1200 documents is not an unconditional count requirement; C analyzes class/family support.
+- Full-release CERT fitting memory-limited; eight test positives constrain certainty; no improvement promised.
+- Native Windows/physical monitors not verified here; Linux extraction uses POSIX resource limits.
+- Local upload test server does not prove general browser interception; supported channel claims stay narrow.
+- Existing npm vulnerabilities and Starlette warning remain historical; no unrelated dependency upgrades.
 
-## Decisions, evidence, and current limitations
-- Research schema v1; timezone unspecified; exact all-source-field label joins, separate incident actors.
-- Answer-derived identifiers/scenarios never enter inference; unavailable signals are not genuine zero counts.
-- Separate research/live artifacts if feature coverage differs; chronological disjoint evaluation windows.
-- IsolationForest scores are not probabilities; anomaly training population assumption must be documented.
-- Fusion/model thresholds remain unvalidated; no detection improvement or sensitivity-model accuracy claim.
-- Detailed audit: docs/implementation/phase0/audit.md; historical supplied-code audit: phase0_audit.md alongside it.
-- Copy manifest: docs/implementation/phase0/source_reconciliation.json; original hashes: phase0_preservation*.json.
-- Historical baseline: 18 Flask passes/4 skips; later failed dependency attempts preserved in original JSONs.
-- Completed feature report: 4 passed, no skips/errors; 22 distinct Flask checks passed across recorded runs.
-- Completed upstream isolated baseline: exit 0, 34 passed, 1 Starlette/httpx deprecation warning, no collection errors.
-- Reports: docs/implementation/phase0/upstream_baseline_completed.json and remaining_feature_checks_completed.json.
-- Frontend terminal results: npm ci exit 0, 7 tests passed, production build compiled; npm logs corroborate exit 0.
-- Closure/preservation evidence: docs/implementation/phase0/closure_verification.json; earlier reports remain untouched.
-- Upstream source/lock unchanged; only intentional .gitignore/docs changes; 19 preserved source hashes match.
-- Staged review retains one original whitespace-only line in imported risk_engine.py; other new files pass whitespace checks.
-- Original 30 source/live hashes and three archive-stat records remain unchanged; final_preservation_check.json records checks.
-- Native deps now installed: .local/phase0-venv (Python 3.14.4); Node 22.22.1/npm 9.2.0 available.
-- npm findings: 106 groups (3 low/36 moderate/65 high/2 critical), cached then freshly confirmed in Phase 6.
-- Production-declared: 2 moderate React Router groups; dev graph: 104, including critical proxy-addr/shell-quote.
-- Dev tooling also runs under current Docker npm start; no package/lockfile upgrades or audit fix applied.
-- npm review: phase0/npm_audit_review.md (historical cache), phase6/npm-review.md/json (fresh registry audit).
-- Current GitHub publication/npm registry access works; historical DNS failures remain documented.
-- Native Windows monitors, physical devices and PostgreSQL integration were not verified in this environment.
-- No monitors/servers started; no live content logged; baseline/current source hashes are verified separately.
-- Pre-existing Flask findings: global feature users mix, watchdog summaries omit changes, permitted after-hours hidden.
-- Bounded data/artifacts ignored; Phase 2 label/features evidence: docs/implementation/phase2/.
-
-## Current checkpoint and NLP follow-up
-- Original Phases 0–6 passed bounded acceptance; no Phase 7 was added.
-- Historical exact SHAs/phase results: docs/implementation/publication.json and phase0–6 reports.
-- Phase 6: 978,908 events, 95,930 fully observed windows, positives 14/19/8 across 58,258/25,919/11,753.
-- Numeric precision was poor; strict text 54,763/0/0; no activation or sensitivity corpus claim.
-- Follow-up authorized 2026-10-08, starting clean/fresh remote SHA 216a0eb2a49161ab2f185af7dec53e035c278a35.
-- All 3,291 January and 96,063 June windows/text match frozen original artifacts exactly.
-- Streaming June preparation: 425 MiB peak RSS, 122.668s resumed + 6.480s initial checkpoint.
-- Full parity verification: 928 MiB / 56.333s; idempotent replay 4.219s / zero new rows/users.
-- Transactions commit complete users; partial users roll back; read-only originals and hash/provenance guards.
-- Root cause strict empty cohorts: every later eligible user already seen; not a label/text mapping defect.
-- Original strict results retained; separately declared known-user/content-disjoint chronological experiment.
-- Alternative sizes 54,763/23,616/10,553, positives 14/19/8; no identifiers/answers/future evidence as features.
-- Numeric/text/combined test precision .002198/.50/.074074; recall .125/.125/.25; F1 .004320/.20/.114286.
-- AP .007826/.154422/.167069; false alerts/1,000 windows 43.020942/.094760/2.368995.
-- Same 10,553 test windows / 8 positives; train-only transforms, validation thresholds, refit/hash replay equal.
-- Training/reproduction 499.263s / 8.52 GiB peak RSS; full-release fitting still resource-limited.
-- Separate sensitivity interface runnable; only synthetic tests; independent supervision remains unavailable.
-- Shadow defaults disabled; six actual scores match, rule fallback/provenance/schema tests pass; no activation.
-- Final isolated regressions 151 passes + 22 preserved Flask passes; no skips, one existing warning.
-- Originals/live/copies/archives/application trees and frozen January/June research artifacts preserved.
-- Detailed commands/results: docs/implementation/nlp-followup/report.md, streaming.md, sensitivity.md and JSON evidence.
-- Streaming milestone verified: 3500e23d1a57e224280a83af837a8e4faf2c937f; evaluation verified: 521331df8f651aa1c3797d488a913964f3581c55.
-- Both normal pushes/fresh remote SHA equalities succeeded; documentation closure follows; final HEAD via Git.
-- DS1 complete; started clean at local/fresh remote b881673ea91e5a31bc7036caebe8f62236079a06; no CERT rerun.
-- DS1 taxonomy, seven-source/license registry, blank human-review CLI and bounded TAB inventory implemented.
-- DS1 evidence/commands/recovery: docs/implementation/document-sensitivity/report.md and adjacent JSON/guide/plan.
-- TAB selected only for supplied-span semantic categories; metadata verified; corpus downloads incomplete/timed out.
-- No organizational corpus/labels, real sensitivity training/evaluation or activation; raw/partial storage ignored.
-- DS1 checks: 175 isolated + 22 Flask passes; 42 targeted; 388.340 MiB peak / 22.78s full check; originals preserved.
-- DS2 acceptance: source/version/chunk/near-duplicate grouped splits, train-only transforms, validation thresholds.
-- DS3 acceptance: untouched natural test cohort, per-class P/R/F1/AP/confusion, rule comparison/error analysis.
-- Organizational labels require policy/context and human review; categories alone cannot assign NORMAL/HIGH/CRITICAL.
-- DS2 complete: 2026-10-08; clean start local/fresh remote 67f6c02149558ec1205dd0e3eabd4ef8a5ea9a5d.
-- No AGENTS.md found; all runtime/live/rule decisions and 13 frozen artifacts preserved; no model activation.
-- Pinned TAB acquired and checksum/schema/license verified: 1,268 documents, 155,006 raw annotation records.
-- Task ONLY supplied-span entity-category classification; original annotations retained; eight identity-mapped TAB classes.
-- Reviewed unanimous spans; group controls quarantine 7 train/3 dev documents; 686 unreviewed documents excluded.
-- Frozen train/validation/test: 22,939/6,810/6,713 spans, 326/124/127 documents, 325/124/125 families.
-- Family overlap zero; repeated vocabulary remains (disclosed); exhaustive five-word Jaccard >=.8 and subject controls.
-- CPU TF-IDF/LinearSVC train-only fits; validation selects entity-only (.8190 macro F1) over context (.7509).
-- Final test entity macro/micro F1 .7763/.8856; context .7379/.8781; majority .0681/.3746.
-- Two independent fits have identical artifact hashes/reload scores; raw margins are not probabilities.
-- Final preparation 26.92s/455.863 MiB; training 81.67s/908.094 MiB; evaluation 21.62s/349.953 MiB.
-- Organizational sensitivity BLOCKED: zero independent labels; exact packet/next owner-review action in ds2-human-annotation-packet.json.
-- All raw corpus/manifests/models remain in ignored research/local/document_sensitivity/; final folders use v2.
-- Actual commands, per-class results, resources and limitations: docs/implementation/document-sensitivity/ds2-report.md.
-- Verification/publication evidence: adjacent ds2-verification.json; final SHA via Git; normal push/fresh remote equality required.
-- DS2 historical handoff: owner-approved policy/context and authorized 100-document blind-review pilot.
-
-## DS3 completed (2026-10-08)
-- Clean start: local/fresh remote both 9933e063c0783a66694474b755bdf6b76fa00a1d; no AGENTS.md found.
-- No acquisition, preparation rewrite, training, model selection or test retuning; DS2 predictions reused.
-- Every source document/span audited: 577 used, 681 unreviewed outside quarantine, 5 reviewed + 5 unreviewed quarantined.
-- Original train/dev/test 1,014/127/127 become frozen 326/124/127; all ten quarantines prioritize test families.
-- Selected test macro/micro F1 .776293/.885595; 2,000 document-bootstrap 95% CI .735357–.815250/.859797–.910754.
-- Seen/unseen spans 3,107/3,606; micro F1 .976505/.807266; per-class/ambiguity/rare-vocabulary evidence in DS3 report.
-- MISC F1 .381215; unseen DEM/LOC F1 .434368/.554974; legal-domain and reviewed-selection limitations remain.
-- Added authenticated POST /api/v1/advisory/supplied-spans, explicit Unicode offsets, text/span bounds, eight categories.
-- DATASHIELD_SPAN_ADVISORY_ENABLED=false default; trusted local artifact + operator selection digest + exact software required.
-- Cached once per process including failure; explicit disabled/unavailable outcomes; uncalibrated margins, no text logging/persistence.
-- All 6,713 actual selected-model predictions replay identically; no sensitivity/risk/rule/policy/monitor changes.
-- Checks: 221 isolated + 22 Flask passes; final targeted 88 passes; existing Starlette warning only, no skips.
-- Original/live 30 hashes, 19 normalized copies, three archive stats, all 13 canonical frozen artifacts and all DS2 files match.
-- Earlier DS2 GitHub CI failed 11 extraction tests on absent pypdf; dev requirements now include research parser dependencies.
-- GitHub source checkpoint 9130a96: CI 37767822921 passed (221 Python/7 frontend tests + build); normal push/remote verified.
-- Detailed actual results/interface/commands/preservation: docs/implementation/document-sensitivity/ds3-report.md and ds3-*.json.
-- Organizational sensitivity remains BLOCKED on independent human labels and owner-approved versioned policy/context.
-- Exact next action: owner supplies authorized de-identified 100-document pilot and policy/context; two blind reviewers + adjudicator.
-- Stop after DS3. Commit/push normally to feat/cert-ml-nlp; fresh remote must equal local HEAD; never force-push.
+## A1 verified results
+- Evidence: docs/implementation/phase-a1/report.md, label-readiness.md and verification.json.
+- 66 detector checks; 287 isolated full-suite and 22 preserved Flask passes, no failures/skips; old warning.
+- All 13 canonical frozen, 60 private files, 12 DS3-bound inputs, 6 TAB source files, 19 normalized copies match.
+- Original/live 30 entries and 3 archive stat observations match; existing application/dependencies unchanged.
+- Synthetic 32768-character smoke median 7.938–26.434 ms, max 34.227 ms, process peak 26.484 MiB.
+- No corpus detection accuracy measured; no new model or policy; zero independent labels/pilot reviews verified.
+- Inert packet CLI validated blank slots and rejection by adjudication; actual owner actions in label-readiness.md.

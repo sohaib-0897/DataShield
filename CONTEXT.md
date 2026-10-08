@@ -1,3 +1,29 @@
+# A1 bounded automatic detection verified — 2026-10-08
+
+Current resume authority: DATASHIELD_IMPLEMENTATION.md (below 200 lines).
+User authorized a new A–F plan, exactly one bounded phase per request. A1 verified
+at the DS3 starting checkpoint 22dc822c75cf6f1e106980bbd974fd576d025588.
+Shared offline deterministic candidates + extraction CLI; existing runtime and
+supplied-span interface unchanged. Four kinds, valid code-point offsets, syntax/
+IBAN checksum checks, redacted evidence and explicit limitations. No sensitivity
+or enforcement decision; no learned model/new dependency/activation.
+66 new detector checks, 287 isolated full-suite passes and 22 preserved Flask passes.
+All 13 canonical frozen artifacts, 60 pre-existing private files, 12 DS3-bound
+inputs, six TAB source files, 30 original/live entries, 19 normalized copies and
+three archive stat observations match. Existing app/source/report diff is empty.
+Pilot is unreviewed/unsupplied: zero independent organizational labels verified;
+owner inventory/policy/context and blind reviews still required. Inert packet CLI
+produced blank slots only. Detailed evidence: docs/implementation/phase-a1/.
+Publication gate: normal commit/push, fresh remote equality and exact-SHA CI;
+resolve the phase SHA with Git, final handoff gives actual status.
+Next “start next phase”: first verify publication, then A2 only (contextual span
+feasibility and freeze B evaluation protocol). Do not repeat DS2/DS3 fitting or
+frozen evaluation; do not proceed directly into B/C/D. Stop at every phase boundary.
+
+Historical handoffs below are superseded by this pointer and the latest request.
+
+---
+
 # Document sensitivity DS3 completed — 2026-10-08
 
 DS3 only: clean start at verified local/remote DS2 checkpoint
