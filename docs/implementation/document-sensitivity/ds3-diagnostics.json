@@ -1,0 +1,2986 @@
+{
+  "bootstrap": {
+    "confidence": 0.95,
+    "estimand": "span-weighted metrics; macro includes classes with positive truth support in each replicate",
+    "limitations": "conditional on this legal corpus/model; residual correlation across related documents/families not removed; no calibration or domain guarantee",
+    "method": "document cluster percentile bootstrap; whole documents resampled with replacement",
+    "replicates": 2000,
+    "resampling_documents": 127,
+    "seed": 42,
+    "strata": {
+      "full": {
+        "macro_f1": {
+          "lower": 0.7353571258885719,
+          "upper": 0.8152498226019976,
+          "valid_replicates": 2000
+        },
+        "micro_f1": {
+          "lower": 0.859797004762168,
+          "upper": 0.9107544945158725,
+          "valid_replicates": 2000
+        },
+        "per_class": {
+          "CODE": {
+            "f1": {
+              "lower": 0.8431034907882909,
+              "upper": 0.9829223168417642,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9577451245937161,
+              "upper": 0.9965878954893459,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.741955705815346,
+              "upper": 0.982190325374912,
+              "valid_replicates": 2000
+            }
+          },
+          "DATETIME": {
+            "f1": {
+              "lower": 0.9909873833103102,
+              "upper": 0.9971682675585958,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9878712812890744,
+              "upper": 0.9967784784228142,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.9910433559861769,
+              "upper": 0.9995750151382155,
+              "valid_replicates": 2000
+            }
+          },
+          "DEM": {
+            "f1": {
+              "lower": 0.5424178093295903,
+              "upper": 0.6771731574093779,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.47493283213455256,
+              "upper": 0.6594678503765998,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.5939346590909091,
+              "upper": 0.7414719112355057,
+              "valid_replicates": 2000
+            }
+          },
+          "LOC": {
+            "f1": {
+              "lower": 0.6924776446847114,
+              "upper": 0.8018075181780765,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.754846704958602,
+              "upper": 0.888627896294784,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.6173858705904546,
+              "upper": 0.7536695321871251,
+              "valid_replicates": 2000
+            }
+          },
+          "MISC": {
+            "f1": {
+              "lower": 0.2736817757256402,
+              "upper": 0.4931163434903045,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.2866883116883117,
+              "upper": 0.5307393505586592,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.2453130808550186,
+              "upper": 0.510536880522474,
+              "valid_replicates": 2000
+            }
+          },
+          "ORG": {
+            "f1": {
+              "lower": 0.8449059803492346,
+              "upper": 0.9098799368149781,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9040466675837403,
+              "upper": 0.9540792289116373,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.7819614118363121,
+              "upper": 0.8829557846733419,
+              "valid_replicates": 2000
+            }
+          },
+          "PERSON": {
+            "f1": {
+              "lower": 0.824347454117577,
+              "upper": 0.9061302068736692,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.7197555954343388,
+              "upper": 0.8460870288649353,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.9336340219408128,
+              "upper": 0.9892782472174002,
+              "valid_replicates": 2000
+            }
+          },
+          "QUANTITY": {
+            "f1": {
+              "lower": 0.6619376899696048,
+              "upper": 0.9084899845916794,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.5613990332975295,
+              "upper": 0.9295231470747353,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.7745632143943674,
+              "upper": 0.9150382186773014,
+              "valid_replicates": 2000
+            }
+          }
+        },
+        "replicates_missing_truth_classes": 0
+      },
+      "paired_seen_minus_unseen": {
+        "macro_f1": {
+          "lower": 0.10612918673183662,
+          "upper": 0.2720768529580039,
+          "valid_replicates": 2000
+        },
+        "micro_f1": {
+          "lower": 0.133150087118964,
+          "upper": 0.20404736967069173,
+          "valid_replicates": 2000
+        }
+      },
+      "seen": {
+        "macro_f1": {
+          "lower": 0.8000909870657089,
+          "upper": 0.967395357416894,
+          "valid_replicates": 2000
+        },
+        "micro_f1": {
+          "lower": 0.9641494457788762,
+          "upper": 0.9871542817229884,
+          "valid_replicates": 2000
+        },
+        "per_class": {
+          "CODE": {
+            "f1": {
+              "lower": 0.0,
+              "upper": 0.9953051643192489,
+              "valid_replicates": 1887
+            },
+            "precision": {
+              "lower": 0.0,
+              "upper": 1.0,
+              "valid_replicates": 1989
+            },
+            "recall": {
+              "lower": 0.0,
+              "upper": 1.0,
+              "valid_replicates": 1887
+            }
+          },
+          "DATETIME": {
+            "f1": {
+              "lower": 0.9989006558843009,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 1.0,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.9978037262293745,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            }
+          },
+          "DEM": {
+            "f1": {
+              "lower": 0.9025581395348837,
+              "upper": 0.9789506716582251,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.8938053097345132,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.8749737394957984,
+              "upper": 0.981651376146789,
+              "valid_replicates": 2000
+            }
+          },
+          "LOC": {
+            "f1": {
+              "lower": 0.82962702597149,
+              "upper": 0.9479578042775069,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9162928338433601,
+              "upper": 0.9847715736040609,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.7394331944977257,
+              "upper": 0.9358985765124556,
+              "valid_replicates": 2000
+            }
+          },
+          "MISC": {
+            "f1": {
+              "lower": 0.6,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 1.0,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.42857142857142855,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            }
+          },
+          "ORG": {
+            "f1": {
+              "lower": 0.9512301522344082,
+              "upper": 0.9854325982259308,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9167579112518871,
+              "upper": 0.9798530170618088,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.9784512698961367,
+              "upper": 0.9980240548161997,
+              "valid_replicates": 2000
+            }
+          },
+          "PERSON": {
+            "f1": {
+              "lower": 0.9794893477582991,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9598031655844156,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 1.0,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            }
+          },
+          "QUANTITY": {
+            "f1": {
+              "lower": 0.75,
+              "upper": 0.9638661790017211,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.7407407407407407,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.7316838649155722,
+              "upper": 0.972972972972973,
+              "valid_replicates": 2000
+            }
+          }
+        },
+        "replicates_missing_truth_classes": 113
+      },
+      "unseen": {
+        "macro_f1": {
+          "lower": 0.6576150579685877,
+          "upper": 0.7437028008292837,
+          "valid_replicates": 2000
+        },
+        "micro_f1": {
+          "lower": 0.7696717502282115,
+          "upper": 0.844674312789093,
+          "valid_replicates": 2000
+        },
+        "per_class": {
+          "CODE": {
+            "f1": {
+              "lower": 0.844559585492228,
+              "upper": 0.9828023868023869,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9744408945686901,
+              "upper": 1.0,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.7342174787243992,
+              "upper": 0.9780279503105589,
+              "valid_replicates": 2000
+            }
+          },
+          "DATETIME": {
+            "f1": {
+              "lower": 0.9803527149805659,
+              "upper": 0.9934392843393005,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.9718303240495606,
+              "upper": 0.9923594854971716,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.9821732332707943,
+              "upper": 0.9989446064998647,
+              "valid_replicates": 2000
+            }
+          },
+          "DEM": {
+            "f1": {
+              "lower": 0.3630719111969112,
+              "upper": 0.5077782549666122,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.29767402971144125,
+              "upper": 0.49131455680999275,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.42335511797657444,
+              "upper": 0.5923109243697479,
+              "valid_replicates": 2000
+            }
+          },
+          "LOC": {
+            "f1": {
+              "lower": 0.46665730337078654,
+              "upper": 0.6397634296975349,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.5185089234312033,
+              "upper": 0.7579687828095472,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.39368413836330163,
+              "upper": 0.5959242543171115,
+              "valid_replicates": 2000
+            }
+          },
+          "MISC": {
+            "f1": {
+              "lower": 0.2440377991298042,
+              "upper": 0.44840073331176533,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.25,
+              "upper": 0.4860740395889369,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.21503456221198158,
+              "upper": 0.4771315623023403,
+              "valid_replicates": 2000
+            }
+          },
+          "ORG": {
+            "f1": {
+              "lower": 0.6934791881029646,
+              "upper": 0.8155207624234173,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.8551262352270621,
+              "upper": 0.9342885005065856,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.5692934328587362,
+              "upper": 0.7435387374461979,
+              "valid_replicates": 2000
+            }
+          },
+          "PERSON": {
+            "f1": {
+              "lower": 0.7784265811133686,
+              "upper": 0.8763958776308671,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.6579332385908983,
+              "upper": 0.8019327302981563,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.9139871185952793,
+              "upper": 0.9854739053064558,
+              "valid_replicates": 2000
+            }
+          },
+          "QUANTITY": {
+            "f1": {
+              "lower": 0.635703781512605,
+              "upper": 0.9044176075075506,
+              "valid_replicates": 2000
+            },
+            "precision": {
+              "lower": 0.508683178902352,
+              "upper": 0.9275492649358773,
+              "valid_replicates": 2000
+            },
+            "recall": {
+              "lower": 0.757531712473573,
+              "upper": 0.9231060606060605,
+              "valid_replicates": 2000
+            }
+          }
+        },
+        "replicates_missing_truth_classes": 0
+      }
+    }
+  },
+  "candidate_test_metrics": {
+    "context": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          229,
+          7,
+          0,
+          4,
+          2,
+          0,
+          83,
+          3
+        ],
+        [
+          0,
+          2483,
+          4,
+          3,
+          2,
+          18,
+          2,
+          3
+        ],
+        [
+          0,
+          16,
+          166,
+          12,
+          15,
+          55,
+          19,
+          4
+        ],
+        [
+          0,
+          19,
+          8,
+          352,
+          6,
+          87,
+          9,
+          3
+        ],
+        [
+          1,
+          27,
+          24,
+          10,
+          47,
+          49,
+          5,
+          29
+        ],
+        [
+          0,
+          28,
+          18,
+          43,
+          33,
+          1563,
+          35,
+          2
+        ],
+        [
+          0,
+          7,
+          10,
+          6,
+          12,
+          23,
+          954,
+          0
+        ],
+        [
+          0,
+          37,
+          10,
+          2,
+          7,
+          14,
+          2,
+          101
+        ]
+      ],
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.7379037670562918,
+      "micro_f1": 0.8781468791896321,
+      "per_class": {
+        "CODE": {
+          "average_precision": 0.9110587571095934,
+          "f1": 0.8207885304659498,
+          "fn": 99,
+          "fp": 1,
+          "precision": 0.9956521739130435,
+          "recall": 0.698170731707317,
+          "support": 328,
+          "tp": 229
+        },
+        "DATETIME": {
+          "average_precision": 0.9973467417855156,
+          "f1": 0.9663358630083674,
+          "fn": 32,
+          "fp": 141,
+          "precision": 0.946265243902439,
+          "recall": 0.9872763419483102,
+          "support": 2515,
+          "tp": 2483
+        },
+        "DEM": {
+          "average_precision": 0.6787230017319296,
+          "f1": 0.6299810246679317,
+          "fn": 121,
+          "fp": 74,
+          "precision": 0.6916666666666667,
+          "recall": 0.578397212543554,
+          "support": 287,
+          "tp": 166
+        },
+        "LOC": {
+          "average_precision": 0.8093697163693389,
+          "f1": 0.7685589519650655,
+          "fn": 132,
+          "fp": 80,
+          "precision": 0.8148148148148148,
+          "recall": 0.7272727272727273,
+          "support": 484,
+          "tp": 352
+        },
+        "MISC": {
+          "average_precision": 0.2571240249102701,
+          "f1": 0.2974683544303797,
+          "fn": 145,
+          "fp": 77,
+          "precision": 0.3790322580645161,
+          "recall": 0.24479166666666666,
+          "support": 192,
+          "tp": 47
+        },
+        "ORG": {
+          "average_precision": 0.9527282153229442,
+          "f1": 0.8853016142735769,
+          "fn": 159,
+          "fp": 246,
+          "precision": 0.8640132669983416,
+          "recall": 0.9076655052264808,
+          "support": 1722,
+          "tp": 1563
+        },
+        "PERSON": {
+          "average_precision": 0.9772398121462031,
+          "f1": 0.8995756718528995,
+          "fn": 58,
+          "fp": 155,
+          "precision": 0.8602344454463481,
+          "recall": 0.9426877470355731,
+          "support": 1012,
+          "tp": 954
+        },
+        "QUANTITY": {
+          "average_precision": 0.5365174621940829,
+          "f1": 0.6352201257861635,
+          "fn": 72,
+          "fp": 44,
+          "precision": 0.696551724137931,
+          "recall": 0.5838150289017341,
+          "support": 173,
+          "tp": 101
+        }
+      },
+      "predicted_rows": 6713,
+      "rows": 6713
+    },
+    "entity": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          290,
+          4,
+          0,
+          0,
+          0,
+          0,
+          26,
+          8
+        ],
+        [
+          2,
+          2505,
+          3,
+          0,
+          0,
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          4,
+          190,
+          8,
+          27,
+          20,
+          34,
+          4
+        ],
+        [
+          0,
+          0,
+          24,
+          333,
+          10,
+          63,
+          53,
+          1
+        ],
+        [
+          0,
+          8,
+          38,
+          2,
+          69,
+          15,
+          36,
+          24
+        ],
+        [
+          0,
+          0,
+          74,
+          57,
+          50,
+          1432,
+          106,
+          3
+        ],
+        [
+          0,
+          2,
+          9,
+          4,
+          10,
+          8,
+          979,
+          0
+        ],
+        [
+          4,
+          0,
+          4,
+          3,
+          4,
+          2,
+          9,
+          147
+        ]
+      ],
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.7762927817256935,
+      "micro_f1": 0.885595113957992,
+      "per_class": {
+        "CODE": {
+          "average_precision": 0.9666301268643793,
+          "f1": 0.9294871794871795,
+          "fn": 38,
+          "fp": 6,
+          "precision": 0.9797297297297297,
+          "recall": 0.8841463414634146,
+          "support": 328,
+          "tp": 290
+        },
+        "DATETIME": {
+          "average_precision": 0.9997702760371856,
+          "f1": 0.9944422389837237,
+          "fn": 10,
+          "fp": 18,
+          "precision": 0.9928656361474435,
+          "recall": 0.9960238568588469,
+          "support": 2515,
+          "tp": 2505
+        },
+        "DEM": {
+          "average_precision": 0.690262602392781,
+          "f1": 0.604133545310016,
+          "fn": 97,
+          "fp": 152,
+          "precision": 0.5555555555555556,
+          "recall": 0.662020905923345,
+          "support": 287,
+          "tp": 190
+        },
+        "LOC": {
+          "average_precision": 0.8297616357351316,
+          "f1": 0.7474747474747475,
+          "fn": 151,
+          "fp": 74,
+          "precision": 0.8181818181818182,
+          "recall": 0.6880165289256198,
+          "support": 484,
+          "tp": 333
+        },
+        "MISC": {
+          "average_precision": 0.42320181596833645,
+          "f1": 0.3812154696132597,
+          "fn": 123,
+          "fp": 101,
+          "precision": 0.40588235294117647,
+          "recall": 0.359375,
+          "support": 192,
+          "tp": 69
+        },
+        "ORG": {
+          "average_precision": 0.9489012984884205,
+          "f1": 0.8779889638258737,
+          "fn": 290,
+          "fp": 108,
+          "precision": 0.9298701298701298,
+          "recall": 0.8315911730545877,
+          "support": 1722,
+          "tp": 1432
+        },
+        "PERSON": {
+          "average_precision": 0.9790239587925316,
+          "f1": 0.8679078014184397,
+          "fn": 33,
+          "fp": 265,
+          "precision": 0.7869774919614148,
+          "recall": 0.967391304347826,
+          "support": 1012,
+          "tp": 979
+        },
+        "QUANTITY": {
+          "average_precision": 0.7777096910628222,
+          "f1": 0.8076923076923077,
+          "fn": 26,
+          "fp": 44,
+          "precision": 0.7696335078534031,
+          "recall": 0.8497109826589595,
+          "support": 173,
+          "tp": 147
+        }
+      },
+      "predicted_rows": 6713,
+      "rows": 6713
+    },
+    "existing_email_cnic_CODE_proxy": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY",
+        "ABSTAIN"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          328
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2515
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          287
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          484
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          192
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1722
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1012
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          173
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.0,
+      "micro_f1": 0.0,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 328,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 328,
+          "tp": 0
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 2515,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 2515,
+          "tp": 0
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 287,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 287,
+          "tp": 0
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 484,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 484,
+          "tp": 0
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 192,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 192,
+          "tp": 0
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 1722,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 1722,
+          "tp": 0
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 1012,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 1012,
+          "tp": 0
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 173,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 173,
+          "tp": 0
+        }
+      },
+      "predicted_rows": 0,
+      "rows": 6713
+    },
+    "majority": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          328,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2515,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          287,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          484,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          192,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1722,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1012,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          173,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.06813502384048548,
+      "micro_f1": 0.3746462088485029,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 328,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 328,
+          "tp": 0
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.5450801907238838,
+          "fn": 0,
+          "fp": 4198,
+          "precision": 0.3746462088485029,
+          "recall": 1.0,
+          "support": 2515,
+          "tp": 2515
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 287,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 287,
+          "tp": 0
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 484,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 484,
+          "tp": 0
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 192,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 192,
+          "tp": 0
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 1722,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 1722,
+          "tp": 0
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 1012,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 1012,
+          "tp": 0
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 173,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 173,
+          "tp": 0
+        }
+      },
+      "predicted_rows": 6713,
+      "rows": 6713
+    }
+  },
+  "candidate_validation_metrics": {
+    "context": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          204,
+          23,
+          0,
+          1,
+          4,
+          0,
+          162,
+          3
+        ],
+        [
+          0,
+          2447,
+          5,
+          3,
+          3,
+          8,
+          0,
+          4
+        ],
+        [
+          0,
+          8,
+          199,
+          5,
+          39,
+          52,
+          18,
+          6
+        ],
+        [
+          0,
+          6,
+          9,
+          328,
+          11,
+          85,
+          16,
+          2
+        ],
+        [
+          0,
+          25,
+          15,
+          7,
+          74,
+          42,
+          6,
+          14
+        ],
+        [
+          0,
+          18,
+          18,
+          26,
+          15,
+          1519,
+          41,
+          3
+        ],
+        [
+          0,
+          28,
+          13,
+          6,
+          8,
+          9,
+          1077,
+          9
+        ],
+        [
+          0,
+          31,
+          6,
+          1,
+          7,
+          13,
+          6,
+          122
+        ]
+      ],
+      "macro_f1": 0.7508798687836395,
+      "micro_f1": 0.8766519823788547,
+      "per_class": {
+        "CODE": {
+          "average_precision": 0.8723515062902407,
+          "f1": 0.6788685524126455,
+          "fn": 193,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.5138539042821159,
+          "support": 397,
+          "tp": 204
+        },
+        "DATETIME": {
+          "average_precision": 0.9980088043427147,
+          "f1": 0.9679588607594937,
+          "fn": 23,
+          "fp": 139,
+          "precision": 0.9462490332559939,
+          "recall": 0.9906882591093117,
+          "support": 2470,
+          "tp": 2447
+        },
+        "DEM": {
+          "average_precision": 0.7339070783272956,
+          "f1": 0.6722972972972973,
+          "fn": 128,
+          "fp": 66,
+          "precision": 0.7509433962264151,
+          "recall": 0.6085626911314985,
+          "support": 327,
+          "tp": 199
+        },
+        "LOC": {
+          "average_precision": 0.82052963887787,
+          "f1": 0.7865707434052758,
+          "fn": 129,
+          "fp": 49,
+          "precision": 0.870026525198939,
+          "recall": 0.7177242888402626,
+          "support": 457,
+          "tp": 328
+        },
+        "MISC": {
+          "average_precision": 0.29326502458111836,
+          "f1": 0.43023255813953487,
+          "fn": 109,
+          "fp": 87,
+          "precision": 0.45962732919254656,
+          "recall": 0.40437158469945356,
+          "support": 183,
+          "tp": 74
+        },
+        "ORG": {
+          "average_precision": 0.9615988620007955,
+          "f1": 0.9020190023752969,
+          "fn": 121,
+          "fp": 209,
+          "precision": 0.8790509259259259,
+          "recall": 0.926219512195122,
+          "support": 1640,
+          "tp": 1519
+        },
+        "PERSON": {
+          "average_precision": 0.9668229794090426,
+          "f1": 0.869951534733441,
+          "fn": 73,
+          "fp": 249,
+          "precision": 0.8122171945701357,
+          "recall": 0.9365217391304348,
+          "support": 1150,
+          "tp": 1077
+        },
+        "QUANTITY": {
+          "average_precision": 0.7538782165816245,
+          "f1": 0.6991404011461319,
+          "fn": 64,
+          "fp": 41,
+          "precision": 0.7484662576687117,
+          "recall": 0.6559139784946236,
+          "support": 186,
+          "tp": 122
+        }
+      },
+      "predicted_rows": 6810,
+      "rows": 6810
+    },
+    "entity": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          368,
+          4,
+          0,
+          0,
+          0,
+          0,
+          22,
+          3
+        ],
+        [
+          0,
+          2466,
+          3,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          212,
+          7,
+          46,
+          29,
+          27,
+          5
+        ],
+        [
+          0,
+          1,
+          22,
+          318,
+          11,
+          54,
+          51,
+          0
+        ],
+        [
+          0,
+          2,
+          40,
+          1,
+          97,
+          27,
+          10,
+          6
+        ],
+        [
+          0,
+          0,
+          30,
+          37,
+          49,
+          1439,
+          78,
+          7
+        ],
+        [
+          0,
+          1,
+          6,
+          10,
+          7,
+          8,
+          1118,
+          0
+        ],
+        [
+          3,
+          2,
+          2,
+          0,
+          2,
+          4,
+          12,
+          161
+        ]
+      ],
+      "macro_f1": 0.818999021434647,
+      "micro_f1": 0.9073421439060205,
+      "per_class": {
+        "CODE": {
+          "average_precision": 0.9834874613802468,
+          "f1": 0.9583333333333334,
+          "fn": 29,
+          "fp": 3,
+          "precision": 0.9919137466307277,
+          "recall": 0.9269521410579346,
+          "support": 397,
+          "tp": 368
+        },
+        "DATETIME": {
+          "average_precision": 0.9997625815988056,
+          "f1": 0.9969678593086719,
+          "fn": 4,
+          "fp": 11,
+          "precision": 0.9955591441259588,
+          "recall": 0.9983805668016195,
+          "support": 2470,
+          "tp": 2466
+        },
+        "DEM": {
+          "average_precision": 0.7591283001423494,
+          "f1": 0.660436137071651,
+          "fn": 115,
+          "fp": 103,
+          "precision": 0.6730158730158731,
+          "recall": 0.6483180428134556,
+          "support": 327,
+          "tp": 212
+        },
+        "LOC": {
+          "average_precision": 0.8536266178879672,
+          "f1": 0.7662650602409639,
+          "fn": 139,
+          "fp": 55,
+          "precision": 0.8525469168900804,
+          "recall": 0.6958424507658644,
+          "support": 457,
+          "tp": 318
+        },
+        "MISC": {
+          "average_precision": 0.5990345385573499,
+          "f1": 0.4898989898989899,
+          "fn": 86,
+          "fp": 116,
+          "precision": 0.45539906103286387,
+          "recall": 0.5300546448087432,
+          "support": 183,
+          "tp": 97
+        },
+        "ORG": {
+          "average_precision": 0.9625498387509885,
+          "f1": 0.8990940331146516,
+          "fn": 201,
+          "fp": 122,
+          "precision": 0.9218449711723254,
+          "recall": 0.8774390243902439,
+          "support": 1640,
+          "tp": 1439
+        },
+        "PERSON": {
+          "average_precision": 0.9836207252575756,
+          "f1": 0.9059967585089141,
+          "fn": 32,
+          "fp": 200,
+          "precision": 0.8482549317147192,
+          "recall": 0.9721739130434782,
+          "support": 1150,
+          "tp": 1118
+        },
+        "QUANTITY": {
+          "average_precision": 0.9107872430890122,
+          "f1": 0.875,
+          "fn": 25,
+          "fp": 21,
+          "precision": 0.8846153846153846,
+          "recall": 0.8655913978494624,
+          "support": 186,
+          "tp": 161
+        }
+      },
+      "predicted_rows": 6810,
+      "rows": 6810
+    }
+  },
+  "document_accounting": {
+    "consensus_audit": {
+      "conflicting_duplicate_offsets_within_annotation_set": 7,
+      "duplicate_offsets_within_annotation_set": 17,
+      "eligible_consensus_spans": 36706,
+      "overlapping_reviewed_span_pairs": 1395,
+      "raw_category_disagreements": 936,
+      "raw_exact_spans": 108016,
+      "reviewed_boundary_or_presence_disagreements": 3321,
+      "reviewed_category_disagreements": 162,
+      "unreviewed_documents": 686
+    },
+    "every_document_and_span_accounted_for": true,
+    "exclusive_document_reasons": {
+      "quarantined_reviewed": 5,
+      "quarantined_unreviewed": 5,
+      "unreviewed_nonquarantined": 681,
+      "used": 577
+    },
+    "partitions": {
+      "test": {
+        "document_reasons": {
+          "used": 127
+        },
+        "eligible_before_quarantine": 6713,
+        "source_documents": 127,
+        "spans": 6713
+      },
+      "train": {
+        "document_reasons": {
+          "quarantined_reviewed": 2,
+          "quarantined_unreviewed": 5,
+          "unreviewed_nonquarantined": 681,
+          "used": 326
+        },
+        "eligible_before_quarantine": 23013,
+        "quarantined_eligible_spans": 74,
+        "source_documents": 1014,
+        "spans": 22939
+      },
+      "validation": {
+        "document_reasons": {
+          "quarantined_reviewed": 3,
+          "used": 124
+        },
+        "eligible_before_quarantine": 6980,
+        "quarantined_eligible_spans": 170,
+        "source_documents": 127,
+        "spans": 6810
+      }
+    },
+    "quarantine_by_source_and_preferred_split": {
+      "dev->test": 3,
+      "train->test": 7
+    },
+    "source_documents": 1268
+  },
+  "input_hashes": {
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_evaluation_v2/evaluation.json": {
+      "bytes": 15128,
+      "sha256": "1e261943af8fb2dc494fe9c75e7887bb2e3ee7f6191d114b3d111f05eb9ab56f"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_evaluation_v2/predictions.json": {
+      "bytes": 622954,
+      "sha256": "73698e48b5dae216bbd713067930d25381d8d34b5a907e6057b72fe8d8faee5e"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_models_v2/context.joblib": {
+      "bytes": 2666993,
+      "sha256": "97805efcaf442aba26c82df3f9d5f1c9b8dfa69f8418d5a784b0387ce3d9590c"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_models_v2/entity.joblib": {
+      "bytes": 1283093,
+      "sha256": "23a14f549c57ef866f42ed6549c90e9c55483cbf3bea6764bf626e73c492f8c1"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_models_v2/selection.json": {
+      "bytes": 6367,
+      "sha256": "f820f6eb6c0656b0aad22407cf75665d2deeaf20b95cbc679b075a81604b7477"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_models_v2/training_contract.json": {
+      "bytes": 988,
+      "sha256": "6ab51bcbc78c8773b36ac1b41adbb25ec5c7e847bd9a7fd9153b10ec15c508a0"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_prepared_v2/documents.json": {
+      "bytes": 526523,
+      "sha256": "c090b12b6a52e0d2d029e3345ee025d52348e7c4e35d7b83ca9820e82f6bf3ae"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_prepared_v2/group-edges.json": {
+      "bytes": 812,
+      "sha256": "b681b5e3fd7c8caada58cd579db45ae48d752975caaef0fe4b856f80161115f0"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_prepared_v2/preparation.json": {
+      "bytes": 7772,
+      "sha256": "2cdbea2d8972125e76f299c60e5c917854e7975bacab350904735b9dea81d8e7"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_prepared_v2/test.json": {
+      "bytes": 4626084,
+      "sha256": "36b9d733b6c9d87f1ff9d53c4565e5994f58bdd0efc6789f514e0d681f555945"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_prepared_v2/train.json": {
+      "bytes": 15894421,
+      "sha256": "f5609788a5091f5901694fa8a69d398434ac709c5a375d9d4aafafd0714a9c4b"
+    },
+    "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/research/local/document_sensitivity/ds2_prepared_v2/validation.json": {
+      "bytes": 4690794,
+      "sha256": "b8c7bea3e28b7718127b879a7ced1d1851119d468014f8961e9f7e6ad56e9e1f"
+    }
+  },
+  "normalization": "NFKC, casefold, Unicode word tokens, whitespace joined; exact normalized string membership, independent of class",
+  "organizational_sensitivity": "BLOCKED: requires independent human labels and owner-approved versioned policy/context",
+  "phase": "DS3",
+  "strata": {
+    "ambiguous_raw_category": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          32,
+          3,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          21,
+          0,
+          10,
+          2,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          10,
+          0,
+          6,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          9,
+          2,
+          1,
+          7,
+          1,
+          22
+        ],
+        [
+          0,
+          0,
+          15,
+          12,
+          1,
+          27,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ]
+      ],
+      "documents": 51,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.34962998987382654,
+      "micro_f1": 0.45,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "support": 2,
+          "tp": 0
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.8767123287671232,
+          "fn": 5,
+          "fp": 4,
+          "precision": 0.8888888888888888,
+          "recall": 0.8648648648648649,
+          "support": 37,
+          "tp": 32
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.47191011235955055,
+          "fn": 20,
+          "fp": 27,
+          "precision": 0.4375,
+          "recall": 0.5121951219512195,
+          "support": 41,
+          "tp": 21
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.47619047619047616,
+          "fn": 8,
+          "fp": 14,
+          "precision": 0.4166666666666667,
+          "recall": 0.5555555555555556,
+          "support": 18,
+          "tp": 10
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.03636363636363636,
+          "fn": 42,
+          "fp": 11,
+          "precision": 0.08333333333333333,
+          "recall": 0.023255813953488372,
+          "support": 43,
+          "tp": 1
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.48214285714285715,
+          "fn": 43,
+          "fp": 15,
+          "precision": 0.6428571428571429,
+          "recall": 0.38571428571428573,
+          "support": 70,
+          "tp": 27
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.3157894736842105,
+          "fn": 0,
+          "fp": 26,
+          "precision": 0.1875,
+          "recall": 1.0,
+          "support": 6,
+          "tp": 6
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.13793103448275862,
+          "fn": 1,
+          "fp": 24,
+          "precision": 0.07692307692307693,
+          "recall": 0.6666666666666666,
+          "support": 3,
+          "tp": 2
+        }
+      },
+      "predicted_rows": 220,
+      "rows": 220,
+      "unique_normalized_strings": 130
+    },
+    "full": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          290,
+          4,
+          0,
+          0,
+          0,
+          0,
+          26,
+          8
+        ],
+        [
+          2,
+          2505,
+          3,
+          0,
+          0,
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          4,
+          190,
+          8,
+          27,
+          20,
+          34,
+          4
+        ],
+        [
+          0,
+          0,
+          24,
+          333,
+          10,
+          63,
+          53,
+          1
+        ],
+        [
+          0,
+          8,
+          38,
+          2,
+          69,
+          15,
+          36,
+          24
+        ],
+        [
+          0,
+          0,
+          74,
+          57,
+          50,
+          1432,
+          106,
+          3
+        ],
+        [
+          0,
+          2,
+          9,
+          4,
+          10,
+          8,
+          979,
+          0
+        ],
+        [
+          4,
+          0,
+          4,
+          3,
+          4,
+          2,
+          9,
+          147
+        ]
+      ],
+      "documents": 127,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.7762927817256935,
+      "micro_f1": 0.885595113957992,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.9294871794871795,
+          "fn": 38,
+          "fp": 6,
+          "precision": 0.9797297297297297,
+          "recall": 0.8841463414634146,
+          "support": 328,
+          "tp": 290
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.9944422389837237,
+          "fn": 10,
+          "fp": 18,
+          "precision": 0.9928656361474435,
+          "recall": 0.9960238568588469,
+          "support": 2515,
+          "tp": 2505
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.604133545310016,
+          "fn": 97,
+          "fp": 152,
+          "precision": 0.5555555555555556,
+          "recall": 0.662020905923345,
+          "support": 287,
+          "tp": 190
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.7474747474747475,
+          "fn": 151,
+          "fp": 74,
+          "precision": 0.8181818181818182,
+          "recall": 0.6880165289256198,
+          "support": 484,
+          "tp": 333
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.3812154696132597,
+          "fn": 123,
+          "fp": 101,
+          "precision": 0.40588235294117647,
+          "recall": 0.359375,
+          "support": 192,
+          "tp": 69
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.8779889638258737,
+          "fn": 290,
+          "fp": 108,
+          "precision": 0.9298701298701298,
+          "recall": 0.8315911730545877,
+          "support": 1722,
+          "tp": 1432
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.8679078014184397,
+          "fn": 33,
+          "fp": 265,
+          "precision": 0.7869774919614148,
+          "recall": 0.967391304347826,
+          "support": 1012,
+          "tp": 979
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.8076923076923077,
+          "fn": 26,
+          "fp": 44,
+          "precision": 0.7696335078534031,
+          "recall": 0.8497109826589595,
+          "support": 173,
+          "tp": 147
+        }
+      },
+      "predicted_rows": 6713,
+      "rows": 6713,
+      "unique_normalized_strings": 3861
+    },
+    "rare_training_classes_le_1000": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          290,
+          4,
+          0,
+          0,
+          0,
+          0,
+          26,
+          8
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          38,
+          2,
+          69,
+          15,
+          36,
+          24
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          4,
+          3,
+          4,
+          2,
+          9,
+          147
+        ]
+      ],
+      "documents": 127,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.7628192913175926,
+      "micro_f1": 0.7301587301587301,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.932475884244373,
+          "fn": 38,
+          "fp": 4,
+          "precision": 0.9863945578231292,
+          "recall": 0.8841463414634146,
+          "support": 328,
+          "tp": 290
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 12,
+          "precision": 0.0,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 42,
+          "precision": 0.0,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 5,
+          "precision": 0.0,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.5207547169811321,
+          "fn": 123,
+          "fp": 4,
+          "precision": 0.9452054794520548,
+          "recall": 0.359375,
+          "support": 192,
+          "tp": 69
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 17,
+          "precision": 0.0,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 71,
+          "precision": 0.0,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.8352272727272727,
+          "fn": 26,
+          "fp": 32,
+          "precision": 0.8212290502793296,
+          "recall": 0.8497109826589595,
+          "support": 173,
+          "tp": 147
+        }
+      },
+      "predicted_rows": 693,
+      "rows": 693,
+      "unique_normalized_strings": 550
+    },
+    "repeated_test_string": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          101,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          1043,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          139,
+          5,
+          14,
+          11,
+          20,
+          1
+        ],
+        [
+          0,
+          0,
+          15,
+          259,
+          0,
+          52,
+          32,
+          0
+        ],
+        [
+          0,
+          0,
+          24,
+          2,
+          32,
+          7,
+          26,
+          2
+        ],
+        [
+          0,
+          0,
+          60,
+          43,
+          31,
+          1200,
+          91,
+          2
+        ],
+        [
+          0,
+          2,
+          5,
+          0,
+          3,
+          6,
+          585,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          34
+        ]
+      ],
+      "documents": 127,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.7946004147961918,
+      "micro_f1": 0.8790155440414508,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.9711538461538461,
+          "fn": 6,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.9439252336448598,
+          "support": 107,
+          "tp": 101
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.9976087996174079,
+          "fn": 3,
+          "fp": 2,
+          "precision": 0.9980861244019139,
+          "recall": 0.997131931166348,
+          "support": 1046,
+          "tp": 1043
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.639080459770115,
+          "fn": 51,
+          "fp": 106,
+          "precision": 0.5673469387755102,
+          "recall": 0.7315789473684211,
+          "support": 190,
+          "tp": 139
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.7742899850523169,
+          "fn": 99,
+          "fp": 52,
+          "precision": 0.8327974276527331,
+          "recall": 0.723463687150838,
+          "support": 358,
+          "tp": 259
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.3657142857142857,
+          "fn": 61,
+          "fp": 50,
+          "precision": 0.3902439024390244,
+          "recall": 0.34408602150537637,
+          "support": 93,
+          "tp": 32
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.8879023307436182,
+          "fn": 227,
+          "fp": 76,
+          "precision": 0.9404388714733543,
+          "recall": 0.8409250175192712,
+          "support": 1427,
+          "tp": 1200
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.8602941176470589,
+          "fn": 16,
+          "fp": 174,
+          "precision": 0.7707509881422925,
+          "recall": 0.9733777038269551,
+          "support": 601,
+          "tp": 585
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.8607594936708861,
+          "fn": 4,
+          "fp": 7,
+          "precision": 0.8292682926829268,
+          "recall": 0.8947368421052632,
+          "support": 38,
+          "tp": 34
+        }
+      },
+      "predicted_rows": 3860,
+      "rows": 3860,
+      "unique_normalized_strings": 1008
+    },
+    "seen": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          53,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          1446,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          99,
+          2,
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          227,
+          0,
+          44,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          11,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          7,
+          0,
+          907,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          258,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          33
+        ]
+      ],
+      "documents": 127,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.9370978371939366,
+      "micro_f1": 0.9765046668812359,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.9380530973451328,
+          "fn": 4,
+          "fp": 3,
+          "precision": 0.9464285714285714,
+          "recall": 0.9298245614035088,
+          "support": 57,
+          "tp": 53
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.9996543380573799,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.9993089149965446,
+          "support": 1447,
+          "tp": 1446
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.9428571428571428,
+          "fn": 7,
+          "fp": 5,
+          "precision": 0.9519230769230769,
+          "recall": 0.9339622641509434,
+          "support": 106,
+          "tp": 99
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.8919449901768173,
+          "fn": 44,
+          "fp": 11,
+          "precision": 0.9537815126050421,
+          "recall": 0.8376383763837638,
+          "support": 271,
+          "tp": 227
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.88,
+          "fn": 3,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.7857142857142857,
+          "support": 14,
+          "tp": 11
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.9700534759358289,
+          "fn": 9,
+          "fp": 47,
+          "precision": 0.950733752620545,
+          "recall": 0.990174672489083,
+          "support": 916,
+          "tp": 907
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.9942196531791907,
+          "fn": 0,
+          "fp": 3,
+          "precision": 0.9885057471264368,
+          "recall": 1.0,
+          "support": 258,
+          "tp": 258
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.88,
+          "fn": 5,
+          "fp": 4,
+          "precision": 0.8918918918918919,
+          "recall": 0.868421052631579,
+          "support": 38,
+          "tp": 33
+        }
+      },
+      "predicted_rows": 3107,
+      "rows": 3107,
+      "unique_normalized_strings": 1327
+    },
+    "seen_with_conflicting_training_categories": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          21,
+          0,
+          42,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          41,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "documents": 74,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.8602150537634409,
+      "micro_f1": 0.7307692307692307,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 6,
+          "tp": 6
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 42,
+          "tp": 42
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.5,
+          "fn": 42,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "support": 63,
+          "tp": 21
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "support": 0,
+          "tp": 0
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.6612903225806451,
+          "fn": 0,
+          "fp": 42,
+          "precision": 0.4939759036144578,
+          "recall": 1.0,
+          "support": 41,
+          "tp": 41
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 3,
+          "tp": 3
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1,
+          "tp": 1
+        }
+      },
+      "predicted_rows": 156,
+      "rows": 156,
+      "unique_normalized_strings": 20
+    },
+    "unseen": {
+      "confusion_labels": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "confusion_matrix": [
+        [
+          237,
+          4,
+          0,
+          0,
+          0,
+          0,
+          23,
+          7
+        ],
+        [
+          2,
+          1059,
+          3,
+          0,
+          0,
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          4,
+          91,
+          6,
+          27,
+          17,
+          34,
+          2
+        ],
+        [
+          0,
+          0,
+          24,
+          106,
+          10,
+          19,
+          53,
+          1
+        ],
+        [
+          0,
+          8,
+          35,
+          2,
+          58,
+          15,
+          36,
+          24
+        ],
+        [
+          0,
+          0,
+          72,
+          50,
+          50,
+          525,
+          106,
+          3
+        ],
+        [
+          0,
+          2,
+          9,
+          4,
+          10,
+          8,
+          721,
+          0
+        ],
+        [
+          1,
+          0,
+          4,
+          1,
+          4,
+          2,
+          9,
+          114
+        ]
+      ],
+      "documents": 127,
+      "macro_class_policy": "classes with positive truth support; undefined per-class precision remains null",
+      "macro_f1": 0.7027456488746355,
+      "micro_f1": 0.8072656683305601,
+      "per_class": {
+        "CODE": {
+          "average_precision": null,
+          "f1": 0.9275929549902152,
+          "fn": 34,
+          "fp": 3,
+          "precision": 0.9875,
+          "recall": 0.8745387453874539,
+          "support": 271,
+          "tp": 237
+        },
+        "DATETIME": {
+          "average_precision": null,
+          "f1": 0.9874125874125874,
+          "fn": 9,
+          "fp": 18,
+          "precision": 0.9832869080779945,
+          "recall": 0.9915730337078652,
+          "support": 1068,
+          "tp": 1059
+        },
+        "DEM": {
+          "average_precision": null,
+          "f1": 0.4343675417661098,
+          "fn": 90,
+          "fp": 147,
+          "precision": 0.38235294117647056,
+          "recall": 0.5027624309392266,
+          "support": 181,
+          "tp": 91
+        },
+        "LOC": {
+          "average_precision": null,
+          "f1": 0.5549738219895288,
+          "fn": 107,
+          "fp": 63,
+          "precision": 0.6272189349112426,
+          "recall": 0.49765258215962443,
+          "support": 213,
+          "tp": 106
+        },
+        "MISC": {
+          "average_precision": null,
+          "f1": 0.34421364985163205,
+          "fn": 120,
+          "fp": 101,
+          "precision": 0.36477987421383645,
+          "recall": 0.3258426966292135,
+          "support": 178,
+          "tp": 58
+        },
+        "ORG": {
+          "average_precision": null,
+          "f1": 0.7543103448275862,
+          "fn": 281,
+          "fp": 61,
+          "precision": 0.8959044368600683,
+          "recall": 0.6513647642679901,
+          "support": 806,
+          "tp": 525
+        },
+        "PERSON": {
+          "average_precision": null,
+          "f1": 0.8301669545192861,
+          "fn": 33,
+          "fp": 262,
+          "precision": 0.7334689725330621,
+          "recall": 0.9562334217506632,
+          "support": 754,
+          "tp": 721
+        },
+        "QUANTITY": {
+          "average_precision": null,
+          "f1": 0.7889273356401384,
+          "fn": 21,
+          "fp": 40,
+          "precision": 0.7402597402597403,
+          "recall": 0.8444444444444444,
+          "support": 135,
+          "tp": 114
+        }
+      },
+      "predicted_rows": 3606,
+      "rows": 3606,
+      "unique_normalized_strings": 2534
+    }
+  },
+  "task": "supplied-span entity-category classification; spans are provided",
+  "test_retuning": false,
+  "training_or_selection_rerun": false,
+  "training_vocabulary": {
+    "strings": 9970,
+    "strings_with_multiple_categories": 68
+  }
+}

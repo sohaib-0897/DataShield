@@ -2,7 +2,7 @@
 
 ## Resume protocol and goal
 - Read applicable AGENTS.md and this file first; inspect Git status, branch, remote, and current code.
-- Original Phases 0–6/NLP follow-up and DS1/DS2 complete; stop after DS2; DS3 requires a new request.
+- Original Phases 0–6/NLP follow-up and DS1–DS3 complete; stop after DS3; further work needs a new request.
 - Verify the previous checkpoint and pending push before starting another phase.
 - Goal: preserve completed CERT workflow; establish defensible content labels, evaluation and advisory integration.
 - Keep this file strictly below 200 lines; detailed evidence lives in docs/implementation/phase0/.
@@ -85,7 +85,7 @@
 | 6 | Full run, fair comparisons, error analysis, handover | 1–5 | completed (bounded; full memory-limited) |
 | DS1 | Sensitivity taxonomy, dataset/license research, annotation plan | NLP follow-up | complete; acquisition blocked |
 | DS2 | Acquisition, grouped splits, CPU supplied-span baseline/evaluation | DS1 + suitable labels | complete; offline TAB task only |
-| DS3 | Further evaluation/optional shadow integration | DS2 + explicit request | pending; separate session |
+| DS3 | Frozen evaluation diagnostics/optional supplied-span advice | DS2 + explicit request | complete; disabled by default |
 
 ## Completed acceptance history
 - Original Phases 0–6 and NLP follow-up are complete at bounded acceptance.
@@ -169,4 +169,25 @@
 - All raw corpus/manifests/models remain in ignored research/local/document_sensitivity/; final folders use v2.
 - Actual commands, per-class results, resources and limitations: docs/implementation/document-sensitivity/ds2-report.md.
 - Verification/publication evidence: adjacent ds2-verification.json; final SHA via Git; normal push/fresh remote equality required.
-- Stop after DS2. Exact next human action: owner-approved policy/context and authorized 100-document blind-review pilot.
+- DS2 historical handoff: owner-approved policy/context and authorized 100-document blind-review pilot.
+
+## DS3 completed (2026-10-08)
+- Clean start: local/fresh remote both 9933e063c0783a66694474b755bdf6b76fa00a1d; no AGENTS.md found.
+- No acquisition, preparation rewrite, training, model selection or test retuning; DS2 predictions reused.
+- Every source document/span audited: 577 used, 681 unreviewed outside quarantine, 5 reviewed + 5 unreviewed quarantined.
+- Original train/dev/test 1,014/127/127 become frozen 326/124/127; all ten quarantines prioritize test families.
+- Selected test macro/micro F1 .776293/.885595; 2,000 document-bootstrap 95% CI .735357–.815250/.859797–.910754.
+- Seen/unseen spans 3,107/3,606; micro F1 .976505/.807266; per-class/ambiguity/rare-vocabulary evidence in DS3 report.
+- MISC F1 .381215; unseen DEM/LOC F1 .434368/.554974; legal-domain and reviewed-selection limitations remain.
+- Added authenticated POST /api/v1/advisory/supplied-spans, explicit Unicode offsets, text/span bounds, eight categories.
+- DATASHIELD_SPAN_ADVISORY_ENABLED=false default; trusted local artifact + operator selection digest + exact software required.
+- Cached once per process including failure; explicit disabled/unavailable outcomes; uncalibrated margins, no text logging/persistence.
+- All 6,713 actual selected-model predictions replay identically; no sensitivity/risk/rule/policy/monitor changes.
+- Checks: 221 isolated + 22 Flask passes; final targeted 88 passes; existing Starlette warning only, no skips.
+- Original/live 30 hashes, 19 normalized copies, three archive stats, all 13 canonical frozen artifacts and all DS2 files match.
+- Earlier DS2 GitHub CI failed 11 extraction tests on absent pypdf; dev requirements now include research parser dependencies.
+- Dependency dry-run succeeds; GitHub status is verified separately after normal push, reported in final handoff/evidence.
+- Detailed actual results/interface/commands/preservation: docs/implementation/document-sensitivity/ds3-report.md and ds3-*.json.
+- Organizational sensitivity remains BLOCKED on independent human labels and owner-approved versioned policy/context.
+- Exact next action: owner supplies authorized de-identified 100-document pilot and policy/context; two blind reviewers + adjudicator.
+- Stop after DS3. Commit/push normally to feat/cert-ml-nlp; fresh remote must equal local HEAD; never force-push.

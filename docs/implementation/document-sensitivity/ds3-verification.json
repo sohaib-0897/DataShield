@@ -1,0 +1,224 @@
+{
+  "actual_artifact_interface_replay": {
+    "actual_frozen_artifact_interface_replay": true,
+    "cached_instance_equal": true,
+    "mismatches": 0,
+    "phase": "DS3",
+    "rows": 6713,
+    "scores": "uncalibrated decision margins",
+    "selection_sha256": "f820f6eb6c0656b0aad22407cf75665d2deeaf20b95cbc679b075a81604b7477",
+    "text_persisted": false,
+    "training_rerun": false
+  },
+  "advisory_interface": {
+    "authentication": "existing ADMIN/ANALYST bearer",
+    "enforcement_coupling": false,
+    "external_inference": false,
+    "flag_default": false,
+    "path": "/api/v1/advisory/supplied-spans",
+    "text_persisted_or_logged": false
+  },
+  "applicable_AGENTS_md": "none found",
+  "dependency_repair": {
+    "docx": "python-docx>=1.2,<2",
+    "dry_run_exit": 0,
+    "extraction_tests_skipped": false,
+    "pypdf": "pypdf>=6,<7",
+    "requirements_dev_includes": "requirements-research.txt"
+  },
+  "earlier_github_ci": {
+    "api_failed_tests": 11,
+    "conclusion": "failure",
+    "head_sha": "9933e063c0783a66694474b755bdf6b76fa00a1d",
+    "reason": "ModuleNotFoundError: No module named pypdf",
+    "run_id": 37763602469,
+    "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37763602469"
+  },
+  "final_isolated_regression": {
+    "base_commit": "9933e063c0783a66694474b755bdf6b76fa00a1d",
+    "collection_errors": [],
+    "exit_code": 0,
+    "isolation": "tracked Python/config copied to temporary directory; DATABASE_URL=sqlite://; existing test_api DB also inside temporary copy",
+    "log": ".local/ds3-final-regression.log",
+    "node_available": true,
+    "npm_available": true,
+    "python": "3.14.4",
+    "summary": [
+      "........................................................................ [ 32%]",
+      "........................................................................ [ 65%]",
+      "........................................................................ [ 97%]",
+      ".....                                                                    [100%]",
+      "=============================== warnings summary ===============================",
+      "../../home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1",
+      "  /home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.",
+      "    from starlette.testclient import TestClient as TestClient  # noqa",
+      "",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "221 passed, 1 warning in 23.59s"
+    ]
+  },
+  "final_targeted": {
+    "failures": 0,
+    "log": ".local/ds3-targeted.log",
+    "passed": 88,
+    "pytest_seconds": 13.53,
+    "skipped": 0
+  },
+  "frozen_preservation": {
+    "all_match": true,
+    "canonical_features": "research.cert_features.load_artifact",
+    "checks": 13,
+    "report": "ds3-frozen-preservation.json"
+  },
+  "initial_commit": "9933e063c0783a66694474b755bdf6b76fa00a1d",
+  "initial_worktree": "clean; local HEAD equals fresh remote",
+  "organizational_sensitivity": "BLOCKED: independent labels and owner-approved policy/context required",
+  "original_live_archive_preservation": {
+    "all_match": true,
+    "archive_stat_observations": 3,
+    "normalized_copies": 19,
+    "original_live_hashes": 30
+  },
+  "phase": "DS3",
+  "preserved_flask": {
+    "complete_verification": true,
+    "dependency_root": null,
+    "errors": [],
+    "failures": [],
+    "fixture_data": "synthetic; temporary SQLite and policy files",
+    "flask_import_error": null,
+    "monitors_started": false,
+    "native_windows_verified": false,
+    "pandas_import_error": null,
+    "passed": 22,
+    "python": "3.14.4",
+    "run": 22,
+    "selected_tests": null,
+    "skipped": [],
+    "source_root": "/home/sohaib/Insider_Threat_Test_Dataset/DataShield~/legacy/downloaded_flask",
+    "successful_available_checks": true
+  },
+  "prior_isolated_regression": {
+    "base_commit": "9933e063c0783a66694474b755bdf6b76fa00a1d",
+    "collection_errors": [],
+    "exit_code": 0,
+    "isolation": "tracked Python/config copied to temporary directory; DATABASE_URL=sqlite://; existing test_api DB also inside temporary copy",
+    "log": ".local/ds3-regression.log",
+    "node_available": true,
+    "npm_available": true,
+    "python": "3.14.4",
+    "summary": [
+      "........................................................................ [ 32%]",
+      "........................................................................ [ 65%]",
+      "........................................................................ [ 97%]",
+      ".....                                                                    [100%]",
+      "=============================== warnings summary ===============================",
+      "../../home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1",
+      "  /home/sohaib/Insider_Threat_Test_Dataset/DataShield~/.local/phase0-venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.",
+      "    from starlette.testclient import TestClient as TestClient  # noqa",
+      "",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "221 passed, 1 warning in 26.18s"
+    ]
+  },
+  "publication": "normal branch push with remote equality and exact latest CI inspection follows; final SHA/status from Git and final handoff",
+  "resource_basis": "GNU time per-command elapsed wall and maximum process/child RSS; not concurrent aggregate",
+  "snapshot_preservation": {
+    "all_ds2_private_files_preserved": true,
+    "all_match": true,
+    "application_changes": [
+      "backend/app/main.py: additive four-line advisory router registration"
+    ],
+    "historical_reports_preserved": true,
+    "preexisting_ds2_private_files": 55,
+    "preexisting_snapshot_files": 222,
+    "preserved_normalized_source_checks": {
+      "agent.py": true,
+      "baseline.py": true,
+      "behavior.py": true,
+      "behavioral_monitor.py": true,
+      "check_db.py": true,
+      "check_transfers.py": true,
+      "dashboard.html": true,
+      "dashboard.py": true,
+      "database.py": true,
+      "feature_builder.py": true,
+      "google_drive_monitor.py": true,
+      "local_copy_monitor.py": true,
+      "prepare_training.py": true,
+      "risk_engine.py": true,
+      "sensitivity.py": true,
+      "upload_server.py": true,
+      "usb_copy_monitor.py": true,
+      "usb_monitor.py": true,
+      "windows_monitor.py": true
+    }
+  },
+  "source_hashes": {
+    "backend/app/span_advisory.py": "0bf6db94c94ac92b6cb615c2f18defbe954567802db21ef0d4c8fc50c288bc83",
+    "ml/supplied_spans.py": "b4f1367ed5693808e2b2006efb58ff082ea280439e31d2f495a129f607c9cbb7",
+    "requirements-dev.txt": "854667943ba68b181a591e574c0210d0c5623e40b905a4800d56b8c0237bb707",
+    "research/tab_diagnostics.py": "f946743d9ebd948e20aa0a8dccee2afb96c0d5f179b052123db0fb438935a45b",
+    "scripts/verification/phase0_upstream_baseline.py": "51746e5ee5e8f82a1d9b9ea15f8d999ffb80663c659d007f8c379c1122ed676f",
+    "tests/test_span_advisory.py": "53b25e880af45fe7ea13d7ea13de98d0124ec9a5fca50ab7a531b4d7686e1d38",
+    "tests/test_tab_diagnostics.py": "8ed9e4c27f51957d4d66a66e50c4bffdedf3aabd1a8b9d4ab1a379ffaf7c6cb8"
+  },
+  "stage_resources": {
+    "diagnostics": {
+      "exit_status": 0,
+      "peak_rss_mib": 372.5234375,
+      "raw_log": ".local/ds3-diagnostics-resource.txt",
+      "wall_seconds": 10.11
+    },
+    "diagnostics-final": {
+      "exit_status": 0,
+      "peak_rss_mib": 373.1875,
+      "raw_log": ".local/ds3-diagnostics-final-resource.txt",
+      "wall_seconds": 12.1
+    },
+    "final-regression": {
+      "exit_status": 0,
+      "peak_rss_mib": 389.53515625,
+      "raw_log": ".local/ds3-final-regression-resource.txt",
+      "wall_seconds": 26.39
+    },
+    "flask": {
+      "exit_status": 0,
+      "peak_rss_mib": 100.88671875,
+      "raw_log": ".local/ds3-flask-resource.txt",
+      "wall_seconds": 1.97
+    },
+    "frozen": {
+      "exit_status": 0,
+      "peak_rss_mib": 788.62890625,
+      "raw_log": ".local/ds3-frozen-resource.txt",
+      "wall_seconds": 14.31
+    },
+    "interface": {
+      "exit_status": 0,
+      "peak_rss_mib": 196.078125,
+      "raw_log": ".local/ds3-interface-resource.txt",
+      "wall_seconds": 4.51
+    },
+    "live": {
+      "exit_status": 0,
+      "peak_rss_mib": 20.67578125,
+      "raw_log": ".local/ds3-live-resource.txt",
+      "wall_seconds": 0.14
+    },
+    "regression": {
+      "exit_status": 0,
+      "peak_rss_mib": 389.03125,
+      "raw_log": ".local/ds3-regression-resource.txt",
+      "wall_seconds": 29.39
+    },
+    "targeted": {
+      "exit_status": 0,
+      "peak_rss_mib": 289.30078125,
+      "raw_log": ".local/ds3-targeted-resource.txt",
+      "wall_seconds": 15.84
+    }
+  },
+  "status_file_lines": 193,
+  "training_acquisition_or_test_retuning": false
+}

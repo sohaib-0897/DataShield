@@ -123,6 +123,10 @@ def agent(x_agent_key: str | None = Header(None)):
         raise HTTPException(401, "Invalid agent credential")
 
 
+from .span_advisory import router as span_advisory_router
+app.include_router(span_advisory_router, dependencies=[Depends(analyst)])
+
+
 def audit(session, action, entity_type, entity_id=None, actor_id=None, details=None, ip=None):
     session.add(AuditLog(action=action, entity_type=entity_type, entity_id=entity_id, actor_id=actor_id, details=details or {}, source_ip=ip))
 

@@ -1,0 +1,36 @@
+{
+  "all_match": true,
+  "expected_hashes": {
+    "nlp_june_stream.sqlite": "b067cd967ea482ab22eb00b29b297da7a80636721af41c2780f831e4699b5036",
+    "nlp_known_users_v1/cohort.json": "3b8c2459f2792ee67074d79134102e7b37c235176cd88da8f27d6c1266902e95",
+    "nlp_known_users_v1/combined": "ebc18717bb16b5f5f02715592a97f300d38f317a535d1f44855d3b7859ae91ac",
+    "nlp_known_users_v1/frozen_thresholds.json": "1c34833342656b230e29ea97de83bb0cbdf65e22c5bd0e4f7db8d8251c5f0810",
+    "nlp_known_users_v1/numeric": "9349cea90acb6e9d5f972322c5a5aec3de1478513f7f3ee6595a43e15e281d14",
+    "nlp_known_users_v1/text": "5719d2152f7230b83195101c9f1cae6c9eb0d0dcdb400ded60d2018307446df9",
+    "phase3_benchmark_v1/features": "5160696f307757b45a2fe9f2bc35b1d9b99a6abfd689e2690098a5293936543d",
+    "phase3_benchmark_v1/isolation_forest": "8b2335bd964a2bf723da0fbf50ab32cbf88f3a47b052f06186ebbf068331ab42",
+    "phase3_benchmark_v1/store": "b7786288d4560b90e8f8c80e3aa9e51e5a6eaa48cff27357eb065fde4d7f03a4",
+    "phase6_benchmark_v1/features": "00178c4efb6c8a87304e0295916cf18019d2d5563b4882ade0b75ebb4b8ed247",
+    "phase6_benchmark_v1/isolation_forest": "a4fa32279b14664a442a82985d76f799d332c88c29c6911bca7ad75bc22db463",
+    "phase6_benchmark_v1/logistic_regression": "f1e2ffe769c5be0ae9a71e33d87444b2d0d5467b8aa7cfbea2139cc4f472d42b",
+    "phase6_benchmark_v1/store": "9ceae9600f0cc8c05fac45996bf2061aabffe67de53bb20b6a96617d26b0abee"
+  },
+  "feature_hash_contract": "existing research.cert_features.load_artifact canonical JSON payload; others whole-file SHA-256",
+  "no_preparation_or_training_rerun": true,
+  "read_only_preservation_checks": {
+    "nlp_june_stream.sqlite": true,
+    "nlp_known_users_v1/cohort.json": true,
+    "nlp_known_users_v1/combined": true,
+    "nlp_known_users_v1/frozen_thresholds.json": true,
+    "nlp_known_users_v1/numeric": true,
+    "nlp_known_users_v1/text": true,
+    "phase3_benchmark_v1/features": true,
+    "phase3_benchmark_v1/isolation_forest": true,
+    "phase3_benchmark_v1/store": true,
+    "phase6_benchmark_v1/features": true,
+    "phase6_benchmark_v1/isolation_forest": true,
+    "phase6_benchmark_v1/logistic_regression": true,
+    "phase6_benchmark_v1/store": true
+  },
+  "seconds": 14.098618586998782
+}

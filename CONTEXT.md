@@ -1,3 +1,35 @@
+# Document sensitivity DS3 completed — 2026-10-08
+
+DS3 only: clean start at verified local/remote DS2 checkpoint
+9933e063c0783a66694474b755bdf6b76fa00a1d; no applicable AGENTS.md found.
+Frozen predictions/manifests audited without acquisition or training. All 1,268
+documents accounted for: 577 used, 681 nonquarantined unreviewed, ten quarantined
+(five reviewed/five unreviewed). Frozen populations remain 326/124/127.
+Selected test macro/micro F1 .776293/.885595; 2,000 document-bootstrap 95% intervals
+.735357–.815250/.859797–.910754. Seen/unseen micro F1 .976505/.807266;
+results remain legal-domain supplied-span categories, not entity detection or
+whole-document confidentiality. No tuning against test diagnostics.
+
+Added an optional analyst-authenticated FastAPI supplied-span endpoint, disabled
+by default. Callers supply text and Unicode code-point offsets; bounded requests,
+operator-pinned local compatible artifact, once-per-process cache, explicit failures,
+category/version/uncalibrated margins only. No sensitivity/risk/decision coupling,
+external text transfer, text logging or persistence. Actual frozen-model interface
+replays all 6,713 predictions exactly. Checks: 221 isolated, 22 Flask, 88 final
+targeted passes; all 13 frozen artifacts, DS2 files and original/live preservation
+match. Fixed the observed DS2 pypdf CI failure by including research dependencies
+in development requirements; extraction tests remain enabled. CI publication
+status is reported separately after push; obtain final SHA from Git.
+
+Stop after DS3. Organizational sensitivity remains blocked on independent labels
+and owner-approved policy/context. Exact next human action: authorized de-identified
+100-document pilot, versioned policy/context and two blind reviewers plus adjudicator.
+Detailed evidence/configuration/commands: docs/implementation/document-sensitivity/ds3-report.md.
+
+Historical handoffs below are retained; their old pending statuses are superseded.
+
+---
+
 # Document sensitivity DS2 completed — 2026-10-08
 
 DS2 executed only, starting clean on feat/cert-ml-nlp at local/fresh remote

@@ -27,7 +27,8 @@ def main():
         env = dict(os.environ, DATABASE_URL="sqlite://", PYTHONDONTWRITEBYTECODE="1",
                    DATASHIELD_JWT_SECRET="synthetic-phase0-jwt-secret-32-characters",
                    DATASHIELD_AGENT_KEY="synthetic-phase0-agent-secret-32-characters")
-        for name in ("DATASHIELD_ANOMALY_ARTIFACT", "DATASHIELD_SENSITIVITY_ARTIFACT"):
+        for name in ("DATASHIELD_ANOMALY_ARTIFACT", "DATASHIELD_SENSITIVITY_ARTIFACT",
+                     "DATASHIELD_SPAN_ARTIFACT", "DATASHIELD_SPAN_SELECTION_SHA256", "DATASHIELD_SPAN_ADVISORY_ENABLED"):
             env.pop(name, None)
         env["DATASHIELD_MODEL_ROOT"] = str(folder / "isolated-models")
         result = subprocess.run([sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider"],
