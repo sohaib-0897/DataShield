@@ -1,0 +1,109 @@
+{
+  "all_source_families": 1249,
+  "development_source_documents": 1141,
+  "eligible_family_split_overlap": 0,
+  "excluded_all_source": 878,
+  "excluded_development_source": 751,
+  "historical_test_documents_excluded": 127,
+  "independent_exhaustive_contextual_eligible": 0,
+  "independent_negative_coverage_verified": false,
+  "independent_structured_eligible": {
+    "cnic_like": 0,
+    "credential_assignment": 0,
+    "email_address": 0,
+    "iban": 0
+  },
+  "live_activation": false,
+  "manifest_file": {
+    "bytes": 5561481,
+    "sha256": "3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b"
+  },
+  "manifest_payload_sha256": "210d34c33b6c34b98ed48a4b1e442df4df184279a7f26b9c56360a2e47abce00",
+  "missing_structured_kind_annotations": [
+    "email_address",
+    "cnic_like",
+    "iban",
+    "credential_assignment"
+  ],
+  "original_DS2_quarantined_documents": 10,
+  "partitions": {
+    "train": {
+      "class_reference_spans": {
+        "CODE": 765,
+        "DATETIME": 8346,
+        "DEM": 1271,
+        "LOC": 1418,
+        "MISC": 969,
+        "ORG": 6158,
+        "PERSON": 3185,
+        "QUANTITY": 827
+      },
+      "flat_nonoverlap_documents": 283,
+      "over_result_cap_documents": 70,
+      "reference_spans_unclipped": 22939,
+      "release_reference_documents": 326,
+      "release_reference_families": 325
+    },
+    "validation": {
+      "class_reference_spans": {
+        "CODE": 153,
+        "DATETIME": 1336,
+        "DEM": 230,
+        "LOC": 247,
+        "MISC": 154,
+        "ORG": 1106,
+        "PERSON": 619,
+        "QUANTITY": 147
+      },
+      "flat_nonoverlap_documents": 59,
+      "over_result_cap_documents": 10,
+      "reference_spans_unclipped": 3992,
+      "release_reference_documents": 64,
+      "release_reference_families": 64
+    }
+  },
+  "per_target_coverage_scope": {
+    "CODE": "Released identifying-code spans; no exhaustive email/CNIC/IBAN/credential-kind review",
+    "DATETIME": "Released dates/times/durations; generic legal-reference years may be deliberately omitted",
+    "DEM": "Released demographic attributes; legal-professional professions/titles may be deliberately omitted",
+    "LOC": "Released anonymity-task locations; broad-category independent exhaustive review absent",
+    "MISC": "Released other person-related attributes; generic legal-reference parts may be omitted",
+    "ORG": "Released anonymity-task organizations; broad-category independent exhaustive review absent",
+    "PERSON": "Released anonymity-task people; broad-category independent exhaustive review absent",
+    "QUANTITY": "Released meaningful quantities; neither exhaustive financial prose nor policy levels"
+  },
+  "primary_exclusive_reason_counts": {
+    "FAMILY_TOUCHES_HISTORICAL_TEST": 10,
+    "HISTORICAL_TEST_NEVER_DEVELOPMENT": 127,
+    "NO_REVIEWED_ANNOTATIONS": 681,
+    "RELEASE_REFERENCE_ELIGIBLE": 390,
+    "REVIEWED_ANNOTATION_DISAGREEMENT": 60
+  },
+  "protocol_sha256": "b748d50cecad815613e8fee7abe5797aabadc48ebb5b4d5715e9f688fe95dba3",
+  "reason_counts_nonexclusive": {
+    "FAMILY_TOUCHES_HISTORICAL_TEST": 10,
+    "HISTORICAL_TEST_NEVER_DEVELOPMENT": 127,
+    "NO_REVIEWED_ANNOTATIONS": 686,
+    "ORIGINAL_DS2_FAMILY_QUARANTINE": 10,
+    "REVIEWED_ANNOTATION_DISAGREEMENT": 61
+  },
+  "reference_scope": "TAB release-relative legal anonymity guideline; not exhaustive broad NER",
+  "relations": {
+    "historical_family_graph": "pinned DS2 all-source groups; conservatively merged with fresh train/dev audit",
+    "historical_test_text_parsed": false,
+    "raw_exact_duplicate_links_all_source_metadata": 0,
+    "recomputed_train_dev_edge_reasons": {
+      "five_word_jaccard_ge_0.8": 2,
+      "subject": 14
+    },
+    "train_dev_near_duplicate_pairs": 2
+  },
+  "release_reference_eligible": 390,
+  "source_documents_accounted_for": 1268,
+  "test_related_development_by_official_split": {
+    "dev": 3,
+    "train": 7
+  },
+  "training_or_scoring": false,
+  "version": "automatic-span-development-b1-v1"
+}

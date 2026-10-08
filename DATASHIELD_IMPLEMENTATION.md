@@ -14,34 +14,39 @@
 - Never commit data, private documents/packets, models, live DBs, credentials, caches or environments.
 
 ## Current phase and publication
-- Recovery 2026-10-08: clean `feat/cert-ml-nlp` at d6cd80977df31dddf1fe8ce3756ec9dff9541537.
-- A1 source ebc23db + receipt d6cd809 verified; fresh fetch/remote equal, closure CI 37770400258 success.
-- A2 COMPLETE at bounded assessment/protocol acceptance; no model fitting/export readiness claimed.
-- A2 source 303845b4522281cdcaa88e550f9122bc9ac007d9 pushed normally; fresh remote matched.
-- Exact source CI 37793277068 SUCCESS: 299 Python/7 frontend tests, build and CI migrations.
-- Documentation receipt follows; resolve final HEAD from Git, freshly verify its remote/CI on resume.
-- Details: `docs/implementation/phase-a2/report.md`, annotation-screening.json, evaluation-protocol.json.
-- Protocol automatic-content-evaluation-b-v1 frozen before model selection; digest in detailed report.
-- Local 12 new/290 supplemental Python +22 Flask passes; 9 API tests unavailable due socketpair EPERM.
-- Full local suite timed out at unchanged FastAPI test; exact source CI passes all 299, no weakened tests.
-- All 13 canonical artifacts, 60 A1 private files, 12 DS3 inputs, six TAB sources and 30 live entries match.
-- Four SQLite read-only quick_checks OK, checkpoint totals reconcile; three manifests/406 caches validate.
-- Four historical TAB partials/DB locks preserved; no job/service restarted; host PID visibility limited.
-- Initial staged/uncommitted work absent; no applicable AGENTS.md found; unrelated parent files preserved.
-- Labels BLOCKED: authorized inventory, approved versioned policy/context and blind reviews absent.
-- Contextual fitting/export BLOCKED: completeness/overlap/family gates and compatible local model unverified.
-- Direct Git network and GitHub connector reads work; shell gh remains network-blocked.
-- If push fails: retain local commit, `git push origin feat/cert-ml-nlp`; never force-push.
-- Ignored recovery/artifact evidence: `.local/phase-a2-recovery/`, `research/local/document_sensitivity/phase_a2_*`.
-- Exact next phase: B1 family/coverage audit and versioned eligible development manifest; stop before B2.
+- B1 only, started clean at a038b0c3a5169cb9af968746626017bcaa376b54; fresh remote matched.
+- Starting exact-SHA CI 37793680451 success verified; no later staged/uncommitted work found.
+- No applicable AGENTS.md found in checkout/ancestors; A2 protocol unchanged, no A1/A2 rerun.
+- B1 audit/manifest VERIFIED locally; normal source publication/full exact-SHA CI pending.
+- Details: `docs/implementation/phase-b1/report.md`, audit.json and verification.json.
+- Manifest version: automatic-span-development-b1-v1; 1268 source records; no contextual model selected.
+- Authoritative private manifest: `research/local/document_sensitivity/b1_development_v1_final/manifest.json`.
+- File SHA-256 3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b; payload hash in report.
+- Narrow released-reference train/validation: 326/64 documents, 325/64 families, 22939/3992 spans.
+- Development exclusions: 751 (688 train/63 dev); all 127 historical test docs excluded; no test text parsed.
+- Flat nonoverlap subset: 283/59; all original spans retained in overlap-aware ledger; cap strata 70/10.
+- All 8 contextual and all 4 structured independent exhaustive populations: ZERO; negatives not confirmed.
+- Guide permits omitted legal-professional titles and generic legal-reference parts; per-target scope explicit.
+- All-source families 1249, cross-official-split families 7; eligible split overlap 0; near pairs 2 train/dev.
+- Exact raw/normalized duplicate links 0; 10 historical-test-related development quarantines retained.
+- Original DS2 326/124/127 splits, test population, models/results and frozen A2 protocol unchanged.
+- Checks: 19 final targeted guards; 306 supplemental Python (9 socket-restricted deselected) +22 Flask pass.
+- Preservation: all 13 canonical artifacts, 64 pre-existing private files, 4 partials and 30 live entries match.
+- Ignored logs/resources/preservation: `.local/phase-b1/`; no recovery DB/cache scan repeated.
+- No fitting, tuning, inference, model selection, labels, policy/enforcement or dependency changes.
+- BLOCKERS: exhaustive human target-span review, independent negatives, new holdout, approved policy/context.
+- External case/container version links absent; original-container digest unknown; corpus text-only audit.
+- Contextual detector/ontology preregistration and runtime validation, native Windows checks remain separate.
+- Exact next phase after B1 publication: B2 fixed metrics/failure/resources; first validate eligibility gates.
+- If push fails retain local commit and run `git push origin feat/cert-ml-nlp`; never force-push.
 
 ## Remaining bounded plan
 | Phase | Deliverable / gate | Status |
 |---|---|---|
 | A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | complete (bounded offline), source published/CI passed |
 | A2 | Contextual full-span/local NER feasibility; freeze B protocol before selection | complete bounded assessment; published/CI passed |
-| B1 | Audit evaluation families/annotation coverage; separately version eligible development population | exact next phase |
-| B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | pending B1 |
+| B1 | Family/coverage audit and separately versioned development manifest | verified locally; publication/CI pending |
+| B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | next; reference/model gates apply |
 | C1 | Analyze independent pilot; strengthen training/export validation, or record exact blockers | pending labels; interface work possible |
 | C2 | Grouped CPU sensitivity experiment vs approved policy, only if defensible | blocked labels/policy |
 | D1 | Disabled authenticated automatic advice; extraction bounds, schema/cache/failure tests | pending A/B contracts |

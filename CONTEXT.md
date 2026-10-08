@@ -1,3 +1,28 @@
+# B1 family/coverage manifest — 2026-10-08
+
+Current resume authority: DATASHIELD_IMPLEMENTATION.md (strictly below 200 lines).
+B1 only in existing DataShield~ / feat/cert-ml-nlp; clean start a038b0c, fresh remote
+and exact-SHA CI 37793680451 verified. No applicable AGENTS.md found.
+Pinned train/dev audit plus historical family metadata; no historical test text parsed.
+Version automatic-span-development-b1-v1, authoritative ignored artifact:
+research/local/document_sensitivity/b1_development_v1_final/manifest.json.
+326/64 train/validation documents eligible for narrow release-reference matching;
+751 train/dev exclusions plus 127 historical test. Flat subset 283/59. Original DS2
+326/124/127 populations/models/results unchanged. No model fitting/tuning/scoring.
+Independent exhaustive populations: zero for all 8 TAB categories and all 4 structured
+kinds. Unannotated text never confirmed negative; guide exceptions and review gaps
+explicit per target. Source/container version links outside release remain unavailable.
+19 final targeted tests; supplemental 306 Python/9 known socket-restricted deselected,
+22 Flask; all 13 canonical artifacts/64 private files/30 live entries match.
+Normal publication/full exact-SHA CI final gate; phase-b1 report/verification record
+actual status. Stop B1. Next B2 only: validate manifest/hash and reference/model gates
+before fixed metrics/failure/resource reporting. Independent gold/model runtime and
+native Windows remain separate blockers/tasks; never manufacture labels/metrics.
+
+Historical handoffs below are superseded by this pointer and latest request.
+
+---
+
 # A2 recovery and contextual feasibility — 2026-10-08
 
 Current resume authority: DATASHIELD_IMPLEMENTATION.md (strictly below 200 lines).

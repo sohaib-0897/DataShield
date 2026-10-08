@@ -1,0 +1,83 @@
+{
+  "applicable_AGENTS_md": "none found",
+  "boundaries": {
+    "B2_executed": false,
+    "activation_or_enforcement_changes": false,
+    "fitting_tuning_scoring_or_model_selection": false,
+    "native_Windows_or_contextual_model_runtime_validation": "not executed; separate tasks",
+    "raw_content_or_ids_in_public_evidence": false,
+    "test_text_or_annotations_parsed": false
+  },
+  "checks": {
+    "final_added_guard_tests": 3,
+    "full_final_exact_sha_ci": "pending; no full local suite pass claimed",
+    "manifest_reloaded_digest_schema_split_coverage_and_summary_match": true,
+    "observed_failures_final": 0,
+    "preserved_Flask_passed": 22,
+    "supplemental_api_tests_deselected_due_known_socket_restriction": 9,
+    "supplemental_regression_passed": 306,
+    "supplemental_snapshot_new_tests": 16,
+    "supplemental_warning": 1,
+    "targeted_manifest_tests_final": 19
+  },
+  "initial_ci": {
+    "conclusion": "success",
+    "id": 37793680451,
+    "status": "completed"
+  },
+  "initial_remote_freshly_equal": true,
+  "initial_worktree_and_index": "clean",
+  "manifest": {
+    "excluded_development_source": 751,
+    "file": {
+      "bytes": 5561481,
+      "sha256": "3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b"
+    },
+    "flat_subset_train": 283,
+    "flat_subset_validation": 59,
+    "historical_test_excluded": 127,
+    "independent_exhaustive_contextual_eligible": 0,
+    "independent_structured_eligible": {
+      "cnic_like": 0,
+      "credential_assignment": 0,
+      "email_address": 0,
+      "iban": 0
+    },
+    "path": "research/local/document_sensitivity/b1_development_v1_final/manifest.json",
+    "payload_sha256": "210d34c33b6c34b98ed48a4b1e442df4df184279a7f26b9c56360a2e47abce00",
+    "protocol_sha256": "b748d50cecad815613e8fee7abe5797aabadc48ebb5b4d5715e9f688fe95dba3",
+    "release_reference_train": 326,
+    "release_reference_validation": 64,
+    "source_documents": 1268,
+    "true_negative_coverage_verified": false,
+    "version": "automatic-span-development-b1-v1"
+  },
+  "next_phase": "B2 only; first verify final manifest and per-target/reference/model gates; independent target metrics blocked until exhaustive human annotations exist",
+  "phase": "B1",
+  "preservation": {
+    "archive_stat_observations": 3,
+    "canonical_all_match": true,
+    "canonical_frozen_artifacts": 13,
+    "existing_application_dependency_workflow_and_A2_protocol_diff": "empty",
+    "historical_partials_unchanged": 4,
+    "original_DS2_splits_models_results_unchanged": true,
+    "original_live_all_match": true,
+    "original_live_entries": 30,
+    "preexisting_private_files": 64,
+    "private_all_match": true
+  },
+  "publication": {
+    "CI": "pending",
+    "status": "normal source commit/push pending"
+  },
+  "resources": {
+    "final_audit_peak_RSS_MiB": 412.0703125,
+    "final_audit_wall_seconds": 16.81
+  },
+  "source_hashes": {
+    "research/detection_manifest.py": "ce6a4e60c964bdb21257f8dec0a04801ccc4c8cc8b44a1a6f228021428c1dd66",
+    "tests/test_detection_manifest.py": "9bbe2b9f7960adf977281feddc1132a3ebe21f5db083d0e65f8d49a0c90f216c"
+  },
+  "start_commit": "a038b0c3a5169cb9af968746626017bcaa376b54",
+  "status": "LOCAL_AUDIT_MANIFEST_VERIFIED_PUBLICATION_CI_PENDING"
+}
