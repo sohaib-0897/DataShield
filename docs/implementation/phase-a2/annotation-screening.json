@@ -1,0 +1,188 @@
+{
+  "blocking_gates": [
+    "independent exhaustive target review",
+    "B1 versioned family-safe eligible population",
+    "compatible locally verified model/environment"
+  ],
+  "full_span_training_ready": false,
+  "labels_created": 0,
+  "live_activation": false,
+  "model_selected": false,
+  "source_hashes": {
+    "LICENSE.txt": {
+      "bytes": 1089,
+      "sha256": "9569b31acf50e1cb3f38f47220f2c3a42f533e07e72fe2d18c2871e89098a8c7"
+    },
+    "README.md": {
+      "bytes": 3512,
+      "sha256": "81a4d41a06f5962c90df94361e453216b12d510e50120c98d0648e4f909c032d"
+    },
+    "echr_dev.json": {
+      "bytes": 12643092,
+      "sha256": "8c3c7306f46b8d54debeb38ae11d8b0b8bcf4bdccbc3b6f13c12ad7be16893ec"
+    },
+    "echr_test.json": {
+      "bytes": 13103290,
+      "sha256": "cd0f0f15f84a8739654c7cf30c6be8ce27b051ef73974d39d792a0cb8c846379"
+    },
+    "echr_train.json": {
+      "bytes": 47503662,
+      "sha256": "4aba41f8ac305ff9e93dd6f0bbc16756e57e9ace396c827931fab70e18d8c6a6"
+    },
+    "guidelines.md": {
+      "bytes": 19788,
+      "sha256": "cbd72dcb48d323c77fcbce4fa6401680afd48207e047e93dff85d3ebebcd298e"
+    }
+  },
+  "source_revision": "558e09e26d6b36f5f78440074e6a233946d98bd9",
+  "splits": {
+    "dev": {
+      "annotation_audit": {
+        "conflicting_duplicate_offsets_within_annotation_set": 0,
+        "duplicate_offsets_within_annotation_set": 3,
+        "eligible_consensus_spans": 6980,
+        "overlapping_reviewed_span_pairs": 597,
+        "raw_category_disagreements": 327,
+        "raw_exact_spans": 9736,
+        "reviewed_boundary_or_presence_disagreements": 1719,
+        "reviewed_category_disagreements": 77
+      },
+      "consensus_class_counts": {
+        "CODE": 452,
+        "DATETIME": 2509,
+        "DEM": 329,
+        "LOC": 465,
+        "MISC": 191,
+        "ORG": 1685,
+        "PERSON": 1161,
+        "QUANTITY": 188
+      },
+      "independent_exhaustiveness_verified": false,
+      "population_status": "SOURCE_SCREEN_ONLY_NOT_B1_ELIGIBLE_MANIFEST",
+      "screening": {
+        "consensus_overlap_pairs": 12,
+        "consensus_spans": 6980,
+        "documents": 127,
+        "documents_with_consensus_overlap": 5,
+        "documents_with_reviewed_disagreement": 61,
+        "reviewed_documents": 127,
+        "reviewed_documents_over_result_bound": 10,
+        "reviewed_documents_over_text_bound": 0,
+        "reviewed_documents_with_zero_consensus": 0,
+        "unreviewed_documents": 0
+      },
+      "structural": {
+        "confidential_status_annotation_counts": {
+          "BELIEF": 406,
+          "ETHNIC": 186,
+          "HEALTH": 351,
+          "NOT_CONFIDENTIAL": 28340,
+          "POLITICS": 101,
+          "SEX": 51
+        },
+        "count_unit": "raw mention annotation records; multi-annotator mentions are not independent examples",
+        "counts": {
+          "annotation_sets": 541,
+          "documents": 127,
+          "documents_over_extractor_character_limit": 0,
+          "mention_annotation_records": 29435,
+          "quality_checked_documents": 127,
+          "quality_reviewed_annotation_sets": 313,
+          "text_characters": 668796
+        },
+        "entity_type_annotation_counts": {
+          "CODE": 2525,
+          "DATETIME": 9793,
+          "DEM": 1851,
+          "LOC": 1961,
+          "MISC": 1416,
+          "ORG": 6462,
+          "PERSON": 4679,
+          "QUANTITY": 748
+        },
+        "findings": {},
+        "identifier_type_annotation_counts": {
+          "DIRECT": 1450,
+          "NO_MASK": 9162,
+          "QUASI": 18823
+        }
+      },
+      "unannotated_text_is_verified_negative": false
+    },
+    "train": {
+      "annotation_audit": {
+        "conflicting_duplicate_offsets_within_annotation_set": 6,
+        "duplicate_offsets_within_annotation_set": 13,
+        "eligible_consensus_spans": 23013,
+        "overlapping_reviewed_span_pairs": 151,
+        "raw_category_disagreements": 158,
+        "raw_exact_spans": 88612,
+        "unreviewed_documents": 686
+      },
+      "consensus_class_counts": {
+        "CODE": 770,
+        "DATETIME": 8375,
+        "DEM": 1273,
+        "LOC": 1421,
+        "MISC": 971,
+        "ORG": 6182,
+        "PERSON": 3190,
+        "QUANTITY": 831
+      },
+      "independent_exhaustiveness_verified": false,
+      "population_status": "SOURCE_SCREEN_ONLY_NOT_B1_ELIGIBLE_MANIFEST",
+      "screening": {
+        "consensus_overlap_pairs": 151,
+        "consensus_spans": 23013,
+        "documents": 1014,
+        "documents_with_consensus_overlap": 43,
+        "documents_with_reviewed_disagreement": 0,
+        "reviewed_documents": 328,
+        "reviewed_documents_over_result_bound": 70,
+        "reviewed_documents_over_text_bound": 0,
+        "reviewed_documents_with_zero_consensus": 0,
+        "unreviewed_documents": 686
+      },
+      "structural": {
+        "confidential_status_annotation_counts": {
+          "BELIEF": 196,
+          "ETHNIC": 463,
+          "HEALTH": 1574,
+          "NOT_CONFIDENTIAL": 91598,
+          "POLITICS": 784,
+          "SEX": 415
+        },
+        "count_unit": "raw mention annotation records; multi-annotator mentions are not independent examples",
+        "counts": {
+          "annotation_sets": 1112,
+          "documents": 1014,
+          "documents_over_extractor_character_limit": 0,
+          "mention_annotation_records": 95030,
+          "quality_checked_documents": 328,
+          "quality_reviewed_annotation_sets": 328,
+          "text_characters": 8267218
+        },
+        "entity_type_annotation_counts": {
+          "CODE": 2300,
+          "DATETIME": 33523,
+          "DEM": 4933,
+          "LOC": 5830,
+          "MISC": 4043,
+          "ORG": 26889,
+          "PERSON": 14958,
+          "QUANTITY": 2554
+        },
+        "findings": {},
+        "identifier_type_annotation_counts": {
+          "DIRECT": 3677,
+          "NO_MASK": 31129,
+          "QUASI": 60224
+        }
+      },
+      "unannotated_text_is_verified_negative": false
+    }
+  },
+  "test_access": "hash only; no test JSON parsed",
+  "training_or_scoring_executed": false,
+  "version": "contextual-span-feasibility-a2-v1"
+}

@@ -14,23 +14,31 @@
 - Never commit data, private documents/packets, models, live DBs, credentials, caches or environments.
 
 ## Current phase and publication
-- A1 COMPLETE (bounded offline): label readiness + deterministic detection; source published/CI passed.
-- Started clean at local/fresh remote 22dc822c75cf6f1e106980bbd974fd576d025588, divergence 0/0.
-- Previous Git checkpoint: 22dc822c75cf6f1e106980bbd974fd576d025588; no later user edits found.
-- Publication: source ebc23dbbe63b9933829bee812ae9438f6d9d06e3 normal push/fresh equality verified.
-- CI 37770109324 succeeded: 287 Python/7 frontend tests, build and CI migrations.
-- No failed push pending; documentation closure SHA is Git HEAD; verify its remote/CI on resume.
-- Exact next action on “start next phase”: verify closure publication, then A2 contextual feasibility + B protocol.
-- At A1 boundary stop; next requested phase is A2 contextual-span feasibility + frozen evaluation protocol.
-- Labels remain BLOCKED: searched candidates contain only an inert blank packet, zero verified reviews.
-- Owner must supply authorized pilot inventory, approved policy/context, independent reviews and resolution.
+- Recovery 2026-10-08: clean `feat/cert-ml-nlp` at d6cd80977df31dddf1fe8ce3756ec9dff9541537.
+- A1 source ebc23db + receipt d6cd809 verified; fresh fetch/remote equal, closure CI 37770400258 success.
+- A2 implementation DONE: pinned train/dev annotation screening and frozen B evaluation protocol.
+- A2 publication/full exact-SHA CI PENDING; finish this gate before B1; no B work executed.
+- Details: `docs/implementation/phase-a2/report.md`, annotation-screening.json, evaluation-protocol.json.
+- Protocol automatic-content-evaluation-b-v1 frozen before model selection; digest in detailed report.
+- Local 12 new/290 supplemental Python +22 Flask passes; 9 API tests unavailable due socketpair EPERM.
+- Full local suite timed out at unchanged FastAPI test; traceback retained, tests not weakened.
+- All 13 canonical artifacts, 60 A1 private files, 12 DS3 inputs, six TAB sources and 30 live entries match.
+- Four SQLite read-only quick_checks OK, checkpoint totals reconcile; three manifests/406 caches validate.
+- Four historical TAB partials/DB locks preserved; no job/service restarted; host PID visibility limited.
+- Initial staged/uncommitted work absent; no applicable AGENTS.md found; unrelated parent files preserved.
+- Labels BLOCKED: authorized inventory, approved versioned policy/context and blind reviews absent.
+- Contextual fitting/export BLOCKED: completeness/overlap/family gates and compatible local model unverified.
+- Direct Git network and GitHub connector reads work; shell gh remains network-blocked.
+- If push fails: retain local commit, `git push origin feat/cert-ml-nlp`; never force-push.
+- Ignored recovery/artifact evidence: `.local/phase-a2-recovery/`, `research/local/document_sensitivity/phase_a2_*`.
+- Exact next phase after A2 verification: B1 family/coverage audit and versioned eligible development manifest.
 
 ## Remaining bounded plan
 | Phase | Deliverable / gate | Status |
 |---|---|---|
 | A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | complete (bounded offline), source published/CI passed |
-| A2 | Assess contextual full-span annotations/local NER feasibility; freeze B protocol before selection | pending |
-| B1 | Audit evaluation families/annotation coverage; separately version eligible development population | pending A2 |
+| A2 | Contextual full-span/local NER feasibility; freeze B protocol before selection | implementation done; exact-SHA CI pending |
+| B1 | Audit evaluation families/annotation coverage; separately version eligible development population | next after A2 CI |
 | B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | pending B1 |
 | C1 | Analyze independent pilot; strengthen training/export validation, or record exact blockers | pending labels; interface work possible |
 | C2 | Grouped CPU sensitivity experiment vs approved policy, only if defensible | blocked labels/policy |

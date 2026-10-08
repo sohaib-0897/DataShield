@@ -1,3 +1,28 @@
+# A2 recovery and contextual feasibility — 2026-10-08
+
+Current resume authority: DATASHIELD_IMPLEMENTATION.md (strictly below 200 lines).
+Recovered clean d6cd809 on feat/cert-ml-nlp in the existing DataShield~ checkout.
+Fresh remote equals recovered HEAD; GitHub connector verified closure CI 37770400258
+success. This is later than the supplied 22dc822 checkpoint; A1 was already complete.
+No applicable AGENTS.md found. Existing private artifacts and historical partials
+were validated and preserved; no restart, ingestion, fitting or test scoring rerun.
+A2 only: read-only pinned train/dev annotation screening and frozen B protocol.
+Overlaps/disagreements/result caps prevent treating supplied-span consensus as
+complete independent detection gold. B1 must version eligible development families.
+No contextual model selected/acquired; no policy/enforcement/dependency change.
+12 new tests and supplemental 290 Python/22 Flask passes. Nine API client tests
+remain blocked locally by sandbox socketpair-send EPERM; test sources unchanged.
+Full exact-SHA CI and normal publication are the current phase's final gate;
+resolve final status from implementation memory and phase-a2 report/verification.
+Stop at A2 boundary. Next new phase is B1 family/annotation coverage audit and
+separate eligible development manifest; no direct B2/C/D progression.
+Organizational labels/policy, model runtime probe and native Windows access remain
+separate explicit blockers; no fabricated reviews or approvals.
+
+Historical handoffs below are superseded by this pointer and the latest request.
+
+---
+
 # A1 bounded automatic detection verified — 2026-10-08
 
 Current resume authority: DATASHIELD_IMPLEMENTATION.md (below 200 lines).

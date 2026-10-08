@@ -1,0 +1,133 @@
+{
+  "baseline_commit": "d6cd80977df31dddf1fe8ce3756ec9dff9541537",
+  "comparisons": {
+    "contextual_baseline": "none selected; native-label/projected-label metrics must be separately named after preregistration",
+    "failure_strata": [
+      "public PII",
+      "ordinary financial prose",
+      "owner-confirmed business confidential",
+      "inert credential examples",
+      "unsupported language/entity",
+      "malformed/encrypted/scanned/oversized extraction",
+      "result cap",
+      "annotation disagreement",
+      "nested/overlapping reference spans"
+    ],
+    "fixed_common_population": true,
+    "missing_strata": "unavailable with reason; synthetic fixtures test engineering contracts only",
+    "policy": "no comparison until independent labels and approved context available; preserve existing four-level and new three-level schemes separately",
+    "structured_baseline": "A1 four kinds only; report unsupported target coverage, never use absent general NER as eight-class semantic baseline"
+  },
+  "created_date": "2026-10-08",
+  "freeze_and_publication": {
+    "B1_manifest_required": [
+      "source/container/text SHA-256",
+      "family and partition IDs",
+      "review provenance/guide version",
+      "complete extraction and annotation availability",
+      "exclusion reasons",
+      "software/model/ontology/config digests"
+    ],
+    "activation": false,
+    "advisory_only": true,
+    "before_scoring": "freeze candidate/model/config/artifact/ontology on training/development evidence before B2; final untouched holdout independent of any such selection",
+    "private_artifacts": "ignored research/local only; no raw text/private packets/models/datasets in Git",
+    "protocol_digest": "SHA-256 of this file bytes recorded in report; changes require new version/evidence before scoring"
+  },
+  "input_contract": {
+    "extraction": "existing bounded TXT/PDF/DOCX research.documents only; no OCR or channel changes",
+    "failures": "every failure/truncation retained in all-input coverage denominator; not a negative",
+    "input": "raw extracted text only; no oracle spans/labels/IDs/metadata/filenames supplied to detector",
+    "max_characters": 32768,
+    "max_returned_spans": 100,
+    "max_utf8_bytes": 131072,
+    "no_predictions": "OK complete extraction plus an empty prediction list is valid; unavailable extraction/model remains abstention",
+    "offsets": "Unicode code points, start inclusive/end exclusive; original text digest binds offsets; no normalization before matching",
+    "oversized": "exclude from full-document conditional metrics; no silent truncation or new chunking",
+    "partial_extraction": "no full-document metrics; partial-prefix diagnostic must carry original/prefix digests and a separate denominator",
+    "result_truncation": "score the actual first 100 returned predictions; all in-scope gold remains in recall denominator; also report truncation stratum"
+  },
+  "matching": {
+    "boundary_only": "separate exact-offset untyped matching diagnostic",
+    "ontology": "only identical declared target semantics; no TAB CODE-to-credential or QUANTITY-to-financial-level alias; spaCy label projection requires a separate pre-score contract",
+    "primary": "exact one-to-one match on document/start/end/type; duplicate identical predictions collapsed with duplicate count reported",
+    "relaxed_overlap": "not used in primary result; new declared diagnostic/version required",
+    "typed_errors": "wrong type at exact boundary is FP predicted type and FN reference type; no oracle reclassification"
+  },
+  "metrics": {
+    "category": "typed exact span metrics measure end-to-end category; category accuracy conditional on exact detected boundaries is secondary with matched-boundary coverage",
+    "coverage": "all inputs, complete extraction, reviewed eligible reference, detector available, result cap/truncation, unknown/abstention and exclusion reasons; all-input observable FN count/coverage separate from conditional extraction success",
+    "document": "any in-scope candidate vs any in-scope independently reviewed target; release-relative binary result separately labeled; TP/FP/FN/TN per kind/category, FP documents/1000 eligible documents and FPR=FP/(FP+TN) separate",
+    "pr_auc": "average precision only when meaningful ranked scores and >=5 positive/5 negative independent documents exist; deterministic candidates have no AP/probability claim",
+    "small_samples": "report counts/class/family support; intervals conditional on corpus/model; no general organizational accuracy claim",
+    "span": "per-target TP/FP/FN, precision=TP/(TP+FP), recall=TP/(TP+FN), F1=2TP/(2TP+FP+FN); micro from sums; macro over prespecified targets with nonzero denominator, report included/undefined target list",
+    "true_negatives": "span TN/accuracy/specificity undefined because no fixed universe of negative spans",
+    "uncertainty": "2000 family-cluster percentile bootstrap replicates, seed 42, 95% intervals; whole family resampled; report valid replicates and null for undefined; <2 families no interval",
+    "undefined": "zero denominator => null plus reason; F1 zero with FP or FN is valid; precision null when no predictions, recall null when no gold"
+  },
+  "model_selected": false,
+  "population": {
+    "B1_action": "freeze separately versioned development population; audit all family, source, subject, container/version, exact/normalized/near-duplicate and annotation coverage relations first",
+    "development_partition": "retain train for fit and official dev for development selection; whole family in at most one partition; dev wins cross train/dev family conflicts",
+    "development_pool": "original train/dev only; exclude every family touching historical test using frozen DS2 group manifest; do not move official validation into training",
+    "disagreements": "exclude whole disputed document from primary full-text reference metrics; preserve all competing annotations, no generated gold",
+    "duplicates": "same source/container/version/subject or NFKC casefold alphanumeric text hash; exhaustive five-word shingle Jaccard >=0.8 review trigger; transitive family closure",
+    "final_test": "separate authorized new family-safe natural holdout held by custodian; not pilot or historically inspected TAB/CERT test",
+    "historical_test": "DS2 test and DS3 diagnostics already exposed; immutable historical evidence only; no new untouched-test claim",
+    "overlaps": "retain original spans; flat nonoverlap model uses explicitly named nonoverlap-doc subset plus separately reported excluded documents; never silently flatten gold",
+    "prevalence": "retain natural eligible population; no balancing evaluation; report exclusions with denominators",
+    "reference_gate": "reviewed source sets plus guideline intent for release-relative metrics; independent exhaustive reviews required for natural target accuracy/negative claims",
+    "selection": "no family/population/exclusion decision based on model prediction or score; insufficient target support remains unavailable"
+  },
+  "resources": {
+    "future_model_probe": "CPU only, one worker/one numerical thread, <=2GiB address space, <=5 CPU seconds and <=8 wall seconds per bounded document; model load measured separately with <=60s wall; failure explicit",
+    "measurements": "artifact/load hash, versions, dependency compatibility, cold load and warm inference median/p95/max on common inputs, peak RSS, processed chars and status counts",
+    "resource_failure": "preserve evidence; revised bounds/config requires new preregistration before any selection/scoring"
+  },
+  "selected_contextual_model": null,
+  "status": "FROZEN_BEFORE_MODEL_SELECTION_AND_B_POPULATION_SELECTION",
+  "tasks": {
+    "contextual_detection": {
+      "independent_reference_required_for_real_world_accuracy": true,
+      "reference": "TAB released human-reviewed machine-assisted annotations, explicitly release-relative; independent completeness not established",
+      "targets": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "unreviewed_documents": "exclude; never negative"
+    },
+    "organizational_sensitivity": {
+      "available": false,
+      "missing_context": "unknown/null; never NORMAL",
+      "reference": "independent authorized document reviews and owner-approved versioned policy/context",
+      "tab_mapping": null,
+      "targets": [
+        "NORMAL",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "structured_detection": {
+      "baseline": "structured-content-detectors-v1",
+      "gold_from_rules": false,
+      "reference": "independent exhaustive target-kind span review on authorized natural text; candidates do not establish identities/accounts/secrets",
+      "targets": [
+        "email_address",
+        "cnic_like",
+        "iban",
+        "credential_assignment"
+      ]
+    },
+    "supplied_span_category": {
+      "new_scoring": "none; not a raw-text detector comparison",
+      "reference": "historical DS2/DS3 immutable supplied-span task"
+    }
+  },
+  "version": "automatic-content-evaluation-b-v1"
+}

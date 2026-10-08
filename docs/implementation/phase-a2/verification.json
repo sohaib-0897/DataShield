@@ -1,0 +1,72 @@
+{
+  "boundaries": {
+    "B1_or_B2_executed": false,
+    "enforcement_changed": false,
+    "locks_removed": false,
+    "monitors_or_DB_services_started": false,
+    "new_dependencies": false,
+    "training_or_test_scoring": false
+  },
+  "checks": {
+    "full_local_diagnostic_exit": 124,
+    "full_local_diagnostic_passed_before_stall": 19,
+    "full_local_suite": "BLOCKED_SOCKETPAIR_EPERM",
+    "full_local_suite_claimed_pass": false,
+    "new_annotation_integrity_tests": 12,
+    "observed_failures": 0,
+    "preserved_flask_passed": 22,
+    "supplemental_deselected_api_tests": 9,
+    "supplemental_isolated_passed": 290,
+    "supplemental_warnings": 1,
+    "tests_modified_or_weakened": false
+  },
+  "local_model_feasibility": {
+    "approved_policy_verified": false,
+    "artifact_acquisition": "not attempted; no model selected",
+    "en_core_web_sm_installed": false,
+    "organizational_reviews_verified": 0,
+    "runtime_compatibility": "unverified",
+    "spacy_installed": false
+  },
+  "next_action": "normal commit/push; verify remote and full exact-SHA CI; then stop, B1 next session",
+  "phase": "A2",
+  "preservation": {
+    "A1_private_files": 60,
+    "DS3_bound_inputs": 12,
+    "TAB_pinned_source_files": 6,
+    "all_match": true,
+    "archive_stat_observations": 3,
+    "canonical_all_match": true,
+    "canonical_frozen_artifacts": 13,
+    "normalized_Flask_copies": 19,
+    "original_live_entries": 30,
+    "partial_downloads_preserved_untrusted": 4,
+    "preexisting_files_before_A2": 62,
+    "prepared_checkpoint_counts_match": true,
+    "selected_model_integrity_load": "passed; no inference/activation",
+    "sqlite_read_only_quick_checks": 4,
+    "verified_cache_files": 406,
+    "verified_scan_manifests": 3
+  },
+  "protocol": {
+    "B_population_selected": false,
+    "frozen_before_model_selection": true,
+    "model_selected": false,
+    "sha256": "b748d50cecad815613e8fee7abe5797aabadc48ebb5b4d5715e9f688fe95dba3",
+    "version": "automatic-content-evaluation-b-v1"
+  },
+  "publication": {
+    "actual_push": "not attempted for A2 source yet",
+    "gh_cli": "sandbox network unavailable; GitHub connector GET available",
+    "status": "normal A2 source commit/push pending"
+  },
+  "recovered_ci": {
+    "conclusion": "success",
+    "head_sha": "d6cd80977df31dddf1fe8ce3756ec9dff9541537",
+    "run_id": 37770400258,
+    "status": "completed"
+  },
+  "recovered_head": "d6cd80977df31dddf1fe8ce3756ec9dff9541537",
+  "recovered_remote_freshly_matches": true,
+  "status": "IMPLEMENTED_LOCAL_CHECKS_DONE_EXACT_SHA_CI_PENDING"
+}
