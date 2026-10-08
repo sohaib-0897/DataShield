@@ -32,8 +32,9 @@ Start was clean `feat/cert-ml-nlp`, local/fresh remote matched
   commands/resources in streaming.md, corpus requirement in sensitivity.md;
   comparison.json/cohort-audit.json/verification.json/publication.json hold evidence.
 - Streaming milestone pushed/freshly verified at 3500e23d1a57e224280a83af837a8e4faf2c937f.
-  Resolve final HEAD using git rev-parse HEAD; normal final push/fresh remote SHA
-  equality reported after closure. No force push or merge into main.
+  Evaluation milestone pushed/freshly verified at 521331df8f651aa1c3797d488a913964f3581c55.
+  This documentation closure follows; resolve final HEAD using git rev-parse HEAD.
+  Normal final push/fresh remote equality reported in handoff; no force push/main merge.
 - Exact next engineering step: predeclare external-memory training vocabulary/sparse
   matrix preparation, prove feature/score parity on this frozen run, then attempt
   larger chronological processing. Independent sensitivity corpus remains separate.

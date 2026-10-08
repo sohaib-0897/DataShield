@@ -180,5 +180,6 @@
 - Final isolated regressions 151 passes + 22 preserved Flask passes; no skips, one existing warning.
 - Originals/live/copies/archives/application trees and frozen January/June research artifacts preserved.
 - Detailed commands/results: docs/implementation/nlp-followup/report.md, streaming.md, sensitivity.md and JSON evidence.
-- Streaming milestone pushed/fresh remote verified: 3500e23d1a57e224280a83af837a8e4faf2c937f; final HEAD via Git.
+- Streaming milestone verified: 3500e23d1a57e224280a83af837a8e4faf2c937f; evaluation verified: 521331df8f651aa1c3797d488a913964f3581c55.
+- Both normal pushes/fresh remote SHA equalities succeeded; documentation closure follows; final HEAD via Git.
 - Exact next action: bounded training vocabulary/matrices with frozen feature/score parity before larger evaluation.
