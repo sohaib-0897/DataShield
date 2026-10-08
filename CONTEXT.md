@@ -12,8 +12,10 @@ complete independent detection gold. B1 must version eligible development famili
 No contextual model selected/acquired; no policy/enforcement/dependency change.
 12 new tests and supplemental 290 Python/22 Flask passes. Nine API client tests
 remain blocked locally by sandbox socketpair-send EPERM; test sources unchanged.
-Full exact-SHA CI and normal publication are the current phase's final gate;
-resolve final status from implementation memory and phase-a2 report/verification.
+A2 source 303845b4522281cdcaa88e550f9122bc9ac007d9 pushed normally; fresh remote
+equality verified. Exact-SHA CI 37793277068 passed all 299 Python/7 frontend tests,
+build and CI migrations. Documentation receipt follows; final HEAD/remote/current
+CI are freshly checked at handoff. A2 complete at bounded assessment acceptance.
 Stop at A2 boundary. Next new phase is B1 family/annotation coverage audit and
 separate eligible development manifest; no direct B2/C/D progression.
 Organizational labels/policy, model runtime probe and native Windows access remain

@@ -8,6 +8,21 @@
     "training_or_test_scoring": false
   },
   "checks": {
+    "full_exact_sha_ci": {
+      "api_job_id": 113366000389,
+      "ci_migrations": "success",
+      "conclusion": "success",
+      "freshly_observed_via": "GitHub connector GET and job logs",
+      "frontend_build": "success",
+      "frontend_job_id": 113366000566,
+      "frontend_passed": 7,
+      "head_sha": "303845b4522281cdcaa88e550f9122bc9ac007d9",
+      "python_passed": 299,
+      "python_warnings": 1,
+      "run_id": 37793277068,
+      "status": "completed",
+      "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37793277068"
+    },
     "full_local_diagnostic_exit": 124,
     "full_local_diagnostic_passed_before_stall": 19,
     "full_local_suite": "BLOCKED_SOCKETPAIR_EPERM",
@@ -28,7 +43,7 @@
     "runtime_compatibility": "unverified",
     "spacy_installed": false
   },
-  "next_action": "normal commit/push; verify remote and full exact-SHA CI; then stop, B1 next session",
+  "next_action": "Stop A2; next session verify receipt publication then B1 family/annotation coverage audit and versioned eligible development manifest.",
   "phase": "A2",
   "preservation": {
     "A1_private_files": 60,
@@ -56,9 +71,26 @@
     "version": "automatic-content-evaluation-b-v1"
   },
   "publication": {
-    "actual_push": "not attempted for A2 source yet",
-    "gh_cli": "sandbox network unavailable; GitHub connector GET available",
-    "status": "normal A2 source commit/push pending"
+    "ci": {
+      "api_job_id": 113366000389,
+      "ci_migrations": "success",
+      "conclusion": "success",
+      "freshly_observed_via": "GitHub connector GET and job logs",
+      "frontend_build": "success",
+      "frontend_job_id": 113366000566,
+      "frontend_passed": 7,
+      "head_sha": "303845b4522281cdcaa88e550f9122bc9ac007d9",
+      "python_passed": 299,
+      "python_warnings": 1,
+      "run_id": 37793277068,
+      "status": "completed",
+      "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37793277068"
+    },
+    "closure_checkpoint": "documentation receipt follows; derive Git HEAD and verify remote/CI at boundary",
+    "fresh_remote_equals_local_source": true,
+    "normal_push": true,
+    "source_checkpoint": "303845b4522281cdcaa88e550f9122bc9ac007d9",
+    "working_tree_after_source_push": "clean"
   },
   "recovered_ci": {
     "conclusion": "success",
@@ -68,5 +100,5 @@
   },
   "recovered_head": "d6cd80977df31dddf1fe8ce3756ec9dff9541537",
   "recovered_remote_freshly_matches": true,
-  "status": "IMPLEMENTED_LOCAL_CHECKS_DONE_EXACT_SHA_CI_PENDING"
+  "status": "VERIFIED_BOUNDED_ASSESSMENT_PROTOCOL_SOURCE_PUBLISHED"
 }

@@ -141,8 +141,9 @@ local socketpair send fails EPERM in this sandbox; its 75s diagnostic timed out
 after 19 passes and preserved thread stacks. A supplemental isolated run passed
 290 tests with the nine FastAPI client checks explicitly deselected, one historical
 warning; 22 preserved Flask checks passed. No test source or requirement was changed.
-Full exact-SHA CI is the pending independent verification gate, not a claimed local
-pass. Local logs: regression-diagnostic.log and regression-available.log in the
+Full exact-SHA source CI subsequently passed all 299 Python tests, seven frontend
+tests, production build and CI migrations; the local full-suite limitation remains
+explicit rather than being relabeled a local pass. Local logs: regression-diagnostic.log and regression-available.log in the
 ignored recovery directory. All outcomes are recorded in verification.json. Existing backend/frontend/agents/legacy/dependencies, active
 policies, supplied-span interface and prior reports remain unchanged.
 
@@ -175,8 +176,18 @@ commands succeeded. Fresh fetch/ls-remote confirmed recovered HEAD equals origin
 The shell gh CLI remains network-blocked, but GitHub connector GET freshly verified
 A1 closure CI 37770400258 success. Use connector GET for exact-SHA push runs (the
 specialized commit-workflow tool filters PR events and cannot establish push CI).
-A2 normal source commit/push and exact-SHA CI remain pending below; publication
-receipt/actual source SHA will be recorded after the normal commit/push attempt.
+A2 source `303845b4522281cdcaa88e550f9122bc9ac007d9` was committed from exactly
+eight reviewed phase files, pushed normally and freshly matched remote HEAD.
+[CI 37793277068](https://github.com/sohaib-0897/DataShield/actions/runs/37793277068)
+completed successfully for that exact SHA: 299 Python tests (one historical warning),
+seven frontend tests, production build and PostgreSQL CI migrations. Job logs and
+steps were freshly inspected through the connector. Working tree was clean.
+This documentation receipt follows; derive final closure SHA with `git rev-parse HEAD`.
+Its normal push/fresh remote equality and exact-SHA CI are checked in the handoff.
+No A2 implementation or full-suite CI verification remains pending. No acquisition,
+fitting, new population freeze, activation or independent-label claim is implied.
+Full local API checks remain unavailable under socket restrictions; native Windows
+and live PostgreSQL monitoring are not established by CI migrations.
 
 ```bash
 cd /home/sohaib/Insider_Threat_Test_Dataset/DataShield~
@@ -186,8 +197,8 @@ git ls-remote origin refs/heads/feat/cert-ml-nlp
 gh run list --branch feat/cert-ml-nlp --limit 5 --json databaseId,headSha,status,conclusion
 ```
 
-Stop here. Next session: finish any outstanding A2 exact-SHA verification first,
-then **B1 only**:
+Stop here. Next session: verify closure publication/fresh exact-SHA CI, then
+**B1 only**:
 family and annotation-coverage audit plus separately versioned eligible development
 manifest under this frozen protocol. Do not proceed directly to B2/C/D or repeat
 historical ingestion/fitting/evaluation.
