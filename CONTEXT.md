@@ -1,3 +1,19 @@
+# NLP follow-up in progress — 2026-10-08
+
+Latest user instruction authorizes autonomous NLP diagnosis, streaming preparation,
+training/evaluation, document supervision search, advisory checks, commits/pushes.
+Starting clean local/fresh remote SHA: 216a0eb2a49161ab2f185af7dec53e035c278a35.
+Streaming preparation matches every frozen January and June feature/label/key/text/
+bag; 978,908 June events prepared with 425 MiB peak RSS, resumable user checkpoints.
+Original strict cohort remains 54,763/0/0; all later text-bearing identities seen
+in training. Independent stage audit confirms content-disjoint known-user alternative
+54,763/23,616/10,553, positives 14/19/8. Predeclared alternative is a separate
+experiment, not a replacement for unseen-user results. Training/comparison in progress.
+Evidence: docs/implementation/nlp-followup/streaming.md and protocol.md.
+No live files/policies/models changed. Historical handoffs below remain preserved.
+
+---
+
 # Completed continuation — 2026-10-08
 
 The user-authorized remaining Phases 5–6 are complete at bounded acceptance.

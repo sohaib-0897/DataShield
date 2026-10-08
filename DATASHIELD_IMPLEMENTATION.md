@@ -158,41 +158,20 @@
 - Pre-existing Flask findings: global feature users mix, watchdog summaries omit changes, permitted after-hours hidden.
 - Bounded data/artifacts ignored; Phase 2 label/features evidence: docs/implementation/phase2/.
 
-## Current phase, checkpoint, and exact next action
-- Remaining Phases 5–6 implemented/tested; detailed acceptance/evaluation: docs/implementation/phase5/ and phase6/.
-- Phase 0 verified handoff: 3548f75cb805f3645f65a1ab55f38773e8b0fc5b; baseline results preserved above.
-- Phase 1 verified implementation: 07a39cadc924357b2b93e984e2bfd23e73ebf991; final start HEAD 4c5a52ed.
-- Phase 1: 10,000 events/zero errors, interrupted resume/idempotency; 28 safety tests; no full ingestion claim.
-- Phase 2 pushed/freshly verified: f958802f6f22b5a0fe46f3ee725c15177cf2e51f.
-- Phase 2: exact labels, 10,000 negatives, 7,323 unmatched observables, zero ambiguous; 50 impersonated subjects.
-- Phase 2: 3,291 active user-hours/164 fully observed; past-only users, availability, configurable work hours.
-- Phase 2: 43 targeted + 62 isolated tracked passes; deterministic feature replay; docs/implementation/phase2/.
-- Phase 3 pushed/freshly verified: 63595ab35986bdc495ed916f24735312f559752a.
-- Phase 3: 83/43/38 chronological train/val/test windows, zero positives; seed 42/200 trees/one CPU worker.
-- Phase 3: train-only preprocessing, validation-only threshold; deterministic scores/serialized artifact hashes.
-- Test TN36/FP2/FN0/TP0; precision 0; recall/F1/PR-AUC null; false alerts/evaluated user-day 0.05263.
-- Phase 3: 51 targeted/85 isolated full passes; supervised unavailable; docs/implementation/phase3/.
-- Phase 4: 6,000 texts/111 duplicate bags; filtered train/val/test 81/1/0; supervised comparison unavailable.
-- Phase 4: bounded TXT/PDF/DOCX, explicit unavailable outcomes, redacted PII + independent filename/hash evidence.
-- Phase 4: ten synthetic actual parser checks; 75 targeted/109 isolated full passes, no skips, one prior warning.
-- Phase 4: text/feature replay passed; no sensitivity corpus/model claim; docs/implementation/phase4/.
-- Final preservation: 30 original/live hashes, 19 copied normalized hashes, three input stats unchanged.
-- Original application trees unchanged; research data/models ignored; no model activation or policy changes.
-- Phase 4 pushed/freshly verified: dcf66aab4619f13598aa8558df80842db0920fca.
-- Publication checkpoints/final resume instructions: CONTEXT.md and docs/implementation/publication.json.
-- Phase 5: 22 adapter checks/131 isolated passes; both adapters replayed 38 held-out windows; docs/implementation/phase5/.
-- Phase 5 pushed/freshly verified: 6d51b5cf3a004d1dec0925859253f613b54d2d9c; explicit disabled/shadow defaults.
-- Phase 6 evidence pushed/freshly verified: 85e253e3ddcc5f1690f0a9d4010cb870280ed9a1; tooling checkpoint e49fb552 recorded in publication.json.
-- Phase 6: full 32,770,222-source-row scan; fixed June 7–21 cohort 978,908 events, 70 exact positive events.
-- Phase 6: 95,930 fully observed windows; chronological train/val/test 58,258/25,919/11,753, positives 14/19/8.
-- Test IF TN10,294/FP1,451/FN5/TP3, precision .002063/recall .375/F1 .004104/PR-AP .003097.
-- Test logistic TN11,197/FP548/FN7/TP1, precision .001821/recall .125/F1 .003591/PR-AP .007288.
-- Fixed research rule/OR use identical test cohort; OR adds false alerts without recall gain; no endpoint-policy claim.
-- Both numeric models reproduce fits/scores/hashes; threshold validation-only; poor precision, 8 test positives.
-- Numeric cohort is later-time/seen-user/continuing-incident; shared groups disclosed in phase6/population-audit.json.
-- Strict text cohort 54,763/0/0 after identity controls; text comparison unavailable; no sensitivity corpus.
-- Phase 6: 142 isolated pytest + 22 preserved Flask passes, no skips; one prior warning. Originals/store preserved.
-- Full-release materialization exceeds available memory; text peak 3.73 GiB on bounded cohort; no full eval claim.
-- Windows/PostgreSQL/Docker remain unverified; 106 npm findings open; no models activated or enforcement changed.
-- Final results/commands/limitations: phase6/evaluation.md, verification.json, handover.md; publication.json has SHAs.
-- Exact next step: streaming feature/text preparation with frozen-cohort parity before full-release evaluation.
+## Current checkpoint and NLP follow-up
+- Original Phases 0–6 passed bounded acceptance; no Phase 7 was added.
+- Historical exact SHAs/phase results: docs/implementation/publication.json and phase0–6 reports.
+- Phase 6: 978,908 events, 95,930 fully observed windows, positives 14/19/8 across 58,258/25,919/11,753.
+- Numeric precision was poor; strict text 54,763/0/0; no activation or sensitivity corpus claim.
+- Follow-up authorized 2026-10-08, starting clean/fresh remote SHA 216a0eb2a49161ab2f185af7dec53e035c278a35.
+- All 3,291 January and 96,063 June windows/text match frozen original artifacts exactly.
+- Streaming June preparation: 425 MiB peak RSS, 122.668s resumed + 6.480s initial checkpoint.
+- Full parity verification: 928 MiB / 56.333s; idempotent replay 4.219s / zero new rows/users.
+- Transactions commit complete users; partial users roll back; read-only originals and hash/provenance guards.
+- Root cause strict empty cohorts: every later eligible user already seen; not a label/text mapping defect.
+- Original strict results retained; separately declared known-user/content-disjoint chronological experiment.
+- Alternative sizes 54,763/23,616/10,553, positives 14/19/8; no identifiers/answers/future evidence as features.
+- Numeric/text/combined fitting and independent sensitivity interface in progress; no production activation.
+- 24 targeted stream/feature/text checks passed; follow-up regressions pending.
+- Detailed commands/results: docs/implementation/nlp-followup/streaming.md and protocol.md.
+- Exact next action: complete alternative comparison, supervision interface, advisory verification and publication.

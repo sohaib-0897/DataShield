@@ -66,31 +66,35 @@ def load_answers(manifest, folder):
     return inspected, incidents, observables
 
 
-def join_labels(events, observables):
-    """Require scoped ID AND all source fields; conflicts remain unknown, never benign."""
-    index = defaultdict(list)
-    for observable in observables:
-        index[(observable['source'], observable['id'])].append(observable)
-    labels, reasons = {}, Counter()
-    matched = set()
-    for event in events:
-        key = (event['dataset_sha256'], event['source_file'], event['source_id'])
-        candidates = index[(event['source_file'], event['source_id'])]
-        actual = json.loads(event['metadata_json'])
+class ExactLabelJoiner:
+    """Reusable answer index; matching semantics are identical for streamed rows."""
+    def __init__(self, observables):
+        self.index = defaultdict(list)
+        for observable in observables:
+            self.index[(observable['source'], observable['id'])].append(observable)
+
+    def label(self, event):
+        candidates = self.index.get((event['source_file'], event['source_id']), ())
         if not candidates:
-            labels[key] = {'label': 0, 'provenance': [], 'reason': 'not_in_complete_answers'}
-            reasons['negative'] += 1
-            continue
+            return {'label': 0, 'provenance': [], 'reason': 'not_in_complete_answers'}
+        actual = json.loads(event['metadata_json'])
         exact = [o for o in candidates if o['metadata'] == actual]
         if len(exact) != len(candidates) or len({o['incident'] for o in exact}) != 1:
-            labels[key] = {'label': None, 'provenance': [], 'reason': 'ambiguous_or_conflicting'}
-            reasons['ambiguous_or_conflicting'] += 1
-            continue
-        labels[key] = {'label': 1, 'reason': 'exact_all_fields',
-                       'provenance': [{'incident': o['incident'], 'row': o['row'], 'scenario': o['scenario']} for o in exact]}
-        reasons['positive'] += 1
-        for o in exact:
-            matched.add((o['incident'], o['row']))
+            return {'label': None, 'provenance': [], 'reason': 'ambiguous_or_conflicting'}
+        return {'label': 1, 'reason': 'exact_all_fields',
+                'provenance': [{'incident': o['incident'], 'row': o['row'], 'scenario': o['scenario']} for o in exact]}
+
+
+def join_labels(events, observables):
+    """Require scoped ID AND all source fields; conflicts remain unknown, never benign."""
+    joiner = ExactLabelJoiner(observables)
+    labels, reasons, matched = {}, Counter(), set()
+    for event in events:
+        key = (event['dataset_sha256'], event['source_file'], event['source_id'])
+        item = joiner.label(event)
+        labels[key] = item
+        reasons[{0: 'negative', 1: 'positive', None: 'ambiguous_or_conflicting'}[item['label']]] += 1
+        matched.update((p['incident'], p['row']) for p in item['provenance'])
     reasons['unmatched_observables'] = sum((o['incident'], o['row']) not in matched for o in observables)
     return labels, dict(reasons)
 
