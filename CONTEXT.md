@@ -1,3 +1,33 @@
+# B2 bounded evaluation and human span handoff — 2026-10-08
+
+B2 only in existing DataShield~ / feat/cert-ml-nlp; clean start 86719f8, fresh remote
+matched and exact-SHA CI 37797706716 succeeded. No applicable AGENTS.md found.
+B1 manifest automatic-span-development-b1-v1 hash/reference/family/coverage gates
+passed unchanged: 326/64 eligible documents, 283/59 flat subset, zero independently
+exhaustive eligibility across eight contextual/four structured targets. All127
+historical test documents excluded; source test bytes hashed, no test JSON parsed.
+
+Raw-text structured detector executed all390 eligible inputs /2231093 characters:
+zero candidates. Cross-ontology boundary recovery 0/22939 train and 0/3992 validation
+is diagnostic only; typed recovery/category agreement null without identical ontology.
+No independent P/R/F1/negative, policy or original-container performance claim.
+No contextual runtime/model selected or installed; actual load/inference unverified.
+TAB entity/context artifacts remain supplied-span classifiers, never automatic detectors.
+
+Runnable evaluation/review/independent pilot tools and detailed evidence are in
+`docs/implementation/phase-b2/report.md`; actual private final outputs in
+`research/local/document_sensitivity/b2_evaluation_v1_final/`, initial run preserved.
+Blank span-review-pilot.json contains12 validation families; authorization/reviews/
+adjudication all null. Exact independent human actions and runnable commands:
+`docs/implementation/phase-b2/human-span-review.md`. Organizational reviews/policy
+are separate, still missing; native Windows is separately unverified.
+118 targeted,342 supplemental Python (9 socket-restricted deselected),22 Flask pass;
+13 synthetic extraction cases. All13 canonical/69 prior private/4 partial/30 live
+entries preserved. No models trained/downloaded/activated or enforcement changed.
+Source publication and full exact-SHA CI pending; resolve actual final HEAD via Git.
+Stop B2. Next C1 only: organizational pilot readiness and training/export provenance
+validation, explicit missing policy/context/review gates; no C2 fitting.
+
 # B1 family/coverage manifest — 2026-10-08
 
 Current resume authority: DATASHIELD_IMPLEMENTATION.md (strictly below 200 lines).

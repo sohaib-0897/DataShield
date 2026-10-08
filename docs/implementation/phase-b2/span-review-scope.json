@@ -1,0 +1,27 @@
+{
+  "version": "exhaustive-span-scope-b2-v1",
+  "scope": "Full digest-bound Unicode text, not supplied spans; guide pilot only",
+  "contextual_targets": {
+    "CODE": "Identifying codes, including case/reference identifiers; classify by referent, not syntax alone",
+    "DATETIME": "Explicit dates, times and durations, including legal-reference years omitted by the release guide",
+    "DEM": "Explicit demographic attributes and professions/titles, including legal professionals omitted by the release guide",
+    "LOC": "Named geographical locations; contextual location/organization distinctions require adjudication",
+    "MISC": "Other explicitly person-related attributes under the TAB guide; unresolved scope ambiguity excludes the whole document",
+    "ORG": "Named organizations; organization used as geographical referent requires adjudication",
+    "PERSON": "Named people, with associated honorifics/titles per TAB boundary guidance",
+    "QUANTITY": "Explicit meaningful amounts/counts; not a financial-confidentiality or policy label"
+  },
+  "structured_targets": {
+    "email_address": "Full literal ASCII unquoted email address with syntax judged by humans; no mailbox/ownership/confidentiality assertion",
+    "cnic_like": "Full literal ASCII 5-7-1 hyphenated identity-number shape; no issued-identity assertion",
+    "iban": "Full literal uppercase DE/GB/PK IBAN in compact or single-space four-character groups; check structure/check digits independently, no real-account assertion",
+    "credential_assignment": "Value only of explicit same-line password/api_key/access_token/client_secret assignment, 8-256 characters with the declared quoting/token scope; annotate inert examples too, no valid-secret assertion"
+  },
+  "offsets": "Original-text Unicode code points, inclusive start/exclusive end; never normalize text",
+  "overlap": "Keep nested, overlapping and cross-task spans; do not flatten or cap gold",
+  "absence": "Review all 12 targets throughout each complete document; explicit empty spans only after exhaustive review",
+  "independence": "Two authorized reviewers annotate blind to one another, release annotations and predictions; distinct third reviewer adjudicates every disagreement and exhaustively checks the full text",
+  "unmatched_predictions": "Only show after gold is locked; independently review in a separate audit ledger, preserve original gold/results; revised labels/population require a new version before scoring",
+  "uncertainty": "Unresolved presence/boundary/type/scope or incomplete scan excludes the whole document from primary independent metrics",
+  "policy": "No organizational sensitivity labels, approvals, account/identity validity or enforcement decisions"
+}

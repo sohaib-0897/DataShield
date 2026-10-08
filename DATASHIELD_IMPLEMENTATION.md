@@ -14,34 +14,45 @@
 - Never commit data, private documents/packets, models, live DBs, credentials, caches or environments.
 
 ## Current phase and publication
-- B1 only, started clean at a038b0c3a5169cb9af968746626017bcaa376b54; fresh remote matched.
-- Starting exact-SHA CI 37793680451 success verified; no later staged/uncommitted work found.
-- No applicable AGENTS.md found in checkout/ancestors; A2 protocol unchanged, no A1/A2 rerun.
-- B1 COMPLETE at audit/manifest boundary; independent exhaustive evaluation remains blocked.
-- Source 4f93e8a1c0d26a2843c9183363039b1e7b6498be pushed normally; fresh remote SHA matched.
-- Exact source CI 37797359946 success: 318 Python/7 frontend tests, build and CI migrations.
-- Documentation receipt follows; resolve final HEAD from Git and verify remote/exact-SHA CI on resume.
-- Details: `docs/implementation/phase-b1/report.md`, audit.json and verification.json.
-- Manifest version: automatic-span-development-b1-v1; 1268 source records; no contextual model selected.
-- Authoritative private manifest: `research/local/document_sensitivity/b1_development_v1_final/manifest.json`.
-- File SHA-256 3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b; payload hash in report.
-- Narrow released-reference train/validation: 326/64 documents, 325/64 families, 22939/3992 spans.
-- Development exclusions: 751 (688 train/63 dev); all 127 historical test docs excluded; no test text parsed.
-- Flat nonoverlap subset: 283/59; all original spans retained in overlap-aware ledger; cap strata 70/10.
-- All 8 contextual and all 4 structured independent exhaustive populations: ZERO; negatives not confirmed.
-- Guide permits omitted legal-professional titles and generic legal-reference parts; per-target scope explicit.
-- All-source families 1249, cross-official-split families 7; eligible split overlap 0; near pairs 2 train/dev.
-- Exact raw/normalized duplicate links 0; 10 historical-test-related development quarantines retained.
-- Original DS2 326/124/127 splits, test population, models/results and frozen A2 protocol unchanged.
-- Checks: 19 final targeted guards; 306 supplemental Python (9 socket-restricted deselected) +22 Flask pass.
-- Preservation: all 13 canonical artifacts, 64 pre-existing private files, 4 partials and 30 live entries match.
-- Ignored logs/resources/preservation: `.local/phase-b1/`; no recovery DB/cache scan repeated.
-- No fitting, tuning, inference, model selection, labels, policy/enforcement or dependency changes.
-- BLOCKERS: exhaustive human target-span review, independent negatives, new holdout, approved policy/context.
-- External case/container version links absent; original-container digest unknown; corpus text-only audit.
-- Contextual detector/ontology preregistration and runtime validation, native Windows checks remain separate.
-- Exact next phase: B2 fixed metrics/failure/resources; validate manifest and reference/model gates first.
-- If push fails retain local commit and run `git push origin feat/cert-ml-nlp`; never force-push.
+- B2 only, clean start 86719f8ddd81cd9c056cb87ce6de7da5ab429b47; fresh remote matched.
+- Exact starting CI 37797706716 success; no subsequent staged/uncommitted user changes found.
+- No applicable AGENTS.md found in checkout/ancestors; original A2 protocol byte-identical.
+- B2 runnable harness/structured evaluation/human handoff COMPLETE; natural/contextual metrics BLOCKED.
+- Source commit and normal push pending; exact-SHA complete CI pending (local socket restriction retained).
+- Details: `docs/implementation/phase-b2/report.md`, evaluation.json, verification.json, synthetic-checks.json.
+- Frozen run contract automatic-content-b2-run-v1 pins source, manifest, seed and scope before scoring.
+- B1 automatic-span-development-b1-v1 verified: file/payload/source/reference/coverage/family gates passed.
+- Authoritative B1: `research/local/document_sensitivity/b1_development_v1_final/manifest.json`.
+- File SHA 3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b; unchanged.
+- Reference train/validation: 326/64 docs, 325/64 families, 22939/3992 spans; eligible family overlap 0.
+- Flat subset 283/59; overlaps 43/5; gold-over-cap 70/10 retained; original DS2 populations unchanged.
+- Excluded: 751 development sources and all 127 historical test docs; test bytes hashed, JSON never parsed.
+- Independent exhaustive eligibility still ZERO for eight contextual categories and four structured kinds.
+- Structured raw-text detection actually ran on all 390 eligible docs /2231093 characters: ZERO candidates.
+- Cross-ontology exact-boundary diagnostic: 0/22939 train, 0/3992 validation; not four-kind recall.
+- Typed annotation recovery/category agreement null: no identical TAB mapping; unmatched predictions unreviewed.
+- No independent P/R/F1, confirmed negatives, policy metrics or original-container end-to-end metrics claimed.
+- Final private outputs: `research/local/document_sensitivity/b2_evaluation_v1_final/`; first run preserved.
+- `research/detection_evaluation.py`: pinned inputs and aggregate release-boundary/resources/strata evidence.
+- `research/span_evaluation.py`: exact typed/boundary lanes, null metrics, family bootstrap, no reference FP/F1.
+- `research/independent_span_evaluation.py`: runnable fixed pilot scoring after real exhaustive review gate.
+- Contextual gate BLOCKED: no selected pinned NER artifact; spacy/model/transformers/torch/stanza absent.
+- TAB entity/context models classify SUPPLIED spans; preserved, never loaded as detectors or test-rescored.
+- Contextual source/license/ontology metadata stays conditional; load/inference/runtime/offset checks SKIPPED.
+- Actual blank human packet: final output `span-review-pilot.json`, 12 validation docs/12 families, all null.
+- `docs/implementation/phase-b2/human-span-review.md` gives exact private files/schema/commands.
+- Pilot is guide development only; custodian permission, two blind full-target reviews, third adjudication missing.
+- Missing natural support determines later preregistered evaluation size; final new holdout must be independent.
+- Organizational policy/context/labels remain separate from span annotations and permission; none fabricated.
+- Checks: 118 targeted +342 supplemental Python (9 socket-restricted deselected) +22 Flask pass, one old warning.
+- Actual extraction bridge: 13 synthetic cases, 6 complete; failures/partial remain unknown, no risk decisions.
+- Preservation: all 13 canonical artifacts, 69 prior private files, 4 partials and 30 live entries match.
+- Ignored evidence/resources under `.local/phase-b2/`; whole harness 6.359s/166.137 MiB; no general speed claim.
+- No training/tuning/model selection/download, policy/enforcement, dependencies or workflow changes.
+- Native Windows, real human annotations and contextual runtime remain unverified separate gates.
+- Stop B2. Exact next phase: C1 only, organizational-pilot readiness and training/export provenance validation.
+- C1 must record missing independent policy/context/reviews; do not start C2 training or invent approvals.
+- If publication fails preserve commit; recover with `git push origin feat/cert-ml-nlp`; never force-push.
 
 ## Remaining bounded plan
 | Phase | Deliverable / gate | Status |
@@ -49,8 +60,8 @@
 | A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | complete (bounded offline), source published/CI passed |
 | A2 | Contextual full-span/local NER feasibility; freeze B protocol before selection | complete bounded assessment; published/CI passed |
 | B1 | Family/coverage audit and separately versioned development manifest | complete audit/manifest; published/full CI passed |
-| B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | next; reference/model gates apply |
-| C1 | Analyze independent pilot; strengthen training/export validation, or record exact blockers | pending labels; interface work possible |
+| B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | bounded harness/structured run complete; independent/contextual metrics blocked |
+| C1 | Analyze independent pilot; strengthen training/export validation, or record exact blockers | next only; labels/policy pending, interface work possible |
 | C2 | Grouped CPU sensitivity experiment vs approved policy, only if defensible | blocked labels/policy |
 | D1 | Disabled authenticated automatic advice; extraction bounds, schema/cache/failure tests | pending A/B contracts |
 | D2 | Separate dashboard advice and regression/fallback checks; no enforcement changes | pending D1 |

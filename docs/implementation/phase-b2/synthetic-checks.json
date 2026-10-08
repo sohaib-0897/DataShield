@@ -1,0 +1,128 @@
+{
+  "all_input_cases": 13,
+  "cases": {
+    "contextual.txt": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": true,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": 0
+    },
+    "encrypted.pdf": {
+      "automated_blocking": false,
+      "detection_status": "UNAVAILABLE_EXTRACTION",
+      "extraction_complete": false,
+      "extraction_status": "ENCRYPTED",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": null
+    },
+    "financial-prose.txt": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": true,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": 0
+    },
+    "inert-credential.txt": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": true,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": 1
+    },
+    "malformed.pdf": {
+      "automated_blocking": false,
+      "detection_status": "UNAVAILABLE_EXTRACTION",
+      "extraction_complete": false,
+      "extraction_status": "MALFORMED",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": null
+    },
+    "malformed.txt": {
+      "automated_blocking": false,
+      "detection_status": "UNAVAILABLE_EXTRACTION",
+      "extraction_complete": false,
+      "extraction_status": "MALFORMED",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": null
+    },
+    "oversized.txt": {
+      "automated_blocking": false,
+      "detection_status": "UNAVAILABLE_EXTRACTION",
+      "extraction_complete": false,
+      "extraction_status": "TOO_LARGE",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": null
+    },
+    "public-contact.txt": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": true,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": 1
+    },
+    "public.docx": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": true,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": 1
+    },
+    "scanned.pdf": {
+      "automated_blocking": false,
+      "detection_status": "UNAVAILABLE_EXTRACTION",
+      "extraction_complete": false,
+      "extraction_status": "SCANNED_OR_NO_TEXT",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": null
+    },
+    "truncated.txt": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": false,
+      "extraction_status": "OK",
+      "extraction_truncated": true,
+      "organizational_sensitivity": null,
+      "returned_spans": 0
+    },
+    "unsupported-language.txt": {
+      "automated_blocking": false,
+      "detection_status": "AVAILABLE",
+      "extraction_complete": true,
+      "extraction_status": "OK",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": 0
+    },
+    "unsupported.bin": {
+      "automated_blocking": false,
+      "detection_status": "UNAVAILABLE_EXTRACTION",
+      "extraction_complete": false,
+      "extraction_status": "UNSUPPORTED",
+      "extraction_truncated": false,
+      "organizational_sensitivity": null,
+      "returned_spans": null
+    }
+  },
+  "complete_extraction_cases": 6,
+  "evidence_lane": "SYNTHETIC_FUNCTIONAL_ONLY",
+  "process_peak_RSS_MiB": 47.453125,
+  "real_world_performance": false,
+  "unavailable_or_partial_are_negatives": false,
+  "wall_seconds": 2.146245166999506
+}

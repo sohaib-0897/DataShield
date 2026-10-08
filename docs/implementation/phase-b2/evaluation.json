@@ -1,0 +1,752 @@
+{
+  "boundaries": {
+    "independent_labels_fabricated": false,
+    "live_activation": false,
+    "policy_or_enforcement_changes": false,
+    "training_tuning_model_selection": false
+  },
+  "contextual_gate": {
+    "artifact_sha256": null,
+    "candidate_reference": {
+      "license": "MIT per A2 official model metadata; no local artifact/license verified",
+      "limits": "nonoverlapping token entities; English; spaCy >=3.8.0,<3.9.0 per A2 metadata",
+      "native_ontology": "18 OntoNotes-derived labels; no TAB CODE/DEM/MISC; shared names not equivalent",
+      "offset_convention": "spaCy character offsets are Python Unicode code points; not locally verified",
+      "runtime_check": "package discovery only; load/inference/dependency compatibility skipped",
+      "source": "https://github.com/explosion/spacy-models/blob/master/meta/en_core_web_sm-3.8.0.json",
+      "version": "en_core_web_sm 3.8.0 (A2 metadata only, not installed or selected)"
+    },
+    "inference_executed": false,
+    "model_loaded": false,
+    "model_selected": false,
+    "ontology_mapping": null,
+    "package_discovery": {
+      "en_core_web_sm": false,
+      "spacy": false,
+      "stanza": false,
+      "torch": false,
+      "transformers": false
+    },
+    "required_action": "Preregister a pinned local automatic detector and identical/native ontology contract; validate compatible CPU runtime within frozen limits before contextual scoring; do not substitute TAB classifier",
+    "runtime_limits_validated": false,
+    "status": "BLOCKED_NO_SELECTED_PINNED_AUTOMATIC_CONTEXTUAL_DETECTOR",
+    "supplied_span_artifacts": {
+      "automatic_detector": false,
+      "loaded_or_scored": false,
+      "selection_sha256": "f820f6eb6c0656b0aad22407cf75665d2deeaf20b95cbc679b075a81604b7477",
+      "source": "research/local/document_sensitivity/ds2_models_v2/",
+      "supported_ontology": [
+        "CODE",
+        "DATETIME",
+        "DEM",
+        "LOC",
+        "MISC",
+        "ORG",
+        "PERSON",
+        "QUANTITY"
+      ],
+      "task": "TF-IDF/LinearSVC classification of supplied entity or supplied context spans",
+      "training_source_license": "TAB MIT; repository model redistribution license not verified",
+      "version": "tab-supplied-span-ds2-v1"
+    },
+    "unsupported_or_ambiguous_TAB_targets": [
+      "CODE",
+      "DATETIME",
+      "DEM",
+      "LOC",
+      "MISC",
+      "ORG",
+      "PERSON",
+      "QUANTITY"
+    ]
+  },
+  "coverage": {
+    "all_source_metadata": 1268,
+    "container_extraction": "not available for source JSON; end-to-end original-container metrics unavailable",
+    "detector_status_counts": {
+      "AVAILABLE": 390
+    },
+    "development_source_documents": 1141,
+    "eligible_reference_inputs": 390,
+    "excluded_documents_are_negatives": false,
+    "historical_test_access": "hash only; no JSON parsing",
+    "historical_test_excluded": 127,
+    "unavailable_inputs_are_negatives": false
+  },
+  "detector": {
+    "TAB_mapping": null,
+    "automatic_raw_text_execution": true,
+    "license": "no repository LICENSE found; no new redistribution claim",
+    "max_bytes": 131072,
+    "max_characters": 32768,
+    "max_returned_spans": 100,
+    "model_artifact": null,
+    "offsets": "original Unicode code points; half-open",
+    "ontology": [
+      "email_address",
+      "cnic_like",
+      "iban",
+      "credential_assignment"
+    ],
+    "source": "ml/content_detection.py",
+    "source_sha256": "030e9e29565be7c575804f226de0a0717fb6c1623faacd9de219ef0a5e61028f",
+    "version": "structured-content-detectors-v1"
+  },
+  "human_handoff": {
+    "completed_reviews": 0,
+    "custodian_authorization": null,
+    "documents": 12,
+    "families": 12,
+    "labels_created": 0,
+    "packet": "span-review-pilot.json",
+    "purpose": "GUIDE_PILOT_NOT_FINAL_EVALUATION",
+    "scope_sha256": "953f70397d92d6afc4adbc7cfea8e9a3e00115da4547fcc3f7906da2753decb8"
+  },
+  "lanes": {
+    "independent": {
+      "eligible_documents": 0,
+      "metrics": null,
+      "reason": "No independently exhaustive natural target reviews; B1 eligibility remains unchanged"
+    },
+    "release_reference": {
+      "partitions": {
+        "train": {
+          "annotated_typed_span_recovery": null,
+          "boundary_recovery_family_interval": {
+            "lower": 0.0,
+            "reason": null,
+            "replicates": 2000,
+            "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+            "seed": 42,
+            "upper": 0.0,
+            "valid_replicates": 2000
+          },
+          "candidate_count_before_result_cap": 0,
+          "category_agreement": null,
+          "documents": 326,
+          "duplicate_predictions": 0,
+          "exact_boundary_matches": 0,
+          "exact_boundary_reference_recovery": 0.0,
+          "extraction": "source JSON full-text only; no original container extraction measured",
+          "f1": null,
+          "families": 325,
+          "gold_over_100_documents": 70,
+          "independent_metrics": null,
+          "matched_reference_categories_boundary_only": {
+            "CODE": 0,
+            "DATETIME": 0,
+            "DEM": 0,
+            "LOC": 0,
+            "MISC": 0,
+            "ORG": 0,
+            "PERSON": 0,
+            "QUANTITY": 0
+          },
+          "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+          "overlapping_reference_documents": 43,
+          "precision": null,
+          "prediction_truncated_documents": 0,
+          "predictions_by_kind": {
+            "cnic_like": 0,
+            "credential_assignment": 0,
+            "email_address": 0,
+            "iban": 0
+          },
+          "processed_characters": 1898512,
+          "reference_spans_unclipped": 22939,
+          "returned_predictions": 0,
+          "strata": {
+            "flat_nonoverlap": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": 0.0,
+                "reason": null,
+                "replicates": 2000,
+                "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+                "seed": 42,
+                "upper": 0.0,
+                "valid_replicates": 2000
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 283,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": 0.0,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 282,
+              "gold_over_100_documents": 44,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 0,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 1495953,
+              "reference_spans_unclipped": 17704,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            },
+            "gold_over_result_cap": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": 0.0,
+                "reason": null,
+                "replicates": 2000,
+                "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+                "seed": 42,
+                "upper": 0.0,
+                "valid_replicates": 2000
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 70,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": 0.0,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 70,
+              "gold_over_100_documents": 70,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 26,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 782197,
+              "reference_spans_unclipped": 9979,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            },
+            "overlapping_gold": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": 0.0,
+                "reason": null,
+                "replicates": 2000,
+                "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+                "seed": 42,
+                "upper": 0.0,
+                "valid_replicates": 2000
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 43,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": 0.0,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 43,
+              "gold_over_100_documents": 26,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 43,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 402559,
+              "reference_spans_unclipped": 5235,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            },
+            "prediction_truncated": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": null,
+                "reason": "fewer than two families",
+                "replicates": 2000,
+                "upper": null,
+                "valid_replicates": 0
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 0,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": null,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 0,
+              "gold_over_100_documents": 0,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 0,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 0,
+              "reference_spans_unclipped": 0,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            }
+          },
+          "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+          "unmatched_predictions_unreviewed": 0
+        },
+        "validation": {
+          "annotated_typed_span_recovery": null,
+          "boundary_recovery_family_interval": {
+            "lower": 0.0,
+            "reason": null,
+            "replicates": 2000,
+            "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+            "seed": 42,
+            "upper": 0.0,
+            "valid_replicates": 2000
+          },
+          "candidate_count_before_result_cap": 0,
+          "category_agreement": null,
+          "documents": 64,
+          "duplicate_predictions": 0,
+          "exact_boundary_matches": 0,
+          "exact_boundary_reference_recovery": 0.0,
+          "extraction": "source JSON full-text only; no original container extraction measured",
+          "f1": null,
+          "families": 64,
+          "gold_over_100_documents": 10,
+          "independent_metrics": null,
+          "matched_reference_categories_boundary_only": {
+            "CODE": 0,
+            "DATETIME": 0,
+            "DEM": 0,
+            "LOC": 0,
+            "MISC": 0,
+            "ORG": 0,
+            "PERSON": 0,
+            "QUANTITY": 0
+          },
+          "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+          "overlapping_reference_documents": 5,
+          "precision": null,
+          "prediction_truncated_documents": 0,
+          "predictions_by_kind": {
+            "cnic_like": 0,
+            "credential_assignment": 0,
+            "email_address": 0,
+            "iban": 0
+          },
+          "processed_characters": 332581,
+          "reference_spans_unclipped": 3992,
+          "returned_predictions": 0,
+          "strata": {
+            "flat_nonoverlap": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": 0.0,
+                "reason": null,
+                "replicates": 2000,
+                "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+                "seed": 42,
+                "upper": 0.0,
+                "valid_replicates": 2000
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 59,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": 0.0,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 59,
+              "gold_over_100_documents": 6,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 0,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 292478,
+              "reference_spans_unclipped": 3409,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            },
+            "gold_over_result_cap": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": 0.0,
+                "reason": null,
+                "replicates": 2000,
+                "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+                "seed": 42,
+                "upper": 0.0,
+                "valid_replicates": 2000
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 10,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": 0.0,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 10,
+              "gold_over_100_documents": 10,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 4,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 88514,
+              "reference_spans_unclipped": 1202,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            },
+            "overlapping_gold": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": 0.0,
+                "reason": null,
+                "replicates": 2000,
+                "scope": "95% family-cluster percentile interval; conditional on corpus and detector",
+                "seed": 42,
+                "upper": 0.0,
+                "valid_replicates": 2000
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 5,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": 0.0,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 5,
+              "gold_over_100_documents": 4,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 5,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 40103,
+              "reference_spans_unclipped": 583,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            },
+            "prediction_truncated": {
+              "annotated_typed_span_recovery": null,
+              "boundary_recovery_family_interval": {
+                "lower": null,
+                "reason": "fewer than two families",
+                "replicates": 2000,
+                "upper": null,
+                "valid_replicates": 0
+              },
+              "candidate_count_before_result_cap": 0,
+              "category_agreement": null,
+              "documents": 0,
+              "duplicate_predictions": 0,
+              "exact_boundary_matches": 0,
+              "exact_boundary_reference_recovery": null,
+              "extraction": "source JSON full-text only; no original container extraction measured",
+              "f1": null,
+              "families": 0,
+              "gold_over_100_documents": 0,
+              "independent_metrics": null,
+              "matched_reference_categories_boundary_only": {
+                "CODE": 0,
+                "DATETIME": 0,
+                "DEM": 0,
+                "LOC": 0,
+                "MISC": 0,
+                "ORG": 0,
+                "PERSON": 0,
+                "QUANTITY": 0
+              },
+              "negative_coverage": "unknown; unmatched predictions are unreviewed, not FP",
+              "overlapping_reference_documents": 0,
+              "precision": null,
+              "prediction_truncated_documents": 0,
+              "predictions_by_kind": {
+                "cnic_like": 0,
+                "credential_assignment": 0,
+                "email_address": 0,
+                "iban": 0
+              },
+              "processed_characters": 0,
+              "reference_spans_unclipped": 0,
+              "returned_predictions": 0,
+              "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+              "unmatched_predictions_unreviewed": 0
+            }
+          },
+          "typed_unavailable_reason": "Structured kinds and TAB classes have no identical declared semantics; no mapping approved",
+          "unmatched_predictions_unreviewed": 0
+        }
+      },
+      "scope": "cross-ontology exact-boundary diagnostic only; not eight-class detector performance"
+    },
+    "synthetic": {
+      "evidence": "tests/test_span_evaluation.py and tests/test_content_detection.py",
+      "executed_by_this_cli": false,
+      "real_world_performance": false
+    }
+  },
+  "manifest_file_sha256": "3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b",
+  "manifest_gate": {
+    "all_source_families": 1249,
+    "development_source_documents": 1141,
+    "eligible_family_split_overlap": 0,
+    "excluded_all_source": 878,
+    "excluded_development_source": 751,
+    "historical_test_documents_excluded": 127,
+    "independent_exhaustive_contextual_eligible": 0,
+    "independent_negative_coverage_verified": false,
+    "independent_structured_eligible": {
+      "cnic_like": 0,
+      "credential_assignment": 0,
+      "email_address": 0,
+      "iban": 0
+    },
+    "live_activation": false,
+    "manifest_payload_sha256": "210d34c33b6c34b98ed48a4b1e442df4df184279a7f26b9c56360a2e47abce00",
+    "missing_structured_kind_annotations": [
+      "email_address",
+      "cnic_like",
+      "iban",
+      "credential_assignment"
+    ],
+    "original_DS2_quarantined_documents": 10,
+    "partitions": {
+      "train": {
+        "class_reference_spans": {
+          "CODE": 765,
+          "DATETIME": 8346,
+          "DEM": 1271,
+          "LOC": 1418,
+          "MISC": 969,
+          "ORG": 6158,
+          "PERSON": 3185,
+          "QUANTITY": 827
+        },
+        "flat_nonoverlap_documents": 283,
+        "over_result_cap_documents": 70,
+        "reference_spans_unclipped": 22939,
+        "release_reference_documents": 326,
+        "release_reference_families": 325
+      },
+      "validation": {
+        "class_reference_spans": {
+          "CODE": 153,
+          "DATETIME": 1336,
+          "DEM": 230,
+          "LOC": 247,
+          "MISC": 154,
+          "ORG": 1106,
+          "PERSON": 619,
+          "QUANTITY": 147
+        },
+        "flat_nonoverlap_documents": 59,
+        "over_result_cap_documents": 10,
+        "reference_spans_unclipped": 3992,
+        "release_reference_documents": 64,
+        "release_reference_families": 64
+      }
+    },
+    "per_target_coverage_scope": {
+      "CODE": "Released identifying-code spans; no exhaustive email/CNIC/IBAN/credential-kind review",
+      "DATETIME": "Released dates/times/durations; generic legal-reference years may be deliberately omitted",
+      "DEM": "Released demographic attributes; legal-professional professions/titles may be deliberately omitted",
+      "LOC": "Released anonymity-task locations; broad-category independent exhaustive review absent",
+      "MISC": "Released other person-related attributes; generic legal-reference parts may be omitted",
+      "ORG": "Released anonymity-task organizations; broad-category independent exhaustive review absent",
+      "PERSON": "Released anonymity-task people; broad-category independent exhaustive review absent",
+      "QUANTITY": "Released meaningful quantities; neither exhaustive financial prose nor policy levels"
+    },
+    "primary_exclusive_reason_counts": {
+      "FAMILY_TOUCHES_HISTORICAL_TEST": 10,
+      "HISTORICAL_TEST_NEVER_DEVELOPMENT": 127,
+      "NO_REVIEWED_ANNOTATIONS": 681,
+      "RELEASE_REFERENCE_ELIGIBLE": 390,
+      "REVIEWED_ANNOTATION_DISAGREEMENT": 60
+    },
+    "protocol_sha256": "b748d50cecad815613e8fee7abe5797aabadc48ebb5b4d5715e9f688fe95dba3",
+    "reason_counts_nonexclusive": {
+      "FAMILY_TOUCHES_HISTORICAL_TEST": 10,
+      "HISTORICAL_TEST_NEVER_DEVELOPMENT": 127,
+      "NO_REVIEWED_ANNOTATIONS": 686,
+      "ORIGINAL_DS2_FAMILY_QUARANTINE": 10,
+      "REVIEWED_ANNOTATION_DISAGREEMENT": 61
+    },
+    "reference_scope": "TAB release-relative legal anonymity guideline; not exhaustive broad NER",
+    "relations": {
+      "historical_family_graph": "pinned DS2 all-source groups; conservatively merged with fresh train/dev audit",
+      "historical_test_text_parsed": false,
+      "raw_exact_duplicate_links_all_source_metadata": 0,
+      "recomputed_train_dev_edge_reasons": {
+        "five_word_jaccard_ge_0.8": 2,
+        "subject": 14
+      },
+      "train_dev_near_duplicate_pairs": 2
+    },
+    "release_reference_eligible": 390,
+    "source_documents_accounted_for": 1268,
+    "test_related_development_by_official_split": {
+      "dev": 3,
+      "train": 7
+    },
+    "training_or_scoring": false,
+    "version": "automatic-span-development-b1-v1"
+  },
+  "manifest_payload_sha256": "210d34c33b6c34b98ed48a4b1e442df4df184279a7f26b9c56360a2e47abce00",
+  "private_output_hashes": {
+    "document-results.json": {
+      "bytes": 443203,
+      "sha256": "e561c19194ea4ce904e17378eed3797c12a4603ce884dfce912df68e3c5bfe65"
+    },
+    "span-review-pilot.json": {
+      "bytes": 67190,
+      "sha256": "11416da8e9e97e5c9d1b181870dd9856831ff2d49544972e4be30240f28ca43d"
+    }
+  },
+  "protocol_sha256": "b748d50cecad815613e8fee7abe5797aabadc48ebb5b4d5715e9f688fe95dba3",
+  "resources": {
+    "cold_detector_import_seconds": 0.0054699849997632555,
+    "contextual_load_or_inference": "skipped; gate blocked, no artifact loaded",
+    "detector_threads": 1,
+    "processed_characters": 2231093,
+    "python": "3.14.4",
+    "warm_cpu_max_seconds": 0.0057544070000004055,
+    "warm_documents": 390,
+    "warm_wall_max_seconds": 0.005752172000029532,
+    "warm_wall_median_seconds": 0.0015760199999022007,
+    "warm_wall_p95_seconds": 0.0040257660002680495,
+    "whole_harness_cpu_seconds_before_write": 6.355860117,
+    "whole_harness_wall_seconds_before_write": 6.359206709999853,
+    "whole_process_peak_RSS_MiB": 166.13671875,
+    "workers": 1
+  },
+  "run_contract_sha256": "7564cf4b88fd343b4823fcef8d3c6cd70c998d461cb18df46dafa5879ec2af50",
+  "source_hashes": {
+    "research/detection_evaluation.py": {
+      "bytes": 17778,
+      "sha256": "2996c591c4a0dba86d7d11dab09dc239aeb504d8b15ccdf1d49243026b0145c9"
+    },
+    "research/span_evaluation.py": {
+      "bytes": 9687,
+      "sha256": "fde34cdeebc51a800ea630d8d89b36bb15cf192ac5cadb454e6500b1aa76cfd9"
+    },
+    "research/span_review.py": {
+      "bytes": 8321,
+      "sha256": "5e01eb6ca80b0288459075806ef73baad388e4960b7594aab3143c50bf5aa0eb"
+    }
+  },
+  "version": "automatic-content-evaluation-b2-v1"
+}

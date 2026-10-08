@@ -1,0 +1,31 @@
+{
+  "bootstrap": {
+    "confidence": 0.95,
+    "replicates": 2000,
+    "seed": 42,
+    "unit": "whole document family"
+  },
+  "contextual_model": null,
+  "cross_ontology_diagnostic": "exact-boundary-only-b2-v1; no typed interpretation",
+  "detector_source_sha256": "030e9e29565be7c575804f226de0a0717fb6c1623faacd9de219ef0a5e61028f",
+  "detector_version": "structured-content-detectors-v1",
+  "historical_test": "hash only; never parse",
+  "human_packet": {
+    "pilot_families": 12,
+    "scope_sha256": "953f70397d92d6afc4adbc7cfea8e9a3e00115da4547fcc3f7906da2753decb8",
+    "selection": "first 12 validation family hashes sorted by SHA256(seed42:family_id); no prediction-based choice",
+    "use": "guide pilot only; not final evaluation",
+    "version": "exhaustive-span-review-b2-v1"
+  },
+  "live_activation": false,
+  "manifest_payload_sha256": "210d34c33b6c34b98ed48a4b1e442df4df184279a7f26b9c56360a2e47abce00",
+  "manifest_sha256": "3bfd2e38073d6904de16c47e3f0a0bb01ddf6ca6fdc375386e199c66b6b6df5b",
+  "max_returned_spans": 100,
+  "partitions": [
+    "train",
+    "validation"
+  ],
+  "protocol_sha256": "b748d50cecad815613e8fee7abe5797aabadc48ebb5b4d5715e9f688fe95dba3",
+  "typed_TAB_mapping": {},
+  "version": "automatic-content-b2-run-v1"
+}
