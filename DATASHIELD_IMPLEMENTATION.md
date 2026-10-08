@@ -17,7 +17,10 @@
 - B1 only, started clean at a038b0c3a5169cb9af968746626017bcaa376b54; fresh remote matched.
 - Starting exact-SHA CI 37793680451 success verified; no later staged/uncommitted work found.
 - No applicable AGENTS.md found in checkout/ancestors; A2 protocol unchanged, no A1/A2 rerun.
-- B1 audit/manifest VERIFIED locally; normal source publication/full exact-SHA CI pending.
+- B1 COMPLETE at audit/manifest boundary; independent exhaustive evaluation remains blocked.
+- Source 4f93e8a1c0d26a2843c9183363039b1e7b6498be pushed normally; fresh remote SHA matched.
+- Exact source CI 37797359946 success: 318 Python/7 frontend tests, build and CI migrations.
+- Documentation receipt follows; resolve final HEAD from Git and verify remote/exact-SHA CI on resume.
 - Details: `docs/implementation/phase-b1/report.md`, audit.json and verification.json.
 - Manifest version: automatic-span-development-b1-v1; 1268 source records; no contextual model selected.
 - Authoritative private manifest: `research/local/document_sensitivity/b1_development_v1_final/manifest.json`.
@@ -37,7 +40,7 @@
 - BLOCKERS: exhaustive human target-span review, independent negatives, new holdout, approved policy/context.
 - External case/container version links absent; original-container digest unknown; corpus text-only audit.
 - Contextual detector/ontology preregistration and runtime validation, native Windows checks remain separate.
-- Exact next phase after B1 publication: B2 fixed metrics/failure/resources; first validate eligibility gates.
+- Exact next phase: B2 fixed metrics/failure/resources; validate manifest and reference/model gates first.
 - If push fails retain local commit and run `git push origin feat/cert-ml-nlp`; never force-push.
 
 ## Remaining bounded plan
@@ -45,7 +48,7 @@
 |---|---|---|
 | A1 | Audit labels/packet workflow; deterministic detection and bounded extraction bridge | complete (bounded offline), source published/CI passed |
 | A2 | Contextual full-span/local NER feasibility; freeze B protocol before selection | complete bounded assessment; published/CI passed |
-| B1 | Family/coverage audit and separately versioned development manifest | verified locally; publication/CI pending |
+| B1 | Family/coverage audit and separately versioned development manifest | complete audit/manifest; published/full CI passed |
 | B2 | Fixed detector/category/end-to-end metrics, failure analysis and resources | next; reference/model gates apply |
 | C1 | Analyze independent pilot; strengthen training/export validation, or record exact blockers | pending labels; interface work possible |
 | C2 | Grouped CPU sensitivity experiment vs approved policy, only if defensible | blocked labels/policy |

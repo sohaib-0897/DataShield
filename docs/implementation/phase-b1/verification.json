@@ -10,7 +10,21 @@
   },
   "checks": {
     "final_added_guard_tests": 3,
-    "full_final_exact_sha_ci": "pending; no full local suite pass claimed",
+    "full_final_exact_sha_ci": {
+      "api_job_id": 113380184584,
+      "ci_migrations": "success",
+      "conclusion": "success",
+      "freshly_observed": "GitHub connector GET/jobs/logs",
+      "frontend_build": "success",
+      "frontend_job_id": 113380184954,
+      "frontend_passed": 7,
+      "head_sha": "4f93e8a1c0d26a2843c9183363039b1e7b6498be",
+      "id": 37797359946,
+      "python_passed": 318,
+      "python_warnings": 1,
+      "status": "completed",
+      "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37797359946"
+    },
     "manifest_reloaded_digest_schema_split_coverage_and_summary_match": true,
     "observed_failures_final": 0,
     "preserved_Flask_passed": 22,
@@ -67,8 +81,26 @@
     "private_all_match": true
   },
   "publication": {
-    "CI": "pending",
-    "status": "normal source commit/push pending"
+    "ci": {
+      "api_job_id": 113380184584,
+      "ci_migrations": "success",
+      "conclusion": "success",
+      "freshly_observed": "GitHub connector GET/jobs/logs",
+      "frontend_build": "success",
+      "frontend_job_id": 113380184954,
+      "frontend_passed": 7,
+      "head_sha": "4f93e8a1c0d26a2843c9183363039b1e7b6498be",
+      "id": 37797359946,
+      "python_passed": 318,
+      "python_warnings": 1,
+      "status": "completed",
+      "url": "https://github.com/sohaib-0897/DataShield/actions/runs/37797359946"
+    },
+    "closure_checkpoint": "documentation receipt follows; derive final HEAD from Git and verify remote/CI at boundary",
+    "fresh_remote_equals_local_source": true,
+    "normal_push": true,
+    "source_checkpoint": "4f93e8a1c0d26a2843c9183363039b1e7b6498be",
+    "worktree_after_source_push": "clean"
   },
   "resources": {
     "final_audit_peak_RSS_MiB": 412.0703125,
@@ -79,5 +111,5 @@
     "tests/test_detection_manifest.py": "9bbe2b9f7960adf977281feddc1132a3ebe21f5db083d0e65f8d49a0c90f216c"
   },
   "start_commit": "a038b0c3a5169cb9af968746626017bcaa376b54",
-  "status": "LOCAL_AUDIT_MANIFEST_VERIFIED_PUBLICATION_CI_PENDING"
+  "status": "B1_AUDIT_MANIFEST_VERIFIED_SOURCE_PUBLISHED_FULL_CI_PASSED"
 }

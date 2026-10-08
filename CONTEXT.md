@@ -14,8 +14,10 @@ kinds. Unannotated text never confirmed negative; guide exceptions and review ga
 explicit per target. Source/container version links outside release remain unavailable.
 19 final targeted tests; supplemental 306 Python/9 known socket-restricted deselected,
 22 Flask; all 13 canonical artifacts/64 private files/30 live entries match.
-Normal publication/full exact-SHA CI final gate; phase-b1 report/verification record
-actual status. Stop B1. Next B2 only: validate manifest/hash and reference/model gates
+Source 4f93e8a1c0d26a2843c9183363039b1e7b6498be pushed normally and fresh remote
+matched. Exact-SHA CI 37797359946 passed 318 Python/7 frontend tests, build and CI
+migrations. Documentation receipt follows; final HEAD/remote/CI checked at handoff.
+B1 complete at audit/manifest boundary. Stop B1. Next B2 only: validate manifest/hash and reference/model gates
 before fixed metrics/failure/resource reporting. Independent gold/model runtime and
 native Windows remain separate blockers/tasks; never manufacture labels/metrics.
 

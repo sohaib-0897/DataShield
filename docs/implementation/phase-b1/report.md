@@ -149,7 +149,8 @@ coverage, nonoverlap/cap handling, privacy, corrupt manifests, missing targets/o
 and preservation of existing outputs. Supplemental isolated regressions passed 306
 tests with nine known socket-restricted FastAPI tests explicitly deselected; final
 three additional guards passed in the 19-test targeted run. No old tests were changed.
-Final exact-SHA full CI is the publication gate; results are recorded in
+Final exact-SHA full source CI subsequently passed all 318 Python tests, seven
+frontend tests, build and CI migrations; results are recorded in
 [verification.json](verification.json). Existing Flask fixture regression: 22 passes.
 
 All **13 canonical frozen artifacts** match the established feature verifier;
@@ -179,7 +180,15 @@ git ls-remote origin refs/heads/feat/cert-ml-nlp
 
 ## Boundary and next action
 
-B1 audit/manifest work is complete; publication and exact-SHA CI receipt follow.
+B1 audit/manifest work is complete. Source checkpoint
+`4f93e8a1c0d26a2843c9183363039b1e7b6498be` was committed from exactly seven
+reviewed phase files, pushed normally and freshly matched remote HEAD; worktree clean.
+[CI 37797359946](https://github.com/sohaib-0897/DataShield/actions/runs/37797359946)
+passed all 318 Python tests (one historical warning), seven frontend tests, production
+build and CI PostgreSQL migrations. Runs/jobs/logs were freshly read via the GitHub
+connector. This documentation receipt follows; derive final SHA with `git rev-parse HEAD`
+and freshly verify its remote/CI at the boundary. Ignored `.local/phase-b1/` receipts
+retain final publication metadata without adding private artifacts to Git.
 Stop before B2. **Next phase: B2 only**, fixed detector/category/end-to-end reporting,
 failure analysis and resources, subject to the frozen input/reference/model gates.
 First validate the final manifest/hash and per-target coverage; independent structured,
