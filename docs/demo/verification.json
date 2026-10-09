@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-09",
+  "branch": "feat/cert-ml-nlp",
+  "base_commit": "9abe1746ffbe4fc76ace53e0c33cd3ff73b87ddc",
+  "platform": "Linux",
+  "configuration": "disposable SQLite and generated credentials under ignored .local/demo; research outputs under ignored research/local/demo",
+  "dashboard": {
+    "backend": "http://127.0.0.1:8100",
+    "frontend": "http://localhost:3101",
+    "production_build": "passed; built into isolated storage",
+    "health_ready_login": "passed over real loopback HTTP",
+    "headless_chrome": "passed: login, overview, alert investigation, reports, system status, user activity, native FILE_MOVE timeline, policies and audit",
+    "browser_or_api_errors": 0,
+    "policy_or_decision_writes": 0,
+    "registered_models": 0
+  },
+  "monitoring": {
+    "observer": "native InotifyObserver; Watchdog 6.0.0",
+    "path": "disposable fixture folder only",
+    "actual_collector_command": "showcase.py monitor invokes unchanged agents.filesystem.main; start, heartbeat, move delivery and Ctrl+C stop verified",
+    "real_http_path": "native move -> unchanged Handler/send -> X-Agent-Key authentication -> /api/v1/events -> stored FILE_MOVE",
+    "fixture_rule_classification": "restricted / score 90",
+    "fresh_identity_behavior_source": "INSUFFICIENT_HISTORY",
+    "initial_move_risk": 36,
+    "policy_alert_threshold": 55,
+    "initial_move_alert": null,
+    "masked_metadata_and_seed_alert_evidence": "passed",
+    "policies_unchanged": true,
+    "limitation": "create/modify/delete callbacks have empty dest_path and are ignored by the existing collector; native moves have usable dest_path"
+  },
+  "historical_cert_replay": {
+    "existing_cli": "research.advisory_replay",
+    "artifact": "research/local/phase3_benchmark_v1",
+    "windows_per_adapter": 38,
+    "adapters": ["preserved_flask", "upstream_fastapi"],
+    "available_per_adapter": 38,
+    "fallbacks": 0,
+    "persisted_rows_per_separate_sidecar": 38,
+    "artifact_loads": 1,
+    "frozen_score_equality": true,
+    "repeated_payload_equality": true,
+    "original_rule_payload_preserved": true,
+    "test_positives": 0,
+    "quality_claim": "compatibility and idempotency only"
+  },
+  "known_user_cert_boundary_replay": {
+    "existing_cli": "research.nlp_replay",
+    "observations": 2,
+    "models_per_observation": 3,
+    "scores_match_at_absolute_tolerance": 1e-12,
+    "prepared_store_access": "read-only; temporary cohort tables",
+    "original_rules_preserved": true,
+    "full_test_replay": false
+  },
+  "supplied_span_inference": {
+    "actual_artifact": "research/local/document_sensitivity/ds2_models_v2/entity.joblib",
+    "model_sha256": "23a14f549c57ef866f42ed6549c90e9c55483cbf3bea6764bf626e73c492f8c1",
+    "selection_sha256": "f820f6eb6c0656b0aad22407cf75665d2deeaf20b95cbc679b075a81604b7477",
+    "actual_api": "POST /api/v1/advisory/supplied-spans",
+    "local_and_authenticated_http": "passed",
+    "example_predictions": ["PERSON", "LOC", "DATETIME"],
+    "invalid_offset_http_status": 422,
+    "creates_events_or_alerts": false,
+    "flag_scope": "isolated demo process only",
+    "score_kind": "uncalibrated LinearSVC margins, not probabilities"
+  },
+  "checks": {
+    "targeted_existing_python_tests": {"passed": 30, "warnings": 1},
+    "existing_frontend_tests": {"passed": 7},
+    "preexisting_file_hashes": {"checked": 196, "changed": 0},
+    "canonical_frozen_artifacts": {"checked": 13, "all_match": true},
+    "original_source_live_entries": {"checked": 30, "unchanged": true},
+    "original_archive_stat_records": {"checked": 3, "unchanged": true},
+    "existing_session_prepare": "refuses existing directory; no reset",
+    "fresh_second_session_prepare": "passed: seven synthetic events, two alerts, independent generated configuration"
+  },
+  "evaluation_display": "reads existing aggregate reports; no new fitting, model selection or quality evaluation",
+  "automated_model_blocking": false,
+  "remaining_unavailable_or_unverified": [
+    "Windows WMI/removable-device monitoring and legacy native enforcement",
+    "physical devices, universal browser interception, PostgreSQL and Docker deployment",
+    "independent organizational sensitivity labels and owner-approved policy/context",
+    "automatic contextual detector artifact and independently exhaustive natural span metrics",
+    "strict unseen-user CERT text held-out quality (empty held-outs)",
+    "raw CRA dev server allowedHosts startup; verified production-build server used"
+  ],
+  "private_data_credentials_models_committed": false,
+  "preexisting_worktree_edits": "four implementation/status/B2 report files preserved and excluded from this commit"
+}
